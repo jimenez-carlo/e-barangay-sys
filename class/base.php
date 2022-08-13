@@ -1,5 +1,5 @@
 <?php
-class Main
+class Base
 {
   private $conn;
   public function __construct($db)

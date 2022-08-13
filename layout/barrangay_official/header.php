@@ -127,25 +127,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="sidebar-menu" data-widget="tree">
           MENU
           <!-- Optionally, you can add icons to the links -->
-          <li class="active"><a href="#"><i class="fa fa-home"></i> <span>Home</span></a></li>
-          <li><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-          <li><a href="#"><i class="fa fa-address-card"></i> <span>Residents</span></a></li>
-          <li><a href="#"><i class="fa fa-files-o"></i> <span>Requests</span></a></li>
-          <li><a href="#"><i class="fa fa-address-book"></i> <span>Blotter</span></a></li>
-          <li><a href="#"><i class="fa fa-bullhorn"></i> <span>Announcement</span></a></li>
-          <li><a href="#"><i class="fa fa-users"></i> <span>Barangay Officials</span></a></li>
+          <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+          <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
           <li class="treeview">
-            <a href="#"><i class="fa fa-cog"></i> <span>System</span>
+            <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-cogs"></i> Request Types</a></i></li>
-              <li><a href="#"><i class="fa fa-cogs"></i> Barangay Positions</a></i></li>
-              <li><a href="#"><i class="fa fa-cogs"></i> Zones </a></i></li>
-              <li><a href="#"><i class="fa fa-cogs"></i> Access</a></i></li>
-              <li><a href="#"><i class="fa fa-cogs"></i> Logs</a></i></li>
+              <li><a href="#">Link in level 2</a></li>
+              <li><a href="#">Link in level 2</a></li>
             </ul>
           </li>
         </ul>

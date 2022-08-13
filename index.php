@@ -1,15 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+define('BASE_URL', "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+require('config/functions.php');
+require('db/conn.php');
+require('class/base.php');
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
 
-<body>
-  test
-</body>
+if (isset($_SESSION['is_logged_in'])) {
+  // Logged In
+  switch ($_SESSION['user']->access_id) {
+      // Admin
+    case 1:
+      include('layout/admin/header.php');
+      include('layout/admin/body.php');
+      include('layout/admin/footer.php');
+      break;
 
-</html>
+      // Barangay Official
+    case 2:
+      include('layout/barangay_official/header.php');
+      include('layout/barangay_official/body.php');
+      include('layout/barangay_official/footer.php');
+      break;
+
+      // Resident
+    default:
+      include('layout/resident/header.php');
+      include('layout/resident/body.php');
+      include('layout/resident/footer.php');
+      break;
+  }
+} else {
+  // Landing page here
+  include('layout/admin/header.php');
+  include('layout/admin/body.php');
+  include('layout/admin/footer.php');
+}
