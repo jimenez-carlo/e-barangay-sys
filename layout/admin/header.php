@@ -30,6 +30,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+<script>
+  var base_url = "<?= BASE_URL; ?>";
+</script>
 
 <body class="hold-transition skin-green sidebar-mini">
   <div class="wrapper">
@@ -92,7 +95,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="#" class="btn btn-sm btn-success btn-flat"> <i class="fa fa-user-circle"></i> Profile</a>
+                    <a href="#" class="btn btn-sm btn-success btn-flat btn-view" name="edit_account" value="1"> <i class="fa fa-user-circle"></i> Profile</a>
                   </div>
                   <div class="pull-right">
                     <a href="#" class="btn btn-sm btn-success btn-flat" data-toggle="modal" data-target="#modal"><i class="fa fa-sign-out"></i> Sign out</a>
@@ -128,13 +131,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="sidebar-menu" data-widget="tree">
           MENU
           <!-- Optionally, you can add icons to the links -->
-          <li class="active"><a href="#"><i class="fa fa-home"></i> <span>Home</span></a></li>
-          <li><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-          <li><a href="#"><i class="fa fa-address-card"></i> <span>Residents</span></a></li>
-          <li><a href="#"><i class="fa fa-files-o"></i> <span>Requests</span></a></li>
-          <li><a href="#"><i class="fa fa-address-book"></i> <span>Blotter</span></a></li>
-          <li><a href="#"><i class="fa fa-bullhorn"></i> <span>Announcement</span></a></li>
-          <li><a href="#"><i class="fa fa-users"></i> <span>Barangay Officials</span></a></li>
+          <li class="active"><a href="#" class="btn-view" name="admin/home"><i class="fa fa-home"></i> <span>Home</span></a></li>
+          <li><a href="#" class="btn-view" name="admin/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+          <li><a href="#" class="btn-view" name="admin/resident"><i class="fa fa-address-card"></i> <span>Residents</span></a></li>
+          <li><a href="#" class="btn-view" name="admin/request"><i class="fa fa-files-o"></i> <span>Requests</span></a></li>
+          <li><a href="#" class="btn-view" name="admin/blotter"><i class="fa fa-address-book"></i> <span>Blotter</span></a></li>
+          <li><a href="#" class="btn-view" name="admin/announcement"><i class="fa fa-bullhorn"></i> <span>Announcement</span></a></li>
+          <li><a href="#" class="btn-view" name="admin/barangay_official"><i class="fa fa-users"></i> <span>Barangay Officials</span></a></li>
           <li class="treeview">
             <a href="#"><i class="fa fa-cog"></i> <span>System</span>
               <span class="pull-right-container">

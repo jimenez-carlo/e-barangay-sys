@@ -19,10 +19,20 @@
       <!-- REQUIRED JS SCRIPTS -->
       <!-- jQuery 3 -->
       <script src="css/jquery/dist/jquery.min.js"></script>
+
+      <script src="css/datatables.net/js/jquery.dataTables.min.js"></script>
       <!-- Bootstrap 3.3.7 -->
       <script src="css/bootstrap/dist/js/bootstrap.min.js"></script>
       <!-- AdminLTE App -->
       <script src="js/adminlte.min.js "></script>
+
+
+      <script src="css/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+      <script src="css/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+      <script src="css/fastclick/lib/fastclick.js"></script>
+
       <script src="js/main.js "></script>
 
       <!-- Optionally, you can add Slimscroll and FastClick plugins.

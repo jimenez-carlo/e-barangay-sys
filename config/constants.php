@@ -12,3 +12,9 @@ define('SPINNER', '<i class="fa fa-spinner fa-pulse fa-fw"></i>');
 define('ROUTES', $routes);
 define('COPYRIGHT_YEAR', 2022);
 define('VERSION_NO', 0.1);
+
+define('ADMIN_ACCESS', array_keys($routes));
+define('BARANGAY_OFFICIAL_ACCESS', array(
+  'barangay/blotter'
+));
+define('RESIDENT_ACCESS', array());

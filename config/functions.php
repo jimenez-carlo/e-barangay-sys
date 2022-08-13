@@ -26,11 +26,11 @@ if (!function_exists('get_access')) {
   {
     switch ($access) {
       case 1: //admin
-        return array('dashboard', 'users', 'user_register', 'user_edit',  'user_view', 'products', 'product_add', 'product_edit', 'inventory', 'inventory_edit', 'transactions', 'transaction_view', 'orders', 'orders_view', 'customer_view', 'system',);
-      case 2: //cashier
-        return array('dashboard', 'users', 'user_view', 'products', 'product_add', 'product_edit', 'inventory', 'inventory_edit', 'transactions', 'transaction_view', 'orders', 'orders_view', 'customer_view');
-      case 3: //customer
-        return array('dashboard', 'home', 'shop', 'cart', 'customer_profile', 'customer_orders');
+        return ADMIN_ACCESS;
+      case 2: //barangay official
+        return BARANGAY_OFFICIAL_ACCESS;
+      case 3: //resident
+        return RESIDENT_ACCESS;
       default:
         return array();
     }
