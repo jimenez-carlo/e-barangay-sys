@@ -19,3 +19,6 @@
 .dataTables_filter>label{
 float: right;
 }
+ul.pagination{
+float: right;
+}

@@ -81,3 +81,45 @@ if (!function_exists('def_response')) {
     return $result;
   }
 }
+
+if (!function_exists('format_date_time')) {
+  function format_date_time($date)
+  {
+    if (empty($date)) {
+      return null;
+    }
+    try {
+      return date_format($date, "Y-m-d h:i:s");
+    } catch (\Throwable $th) {
+      return $date;
+    }
+  }
+}
+
+if (!function_exists('format_date_time_am_pm')) {
+  function format_date_time_am_pm($date)
+  {
+    if (empty($date)) {
+      return null;
+    }
+    try {
+      return date('Y-m-d h:i a', strtotime($date));
+    } catch (\Throwable $th) {
+      return $date;
+    }
+  }
+}
+
+if (!function_exists('format_date')) {
+  function format_date($date)
+  {
+    if (empty($date)) {
+      return null;
+    }
+    try {
+      return date_format($date, "Y-m-d");
+    } catch (\Throwable $th) {
+      return $date;
+    }
+  }
+}
