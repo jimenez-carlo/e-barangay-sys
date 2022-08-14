@@ -40,7 +40,7 @@ if (!function_exists('get_access')) {
 if (!function_exists('page_url')) {
   function page_url($page)
   {
-    //return array_key_exists($page, ROUTES) ? ROUTES[$page] : ROUTES['/'];
+    return array_key_exists($page, ROUTES) ? ROUTES[$page] : ROUTES['/'];
   }
 }
 
