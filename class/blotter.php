@@ -10,9 +10,6 @@ class Blotter extends Base
     $this->drop_down_data = $this->set_default_data();
   }
 
-  public function create_blotter()
-  {
-  }
 
   public function set_default_data()
   {
@@ -23,5 +20,35 @@ class Blotter extends Base
     $data['gender'] = $this->get_list("select * from tbl_gender where deleted_flag = 0");
     $data['zone'] = $this->get_list("select * from tbl_zone where deleted_flag = 0");
     return $data;
+  }
+
+  public function create_blotter()
+  {
+    extract($this->escape_data($_POST));
+
+    $result = $this->response_obj();
+    $blank = 0;
+    $errors = array();
+    $msg = '';
+
+    // Require Fields
+
+    $required_fields = array('complaint', 'location', 'date_of_incident', 'complainant_first_name', 'complainant_middle_name', 'complainant_last_name', 'complainant_date_of_birth', 'complainant_contact_no', 'complainant_barangay', 'complainant_address', 'complainee_first_name', 'complainee_middle_name', 'complainee_last_name', 'complainee_date_of_birth', 'complainee_contact_no', 'complainee_barangay', 'complainee_address');
+
+    foreach ($required_fields as $res) {
+      if (empty(${$res})) {
+        $errors[] = $res;
+        $blank++;
+      }
+    }
+
+    if (!empty($errors)) {
+      $msg .= "Please Fill Blank Fields!";
+      $result->result = $this->response_error($msg);
+      $result->items = implode(',', $errors);
+      return $result;
+    }
+
+    return $result;
   }
 }

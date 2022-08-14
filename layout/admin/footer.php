@@ -130,6 +130,15 @@
         });
       </script>
 -->
+      <script>
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+
+        function updateOnlineStatus() {
+          var status = navigator.onLine ? '<i class="fa fa-circle text-success "></i> Online' : '<i class="fa fa-circle text-danger"></i> Offline';
+          const elem = $('#connection').html(status);
+        }
+      </script>
       </body>
 
       </html>

@@ -1,20 +1,20 @@
 
-const MessageServerError = '<div class="alert alert-danger alert-dismissible"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> <h4><i class="icon fa fa-ban"></i> Oops Something Went Wrong!</h4>Server Connection Error! </div>';
-const MessageFieldRequired = "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Please Enter Missing Fields.";
-const MessagePasswordNotMatch = "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Password Does Not Match.";
+const MessageServerError = '<div class="alert alert-sm alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><i class="fa fa-warning"></i> <strong>Server Connection Error</strong> Oops Something Went Wrong! </div ></div>';
+const MessageFieldRequired = '<div class="alert alert-sm alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><i class="fa fa-warning"></i> <strong>System Error!</strong> Please Enter Missing Fields! </div ></div>';
+const MessagePasswordNotMatch = '<div class="alert alert-sm alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><i class="fa fa-warning"></i> <strong>System Error!</strong> Password Doest Not Match! </div ></div>.';
 const ContentLoading = '<section class="content-header"><h1><i class="fa fa-refresh fa-spin fa-fw"></i> Loading Content<small>Please wait...</small> </h1> </section>';
 
 function clearErrors() {
   // Remove all error css
   $('form>.alert-danger').hide();
-  $(".is-invalid").removeClass("is-invalid");
+  $(".has-error").removeClass("has-error");
 }
 
 function errorFields(strings) {
   $.each(strings.split(","), function (i,word) {
-    var field = $("#" + word);
-      if (!$(field).hasClass("is-invalid")) {
-        $(field).addClass("is-invalid");
+    var field = $('[name="'+word+'"]');
+      if (!$(field).parent().hasClass("has-error")) {
+        $(field).parent().addClass("has-error");
       }
   });
 }
@@ -22,12 +22,12 @@ function errorFields(strings) {
 function requireFields(strings) {
   var errors = 0;
   $.each(strings.split(","), function (i,word) {
-    var field = $("#" + word);
+    var field = $('[name="'+word+'"]');
     if (field.val() == "" || field.val() == null || field.val().length == 0) {
-      if (!$(field).hasClass("is-invalid")) {
-        $(field).addClass("is-invalid");
+      if (!$(field).parent().hasClass("has-error")) {
+        $(field).parent().addClass("has-error");
+        errors++;
       }
-      errors++;
     }
   });
   return (errors == 0) ? true : false;
@@ -48,20 +48,19 @@ $(document).on("click", '.btn-edit, .btn-view', function () {
   let current_icon = icon.attr('class'); // current icon
   
   ele.attr('disabled');
-  
   icon.removeClass();
   icon.addClass('fa fa-spinner fa-pulse fa-fw');
   
   let page = ele.attr('name');
   let id = (ele.attr('value')) ? ele.attr('value') : 0;
   
-  $(".result").html('');
+  $("#result").html('');
   $("#content").html(ContentLoading);
   
   $("#content").load(base_url + 'page.php?page=' + page + '&id=' + id,
      (response, status, xhr) => {
       if (status == "error") {
-        $('.result').html(MessageServerError);  
+        $('#result').html(MessageServerError);  
       }
         ele.removeAttr('disabled');
         icon.removeClass();
@@ -81,20 +80,26 @@ $(document).on("submit", 'form', function (e) {
     window.location.href = base_url+'module/logout.php';
   }
   
+  let submit_btn = $(e.originalEvent.submitter);
+  let icon = submit_btn.children('i');
+  let current_icon = icon.attr('class'); // current icon
+  submit_btn.attr('disabled');
+  icon.removeClass();
+  icon.addClass('fa fa-spinner fa-pulse fa-fw');
+  
   formdata = new FormData(this);
-  console.log(form_name);
   formdata.append('form', form_name);
   formdata.append(type, type_value);
 
   $.ajax({
     method: "POST",
-    url: base_url + "module/request.php",
+    url: base_url + "request.php",
     data: formdata,
     processData: false,
     contentType: false,
     success: function (res) {
       var result = JSON.parse(res);
-      $('.result').html(result.result);
+      $('#result').html(result.result);
       if (result.status == true) {
         $(form_raw).trigger('reset');
       }
@@ -102,28 +107,13 @@ $(document).on("submit", 'form', function (e) {
        if (form_name == 'update_user' && type_value == 'delete') {
          $( "#content" ).load( base_url+'module/page.php?page=users' );
        }
-       if (form_name == 'remove_from_cart' || form_name == 'update_cart' || form_name == 'checkout_cart') {
-         $( "#content" ).load( base_url+'module/page.php?page=cart' );
-       }
-       if (form_name == 'update_transaction') {
-         $( "#content" ).load( base_url+'module/page.php?page=customer_orders' );
-       }
-       if (form_name == 'add_product') {
-         $('#preview').attr('src','images/products/default.png');
-       }
-       if (form_name == 'update_product' && type_value == 'delete') {
-         $( "#content" ).load( base_url+'module/page.php?page=products' );
-       }
-       if (form_name == 'update_product' && type_value == 're_stock_list') {
-         $( "#content" ).load( base_url+'module/page.php?page=inventory' );
-       }
-       if (form_name == 'update_product' && type_value == 're_stock') {
-         $( "#content" ).load( base_url+'module/page.php?page=inventory_edit&id='+formdata.get('product_id') );
-       }
       }
       if (result.items != '') {
         errorFields(result.items);
       }
+        submit_btn.removeAttr('disabled');
+        icon.removeClass();
+        icon.addClass(current_icon);
     }
   });
 });
