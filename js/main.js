@@ -1,4 +1,5 @@
 
+var MessageServerError = '<div class="alert alert-danger alert-dismissible"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> <h4><i class="icon fa fa-ban"></i> Oops Something Went Wrong!</h4>Server Connection Error! </div>';
 var MessageFieldRequired = "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Please Enter Missing Fields.";
 var MessagePasswordNotMatch = "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Password Does Not Match.";
 
@@ -40,13 +41,30 @@ $(document).on("click", '.a-view', function () {
 
 
 $(document).on("click", '.btn-edit, .btn-view', function () {
+  let ele = $(this);
+  let icon = ele.children('i');
   
-  var page = $(this).attr('name');
-  var id = ($(this).attr('value')) ? $(this).attr('value') : 0;
+  let current_icon = icon.attr('class'); // current icon
+  
+  ele.attr('disabled');
+  
+  icon.removeClass();
+  icon.addClass('fa fa-spinner fa-pulse fa-fw');
+  
+  let page = ele.attr('name');
+  let id = (ele.attr('value')) ? ele.attr('value') : 0;
   
   $(".result").html('');
-  $("#content").load(base_url + '/page.php?page=' + page + '&id=' + id);
-  
+  $("#content").load(base_url + '/page.php?page=' + page + '&id=' + id,
+     (response, status, xhr) => {
+      if (status == "error") {
+        $('.result').html(MessageServerError);  
+      }
+        ele.removeAttr('disabled');
+        icon.removeClass();
+        icon.addClass(current_icon);
+    }
+  );
 });
 
 $(document).on("submit", 'form', function (e) {
