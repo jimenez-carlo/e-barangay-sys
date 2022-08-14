@@ -24,6 +24,10 @@ if (in_array($page, $pages)) {
     case 'barangay/blotter':
       $data['list'] = $request->get_list("SELECT  b.id, concat(cp.last_name, ', ', cp.first_name,' ', LEFT(cp.middle_name, 1)) as complainant, concat(ce.last_name, ', ', ce.first_name,' ', LEFT(ce.middle_name, 1)) as complainee, b.incidence, b.incidence_date, tbs.status, a.type, concat(c.last_name, ', ', c.first_name,' ', LEFT(cp.middle_name, 1)) as encoder, b.created_date, b.updated_date FROM tbl_blotter b  inner join tbl_blotter_status tbs on tbs.id = b.blotter_status_id inner join tbl_users_info cp on cp.id = b.complainant_id inner join tbl_users_info ce on ce.id = b.complainee_id inner join tbl_users_info c on c.id = b.created_by inner join tbl_action a on a.id = b.action_id where b.deleted_flag = 0 order by updated_date desc");
       break;
+    case 'admin/blotter/create':
+    case 'barangay/blotter/create':
+      $data['default_data'] = $blotter->drop_down_data;
+      break;
   }
   echo get_contents(page_url($page), $data);
   die;

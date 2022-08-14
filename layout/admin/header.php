@@ -13,6 +13,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="css/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="css/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="plugins/iCheck/all.css">
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href="css/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="plugins/timepicker/bootstrap-timepicker.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="css/select2/dist/css/select2.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="css/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
