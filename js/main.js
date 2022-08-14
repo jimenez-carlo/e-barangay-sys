@@ -1,7 +1,8 @@
 
-var MessageServerError = '<div class="alert alert-danger alert-dismissible"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> <h4><i class="icon fa fa-ban"></i> Oops Something Went Wrong!</h4>Server Connection Error! </div>';
-var MessageFieldRequired = "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Please Enter Missing Fields.";
-var MessagePasswordNotMatch = "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Password Does Not Match.";
+const MessageServerError = '<div class="alert alert-danger alert-dismissible"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> <h4><i class="icon fa fa-ban"></i> Oops Something Went Wrong!</h4>Server Connection Error! </div>';
+const MessageFieldRequired = "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Please Enter Missing Fields.";
+const MessagePasswordNotMatch = "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Password Does Not Match.";
+const ContentLoading = '<section class="content-header"><h1><i class="fa fa-refresh fa-spin fa-fw"></i> Loading Content<small>Please wait...</small> </h1> </section>';
 
 function clearErrors() {
   // Remove all error css
@@ -55,7 +56,9 @@ $(document).on("click", '.btn-edit, .btn-view', function () {
   let id = (ele.attr('value')) ? ele.attr('value') : 0;
   
   $(".result").html('');
-  $("#content").load(base_url + '/page.php?page=' + page + '&id=' + id,
+  $("#content").html(ContentLoading);
+  
+  $("#content").load(base_url + 'page.php?page=' + page + '&id=' + id,
      (response, status, xhr) => {
       if (status == "error") {
         $('.result').html(MessageServerError);  
