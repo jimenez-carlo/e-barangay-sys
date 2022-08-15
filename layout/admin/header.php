@@ -134,7 +134,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="pull-left info">
             <p>Alexander Pierce</p>
             <!-- Status -->
-            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            <a href="#" id="connection"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
         </div>
 
@@ -161,7 +161,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li><a href="#"><i class="fa fa-cogs"></i> Barangay Positions</a></i></li>
               <li><a href="#"><i class="fa fa-cogs"></i> Zones </a></i></li>
               <li><a href="#"><i class="fa fa-cogs"></i> Access</a></i></li>
-              <li><a href="#"><i class="fa fa-cogs"></i> Logs</a></i></li>
+              <li><a href="#" class="btn-view" name="admin/barangay_offiscial"><i class="fa fa-cogs"></i> Logs</a></i></li>
             </ul>
           </li>
         </ul>
