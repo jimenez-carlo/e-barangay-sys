@@ -49,6 +49,46 @@ class Blotter extends Base
       return $result;
     }
 
+    $default_password = '$2y$10$KKYMmphhiBr9szoYIW3Bqe9aH3i6TFE8EwwXNkl8zKAuo7sUD6Rn6'; // 123456
+    // Insert Complainant
+    if (empty($complainant_id)) {
+      $username = $complainant_contact_no . $complainant_last_name;
+      $sql = "INSERT INTO tbl_users (access_id, username, `password`, approved_by, status_id) VALUES(3,'$username','$default_password', 1, 2)";
+      $complainant_id = $this->insert_get_id($sql);
+      $this->query("INSERT INTO tbl_users_info (id, first_name, middle_name, last_name, birth_date, contact_no, gender_id, zone_id, barangay, `address`) VALUES($complainant_id, '$complainant_first_name','$complainant_middle_name','$complainant_last_name', '$complainant_date_of_birth', '$complainant_contact_no', '$complainant_gender','$complainant_zone','$complainant_barangay','$complainant_address')");
+      $this->query("INSERT INTO tbl_user_status_history (`user_id`,user_status_id, created_by) VALUES($complainant_id, 1, 1)");
+      $this->query("INSERT INTO tbl_user_status_history (`user_id`,user_status_id, created_by) VALUES($complainant_id, 2, 1)");
+    }
+    // Insert Complainee
+    if (empty($complainee_id)) {
+      $username = $complainee_contact_no . $complainee_last_name;
+      $sql = "INSERT INTO tbl_users (access_id, username, `password`, approved_by, status_id) VALUES(3,'$username','$default_password', 1 ,2)";
+      $complainee_id = $this->insert_get_id($sql);
+      $this->query("INSERT INTO tbl_users_info (id, first_name, middle_name, last_name, birth_date, contact_no, gender_id, zone_id, barangay, `address`) VALUES($complainee_id, '$complainee_first_name','$complainee_middle_name','$complainee_last_name', '$complainee_date_of_birth', '$complainee_contact_no', '$complainee_gender','$complainee_zone','$complainee_barangay','$complainee_address')");
+      $this->query("INSERT INTO tbl_user_status_history (`user_id`,user_status_id, created_by) VALUES($complainant_id, 1, 1)");
+      $this->query("INSERT INTO tbl_user_status_history (`user_id`,user_status_id, created_by) VALUES($complainant_id, 2, 1)");
+    }
+    // Insert Blotter
+    $blotter_id = $this->insert_get_id("INSERT INTO tbl_blotter (complainant_id, complainee_id, blotter_status_id, complaint, incidence, action_id, created_by, incidence_date) VALUES($complainant_id, $complainee_id, $status, '$complaint', '$location', '$action',1, '$date_of_incident')");
+
+    $this->query("INSERT INTO tbl_blotter_history (blotter_id, blotter_status_id, created_by) VALUES($blotter_id, $status, 1)");
+    $result->status = true;
+    $result->result = $this->response_success("New Blotter Case Created!");
     return $result;
+  }
+
+  public function get_case($id = 0)
+  {
+    $data = new stdClass();
+
+    if (empty($id)) {
+      return $data;
+    }
+
+    $blotter = $this->get_one("select * from tbl_blotter where deleted_flag = 0 and id = $id limit 1");
+    $data = $blotter;
+    $data->complainant = $this->get_one("select x.*,TIMESTAMPDIFF(YEAR, x.birth_date, CURDATE()) as age from tbl_users_info x where x.deleted_flag = 0 and x.id = $blotter->complainant_id limit 1");
+    $data->complainee = $this->get_one("select x.*,TIMESTAMPDIFF(YEAR, x.birth_date, CURDATE()) as age from tbl_users_info x where x.deleted_flag = 0 and x.id = $blotter->complainee_id limit 1");
+    return $data;
   }
 }

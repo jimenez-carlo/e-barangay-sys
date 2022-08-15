@@ -19,6 +19,7 @@ $routes = array(
   'admin/blotter' => $admin_route . '/blotter/index.php',
   'admin/blotter/create' => $admin_route . '/blotter/create.php',
   'admin/blotter/edit' => $admin_route . '/blotter/edit.php',
+  'admin/blotter/view' => $admin_route . '/blotter/view.php',
   'admin/announcement' => $admin_route . '/announcement/index.php',
   'admin/announcement/create' => $admin_route . '/announcement/create.php',
   'admin/announcement/edit' => $admin_route . '/announcement/edit.php',
