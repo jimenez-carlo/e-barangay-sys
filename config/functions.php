@@ -47,7 +47,7 @@ if (!function_exists('page_url')) {
 if (!function_exists('format_date_time')) {
   function format_date_time($date)
   {
-    if (empty($date)) {
+    if (empty($date) || strtotime($date) !== false) {
       return null;
     }
     try {
@@ -61,7 +61,7 @@ if (!function_exists('format_date_time')) {
 if (!function_exists('format_date_time_am_pm')) {
   function format_date_time_am_pm($date)
   {
-    if (empty($date)) {
+    if (empty($date) || strtotime($date) !== false) {
       return null;
     }
     try {
@@ -75,7 +75,7 @@ if (!function_exists('format_date_time_am_pm')) {
 if (!function_exists('format_date')) {
   function format_date($date)
   {
-    if (empty($date)) {
+    if (empty($date) || strtotime($date) !== false) {
       return null;
     }
     try {

@@ -26,6 +26,17 @@ class Base
     return false;
   }
 
+  public function query($sql)
+  {
+    mysqli_query($this->conn, $sql);
+  }
+
+  public function insert_get_id($sql)
+  {
+    mysqli_query($this->conn, $sql);
+    return mysqli_insert_id($this->conn);
+  }
+
   public function escape_data($data = array())
   {
     foreach ($data as $key => $value) {
@@ -39,7 +50,7 @@ class Base
     return $data;
   }
 
-  public function response_error($title = "System Error!", $message = "Oops Something Went Wrong!")
+  public function response_error($message = "Oops Something Went Wrong!", $title = "System Error!")
   {
     return sprintf(
       '<div class="alert alert-sm alert-danger alert-dismissible">
@@ -51,7 +62,7 @@ class Base
   }
 
 
-  public function response_success($title = "Action Successfull!", $message = "Action Successfull!")
+  public function response_success($message = "Action Successfull!", $title = "Action Successfull!")
   {
     return sprintf(
       '<div class="alert alert-success alert-dismissible">
