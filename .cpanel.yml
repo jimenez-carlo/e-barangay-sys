@@ -4,3 +4,4 @@ deployment:
     - export DEPLOYPATH=/home/km8bpv717cor/public_html/
     - /bin/cp * $DEPLOYPATH
     # - test
+    # - test
