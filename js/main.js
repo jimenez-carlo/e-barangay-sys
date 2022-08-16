@@ -69,16 +69,16 @@ $(document).on("click", '.btn-edit, .btn-view', function () {
   );
 });
 
-$(document).on("submit", 'form', function (e) {
-  e.preventDefault();
-  clearErrors();
-  var form_raw = this;
-  var form_name = this.name;
-  var type = e.originalEvent.submitter.name;
-  var type_value = e.originalEvent.submitter.value;
-  if (this.name == 'logout') {
-    window.location.href = base_url+'module/logout.php';
-  }
+// $(document).on("submit", 'form', function (e) {
+//   e.preventDefault();
+//   clearErrors();
+//   var form_raw = this;
+//   var form_name = this.name;
+//   var type = e.originalEvent.submitter.name;
+//   var type_value = e.originalEvent.submitter.value;
+//   if (this.name == 'logout') {
+//     window.location.href = base_url+'module/logout.php';
+//   }
   
   let submit_btn = $(e.originalEvent.submitter);
   let icon = submit_btn.children('i');
