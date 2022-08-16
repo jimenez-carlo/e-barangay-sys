@@ -11291,3 +11291,7 @@ textarea.form-control-lg {
   }
 }
 
+.nav-link>img{
+object-fit: contain!important; 
+background-color:gray!important;
+}

@@ -34,8 +34,8 @@ if (isset($_SESSION['is_logged_in'])) {
   }
 } else {
   // Landing page here
-  include('layout/admin/header.php');
-  include('layout/admin/body.php');
-  include('layout/modal.php');
-  include('layout/admin/footer.php');
+  include('layout/landing_page/header.php');
+  include('layout/landing_page/body.php');
+  // include('layout/modal.php');
+  include('layout/landing_page/footer.php');
 }

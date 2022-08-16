@@ -3,6 +3,7 @@ require_once('config/functions.php');
 require_once('db/conn.php');
 require_once('class/base.php');
 require_once('class/blotter.php');
+$base_url = 'http://' . $_SERVER['SERVER_NAME'];
 
 if (!$_GET || !isset($_GET['page'])) { //$_SESSION['is_logged_in']
   echo get_contents('/layout/not_found.php');
@@ -29,6 +30,10 @@ if (in_array($page, $pages)) {
     case 'admin/blotter/view':
       $data['default_data'] = $blotter->drop_down_data;
       $data['blotter'] = $blotter->get_case($id);
+      break;
+    case 'landing_page/view':
+    case 'landing_page/about_us':
+      $data['base_url'] = $base_url;
       break;
   }
   echo get_contents(page_url($page), $data);

@@ -3,6 +3,7 @@
 $admin_route    = 'layout/admin/content';
 $barangay_route = 'layout/barangay/content';
 $resident_route = 'layout/resident/content';
+$landing_route = 'layout/landing_page/content';
 
 $routes = array(
   # Admin
@@ -43,6 +44,9 @@ $routes = array(
   'barangay/barangay_official/create' => $barangay_route . '/barangay_official/create.php',
   'barangay/barangay_official/edit' => $barangay_route . '/barangay_official/edit.php',
 
+  #Landing Page
+  'landing_page/about_us' => $landing_route . '/about_us.php',
+  'landing_page/view' => $landing_route . '/view.php',
   # Resident
   'resident/home' => 'barangay/home.php',
   'resident/requests' => $resident_route . 'requests/body.php',
