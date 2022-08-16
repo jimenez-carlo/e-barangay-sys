@@ -26,7 +26,7 @@
                         <li class="nav-item"><a class="nav-link " aria-current="page" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link active" href="#!">Announcement</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Activities</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Signup</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Login</a></li>
