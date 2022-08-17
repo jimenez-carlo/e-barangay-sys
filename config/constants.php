@@ -2,9 +2,9 @@
 
 date_default_timezone_set('Asia/Manila');
 
-define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_HOST', 'bom1plzcpnl493947.prod.bom1.secureserver.net');
+define('DB_USERNAME', 'km8bpv717cor');
+define('DB_PASSWORD', 'c;UD^5lhPXt[');
 define('DB_DATABASE', 'e_barangay_db');
 
 define('SYSTEM_NAME', 'E-Barangay System');

@@ -1,4 +1,4 @@
-<section class="content-header">
+s<section class="content-header">
   <h1>
     <i class="fa fa-plus"></i>
     New Case
@@ -68,7 +68,7 @@
                 <label for="exampleInputPassword1">Status</label>
                 <select class="form-control" name="status">
                   <?php foreach ($default_data['status'] as $res) { ?>
-                    <option value="<?= $res['id'] ?>"><?= $res['status'] ?></option>
+                    <option value="<?= $res['id'] ?>"> <?= $res['status'] ?></option>
                   <?php } ?>
                 </select>
               </div>
