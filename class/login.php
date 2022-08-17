@@ -30,22 +30,22 @@ class Login extends Base
       $msg .= "Please Fill Blank Fields!";
       $result->result = $this->response_error($msg);
       $result->items = implode(',', $errors);
+      $result->message = $msg;
       return $result;
     }
 
     $user = $this->get_one("SELECT *,count(*) as user_count FROM tbl_users u inner join tbl_users_info ui on ui.id = u.id WHERE (u.username = '$username' OR u.email = '$username')");
-
-    if (empty($user->user_count)) {
-      $msg .= "Invalid Username/Password!";
-      $result->result = $this->response_error($msg);
-      $result->items = implode(',', $required_fields);
-      return $result;
-    }
-
     if (password_verify($password, $user->password)) {
       $_SESSION['user'] = $user;
       $_SESSION['is_logged_in'] = true;
-      header("Refresh:0");
+      $result->status = true;
+      $result->refresh = true;
+    } else {
+      $msg .= "Invalid Username/Password!";
+      $result->result = $this->response_error($msg);
+      $result->items = implode(',', $required_fields);
+      $result->message = $msg;
     }
+    return $result;
   }
 }

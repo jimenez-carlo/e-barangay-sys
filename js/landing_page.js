@@ -6,15 +6,15 @@ const ContentLoading = '<section class="content-header"><h1><i class="fa fa-refr
 
 function clearErrors() {
   // Remove all error css
-  $('form>.alert-danger').hide();
-  $(".has-error").removeClass("has-error");
+  // $('form>.alert-danger').hide();
+  $(".is-invalid").removeClass("is-invalid");
 }
 
 function errorFields(strings) {
   $.each(strings.split(","), function (i,word) {
-    var field = $('[name="'+word+'"]');
-      if (!$(field).parent().hasClass("has-error")) {
-        $(field).parent().addClass("has-error");
+    var field = $("[name='"+word+"']");
+      if (!$(field).hasClass("is-invalid")) {
+        $(field).addClass("is-invalid");
       }
   });
 }
@@ -22,17 +22,17 @@ function errorFields(strings) {
 function requireFields(strings) {
   var errors = 0;
   $.each(strings.split(","), function (i,word) {
-    var field = $('[name="'+word+'"]');
+    var field = $("[name='"+word+"']");
     if (field.val() == "" || field.val() == null || field.val().length == 0) {
-      if (!$(field).parent().hasClass("has-error")) {
-        $(field).parent().addClass("has-error");
-        errors++;
+      if (!$(field).hasClass("is-invalid")) {
+        $(field).addClass("is-invalid");
       }
+      errors++;
     }
   });
   return (errors == 0) ? true : false;
 }
-  
+
 $(document).on("click", '.btn-edit, .btn-view', function () {
     let ele = $(this);
     let page = ele.attr('name');
@@ -72,10 +72,14 @@ $(document).on("submit", 'form', function (e) {
     success: function (res) {
       var result = JSON.parse(res);
       $('#result').html(result.result);
-      if (result.status == true) {
+      $('.invalid-feedback').html('*'+result.message);
+      if (result.refresh) {
+        location.reload();
+      }
+      if (result.status) {
         $(form_raw).trigger('reset');
       }
-      if (result.status == true) {
+      if (result.status) {
        if (form_name == 'update_user' && type_value == 'delete') {
          $( "#content" ).load( base_url+'module/page.php?page=users' );
        }
