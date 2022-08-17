@@ -1,4 +1,4 @@
-<div class="modal fade in" id="modal">
+<div class="modal fade in" id="main_modal">
   <form method="post" enctype="multipart/form-data">
     <div class="modal-dialog">
       <div class="modal-content">

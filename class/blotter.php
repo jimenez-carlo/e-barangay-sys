@@ -55,7 +55,7 @@ class Blotter extends Base
       $username = $complainant_contact_no . $complainant_last_name;
       $sql = "INSERT INTO tbl_users (access_id, username, `password`, approved_by, status_id) VALUES(3,'$username','$default_password', 1, 2)";
       $complainant_id = $this->insert_get_id($sql);
-      $this->query("INSERT INTO tbl_users_info (id, first_name, middle_name, last_name, birth_date, contact_no, gender_id, zone_id, barangay, `address`) VALUES($complainant_id, '$complainant_first_name','$complainant_middle_name','$complainant_last_name', '$complainant_date_of_birth', '$complainant_contact_no', '$complainant_gender','$complainant_zone','$complainant_barangay','$complainant_address')");
+      $this->query("INSERT INTO tbl_users_info (id, first_name, middle_name, last_name, birth_date, contact_no, gender_id, zone_id) VALUES($complainant_id, '$complainant_first_name','$complainant_middle_name','$complainant_last_name', '$complainant_date_of_birth', '$complainant_contact_no', '$complainant_gender','$complainant_zone')");
       $this->query("INSERT INTO tbl_user_status_history (`user_id`,user_status_id, created_by) VALUES($complainant_id, 1, 1)");
       $this->query("INSERT INTO tbl_user_status_history (`user_id`,user_status_id, created_by) VALUES($complainant_id, 2, 1)");
     }
@@ -64,7 +64,7 @@ class Blotter extends Base
       $username = $complainee_contact_no . $complainee_last_name;
       $sql = "INSERT INTO tbl_users (access_id, username, `password`, approved_by, status_id) VALUES(3,'$username','$default_password', 1 ,2)";
       $complainee_id = $this->insert_get_id($sql);
-      $this->query("INSERT INTO tbl_users_info (id, first_name, middle_name, last_name, birth_date, contact_no, gender_id, zone_id, barangay, `address`) VALUES($complainee_id, '$complainee_first_name','$complainee_middle_name','$complainee_last_name', '$complainee_date_of_birth', '$complainee_contact_no', '$complainee_gender','$complainee_zone','$complainee_barangay','$complainee_address')");
+      $this->query("INSERT INTO tbl_users_info (id, first_name, middle_name, last_name, birth_date, contact_no, gender_id, zone_id) VALUES($complainee_id, '$complainee_first_name','$complainee_middle_name','$complainee_last_name', '$complainee_date_of_birth', '$complainee_contact_no', '$complainee_gender','$complainee_zone')");
       $this->query("INSERT INTO tbl_user_status_history (`user_id`,user_status_id, created_by) VALUES($complainant_id, 1, 1)");
       $this->query("INSERT INTO tbl_user_status_history (`user_id`,user_status_id, created_by) VALUES($complainant_id, 2, 1)");
     }
