@@ -110,7 +110,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a href="#" class="btn btn-sm btn-success btn-flat btn-view" name="edit_account" value="1"> <i class="fa fa-user-circle"></i> Profile</a>
                   </div>
                   <div class="pull-right">
-                    <a href="#" class="btn btn-sm btn-success btn-flat" data-toggle="modal" data-target="#modal"><i class="fa fa-sign-out"></i> Sign out</a>
+                    <a href="logout.php" class="btn btn-sm btn-success btn-flat" data-toggle="modalz" data-target="#modalz"><i class="fa fa-sign-out"></i> Sign out</a>
                   </div>
                 </li>
               </ul>
