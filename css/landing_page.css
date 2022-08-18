@@ -11291,3 +11291,29 @@ textarea.form-control-lg {
   }
 }
 
+.nav-link>img,img{
+object-fit: contain!important; 
+/* background-color:gray!important; */
+}
+.nav-link>img,.feature{ 
+background-color:gray!important;
+}
+div>.logo{
+padding-right: 10px;
+}
+.modal-header {
+padding: 0.5em 0.5em 0.5em 1em;
+}
+.modal-body{
+font-size: 14px;
+}
+.btn{
+font-size: 12px!important;
+}
+
+.modal>*{
+font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+.card,.card-body,.btn,.modal-content{
+  border-radius: unset!important;
+}

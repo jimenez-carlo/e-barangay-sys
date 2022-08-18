@@ -40,14 +40,16 @@ class Base
   public function escape_data($data = array())
   {
     foreach ($data as $key => $value) {
-      if (!is_array($value)) {
+      if (is_array($value) || is_object($value)) {
+        continue;
+      } else {
         $value = trim($value);
         $value = stripslashes($value);
         $value = htmlspecialchars($value);
         $data[$key] = mysqli_real_escape_string($this->conn, $value);
       }
+      return $data;
     }
-    return $data;
   }
 
   public function response_error($message = "Oops Something Went Wrong!", $title = "System Error!")

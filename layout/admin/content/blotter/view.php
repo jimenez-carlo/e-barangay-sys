@@ -106,7 +106,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right datepicker" disabled name="complainant_date_of_birth" data-age="complainant-age" value="<?= $blotter->complainant->address; ?>">
+                <input type="text" class="form-control pull-right datepicker" disabled name="complainant_date_of_birth" data-age="complainant-age" value="<?= $blotter->complainant->age; ?>">
                 <div class="input-group-addon">
                   Age
                 </div>
@@ -117,7 +117,7 @@
             </div>
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Contact No#:</label>
-              <input type="text" class="form-control" placeholder="09xxxxxxxxx" disabled name="complainant_contact_no" value="<?= $blotter->complainant->address; ?>">
+              <input type="text" class="form-control" placeholder="09xxxxxxxxx" disabled name="complainant_contact_no" value="<?= $blotter->complainant->contact_no; ?>">
             </div>
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">Gender:</label>
@@ -137,11 +137,11 @@
             </div>
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Barangay:</label>
-              <input type="text" class="form-control" placeholder="Barangay" disabled name="complainant_barangay" value="<?= $blotter->complainant->barangay; ?>">
+              <input type="text" class="form-control" placeholder="Barangay" disabled name="complainant_barangay" value="">
             </div>
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Address:</label>
-              <textarea class="form-control" row="5" disabled name="complainant_address" placeholder="Address"><?= $blotter->complainant->address; ?></textarea>
+              <textarea class="form-control" row="5" disabled name="complainant_address" placeholder="Address"></textarea>
             </div>
           </div>
         </div>
@@ -203,11 +203,11 @@
             </div>
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Barangay:</label>
-              <input type="text" class="form-control" placeholder="Barangay" disabled name="complainee_barangay" value="<?= $blotter->complainee->barangay; ?>">
+              <input type="text" class="form-control" placeholder="Barangay" disabled name="complainee_barangay" value="">
             </div>
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Address:</label>
-              <textarea class="form-control" row="5" disabled name="complainee_address" placeholder="Address"><?= $blotter->complainee->address; ?></textarea>
+              <textarea class="form-control" row="5" disabled name="complainee_address" placeholder="Address"></textarea>
             </div>
           </div>
         </div>

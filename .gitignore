@@ -1,1 +1,3 @@
-/db/*
+/config/*
+!config/functions.php
+!config/reoutes.php

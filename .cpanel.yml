@@ -1,6 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/km8bpv717cor/public_html/
+    - export DEPLOYPATH=/home/km8bpv717cor/repositories/
     - /bin/cp * $DEPLOYPATH
+    # - test
     # - test
