@@ -7,18 +7,19 @@ require('class/blotter.php');
 require('class/resident.php');
 
 
-if (!$_POST || !isset($_POST['form']) || !isset($_SESSION['is_logged_in'])) {
+$base = new Base($conn);
+$result = $base->response_error();
+
+if (!$_POST || !isset($_POST['form'])) {
   echo json_encode($result);
   die;
 }
 
 $form = $_POST['form'];
 
-$base = new Base($conn);
 $login = new Login($conn);
 $blotter = new Blotter($conn);
 $resident = new Resident($conn);
-$result = $base->response_error();
 
 switch ($form) {
   case 'login':

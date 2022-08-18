@@ -37,7 +37,7 @@ class Resident extends Base
         break;
     }
     $id = $this->insert_get_id("insert into tbl_request (requester_id,request_type_id,request_status_id) values($user->id, $type_id, 1)");
-    $this->query("insert into tbl_request_history (request_id,request_status_id, created_by) values ($user->id,1,$user->id)");
+    $this->query("insert into tbl_request_history (request_id,request_status_id, created_by) values ($id,1,$user->id)");
     $result->result = $this->response_success($success_msg);
     $result->status = true;
     return $result;
