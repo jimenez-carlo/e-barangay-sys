@@ -1,4 +1,4 @@
-s<section class="content-header">
+<section class="content-header">
   <h1>
     <i class="fa fa-plus"></i>
     New Case
