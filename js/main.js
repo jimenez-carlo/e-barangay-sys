@@ -90,7 +90,7 @@ $(document).on("submit", 'form', function (e) {
   formdata = new FormData(this);
   formdata.append('form', form_name);
   formdata.append(type, type_value);
-
+  console.log(form_name);
   $.ajax({
     method: "POST",
     url: base_url + "request.php",
@@ -106,6 +106,9 @@ $(document).on("submit", 'form', function (e) {
       if (result.status == true) {
        if (form_name == 'update_user' && type_value == 'delete') {
          $( "#content" ).load( base_url+'module/page.php?page=users' );
+        }
+        if (form_name == 'resident_request') {
+          $("#content").load(base_url + 'page.php?page=resident/requests');
        }
       }
       if (result.items != '') {

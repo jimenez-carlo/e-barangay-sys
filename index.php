@@ -2,9 +2,11 @@
 require('config/functions.php');
 require('db/conn.php');
 require('class/base.php');
-
+require('class/user.php');
 
 if (isset($_SESSION['is_logged_in'])) {
+  $userObj = new User($conn);
+  $user = $userObj->get_user($_SESSION['user']->id);
   // Logged In
   switch ($_SESSION['user']->access_id) {
       // Admin
