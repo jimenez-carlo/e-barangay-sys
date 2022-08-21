@@ -4,6 +4,7 @@ require_once('db/conn.php');
 require_once('class/base.php');
 require_once('class/blotter.php');
 require_once('class/resident.php');
+require_once('class/request.php');
 require_once('class/announcement.php');
 
 if (!$_GET || !isset($_GET['page'])) {
@@ -19,6 +20,7 @@ $pages = get_access($access);
 $request = new Base($conn);
 $blotter = new Blotter($conn);
 $resident = new Resident($conn);
+$request = new Request($conn);
 $announcement = new Announcement($conn);
 
 if (in_array($page, $pages)) {
@@ -31,8 +33,15 @@ if (in_array($page, $pages)) {
     case 'admin/blotter/create':
       $data['default_data'] = $blotter->drop_down_data;
       break;
+    case 'admin/request':
+      $data['list'] = $request->get_requests_list();
+      break;
     case 'admin/announcement':
       $data['list'] = $announcement->get_announcements();
+      break;
+    case 'admin/announcement/edit':
+      $data['default_data'] = $announcement->set_default_data();
+      $data['data'] = $announcement->get_announcement($id);
       break;
     case 'admin/blotter/view':
       $data['default_data'] = $blotter->drop_down_data;

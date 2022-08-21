@@ -13,6 +13,7 @@ class Resident extends Base
     extract($this->escape_data($_SESSION));
     return $this->get_list("select r.id,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,rt.type as request_type,rs.status,r.updated_date,r.created_date from tbl_request r left join tbl_users_info ui on ui.id = r.approver_id inner join tbl_request_type rt on rt.id = r.request_type_id  inner join tbl_request_status rs on rs.id = r.request_status_id where r.requester_id = $user->id order by r.updated_date desc");
   }
+
   public function create_request()
   {
     extract($this->escape_data(array_merge($_SESSION, $_POST)));
@@ -36,10 +37,17 @@ class Resident extends Base
         $type_id = 3;
         break;
     }
-    $id = $this->insert_get_id("insert into tbl_request (requester_id,request_type_id,request_status_id) values($user->id, $type_id, 1)");
-    $this->query("insert into tbl_request_history (request_id,request_status_id, created_by) values ($id,1,$user->id)");
-    $result->result = $this->response_success($success_msg);
-    $result->status = true;
+    $this->start_transaction();
+    try {
+      $id = $this->insert_get_id("insert into tbl_request (requester_id,request_type_id,request_status_id) values($user->id, $type_id, 1)");
+      $this->query("insert into tbl_request_history (request_id,request_status_id, created_by) values ($id,1,$user->id)");
+      $this->commit_transaction();
+      $result->result = $this->response_success($success_msg);
+      $result->status = true;
+    } catch (mysqli_sql_exception $e) {
+      $this->roll_back();
+      $result->result = $this->response_error();
+    }
     return $result;
   }
 }

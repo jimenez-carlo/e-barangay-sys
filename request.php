@@ -36,6 +36,9 @@ switch ($form) {
   case 'announcement_create':
     $result = $announcement->create_announcement();
     break;
+  case 'announcement_edit':
+    $result = $announcement->edit_announcement();
+    break;
 }
 echo json_encode($result);
 die;

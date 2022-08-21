@@ -34,15 +34,13 @@
                               <td><?= $res['title'] ?></td>
                               <td><?= format_date($res['start_date']); ?></td>
                               <td><?= format_date($res['end_date']); ?></td>
-                              <td><?= ($res['deleted_flag']) ? 'INACTIVE' : 'ACTIVE'; ?></td>
+                              <td><?= strtoupper($res['status']); ?></td>
                               <td><?= $res['fullname'] ?></td>
                               <td><?= format_date_time_am_pm($res['created_date']); ?></td>
                               <td><?= format_date_time_am_pm($res['updated_date']); ?></td>
                               <td>
                                 <form method="post" name="change_status_announcement">
-                                  <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/blotter/view" value="<?= $res['id']; ?>"> <i class="fa fa-edit"></i> Edit</button>
-                                  <button type="button" class="btn btn-sm btn-flat btn-success"> <i class="fa fa-plus"></i> New tab</button>
-                                  <button type="submit" class="btn btn-sm btn-flat btn-success" name="id" value="<?= $res['id']; ?>"> <i class="fa fa-refresh"></i> <?= ($res['deleted_flag']) ? 'ACTIVATE' : 'DEACTIVATE'; ?></button>
+                                  <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/announcement/edit" value="<?= $res['id']; ?>"> <i class="fa fa-edit"></i> Edit</button>
                                 </form>
                               </td>
                             </tr>
@@ -65,14 +63,12 @@
 
         <script>
           $(function() {
-            // $('#example1').DataTable()
             $('table').DataTable({
               'paging': true,
-              // 'lengthChange': false,
               'searching': true,
               'ordering': true,
               'info': true,
-              // 'autoWidth': false
+              'aaSorting': [], // disabled auto sort
             });
           });
         </script>

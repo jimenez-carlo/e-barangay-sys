@@ -14,7 +14,6 @@ $routes = array(
   'admin/resident/edit' => $admin_route . '/residents/edit.php',
   'admin/resident/view' => $admin_route . '/residents/view.php',
   'admin/request' => $admin_route . '/request/index.php',
-  'admin/request/create' => $admin_route . '/requests/create.php',
   'admin/request/edit' => $admin_route . '/requests/edit.php',
   'admin/request/view' => $admin_route . '/requests/view.php',
   'admin/blotter' => $admin_route . '/blotter/index.php',

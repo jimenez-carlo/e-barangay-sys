@@ -112,7 +112,10 @@ $(document).on("submit", 'form', function (e) {
         }
         if (form_name == 'announcement_create') {
           $("#content").load(base_url + 'page.php?page=admin/announcement/create');
-       }
+        }
+        if (form_name == 'announcement_edit') {
+          $("#content").load(base_url + 'page.php?page=admin/announcement/edit&id='+result.id);
+        }
       }
       if (result.items != '') {
         errorFields(result.items);

@@ -41,16 +41,17 @@
               </div>
             </div>
             <div class="form-group col-xs-12">
-              <label for="exampleInputFile">*Images </label>
+              <label for="img-input">*Images </label> <br>
+              <button type="button" class="btn btn-sm btn-success btn-flat btn-select-images"><i class="fa fa-picture-o"> </i> Select Images</button>
               <input type="file" name="images[]" accept="image/*" id="images" multiple>
               <p class="help-block">Preview here</p>
               <div id="preview" style="display:flex"></div>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-success btn-flat btn-remove-images"><i class="fa fa-trash"> </i> Remove Images</button>
             <button type="reset" class="btn btn-sm btn-success btn-flat"><i class="fa fa-times"></i> Reset</button>
-            <button type="submit" class="btn btn-sm btn-success btn-flat" name="announcement_create"><i class="fa fa-save"></i> Save</button>
+            <button type="submit" class="btn btn-sm btn-success btn-flat" name="announcement_create" value="draft"><i class="fa fa-edit"></i> Save As Draft</button>
+            <button type="submit" class="btn btn-sm btn-success btn-flat" name="announcement_create" value="publish"><i class="fa fa-book"></i> Publish</button>
           </div>
         </div>
       </div>
@@ -63,46 +64,39 @@
     format: 'yyyy-mm-dd',
   }).datepicker("setDate", 'now');
 
-  var img = document.getElementById('images');
-  var preview = document.getElementById('preview');
+  $(".btn-select-images").on('click', function(e) {
+    $('#images').trigger('click');
+  });
 
-  img.onchange = evt => {
-    preview.innerHTML = '';
-    var files = img.files
-    for (var i = 0; i < files.length; i++) {
+  var dt = new DataTransfer();
 
-      var div = document.createElement('div');
-      div.style.position = 'relative';
-      div.style.marginRight = '20px';
+  $("#images").on('change', function(e) {
+    console.log('changed');
+    for (var i = 0; i < this.files.length; i++) {
+      let div = $('<div style="position:relative;margin-right:20px"></div>');
+      let btn = $('<button type="button" class="btn btn-sm btn-flat btn-success btn-r-img" data-name="' + this.files.item(i).name + '"><i class="fa fa-trash"></i></button>');
+      let img = $('<img src="' + URL.createObjectURL(this.files[i]) + '" class="imgs-preview"/>');
+      div.append(img);
+      div.append(btn);
+      $("#preview").append(div);
+    };
 
-      // var button = document.createElement("button");
-      // button.classList.add('btn', 'btn-sm', 'btn-flat', 'btn-success');
-      // button.setAttribute("type", "button");
-      // button.innerHTML = '<i class="fa fa-times"></i>';
-      // button.style.position = 'absolute';
-      // button.style.right = 0;
-
-      // button.addEventListener('click', function() {
-      //   this.parentNode.remove();
-      // });
-
-      var newImg = document.createElement("img");
-      newImg.style.background = '#111111';
-      newImg.style.width = '200px';
-      newImg.style.height = '200px';
-      newImg.style.objectFit = 'contain';
-      newImg.src = URL.createObjectURL(files[i]);
-
-      // div.appendChild(button);
-      div.appendChild(newImg);
-      preview.appendChild(div);
+    for (let file of this.files) {
+      dt.items.add(file);
     }
 
-  }
+    this.files = dt.files;
 
-  var btn = document.querySelector('.btn-remove-images');
-  btn.addEventListener('click', function() {
-    img.value = '';
-    preview.innerHTML = '';
+    $('.btn-r-img').click(function() {
+      let name = $(this).data('name');
+      $(this).parent().remove();
+      for (let i = 0; i < dt.items.length; i++) {
+        if (name === dt.items[i].getAsFile().name) {
+          dt.items.remove(i);
+          continue;
+        }
+      }
+      document.getElementById('images').files = dt.files;
+    });
   });
 </script>
