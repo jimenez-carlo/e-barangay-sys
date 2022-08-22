@@ -22,3 +22,25 @@ float: right;
 ul.pagination{
 float: right;
 }
+input[type='file']{
+/* opacity:0;
+width: 92px;
+height: 30px;
+position:absolute;
+left:0;
+top:0;
+cursor: pointer; */
+display: none;
+}
+
+.btn-r-img,.btn-r-def-img{
+position: absolute;
+right: 0;
+}
+
+.imgs-preview{
+background: #111111;
+object-fit:contain;
+width:200px;
+height:200px
+}

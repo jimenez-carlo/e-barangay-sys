@@ -5,6 +5,7 @@ require('class/base.php');
 require('class/login.php');
 require('class/blotter.php');
 require('class/resident.php');
+require('class/announcement.php');
 
 
 $base = new Base($conn);
@@ -20,6 +21,7 @@ $form = $_POST['form'];
 $login = new Login($conn);
 $blotter = new Blotter($conn);
 $resident = new Resident($conn);
+$announcement = new Announcement($conn);
 
 switch ($form) {
   case 'login':
@@ -30,6 +32,12 @@ switch ($form) {
     break;
   case 'resident_request':
     $result = $resident->create_request();
+    break;
+  case 'announcement_create':
+    $result = $announcement->create_announcement();
+    break;
+  case 'announcement_edit':
+    $result = $announcement->edit_announcement();
     break;
 }
 echo json_encode($result);

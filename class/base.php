@@ -2,10 +2,13 @@
 class Base
 {
   private $conn;
+  private $conn_failed;
   public function __construct($db)
   {
     $this->conn = $db;
+    $this->conn_failed = $db;
   }
+
 
   public function get_list($sql)
   {
@@ -82,5 +85,31 @@ class Base
     $result->result = $this->response_error();
     $result->items = '';
     return $result;
+  }
+
+  public function close_connection()
+  {
+    $this->conn->close();
+  }
+
+  public function start_transaction()
+  {
+    return mysqli_begin_transaction($this->conn);
+  }
+
+  public function commit_transaction()
+  {
+    return mysqli_commit($this->conn);
+  }
+
+  public function roll_back()
+  {
+    return mysqli_rollback($this->conn);
+  }
+
+  public function save_error($error = '')
+  {
+    $error = addslashes($error);
+    $this->query("insert into tbl_system_error (message) values('$error')");
   }
 }

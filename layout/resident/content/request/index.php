@@ -24,6 +24,7 @@
                            <th>Request Type</th>
                            <th>Status</th>
                            <th>Approver</th>
+                           <th>Created Date</th>
                            <th>Last Updated</th>
                            <!-- <th>Settings</th> -->
                          </tr>
@@ -35,7 +36,8 @@
                              <td><?= $res['request_type'] ?></td>
                              <td><?= strtoupper($res['status']); ?></td>
                              <td><?= $res['fullname'] ?></td>
-                             <td><?= $res['updated_date']; ?></td>
+                             <td><?= format_date_time_am_pm($res['created_date']); ?></td>
+                             <td><?= format_date_time_am_pm($res['updated_date']); ?></td>
                              <!-- <td>
                                <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/blotter/view" value="<?= $res['id'] ?>"> <i class="fa fa-eye"></i> View</button>
                                <button type="button" class="btn btn-sm btn-flat btn-success"> <i class="fa fa-plus"></i> New tab</button>
