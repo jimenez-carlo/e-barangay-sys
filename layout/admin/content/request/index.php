@@ -24,7 +24,7 @@
                            <th>Resident</th>
                            <th>Request Type</th>
                            <th>Status</th>
-                           <th>Approver</th>
+                           <th>Updated By</th>
                            <th>Created Date</th>
                            <th>Last Updated</th>
                            <th>Settings</th>

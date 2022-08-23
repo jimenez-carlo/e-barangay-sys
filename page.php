@@ -40,7 +40,6 @@ if (in_array($page, $pages)) {
       $tmp = $request->get_request($id);
       $data['default_data'] = $request->set_default_data();
       $data['data'] = $tmp;
-      echo "select * from tbl_barangay where city_id = '" . $tmp->resident->city_id . "' and deleted_flag = 0";
       $data['default_data']['barangay'] = $base->get_list("select * from tbl_barangay where city_id = '" . $tmp->resident->city_id . "' and deleted_flag = 0");
       break;
     case 'admin/announcement':

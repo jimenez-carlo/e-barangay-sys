@@ -112,4 +112,19 @@ class Base
     $error = addslashes($error);
     $this->query("insert into tbl_system_error (message) values('$error')");
   }
+
+  function sms($number, $message)
+  {
+    $url = 'https://www.itexmo.com/php_api/api.php';
+    $itexmo = array('1' => $number, '2' => $message, '3' => 'ST-LEONA235447_P4GAW', 'passwd' => 't&z9q#dtyj');
+    $param = array(
+      'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'POST',
+        'content' => http_build_query($itexmo),
+      ),
+    );
+    $context  = stream_context_create($param);
+    $this->save_error(file_get_contents($url, false, $context));
+  }
 }
