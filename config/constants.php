@@ -15,7 +15,7 @@ define('COPYRIGHT_YEAR', 2022);
 define('VERSION_NO', 0.1);
 
 define('ROUTES', $routes);
-define('BASE_URL', 'http://localhost/Sideline/e-barangay-sys/'); //http://e-barangay-system.com/
+define('BASE_URL', 'http://e-barangay-system.com/'); //http://e-barangay-system.com/
 define('ADMIN_ACCESS', array_keys($routes));
 define('BARANGAY_OFFICIAL_ACCESS', array(
   'barangay/blotter'
