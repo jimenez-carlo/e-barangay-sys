@@ -17,7 +17,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : 0;
 $access = 1;
 $pages = get_access($access);
 
-$request = new Base($conn);
+$base = new Base($conn);
 $blotter = new Blotter($conn);
 $resident = new Resident($conn);
 $request = new Request($conn);
@@ -37,8 +37,11 @@ if (in_array($page, $pages)) {
       $data['list'] = $request->get_requests_list();
       break;
     case 'admin/request/edit':
+      $tmp = $request->get_request($id);
       $data['default_data'] = $request->set_default_data();
-      $data['data'] = $request->get_request($id);
+      $data['data'] = $tmp;
+      echo "select * from tbl_barangay where city_id = '" . $tmp->resident->city_id . "' and deleted_flag = 0";
+      $data['default_data']['barangay'] = $base->get_list("select * from tbl_barangay where city_id = '" . $tmp->resident->city_id . "' and deleted_flag = 0");
       break;
     case 'admin/announcement':
       $data['list'] = $announcement->get_announcements();

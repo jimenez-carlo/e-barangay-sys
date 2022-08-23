@@ -16,14 +16,13 @@ class Request extends Base
     $data['gender'] = $this->get_list("select * from tbl_gender where deleted_flag = 0");
     $data['marital_status'] = $this->get_list("select * from tbl_marital_status where deleted_flag = 0");
     $data['city'] = $this->get_list("select * from tbl_city where deleted_flag = 0");
-    $data['barangay'] = $this->get_list("select * from tbl_barangay where deleted_flag = 0");
     $data['zone'] = $this->get_list("select * from tbl_zone where deleted_flag = 0");
     return $data;
   }
 
   public function get_requests_list()
   {
-    return $this->get_list("select r.id,r.request_status_id,concat(rq.last_name, ', ', rq.first_name,' ', LEFT(rq.middle_name, 1), '[#',rq.id,']') as requestor_name, concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as approver_name,rt.type as request_type,rs.status,r.updated_date,r.created_date from tbl_request r left join tbl_users_info ui on ui.id = r.approver_id inner join tbl_request_type rt on rt.id = r.request_type_id  inner join tbl_request_status rs on rs.id = r.request_status_id inner join tbl_users_info rq on rq.id = r.requester_id order by r.updated_date desc");
+    return $this->get_list("select r.id,r.requester_id,r.request_status_id,concat(rq.last_name, ', ', rq.first_name,' ', LEFT(rq.middle_name, 1), '[#',rq.id,']') as requestor_name, concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as approver_name,rt.id as request_type_id,rt.type as request_type,rs.status,r.updated_date,r.created_date from tbl_request r left join tbl_users_info ui on ui.id = r.approver_id inner join tbl_request_type rt on rt.id = r.request_type_id  inner join tbl_request_status rs on rs.id = r.request_status_id inner join tbl_users_info rq on rq.id = r.requester_id order by r.updated_date desc");
   }
 
   public function get_request($id)

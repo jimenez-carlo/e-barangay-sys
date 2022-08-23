@@ -45,7 +45,12 @@
                                <button type="button" class="btn btn-sm btn-flat btn-success" name="admin/blotter/view" value="<?= $res['id']; ?>"> Send SMS <i class="fa fa-envelope"></i></button>
                                <!-- <button type="button" class="btn btn-sm btn-flat btn-success"> <i class="fa fa-check"></i> Approve</button>
                                <button type="button" class="btn btn-sm btn-flat btn-success"> <i class="fa fa-times"></i> Disapprove</button> -->
-                               <button type="button" class="btn btn-sm btn-flat btn-success" <?= !in_array($res['request_status_id'], array(4, 5)) ? 'disabled' : ''; ?>> <i class="fa fa-print"></i> Print</button>
+                               <?php if ($res['request_status_id'] == 4) { ?>
+                                 <?php $redirect = array(1 => 'clearance.php', 2 => 'residency.php', 3 => 'id.php'); ?>
+                                 <a class="btn btn-sm btn-success btn-flat btn-print" href='<?= BASE_URL . "print/" . $redirect[$res['request_type_id']] . "?pair=" . base64_encode($res['requester_id']) . "&code=" . base64_encode(date("Ymd", time() + 86400)); ?>"' target="_blank"><i class="fa fa-print"></i> Print</a>
+                               <?php } else { ?>
+                                 <button type="button" class="btn btn-sm btn-success btn-flat" disabled><i class="fa fa-print"></i> Print</button>
+                               <?php } ?>
                              </td>
                            </tr>
                          <?php } ?>
