@@ -116,6 +116,9 @@ $(document).on("submit", 'form', function (e) {
         if (form_name == 'announcement_edit') {
           $("#content").load(base_url + 'page.php?page=admin/announcement/edit&id='+result.id);
         }
+        if (form_name == 'request_change_status') {
+          $("#content").load(base_url + 'page.php?page=admin/request/edit&id='+result.id);
+        }
       }
       if (result.items != '') {
         errorFields(result.items);

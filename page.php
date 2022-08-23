@@ -36,6 +36,10 @@ if (in_array($page, $pages)) {
     case 'admin/request':
       $data['list'] = $request->get_requests_list();
       break;
+    case 'admin/request/edit':
+      $data['default_data'] = $request->set_default_data();
+      $data['data'] = $request->get_request($id);
+      break;
     case 'admin/announcement':
       $data['list'] = $announcement->get_announcements();
       break;
