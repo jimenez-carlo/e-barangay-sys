@@ -5,6 +5,7 @@ require('class/base.php');
 require('class/login.php');
 require('class/blotter.php');
 require('class/resident.php');
+require('class/request.php');
 require('class/announcement.php');
 
 
@@ -21,6 +22,7 @@ $form = $_POST['form'];
 $login = new Login($conn);
 $blotter = new Blotter($conn);
 $resident = new Resident($conn);
+$request = new Request($conn);
 $announcement = new Announcement($conn);
 
 switch ($form) {
@@ -32,6 +34,9 @@ switch ($form) {
     break;
   case 'resident_request':
     $result = $resident->create_request();
+    break;
+  case 'request_change_status':
+    $result = $request->change_status();
     break;
   case 'announcement_create':
     $result = $announcement->create_announcement();
