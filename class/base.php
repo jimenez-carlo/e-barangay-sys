@@ -116,7 +116,7 @@ class Base
   function sms($number, $message)
   {
     $url = 'https://www.itexmo.com/php_api/api.php';
-    $itexmo = array('1' => $number, '2' => $message, '3' => 'ST-LEONA235447_P4GAW', 'passwd' => 't&z9q#dtyj');
+    $itexmo = array('1' => $number, '2' => $message, '3' => API_CODE, 'passwd' => API_PASSWORD);
     $param = array(
       'http' => array(
         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",

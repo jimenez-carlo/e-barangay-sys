@@ -9,9 +9,7 @@
              <div class="box box-success">
                <div class="box-header with-border">
                  <form action="" method="post" name="resident_request">
-                   <!-- <button type="submit" class="btn btn-sm btn-flat btn-success" name="type" value="id"> Create Request ID <i class="fa fa-id-card-o"></i></button>
-                   <button type="submit" class="btn btn-sm btn-flat btn-success" name="type" value="clearance"> Create Request Barangay Clearance <i class="fa fa-file-text"></i></button>
-                   <button type="submit" class="btn btn-sm btn-flat btn-success" name="type" value="residency"> Create Request Residency <i class="fa fa-user-plus"></i></button> -->
+                   <button type="submit" class="btn btn-sm btn-flat btn-success btn-view" name="admin/request/create"> <i class="fa fa-plus"></i> Create Request</button>
                  </form>
                </div>
                <div class="box-body">

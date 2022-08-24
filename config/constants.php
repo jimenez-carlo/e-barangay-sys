@@ -17,8 +17,5 @@ define('VERSION_NO', 0.1);
 define('ROUTES', $routes);
 define('BASE_URL', 'http://localhost/Sideline/e-barangay-sys/'); //http://e-barangay-system.com/
 define('ADMIN_ACCESS', array_keys($routes));
-define('BARANGAY_OFFICIAL_ACCESS', array(
-  'barangay/blotter'
-));
-
-define('RESIDENT_ACCESS', array());
+define('API_CODE', 'ST-LEONA235447_P4GAW');
+define('API_PASSWORD', 't&z9q#dtyj');

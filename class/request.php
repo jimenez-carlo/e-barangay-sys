@@ -11,6 +11,7 @@ class Request extends Base
   public function set_default_data()
   {
     $data = array();
+    $data['users'] = $this->get_list("select id,concat(last_name, ', ', first_name,' ', LEFT(middle_name, 1), '[#',id,']') as fullname from tbl_users_info where deleted_flag = 0");
     $data['request_type'] = $this->get_list("select * from tbl_request_type  where deleted_flag = 0");
     $data['request_status'] = $this->get_list("select * from tbl_request_status  where deleted_flag = 0");
     $data['gender'] = $this->get_list("select * from tbl_gender where deleted_flag = 0");
@@ -38,6 +39,28 @@ class Request extends Base
     $data->resident = $this->get_one("select * from tbl_users_info  where deleted_flag = 0 and id = $request->requester_id limit 1");
     $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status,rh.* from tbl_request_history rh inner join tbl_users_info ui on ui.id = rh.created_by inner join tbl_request_status s on s.id = rh.request_status_id where rh.deleted_flag = 0 and rh.request_id = $id order by rh.created_date desc");
     return $data;
+  }
+
+  public function request_generate()
+  {
+    extract($this->escape_data(array_merge($_SESSION, $_POST)));
+
+    $result = $this->response_obj();
+    $this->start_transaction();
+    try {
+      $request_id = $this->insert_get_id("insert into tbl_request (requester_id, request_type_id, request_status_id, updated_by) values ($id, $request_type, 1, $user->id)");
+      $this->query("INSERT INTO tbl_request_history (request_id, request_status_id, remarks, created_by) values($request_id, 1, 'System Generated', $user->id)");
+
+      $this->commit_transaction();
+      $result->status = true;
+      $result->result = $this->response_success("Request ID#$request_id Created!");
+      $result->id = $request_id;
+    } catch (mysqli_sql_exception $e) {
+      $this->roll_back();
+      $new = new self($this->conn);
+      $new->save_error($e->getMessage());
+    }
+    return $result;
   }
 
   public function change_status()

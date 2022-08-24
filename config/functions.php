@@ -28,9 +28,9 @@ if (!function_exists('get_access')) {
       case 1: //admin
         return ADMIN_ACCESS;
       case 2: //barangay official
-        return BARANGAY_OFFICIAL_ACCESS;
+        return ADMIN_ACCESS;
       case 3: //resident
-        return RESIDENT_ACCESS;
+        return ADMIN_ACCESS;
       default:
         return array();
     }

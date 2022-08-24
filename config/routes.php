@@ -15,6 +15,7 @@ $routes = array(
   'admin/resident/edit' => $admin_route . '/resident/edit.php',
 
   'admin/request' => $admin_route . '/request/index.php',
+  'admin/request/create' => $admin_route . '/request/create.php',
   'admin/request/edit' => $admin_route . '/request/edit.php',
   'admin/request/view' => $admin_route . '/request/view.php',
 
@@ -27,9 +28,9 @@ $routes = array(
   'admin/announcement/create' => $admin_route . '/announcement/create.php',
   'admin/announcement/edit' => $admin_route . '/announcement/edit.php',
 
-  'admin/barangay_official' => $admin_route . '/barangay_official/index.php',
-  'admin/barangay_official/create' => $admin_route . '/barangay_official/create.php',
-  'admin/barangay_official/edit' => $admin_route . '/barangay_official/edit.php',
+  'admin/members' => $admin_route . '/members/index.php',
+  'admin/members/create' => $admin_route . '/members/create.php',
+  'admin/members/edit' => $admin_route . '/members/edit.php',
 
   # Resident
   'resident/home' => $resident_route . '/request/body.php',

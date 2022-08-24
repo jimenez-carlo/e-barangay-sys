@@ -75,14 +75,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <!-- Menu Toggle Button -->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <!-- The user image in the navbar-->
-                <img src="assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                <img src="files/profile/<?= $user->image; ?>" class="user-image" alt="User Image">
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                 <span class="hidden-xs"><?= ucfirst($user->first_name) . ' ' . ucfirst($user->last_name); ?></span>
               </a>
               <ul class="dropdown-menu">
                 <!-- The user image in the menu -->
                 <li class="user-header">
-                  <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                  <!-- assets/img/user2-160x160.jpg -->
+                  <img src="files/profile/<?= $user->image; ?>" class="img-circle" alt="User Image">
 
                   <p>
                     <?= ucfirst($user->first_name) . ' - ' . ucfirst($user->access_name); ?>
@@ -129,7 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
           <div class="pull-left image">
-            <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            <img src="files/profile/<?= $user->image; ?>" class="img-circle" alt="User Image" style="min-height:45px">
           </div>
           <div class="pull-left info">
             <p><?= ucfirst($user->first_name) . ' ' . ucfirst($user->last_name); ?></p>
@@ -149,8 +150,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li><a href="#" class="btn-view" name="admin/request"><i class="fa fa-files-o"></i> <span>Requests</span></a></li>
           <li><a href="#" class="btn-view" name="admin/blotter"><i class="fa fa-address-book"></i> <span>Blotter</span></a></li>
           <li><a href="#" class="btn-view" name="admin/announcement"><i class="fa fa-bullhorn"></i> <span>Announcement</span></a></li>
-          <li><a href="#" class="btn-view" name="admin/barangay_official"><i class="fa fa-users"></i> <span>Barangay Officials</span></a></li>
-          <li class="treeview">
+          <li><a href="#" class="btn-view" name="admin/members"><i class="fa fa-users"></i> <span>Barangay Officials</span></a></li>
+          <!-- <li class="treeview">
             <a href="#"><i class="fa fa-cog"></i> <span>System</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -163,7 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li><a href="#"><i class="fa fa-cogs"></i> Access</a></i></li>
               <li><a href="#" class="btn-view" name="admin/barangay_offiscial"><i class="fa fa-cogs"></i> Logs</a></i></li>
             </ul>
-          </li>
+          </li> -->
         </ul>
         <!-- /.sidebar-menu -->
       </section>

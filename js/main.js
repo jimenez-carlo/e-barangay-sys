@@ -119,11 +119,17 @@ $(document).on("submit", 'form', function (e) {
         if (form_name == 'request_change_status') {
           $("#content").load(base_url + 'page.php?page=admin/request/edit&id='+result.id);
         }
+        if (form_name == 'request_generate') {
+          $("#content").load(base_url + 'page.php?page=admin/request/edit&id='+result.id);
+        }
         if (form_name == 'verify_resident') {
           $("#content").load(base_url + 'page.php?page=admin/resident');
         }
         if (form_name == 'resident_update') {
           $("#content").load(base_url + 'page.php?page=admin/resident/edit&id='+result.id);
+        }
+        if (form_name == 'resident_register') {
+          $("#content").load(base_url + 'page.php?page=admin/resident/create');
         }
       }
       if (result.items != '') {
