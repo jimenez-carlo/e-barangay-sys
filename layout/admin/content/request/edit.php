@@ -12,7 +12,7 @@
         <div class="box box-success">
           <div class="box-header with-border">
             <i class="fa fa-user-circle"></i>
-            <h4 class="box-title">Resident Details</h4>
+            <h4 class="box-title">Resident Information</h4>
           </div>
 
           <div class="box-body">
@@ -140,8 +140,9 @@
 
           <div class="modal-footer">
             <button type="submit" class="btn btn-sm btn-success btn-flat" name="request_change_status"><i class="fa fa-save"></i> Change Status</button>
-            <?php if ($data->request_status_id != 4) { ?>
-              <button type="submit" class="btn btn-sm btn-success btn-flat" name="request_change_status" <?= ($data->request_status_id != 4) ? 'disabled' : ''; ?>><i class="fa fa-print"></i> Print</button>
+            <?php if ($data->request_status_id == 4) { ?>
+              <?php $redirect = array(1 => 'clearance.php', 2 => 'residency.php', 3 => 'id.php'); ?>
+              <a class="btn btn-sm btn-success btn-flat btn-print" href='<?= BASE_URL . "print/" . $redirect[$data->request_type_id] . "?pair=" . base64_encode($data->requester_id) . "&code=" . base64_encode(date("Ymd", time() + 86400)); ?>"' target="_blank"><i class="fa fa-print"></i> Print</a>
             <?php } else { ?>
               <button type="button" class="btn btn-sm btn-success btn-flat" disabled><i class="fa fa-print"></i> Print</button>
             <?php } ?>

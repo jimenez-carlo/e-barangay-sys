@@ -1,7 +1,7 @@
 <section class="content-header">
   <h1>
     <i class="fa fa-edit"></i>
-    Editing Resident ID#<?= $data->id; ?>
+    Editing Member ID#<?= $data->id; ?>
   </h1>
 </section>
 <form role="form" name="resident_update" enctype="multipart/form-data">
@@ -12,7 +12,7 @@
         <div class="box box-success">
           <div class="box-header with-border">
             <i class="fa fa-user-circle"></i>
-            <h4 class="box-title">Resident Information</h4>
+            <h4 class="box-title">Member Information</h4>
           </div>
 
           <div class="box-body">

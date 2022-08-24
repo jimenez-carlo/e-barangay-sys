@@ -1,6 +1,6 @@
         <section class="content-header">
           <h1>
-            <i class="fa fa-address-card"></i> Residents
+            <i class="fa fa-users"></i> Barrangay Officials
           </h1>
         </section>
         <section class="content">
@@ -8,7 +8,7 @@
             <div class="col-xs-12">
               <div class="box box-success">
                 <div class="box-header with-border">
-                  <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/resident/create"> <i class="fa fa-user-plus"></i> Register</button>
+                  <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/members/create"> <i class="fa fa-user-plus"></i> Register</button>
                 </div>
                 <div class="box-body">
                   <div class="row">
@@ -17,7 +17,8 @@
                         <thead>
                           <tr role="row">
                             <th>ID#</th>
-                            <th>Status</th>
+                            <th>Access</th>
+                            <th>Barangay Position</th>
                             <th>Full Name</th>
                             <th>Gender</th>
                             <th>City</th>
@@ -33,7 +34,8 @@
                           <?php foreach ($list as $res) { ?>
                             <tr>
                               <td><?= $res['id'] ?></td>
-                              <td><?= strtoupper($res['status']) ?></td>
+                              <td><?= $res['access_name'] ?></td>
+                              <td><?= $res['title'] ?></td>
                               <td><?= $res['resident_name'] ?></td>
                               <td><?= $res['gender'] ?></td>
                               <td><?= $res['city'] ?></td>
@@ -43,10 +45,7 @@
                               <td><?= $res['approver_name'] ?></td>
                               <td><?= format_date_time_am_pm($res['updated_date']); ?></td>
                               <td class="flex-td">
-                                <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/resident/edit" value="<?= $res['id'] ?>"> <i class="fa fa-edit"></i> Edit</button>
-                                <form method="post" name="verify_resident">
-                                  <button type="submit" class="btn btn-sm btn-flat btn-success" <?= ($res['status_id'] == 2) ? "disabled" : ""; ?> name="verify_resident" value="<?= $res['id'] ?>"> <i class="fa fa-check"></i> Verify</button>
-                                </form>
+                                <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/members/edit" value="<?= $res['id'] ?>"> <i class="fa fa-edit"></i> Edit</button>
                               </td>
                             </tr>
                           <?php } ?>

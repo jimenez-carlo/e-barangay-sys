@@ -9,9 +9,7 @@
              <div class="box box-success">
                <div class="box-header with-border">
                  <form action="" method="post" name="resident_request">
-                   <!-- <button type="submit" class="btn btn-sm btn-flat btn-success" name="type" value="id"> Create Request ID <i class="fa fa-id-card-o"></i></button>
-                   <button type="submit" class="btn btn-sm btn-flat btn-success" name="type" value="clearance"> Create Request Barangay Clearance <i class="fa fa-file-text"></i></button>
-                   <button type="submit" class="btn btn-sm btn-flat btn-success" name="type" value="residency"> Create Request Residency <i class="fa fa-user-plus"></i></button> -->
+                   <button type="submit" class="btn btn-sm btn-flat btn-success btn-view" name="admin/request/create"> <i class="fa fa-plus"></i> Create Request</button>
                  </form>
                </div>
                <div class="box-body">
@@ -24,7 +22,7 @@
                            <th>Resident</th>
                            <th>Request Type</th>
                            <th>Status</th>
-                           <th>Approver</th>
+                           <th>Updated By</th>
                            <th>Created Date</th>
                            <th>Last Updated</th>
                            <th>Settings</th>
@@ -42,10 +40,15 @@
                              <td><?= format_date_time_am_pm($res['updated_date']); ?></td>
                              <td>
                                <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/request/edit" value="<?= $res['id']; ?>"> <i class="fa fa-edit"></i> Edit</button>
-                               <button type="button" class="btn btn-sm btn-flat btn-success" name="admin/blotter/view" value="<?= $res['id']; ?>"> Send SMS <i class="fa fa-envelope"></i></button>
+                               <!-- <button type="button" class="btn btn-sm btn-flat btn-success" name="admin/blotter/view" value="<?= $res['id']; ?>"> Send SMS <i class="fa fa-envelope"></i></button> -->
                                <!-- <button type="button" class="btn btn-sm btn-flat btn-success"> <i class="fa fa-check"></i> Approve</button>
                                <button type="button" class="btn btn-sm btn-flat btn-success"> <i class="fa fa-times"></i> Disapprove</button> -->
-                               <button type="button" class="btn btn-sm btn-flat btn-success" <?= !in_array($res['request_status_id'], array(4, 5)) ? 'disabled' : ''; ?>> <i class="fa fa-print"></i> Print</button>
+                               <?php if ($res['request_status_id'] == 4) { ?>
+                                 <?php $redirect = array(1 => 'clearance.php', 2 => 'residency.php', 3 => 'id.php'); ?>
+                                 <a class="btn btn-sm btn-success btn-flat btn-print" href='<?= BASE_URL . "print/" . $redirect[$res['request_type_id']] . "?pair=" . base64_encode($res['requester_id']) . "&code=" . base64_encode(date("Ymd", time() + 86400)); ?>"' target="_blank"><i class="fa fa-print"></i> Print</a>
+                               <?php } else { ?>
+                                 <button type="button" class="btn btn-sm btn-success btn-flat" disabled><i class="fa fa-print"></i> Print</button>
+                               <?php } ?>
                              </td>
                            </tr>
                          <?php } ?>

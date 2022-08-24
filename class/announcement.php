@@ -72,7 +72,12 @@ class Announcement extends Base
       $this->query("INSERT INTO tbl_announcement_status_history (announcement_id, announcement_status_id, created_by) values ($announcement_id, $status, $user->id)");
 
       if (isset($send_sms) && $status == 2) {
-        // Send SMS
+        $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where deleted_flag = 0  and u.status_id = 2");
+        foreach ($recipients as $res) {
+          if (strlen($res['contact_no'] == 11)) {
+            $this->sms($res['contact_no'], "E-Barangay System Announcemnet!, Title:$title Description:$description");
+          }
+        }
       }
 
       if (!empty($images['name'][0])) {
@@ -144,7 +149,12 @@ class Announcement extends Base
       }
 
       if (isset($send_sms) && $status == 2) {
-        // Send SMS
+        $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where deleted_flag = 0  and u.status_id = 2");
+        foreach ($recipients as $res) {
+          if (strlen($res['contact_no'] == 11)) {
+            $this->sms($res['contact_no'], "E-Barangay System Announcemnet!, Title:$title Description:$description");
+          }
+        }
       }
 
       // Delete Image File

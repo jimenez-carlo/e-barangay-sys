@@ -112,4 +112,29 @@ class Base
     $error = addslashes($error);
     $this->query("insert into tbl_system_error (message) values('$error')");
   }
+
+  function sms($number, $message)
+  {
+    $url = 'https://www.itexmo.com/php_api/api.php';
+    $itexmo = array('1' => $number, '2' => $message, '3' => API_CODE, 'passwd' => API_PASSWORD);
+    $param = array(
+      'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'POST',
+        'content' => http_build_query($itexmo),
+      ),
+    );
+    $context  = stream_context_create($param);
+    $this->save_error(file_get_contents($url, false, $context));
+  }
+
+  function get_dropdown()
+  {
+    extract($_POST);
+    $data = $this->get_list("select $value as `value`, $display as `display` from $table where $where = $id ");
+    foreach ($data as $res) {
+      echo ($res['value'] == $selected) ? "<option value='" . $res['value'] . "' selected> " . $res['display'] . "</option>" : "<option value='" . $res['value'] . "'> " . $res['display'] . "</option>";
+    }
+    die;
+  }
 }
