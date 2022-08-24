@@ -119,6 +119,12 @@ $(document).on("submit", 'form', function (e) {
         if (form_name == 'request_change_status') {
           $("#content").load(base_url + 'page.php?page=admin/request/edit&id='+result.id);
         }
+        if (form_name == 'verify_resident') {
+          $("#content").load(base_url + 'page.php?page=admin/resident');
+        }
+        if (form_name == 'resident_update') {
+          $("#content").load(base_url + 'page.php?page=admin/resident/edit&id='+result.id);
+        }
       }
       if (result.items != '') {
         errorFields(result.items);
@@ -130,6 +136,17 @@ $(document).on("submit", 'form', function (e) {
   });
 });
 
+
+function dropdown_with_default(dropdown_to_populate, table, where, id, display, value, selected = "") {
+  $.ajax({
+    url: base_url + 'request.php',
+    type: 'POST',
+    data: { form: 'get_dropdown',table: table, where: where, id: id, display: display, value: value, selected: selected },
+    success: function (response) {
+      $('#' + dropdown_to_populate + '').html(response);
+    }
+  });
+}
 
 
 

@@ -35,6 +35,12 @@ switch ($form) {
   case 'resident_request':
     $result = $resident->create_request();
     break;
+  case 'verify_resident':
+    $result = $resident->verify_resident();
+    break;
+  case 'resident_update':
+    $result = $resident->update();
+    break;
   case 'request_change_status':
     $result = $request->change_status();
     break;
@@ -43,6 +49,9 @@ switch ($form) {
     break;
   case 'announcement_edit':
     $result = $announcement->edit_announcement();
+    break;
+  case 'get_dropdown':
+    $base->get_dropdown();
     break;
 }
 echo json_encode($result);

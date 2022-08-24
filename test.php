@@ -23,3 +23,26 @@ function itexmo($number, $message, $apicode, $passwd)
 }
 
 echo itexmo('09217635295', 'test', 'ST-LEONA235447_P4GAW', 't&z9q#dtyj');
+
+
+
+// function dropdown_with_id(dropdown_to_populate, table, where, id, display, value, after_function) {
+//   if (!after_function) after_function = false;
+//   $.ajax({
+//     url: base_url + 'Form_Dynamic_Main/get_dropdown',
+//     type: 'POST',
+//     data: {
+//       table: table,
+//       where: where,
+//       id: id,
+//       display: display,
+//       value: value
+//     },
+//     success: function (response) {
+//       $('#' + dropdown_to_populate + '').html(response);
+//       if (after_function !== false) {
+//         after_function();
+//       }
+//     }
+//   });
+// }

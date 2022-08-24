@@ -27,21 +27,38 @@ if (in_array($page, $pages)) {
   $data = array();
   $data['base_url'] = BASE_URL;
   switch ($page) {
+      // Blotter
     case 'admin/blotter':
       $data['list'] = $blotter->get_blotters();
       break;
     case 'admin/blotter/create':
       $data['default_data'] = $blotter->drop_down_data;
       break;
+    case 'admin/blotter/view':
+      $data['default_data'] = $blotter->drop_down_data;
+      $data['blotter'] = $blotter->get_case($id);
+      break;
+      // Resident
+    case 'admin/resident':
+      $data['list'] = $resident->get_resident_list();
+      break;
+    case 'admin/resident/edit':
+      $tmp = $resident->get_resident($id);
+      $data['default_data'] = $resident->set_default_data();
+      $data['data'] = $tmp;
+      $data['default_data']['barangay'] = $base->get_list("select * from tbl_barangay where city_id = '" . $tmp->city_id . "' and deleted_flag = 0");
+      break;
     case 'admin/request':
       $data['list'] = $request->get_requests_list();
       break;
+      // Request
     case 'admin/request/edit':
       $tmp = $request->get_request($id);
       $data['default_data'] = $request->set_default_data();
       $data['data'] = $tmp;
       $data['default_data']['barangay'] = $base->get_list("select * from tbl_barangay where city_id = '" . $tmp->resident->city_id . "' and deleted_flag = 0");
       break;
+      // Announcements
     case 'admin/announcement':
       $data['list'] = $announcement->get_announcements();
       break;
@@ -49,10 +66,7 @@ if (in_array($page, $pages)) {
       $data['default_data'] = $announcement->set_default_data();
       $data['data'] = $announcement->get_announcement($id);
       break;
-    case 'admin/blotter/view':
-      $data['default_data'] = $blotter->drop_down_data;
-      $data['blotter'] = $blotter->get_case($id);
-      break;
+
     case 'resident/requests':
       $data['requests'] = $resident->get_requestor_list();
       break;

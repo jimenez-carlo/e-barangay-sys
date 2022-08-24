@@ -127,4 +127,14 @@ class Base
     $context  = stream_context_create($param);
     $this->save_error(file_get_contents($url, false, $context));
   }
+
+  function get_dropdown()
+  {
+    extract($_POST);
+    $data = $this->get_list("select $value as `value`, $display as `display` from $table where $where = $id ");
+    foreach ($data as $res) {
+      echo ($res['value'] == $selected) ? "<option value='" . $res['value'] . "' selected> " . $res['display'] . "</option>" : "<option value='" . $res['value'] . "'> " . $res['display'] . "</option>";
+    }
+    die;
+  }
 }

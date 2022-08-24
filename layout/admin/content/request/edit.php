@@ -12,7 +12,7 @@
         <div class="box box-success">
           <div class="box-header with-border">
             <i class="fa fa-user-circle"></i>
-            <h4 class="box-title">Resident Details</h4>
+            <h4 class="box-title">Resident Information</h4>
           </div>
 
           <div class="box-body">

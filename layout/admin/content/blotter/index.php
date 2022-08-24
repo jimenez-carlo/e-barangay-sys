@@ -1,6 +1,6 @@
         <section class="content-header">
           <h1>
-            <i class="fa fa-address-book"></i> Blotter List
+            <i class="fa fa-address-book"></i> Blotters
           </h1>
         </section>
         <section class="content">
