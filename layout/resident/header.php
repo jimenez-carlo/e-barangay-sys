@@ -145,7 +145,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Optionally, you can add icons to the links -->
           <li class="active"><a href="#" class="btn-view" name="admin/home"><i class="fa fa-home"></i> <span>Home</span></a></li>
           <li><a href="#" class="btn-view" name="resident/requests"><i class="fa fa-files-o"></i> <span>Requests</span></a></li>
-          <li><a href="#" class="btn-view" name="resident/announcements"><i class="fa fa-bullhorn"></i> <span>Announcements</span></a></li>
+          <li><a href="#" class="btn-view" name="resident/announcement"><i class="fa fa-bullhorn"></i> <span>Announcements</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
       </section>

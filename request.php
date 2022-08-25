@@ -77,6 +77,10 @@ switch ($form) {
     $result = $profile->resident_update();
     break;
 
+  case 'resident_register_landing':
+    $result = $resident->resident_register_landing();
+    break;
+
   case 'get_dropdown':
     $base->get_dropdown();
     break;

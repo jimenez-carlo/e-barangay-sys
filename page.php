@@ -101,6 +101,7 @@ if (in_array($page, $pages)) {
       $data['default_data'] = $members->set_default_data();
       $data['data'] = $tmp;
       break;
+
     case 'resident/requests':
       $data['requests'] = $members->get_requestor_list();
       break;
@@ -111,7 +112,24 @@ if (in_array($page, $pages)) {
       $data['default_data']['barangay'] = $base->get_list("select * from tbl_barangay where city_id = '" . $tmp->resident->city_id . "' and deleted_flag = 0");
       break;
 
-    case 'landing_page/view':
+    case 'resident/announcement':
+      $data['list'] = $announcement->get_resident_announcements();
+      break;
+    case 'resident/announcement/view':
+      $data['default_data'] = $announcement->set_default_data();
+      $data['data'] = $announcement->get_announcement($id);
+      break;
+
+    case 'landing_page/announcements':
+      $data['list'] = $announcement->get_resident_announcements_with_one_image();
+      break;
+    case 'landing_page/announcements/view':
+      $data['default_data'] = $announcement->set_default_data();
+      $data['data'] = $announcement->get_announcement($id);
+      break;
+    case 'landing_page/register':
+      $data['default_data'] = $resident->set_default_data();
+      break;
     case 'landing_page/about_us':
       break;
   }
