@@ -5,8 +5,10 @@ require('class/base.php');
 require('class/login.php');
 require('class/blotter.php');
 require('class/resident.php');
+require('class/members.php');
 require('class/request.php');
 require('class/announcement.php');
+require('class/profile.php');
 
 
 $base = new Base($conn);
@@ -22,8 +24,10 @@ $form = $_POST['form'];
 $login = new Login($conn);
 $blotter = new Blotter($conn);
 $resident = new Resident($conn);
+$members = new Members($conn);
 $request = new Request($conn);
 $announcement = new Announcement($conn);
+$profile = new Profile($conn);
 
 switch ($form) {
   case 'login':
@@ -44,6 +48,15 @@ switch ($form) {
   case 'resident_update':
     $result = $resident->update();
     break;
+
+
+  case 'member_register':
+    $result = $members->create();
+    break;
+  case 'member_update':
+    $result = $members->update();
+    break;
+
   case 'request_change_status':
     $result = $request->change_status();
     break;
@@ -56,6 +69,14 @@ switch ($form) {
   case 'announcement_edit':
     $result = $announcement->edit_announcement();
     break;
+
+  case 'admin_profile_update':
+    $result = $profile->admin_update();
+    break;
+  case 'resident_profile_update':
+    $result = $profile->resident_update();
+    break;
+
   case 'get_dropdown':
     $base->get_dropdown();
     break;

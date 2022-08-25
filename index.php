@@ -11,18 +11,11 @@ if (isset($_SESSION['is_logged_in'])) {
   switch ($_SESSION['user']->access_id) {
       // Admin
     case 1:
+    case 2:
       include('layout/admin/header.php');
       include('layout/admin/body.php');
       include('layout/modal.php');
       include('layout/admin/footer.php');
-      break;
-
-      // Barangay Official
-    case 2:
-      include('layout/barangay_official/header.php');
-      include('layout/barangay_official/body.php');
-      include('layout/modal.php');
-      include('layout/barangay_official/footer.php');
       break;
 
       // Resident

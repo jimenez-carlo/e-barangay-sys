@@ -34,6 +34,11 @@ if (in_array($page, $pages)) {
     case 'admin/dashboard':
       $data['data'] = $dashboard->get_data();
       break;
+    case 'admin/profile':
+      $tmp = $members->get_resident($id);
+      $data['default_data'] = $members->set_default_data();
+      $data['data'] = $tmp;
+      break;
       // Blotter
     case 'admin/blotter':
       $data['list'] = $blotter->get_blotters();
@@ -91,9 +96,21 @@ if (in_array($page, $pages)) {
       $data['data'] = $tmp;
       break;
 
+    case 'resident/profile':
+      $tmp = $members->get_resident($id);
+      $data['default_data'] = $members->set_default_data();
+      $data['data'] = $tmp;
+      break;
     case 'resident/requests':
       $data['requests'] = $members->get_requestor_list();
       break;
+    case 'resident/requests/view':
+      $tmp = $request->get_request($id);
+      $data['default_data'] = $request->set_default_data();
+      $data['data'] = $tmp;
+      $data['default_data']['barangay'] = $base->get_list("select * from tbl_barangay where city_id = '" . $tmp->resident->city_id . "' and deleted_flag = 0");
+      break;
+
     case 'landing_page/view':
     case 'landing_page/about_us':
       break;

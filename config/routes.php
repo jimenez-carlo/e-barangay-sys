@@ -8,6 +8,7 @@ $landing_route = 'layout/landing_page/content';
 $routes = array(
   # Admin
   'admin/home' => 'layout/admin/home.php',
+  'admin/profile' => $admin_route . '/profile.php',
   'admin/dashboard' => $admin_route . '/dashboard.php',
 
   'admin/resident' => $admin_route . '/resident/index.php',
@@ -33,8 +34,10 @@ $routes = array(
   'admin/members/edit' => $admin_route . '/members/edit.php',
 
   # Resident
+  'resident/profile' => $resident_route . '/profile.php',
   'resident/home' => $resident_route . '/request/body.php',
   'resident/requests' => $resident_route . '/request/index.php',
+  'resident/requests/view' => $resident_route . '/request/view.php',
 
   #Landing Page
   'landing_page/about_us' => $landing_route . '/about_us.php',

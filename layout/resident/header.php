@@ -107,7 +107,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="#" class="btn btn-sm btn-success btn-flat btn-view" name="edit_account" value="1"> <i class="fa fa-user-circle"></i> Profile</a>
+                    <a href="#" class="btn btn-sm btn-success btn-flat btn-edit" name="resident/profile" value="<?= $user->id ?>"> <i class="fa fa-user-circle"></i> Profile</a>
                   </div>
                   <div class="pull-right">
                     <a href="logout.php" class="btn btn-sm btn-success btn-flat" data-toggle="modalz" data-target="#modalz"><i class="fa fa-sign-out"></i> Sign out</a>
