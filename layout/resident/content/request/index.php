@@ -26,7 +26,7 @@
                            <th>Approver</th>
                            <th>Created Date</th>
                            <th>Last Updated</th>
-                           <!-- <th>Settings</th> -->
+                           <th>Settings</th>
                          </tr>
                        </thead>
                        <tbody>
@@ -38,12 +38,9 @@
                              <td><?= $res['fullname'] ?></td>
                              <td><?= format_date_time_am_pm($res['created_date']); ?></td>
                              <td><?= format_date_time_am_pm($res['updated_date']); ?></td>
-                             <!-- <td>
-                               <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/blotter/view" value="<?= $res['id'] ?>"> <i class="fa fa-eye"></i> View</button>
-                               <button type="button" class="btn btn-sm btn-flat btn-success"> <i class="fa fa-plus"></i> New tab</button>
-                               <button type="button" class="btn btn-sm btn-flat btn-success"> <i class="fa fa-check"></i> Approve</button>
-                               <button type="button" class="btn btn-sm btn-flat btn-success"> <i class="fa fa-times"></i> Disapprove</button>
-                             </td> -->
+                             <td>
+                               <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="resident/requests/view" value="<?= $res['id'] ?>"> <i class="fa fa-eye"></i> View</button>
+                             </td>
                            </tr>
                          <?php } ?>
 

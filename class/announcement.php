@@ -35,6 +35,22 @@ class Announcement extends Base
     return $this->get_list("select a.*,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status from tbl_announcement a inner join tbl_users_info ui on ui.id = a.created_by inner join tbl_announcement_status s on s.id = a.announcement_status_id order by a.updated_date desc");
   }
 
+  public function get_resident_announcements()
+  {
+    return $this->get_list("select a.*,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status from tbl_announcement a inner join tbl_users_info ui on ui.id = a.created_by inner join tbl_announcement_status s on s.id = a.announcement_status_id where a.announcement_status_id = 2  order by a.updated_date desc");
+  }
+
+  public function get_resident_announcements_with_one_image()
+  {
+    $container = $this->get_list("select a.*,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status from tbl_announcement a inner join tbl_users_info ui on ui.id = a.created_by inner join tbl_announcement_status s on s.id = a.announcement_status_id where a.announcement_status_id = 2  order by a.start_date desc");
+    foreach ($container as $key => $res) {
+      $container[$key]['image'] = $this->get_one("select image from tbl_announcement_images where announcement_id = '" . $res['id'] . "' limit 1")->image;
+    }
+    return $container;
+  }
+
+
+
 
   public function create_announcement()
   {

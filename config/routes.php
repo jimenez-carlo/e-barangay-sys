@@ -8,6 +8,7 @@ $landing_route = 'layout/landing_page/content';
 $routes = array(
   # Admin
   'admin/home' => 'layout/admin/home.php',
+  'admin/profile' => $admin_route . '/profile.php',
   'admin/dashboard' => $admin_route . '/dashboard.php',
 
   'admin/resident' => $admin_route . '/resident/index.php',
@@ -33,12 +34,20 @@ $routes = array(
   'admin/members/edit' => $admin_route . '/members/edit.php',
 
   # Resident
+  'resident/profile' => $resident_route . '/profile.php',
   'resident/home' => $resident_route . '/request/body.php',
+
   'resident/requests' => $resident_route . '/request/index.php',
+  'resident/requests/view' => $resident_route . '/request/view.php',
+
+  'resident/announcement' => $resident_route . '/announcement/index.php',
+  'resident/announcement/view' => $resident_route . '/announcement/view.php',
 
   #Landing Page
   'landing_page/about_us' => $landing_route . '/about_us.php',
-  'landing_page/view' => $landing_route . '/view.php',
+  'landing_page/announcements' => $landing_route . '/announcements.php',
+  'landing_page/announcements/view' => $landing_route . '/view.php',
+  'landing_page/register' => $landing_route . '/register.php',
 
   '/' => 'layout/not_found.php'
 );

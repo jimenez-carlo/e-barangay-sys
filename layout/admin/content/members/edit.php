@@ -4,7 +4,7 @@
     Editing Member ID#<?= $data->id; ?>
   </h1>
 </section>
-<form role="form" name="resident_update" enctype="multipart/form-data">
+<form role="form" name="member_update" enctype="multipart/form-data">
   <input type="hidden" name="id" value="<?= $data->id; ?>">
   <section class="content">
     <div class="row">
@@ -108,7 +108,7 @@
             </div>
 
           </div>
-          <div class="modal-footer" style="min-height:93px">
+          <div class="modal-footer" style="min-height:152px">
           </div>
         </div>
       </div>
@@ -138,11 +138,19 @@
               <input type="text" class="form-control" placeholder="Email Address" name="email" value="<?= $data->email; ?>">
             </div>
 
+            <div class="col-xs-12">
+              <label for="img-input">Position:</label> <br>
+              <select class="form-control" name="position">
+                <?php foreach ($default_data['barangay_positions'] as $res) { ?>
+                  <option value="<?= $res['id'] ?>" <?php echo ($data->barangay_position_id == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['title']); ?></option>
+                <?php } ?>
+              </select>
+            </div>
+
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-sm btn-success btn-flat" name="resident_update" value="reset"><i class="fa fa-lock"></i> Reset Password</button>
-            <button type="submit" class="btn btn-sm btn-success btn-flat" name="resident_update" value="update"><i class="fa fa-save"></i> Update</button>
-            <button type="submit" class="btn btn-sm btn-success btn-flat" name="resident_update" value="verify" <?= ($data->status_id == 2) ? "disabled" : ""; ?>><i class="fa fa-check"></i> Verify</button>
+            <button type="submit" class="btn btn-sm btn-success btn-flat" name="member_update" value="reset"><i class="fa fa-lock"></i> Reset Password</button>
+            <button type="submit" class="btn btn-sm btn-success btn-flat" name="member_update" value="update"><i class="fa fa-save"></i> Update</button>
           </div>
         </div>
       </div>

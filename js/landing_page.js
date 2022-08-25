@@ -72,7 +72,12 @@ $(document).on("submit", 'form', function (e) {
     success: function (res) {
       var result = JSON.parse(res);
       $('#result').html(result.result);
-      $('.invalid-feedback').html('*'+result.message);
+        $('.invalid-feedback').html('*'+result.message);
+      if (result.status == false) {
+        $('.valid-feedback').addClass('invalid-feedback').removeClass('valid-feedback');
+      } else {
+        $('.invalid-feedback').addClass('valid-feedback').removeClass('invalid-feedback');
+      }
       if (result.refresh) {
         location.reload();
       }
@@ -93,3 +98,16 @@ $(document).on("submit", 'form', function (e) {
     }
   });
 });
+
+function dropdown_with_default(dropdown_to_populate, table, where, id, display, value, selected = "") {
+  $.ajax({
+    url: base_url + 'request.php',
+    type: 'POST',
+    data: { form: 'get_dropdown',table: table, where: where, id: id, display: display, value: value, selected: selected },
+    success: function (response) {
+      $('#' + dropdown_to_populate + '').html(response);
+    }
+  });
+}
+
+

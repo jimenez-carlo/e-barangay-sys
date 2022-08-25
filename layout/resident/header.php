@@ -107,7 +107,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="#" class="btn btn-sm btn-success btn-flat btn-view" name="edit_account" value="1"> <i class="fa fa-user-circle"></i> Profile</a>
+                    <a href="#" class="btn btn-sm btn-success btn-flat btn-edit" name="resident/profile" value="<?= $user->id ?>"> <i class="fa fa-user-circle"></i> Profile</a>
                   </div>
                   <div class="pull-right">
                     <a href="logout.php" class="btn btn-sm btn-success btn-flat" data-toggle="modalz" data-target="#modalz"><i class="fa fa-sign-out"></i> Sign out</a>
@@ -145,7 +145,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Optionally, you can add icons to the links -->
           <li class="active"><a href="#" class="btn-view" name="admin/home"><i class="fa fa-home"></i> <span>Home</span></a></li>
           <li><a href="#" class="btn-view" name="resident/requests"><i class="fa fa-files-o"></i> <span>Requests</span></a></li>
-          <li><a href="#" class="btn-view" name="resident/announcements"><i class="fa fa-bullhorn"></i> <span>Announcements</span></a></li>
+          <li><a href="#" class="btn-view" name="resident/announcement"><i class="fa fa-bullhorn"></i> <span>Announcements</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
       </section>

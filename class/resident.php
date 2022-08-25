@@ -142,7 +142,7 @@ class Resident extends Base
     $msg = '';
 
     // Require Fields
-    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no');
+    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email');
 
 
     foreach ($required_fields as $res) {
@@ -185,6 +185,72 @@ class Resident extends Base
       $new = new self($this->conn);
       $new->save_error($e->getMessage());
       $result->result = $this->response_error();
+    }
+    return $result;
+  }
+
+  public function resident_register_landing()
+  {
+    extract($this->escape_data(array_merge($_SESSION, $_POST, $_FILES)));
+
+    $result = $this->response_obj();
+    $errors = array();
+    $msg = '';
+
+    // Require Fields
+    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'password');
+
+
+    foreach ($required_fields as $res) {
+      if (empty(${$res})) {
+        $errors[] = $res;
+      }
+    }
+
+    if (!empty($errors)) {
+      $result->message = "Please Fill Blank Fields!";
+      $result->items = implode(',', $errors);
+      return $result;
+    }
+
+    if ($password != $re_password) {
+      $result->message = "Password Does Not Match!";
+      $result->items = implode(',', array('password', 're_password'));
+      return $result;
+    }
+
+    $count1 = $this->get_one("select count(*) as `count` from tbl_users where username = '$username' limit 1");
+
+    if (isset($count1->count) && !empty($count1->count)) {
+      $result->message = "Username Already In-use!";
+      $result->items = 'username';
+      return $result;
+    }
+
+    $count2 = $this->get_one("select count(*) as `count` from tbl_users where email = '$username' limit 1");
+
+    if (isset($count2->count) && !empty($count2->count)) {
+      $result->message = "Email Already In-use!";
+      $result->items = 'email';
+      return $result;
+    }
+
+    $this->start_transaction();
+    try {
+      $updated_date = date('Y-m-d H:i:s');
+      $default_password = '$2y$10$KKYMmphhiBr9szoYIW3Bqe9aH3i6TFE8EwwXNkl8zKAuo7sUD6Rn6';
+      $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id) values('$username','$email', '$default_password',1, 3)");
+      $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no')");
+      $this->query("insert into tbl_user_status_history (user_id,user_status_id) values($id, 1)");
+
+      $this->commit_transaction();
+      $result->message = "Resident Registered!";
+      $result->status = true;
+    } catch (mysqli_sql_exception $e) {
+      $this->roll_back();
+      $new = new self($this->conn);
+      $new->save_error($e->getMessage());
+      $result->message = "Oops Something Went Wrong!";
     }
     return $result;
   }
