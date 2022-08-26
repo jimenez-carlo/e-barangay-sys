@@ -1,3 +1,12 @@
+<style>
+    .box-mg {
+        margin: 0px 10px;
+    }
+
+    .card-footer {
+        text-align: center;
+    }
+</style>
 <!-- Page Content-->
 <div class="container px-4 px-lg-5">
     <!-- Heading Row-->
@@ -24,4 +33,77 @@
 
         </div>
     </div>
+
+    <div class="col-md-12 mb-5">
+        <div class="row" style="margin-top:30px">
+            <div class="col-md-5">
+            </div>
+            <div class="col-md-2" style="display: flex;justify-content: center;">
+                <div class="box" style="width: 140px;">
+                    <div class="box-header" style="padding:unset">
+                        <img class="img-responsive" src="<?= BASE_URL . "files/profile/default.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+                    </div>
+                    <div class="card-footer">Barangay Officer</div>
+                </div>
+            </div>
+            <div class="col-md-5">
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:30px">
+            <div class="col-md-5">
+            </div>
+            <div class="col-md-2" style="display:flex;justify-content:space-around">
+                <div class="box box-mg">
+                    <div class="box-header" style="padding:unset">
+                        <img class="img-responsive" src="<?= BASE_URL . "files/profile/default.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+                    </div>
+                    <div class="card-footer">Barangay Officer</div>
+                </div>
+                <div class="box box-mg">
+                    <div class="box-header" style="padding:unset">
+                        <img class="img-responsive" src="<?= BASE_URL . "files/profile/default.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+                    </div>
+                    <div class="card-footer">Barangay Officer</div>
+                </div>
+            </div>
+            <div class="col-md-5">
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:20px">
+            <div class="col-md-5">
+            </div>
+            <div class="col-md-2" style="display:flex;justify-content:space-around">
+                <div class="box box-mg">
+                    <div class="box-header" style="padding:unset">
+                        <img class="img-responsive" src="<?= BASE_URL . "files/profile/default.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+                    </div>
+                    <div class="card-footer">Barangay Officer</div>
+                </div>
+                <div class="box box-mg">
+                    <div class="box-header" style="padding:unset">
+                        <img class="img-responsive" src="<?= BASE_URL . "files/profile/default.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+                    </div>
+                    <div class="card-footer">Barangay Officer</div>
+                </div>
+                <div class="box box-mg">
+                    <div class="box-header" style="padding:unset">
+                        <img class="img-responsive" src="<?= BASE_URL . "files/profile/default.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+                    </div>
+                    <div class="card-footer">Barangay Officer</div>
+                </div>
+                <div class="box box-mg">
+                    <div class="box-header" style="padding:unset">
+                        <img class="img-responsive" src="<?= BASE_URL . "files/profile/default.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+                    </div>
+                    <div class="card-footer">Barangay Officer</div>
+                </div>
+            </div>
+            <div class="col-md-5">
+            </div>
+        </div>
+
+    </div>
+
 </div>

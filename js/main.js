@@ -143,10 +143,16 @@ $(document).on("submit", 'form', function (e) {
         if (form_name == 'resident_profile_update') {
           $("#content").load(base_url + 'page.php?page=resident/profile&id='+result.id);
         }
-        
-        if (form_name == 'resident_profile_update' || form_name == 'admin_profile_update') {
-          $('img').attr("src",$('#preview').attr('src'));
+        if (form_name == 'resident_create_request') {
+          // console.log(base_url + '?page=resident/requests&id=0');
+          $("#content").load(base_url + 'page.php?page=resident/requests');
         }
+        
+        if (form_name == 'resident_profile_update' || form_name == 'admin_profile_update' || form_name == 'resident_create_request') {
+          $('img:not(#logo)').attr("src",$('#preview').attr('src'));
+        }
+        
+    
       }
       if (result.items != '') {
         errorFields(result.items);

@@ -1,74 +1,52 @@
-<section class="content-header">
-  <h1>
-    <i class="fa fa-bullhorn"></i>
-    View Announcement ID#<?= $data->id; ?>
-  </h1>
-</section>
-<form role="form" name="announcement_edit" enctype="multipart/form-data">
-  <input type="hidden" name="id" value="<?= $data->id; ?>">
-  <section class="content">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="box box-success">
-          <div class="box-header with-border">
-            <i class="fa fa-info-circle"></i>
-            <h4 class="box-title">Announcement Details</h4>
-          </div>
-          <div class="box-body">
+<div class="row" style="margin-top:30px">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-4">
 
-            <div class="form-group col-xs-12">
-              <label for="exampleInputPassword1">*Title:</label>
-              <input type="text" class="form-control" placeholder="Title" name="title" value="<?= $data->title; ?>" disabled>
-            </div>
-            <div class="form-group col-xs-12">
-              <label for="exampleInputPassword1">*Description:</label>
-              <textarea class="form-control" row="10" name="description" placeholder="Announcement Description Here..." disabled><?= $data->description; ?></textarea>
-            </div>
-            <div class="form-group col-xs-6">
-              <label>*Start Date:</label>
-              <div class="input-group date">
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
-                </div>
-                <input type="text" class="form-control pull-right datepicker" name="start_date" value="<?= $data->start_date; ?>" disabled>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+
+        <?php if (!empty($data->images)) {
+          $ctr = 1; ?>
+          <?php foreach ($data->images as $res) { ?>
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="<?= ($ctr == 1) ? "active" : "" ?>"></li>
+          <?php $ctr++;
+          } ?>
+        <?php } ?>
+      </ol>
+      <div class="carousel-inner">
+
+
+        <?php if (!empty($data->images)) {
+          $ctr = 1; ?>
+          <?php foreach ($data->images as $res) { ?>
+
+            <div class="item<?= ($ctr == 1) ? " active" : "" ?>">
+              <center>
+                <img src="<?= BASE_URL . "files/announcement/" . $res['image']; ?>" alt="First slide" style="height:441px;object-fit:fill">
+              </center>
+              <div class="carousel-caption">
+
               </div>
             </div>
-            <div class="form-group col-xs-6">
-              <label>*End Date:</label>
-              <div class="input-group date">
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
-                </div>
-                <input type="text" class="form-control pull-right datepicker" name="end_date" value="<?= $data->end_date; ?>" disabled>
-              </div>
-            </div>
-
-            <div class="form-group col-xs-12">
-              <?php if (!empty($data->images)) { ?>
-                <?php foreach ($data->images as $res) { ?>
-                  <div class="col-xs-4">
-                    <img src="<?= BASE_URL . "files/announcement/" . $res['image']; ?>" class="img-responsive">
-                  </div>
-                <?php } ?>
-              <?php } ?>
-            </div>
-
-
-          </div>
-          <div class="modal-footer">
-
-          </div>
-        </div>
+          <?php $ctr++;
+          } ?>
+        <?php } ?>
       </div>
+      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="fa fa-angle-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="fa fa-angle-right"></span>
+      </a>
     </div>
-
-
-
-  </section>
-</form>
-<script>
-  $('.datepicker').datepicker({
-    autoclose: true,
-    format: 'yyyy-mm-dd',
-  }).datepicker("setDate", 'now');
-</script>
+  </div>
+  <div class="col-md-4">
+    <h1>
+      <strong><?= $data->title; ?></strong>!
+    </h1>
+    <h4>
+      <?= $data->description; ?>
+    </h4>
+  </div>
+</div>
