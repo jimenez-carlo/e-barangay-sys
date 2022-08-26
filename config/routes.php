@@ -35,7 +35,8 @@ $routes = array(
 
   # Resident
   'resident/profile' => $resident_route . '/profile.php',
-  'resident/home' => $resident_route . '/request/body.php',
+  'resident/home' => $resident_route . '/home.php',
+  'resident/about_us' => $resident_route . '/about_us.php',
 
   'resident/requests' => $resident_route . '/request/index.php',
   'resident/requests/view' => $resident_route . '/request/view.php',

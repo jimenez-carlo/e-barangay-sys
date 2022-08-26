@@ -46,111 +46,67 @@ scratch. This page gets rid of all links and provides the needed markup only.
   var base_url = "<?= BASE_URL; ?>";
 </script>
 
-<body class="hold-transition skin-green sidebar-mini">
+<body class="hold-transition skin-green layout-top-nav">
   <div class="wrapper">
 
     <!-- Main Header -->
     <header class="main-header">
+      <nav class="navbar navbar-static-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a href="<?= BASE_URL; ?>" class="navbar-brand" style="display:flex">
 
-      <!-- Logo -->
-      <a href="<?= BASE_URL; ?>" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>EB</b></span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b><?= SYSTEM_NAME_SHORT; ?></b></span>
-      </a>
+              <img src="assets/img/brgy_logo.png" alt="logo" style="height: 46px; margin-left: 6vw; margin-top: -14px; margin-right: 7px;" id="logo">
+              <b><?= SYSTEM_NAME_SHORT; ?></b></a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
 
-      <!-- Header Navbar -->
-      <nav class="navbar navbar-static-top" role="navigation">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-          <span class="sr-only">Toggle navigation</span>
-        </a>
-        <!-- Navbar Right Menu -->
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" class="btn-view" name="resident/home"><i class="fa fa-home"></i> Home</a></li>
+              <li><a href="#" class="btn-view" name="resident/announcement"><i class="fa fa-bullhorn"></i> Announcement</a></li>
+              <li><a href="#" class="btn-view" name="resident/requests"><i class="fa fa-files-o"></i> Request</a></li>
+              <li><a href="#" class="btn-view" name="resident/about_us"><i class="fa fa-info-circle"></i> About Us</a></li>
 
-            <!-- User Account Menu -->
-            <li class="dropdown user user-menu">
-              <!-- Menu Toggle Button -->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <!-- The user image in the navbar-->
-                <img src="files/profile/<?= $user->image; ?>" class="user-image" alt="User Image">
-                <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                <span class="hidden-xs"><?= ucfirst($user->first_name) . ' ' . ucfirst($user->last_name); ?></span>
-              </a>
-              <ul class="dropdown-menu">
-                <!-- The user image in the menu -->
-                <li class="user-header">
-                  <img src="files/profile/<?= $user->image; ?>" class="img-circle" alt="User Image">
+              <li class="dropdown user user-menu">
+                <!-- Menu Toggle Button -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <!-- The user image in the navbar-->
+                  <img src="files/profile/<?= $user->image; ?>" class="user-image" alt="User Image">
+                  <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                  <span class="hidden-xs"><?= ucfirst($user->first_name) . ' ' . ucfirst($user->last_name); ?></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- The user image in the menu -->
+                  <li class="user-header">
+                    <img src="files/profile/<?= $user->image; ?>" class="img-circle" alt="User Image">
 
-                  <p>
-                    <?= ucfirst($user->first_name) . ' - ' . ucfirst($user->access_name); ?>
-                    <small>Member since <?= ucfirst(date_format(date_create($user->created_date), 'M. d, Y')); ?></small>
-                  </p>
-                </li>
-                <!-- Menu Body -->
-                <li class="user-body">
-                  <div class="row">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
+                    <p>
+                      <?= ucfirst($user->first_name) . ' - ' . ucfirst($user->access_name); ?>
+                      <small>Member since <?= ucfirst(date_format(date_create($user->created_date), 'M. d, Y')); ?></small>
+                    </p>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-sm btn-success btn-flat btn-edit" name="resident/profile" value="<?= $user->id ?>"> <i class="fa fa-user-circle"></i> Profile</a>
                     </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
+                    <div class="pull-right">
+                      <a href="logout.php" class="btn btn-sm btn-success btn-flat" data-toggle="modalz" data-target="#modalz"><i class="fa fa-sign-out"></i> Sign out</a>
                     </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </div>
-                  <!-- /.row -->
-                </li>
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                  <div class="pull-left">
-                    <a href="#" class="btn btn-sm btn-success btn-flat btn-edit" name="resident/profile" value="<?= $user->id ?>"> <i class="fa fa-user-circle"></i> Profile</a>
-                  </div>
-                  <div class="pull-right">
-                    <a href="logout.php" class="btn btn-sm btn-success btn-flat" data-toggle="modalz" data-target="#modalz"><i class="fa fa-sign-out"></i> Sign out</a>
-                  </div>
-                </li>
-              </ul>
-            </li>
-
-          </ul>
-        </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
       </nav>
     </header>
-    <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
-
-      <!-- sidebar: style can be found in sidebar.less -->
-      <section class="sidebar">
-
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel">
-          <div class="pull-left image">
-            <img src="files/profile/<?= $user->image; ?>" class="img-circle" alt="User Image" style="min-height:45px">
-          </div>
-          <div class="pull-left info">
-            <p><?= ucfirst($user->first_name) . ' ' . ucfirst($user->last_name); ?></p>
-            <!-- Status -->
-            <a href="#" id="connection"><i class="fa fa-circle text-success"></i> Online</a>
-          </div>
-        </div>
 
 
-        <!-- Sidebar Menu -->
-        <ul class="sidebar-menu" data-widget="tree">
-          MENU
-          <!-- Optionally, you can add icons to the links -->
-          <li class="active"><a href="#" class="btn-view" name="admin/home"><i class="fa fa-home"></i> <span>Home</span></a></li>
-          <li><a href="#" class="btn-view" name="resident/requests"><i class="fa fa-files-o"></i> <span>Requests</span></a></li>
-          <li><a href="#" class="btn-view" name="resident/announcement"><i class="fa fa-bullhorn"></i> <span>Announcements</span></a></li>
-        </ul>
-        <!-- /.sidebar-menu -->
-      </section>
-      <!-- /.sidebar -->
-    </aside>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">

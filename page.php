@@ -39,7 +39,6 @@ if (in_array($page, $pages)) {
       $data['default_data'] = $members->set_default_data();
       $data['data'] = $tmp;
       break;
-      // Blotter
     case 'admin/blotter':
       $data['list'] = $blotter->get_blotters();
       break;
@@ -50,7 +49,6 @@ if (in_array($page, $pages)) {
       $data['default_data'] = $blotter->drop_down_data;
       $data['blotter'] = $blotter->get_case($id);
       break;
-      // Resident
     case 'admin/resident':
       $data['list'] = $resident->get_resident_list();
       break;
@@ -62,7 +60,6 @@ if (in_array($page, $pages)) {
       $data['default_data'] = $resident->set_default_data();
       $data['data'] = $tmp;
       break;
-      // Request
     case 'admin/request':
       $data['list'] = $request->get_requests_list();
       break;
@@ -75,7 +72,6 @@ if (in_array($page, $pages)) {
       $data['data'] = $tmp;
       $data['default_data']['barangay'] = $base->get_list("select * from tbl_barangay where city_id = '" . $tmp->resident->city_id . "' and deleted_flag = 0");
       break;
-      // Announcements
     case 'admin/announcement':
       $data['list'] = $announcement->get_announcements();
       break;
@@ -96,14 +92,17 @@ if (in_array($page, $pages)) {
       $data['data'] = $tmp;
       break;
 
+      // Resident
     case 'resident/profile':
       $tmp = $members->get_resident($id);
       $data['default_data'] = $members->set_default_data();
       $data['data'] = $tmp;
       break;
-
     case 'resident/requests':
-      $data['requests'] = $members->get_requestor_list();
+      $data['requests'] = $resident->get_requestor_list();
+      $tmp = $members->get_resident($_SESSION['user']->id);
+      $data['default_data'] = $members->set_default_data();
+      $data['data'] = $tmp;
       break;
     case 'resident/requests/view':
       $tmp = $request->get_request($id);
@@ -111,15 +110,15 @@ if (in_array($page, $pages)) {
       $data['data'] = $tmp;
       $data['default_data']['barangay'] = $base->get_list("select * from tbl_barangay where city_id = '" . $tmp->resident->city_id . "' and deleted_flag = 0");
       break;
-
     case 'resident/announcement':
-      $data['list'] = $announcement->get_resident_announcements();
+      $data['list'] = $announcement->get_resident_announcements_with_one_image();
       break;
     case 'resident/announcement/view':
       $data['default_data'] = $announcement->set_default_data();
       $data['data'] = $announcement->get_announcement($id);
       break;
 
+      // Landing Page
     case 'landing_page/announcements':
       $data['list'] = $announcement->get_resident_announcements_with_one_image();
       break;

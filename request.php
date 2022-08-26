@@ -76,6 +76,9 @@ switch ($form) {
   case 'resident_profile_update':
     $result = $profile->resident_update();
     break;
+  case 'resident_create_request':
+    $result = $profile->resident_update();
+    break;
 
   case 'resident_register_landing':
     $result = $resident->resident_register_landing();

@@ -80,6 +80,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <span class="hidden-xs"><?= ucfirst($user->first_name) . ' ' . ucfirst($user->last_name); ?></span>
               </a>
               <ul class="dropdown-menu">
+
                 <!-- The user image in the menu -->
                 <li class="user-header">
                   <!-- assets/img/user2-160x160.jpg -->
@@ -89,21 +90,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <?= ucfirst($user->first_name) . ' - ' . ucfirst($user->access_name); ?>
                     <small>Member since <?= ucfirst(date_format(date_create($user->created_date), 'M. d, Y')); ?></small>
                   </p>
-                </li>
-                <!-- Menu Body -->
-                <li class="user-body">
-                  <div class="row">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </div>
-                  <!-- /.row -->
                 </li>
                 <!-- Menu Footer-->
                 <li class="user-footer">

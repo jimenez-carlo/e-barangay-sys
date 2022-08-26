@@ -128,9 +128,26 @@ class Profile extends Base
         move_uploaded_file($image['tmp_name'], "files/profile/" . $name);
         $this->query("update tbl_users_info set `image` = '$name' , updated_date = '$updated_date' where id = $id");
       }
+      $success_msg = "Member ID#$id Profile Updated!";
+
+      if (isset($type)) {
+        switch ($type) {
+          case 1:
+            $success_msg = 'Request For Barangay Clearance Created Successfully!';
+            break;
+          case 2:
+            $success_msg = 'Request For Residency Created Successfully!';
+            break;
+          case 3:
+            $success_msg = 'Request For Barangay ID Created Successfully!';
+            break;
+        }
+        $request_id = $this->insert_get_id("insert into tbl_request (requester_id,request_type_id,request_status_id) values($user->id, $type, 1)");
+        $this->query("insert into tbl_request_history (request_id,request_status_id, created_by) values ($request_id,1,$user->id)");
+      }
 
       $this->commit_transaction();
-      $result->result = $this->response_success("Member ID#$id Profile Updated!");
+      $result->result = $this->response_success($success_msg);
       $result->status = true;
       $result->id = $id;
     } catch (mysqli_sql_exception $e) {
