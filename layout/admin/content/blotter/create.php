@@ -18,7 +18,6 @@
               <div class="form-group">
                 <label for="exampleInputEmail1">Complainant ID</label>
                 <select class="form-control select2" name="complainant_id">
-                  <option value="0">NONE</option>
                   <?php foreach ($default_data['users'] as $res) { ?>
                     <option value="<?= $res['id'] ?>"><?= $res['fullname'] ?></option>
                   <?php } ?>
@@ -29,7 +28,6 @@
               <div class="form-group">
                 <label for="exampleInputPassword1">Complainee ID</label>
                 <select class="form-control select2" name="complainee_id">
-                  <option value="0">NONE</option>
                   <?php foreach ($default_data['users'] as $res) { ?>
                     <option value="<?= $res['id'] ?>"><?= $res['fullname'] ?></option>
                   <?php } ?>
@@ -90,61 +88,59 @@
             <h4 class="box-title">Complainant Information</h4>
           </div>
           <div class="box-body">
+
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*First Name:</label>
-              <input type="text" class="form-control" placeholder="First Name" name="complainant_first_name">
+              <input type="text" class="form-control" placeholder="First Name" disabled name="complainant_first_name">
             </div>
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Middle Name:</label>
-              <input type="text" class="form-control" placeholder="Middle Name" name="complainant_middle_name">
+              <input type="text" class="form-control" placeholder="Middle Name" disabled name="complainant_middle_name">
             </div>
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Last Name:</label>
-              <input type="text" class="form-control" placeholder="Last Name" name="complainant_last_name">
+              <input type="text" class="form-control" placeholder="Last Name" disabled name="complainant_last_name">
+            </div>
+
+            <div class="form-group col-xs-4">
+              <label for="exampleInputPassword1">*Birth Date:</label>
+              <input type="text" class="form-control" placeholder="Last Name" disabled name="complainant_date_of_birth">
             </div>
             <div class="form-group col-xs-4">
-              <label>*Date of Birth:</label>
-              <div class="input-group date">
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
-                </div>
-                <input type="text" class="form-control pull-right datepicker" name="complainant_date_of_birth" data-age="complainant-age">
-                <div class="input-group-addon">
-                  Age
-                </div>
-                <div class="input-group-addon" data-complainant-age>
-                  0
-                </div>
-              </div>
+              <label for="exampleInputPassword1">*Birth Place:</label>
+              <input type="text" class="form-control" placeholder="Birth Place" disabled name="complainant_birth_place">
             </div>
             <div class="form-group col-xs-4">
-              <label for="exampleInputPassword1">*Contact No#:</label>
-              <input type="text" class="form-control" placeholder="09xxxxxxxxx" name="complainant_contact_no">
+              <label for="exampleInputPassword1">*Gender:</label>
+              <input type="text" class="form-control" placeholder="gender" disabled name="complainant_gender">
+            </div>
+
+            <div class="form-group col-xs-4">
+              <label for="exampleInputPassword1">*City:</label>
+              <input type="text" class="form-control" placeholder="City" disabled name="complainant_city">
             </div>
             <div class="form-group col-xs-4">
-              <label for="exampleInputPassword1">Gender:</label>
-              <select class="form-control" name="complainant_gender">
-                <?php foreach ($default_data['gender'] as $res) { ?>
-                  <option value="<?= $res['id'] ?>"><?= $res['gender'] ?></option>
-                <?php } ?>
-              </select>
+              <label for="exampleInputPassword1">*House No:</label>
+              <input type="text" class="form-control" placeholder="House no" disabled name="complainant_house_no">
             </div>
             <div class="form-group col-xs-4">
-              <label for="exampleInputPassword1">Zone:</label>
-              <select class="form-control" name="complainant_zone">
-                <?php foreach ($default_data['zone'] as $res) { ?>
-                  <option value="<?= $res['id'] ?>"><?= $res['zone'] ?></option>
-                <?php } ?>
-              </select>
+              <label for="exampleInputPassword1">*Marital Status:</label>
+              <input type="text" class="form-control" placeholder="Marital Status" disabled name="complainant_marital_status">
             </div>
+
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Barangay:</label>
-              <input type="text" class="form-control" placeholder="Barangay" name="complainant_barangay">
+              <input type="text" class="form-control" placeholder="Barangay" disabled name="complainant_barangay">
             </div>
             <div class="form-group col-xs-4">
-              <label for="exampleInputPassword1">*Address:</label>
-              <textarea class="form-control" row="5" name="complainant_address" placeholder="Address"></textarea>
+              <label for="exampleInputPassword1">*Street:</label>
+              <textarea class="form-control" row="5" disabled name="complainant_street" placeholder="Address"></textarea>
             </div>
+            <div class="form-group col-xs-4">
+              <label for="exampleInputPassword1">*Contact No:</label>
+              <input type="text" class="form-control" placeholder="09XXXXXXXXX" disabled name="complainant_contact_no">
+            </div>
+
           </div>
         </div>
       </div>
@@ -156,64 +152,64 @@
             <h4 class="box-title">Complainee Information</h4>
           </div>
           <div class="box-body">
+
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*First Name:</label>
-              <input type="text" class="form-control" placeholder="First Name" name="complainee_first_name">
+              <input type="text" class="form-control" placeholder="First Name" disabled name="complainee_first_name">
             </div>
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Middle Name:</label>
-              <input type="text" class="form-control" placeholder="Middle Name" name="complainee_middle_name">
+              <input type="text" class="form-control" placeholder="Middle Name" disabled name="complainee_middle_name">
             </div>
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Last Name:</label>
-              <input type="text" class="form-control" placeholder="Last Name" name="complainee_last_name">
+              <input type="text" class="form-control" placeholder="Last Name" disabled name="complainee_last_name">
+            </div>
+
+            <div class="form-group col-xs-4">
+              <label for="exampleInputPassword1">*Birth Date:</label>
+              <input type="text" class="form-control" placeholder="Last Name" disabled name="complainee_date_of_birth">
             </div>
             <div class="form-group col-xs-4">
-              <label>*Date of Birth:</label>
-              <div class="input-group date">
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
-                </div>
-                <input type="text" class="form-control pull-right datepicker" name="complainee_date_of_birth" data-age="complainee-age">
-                <div class="input-group-addon">
-                  Age
-                </div>
-                <div class="input-group-addon" data-complainee-age>
-                  0
-                </div>
-              </div>
+              <label for="exampleInputPassword1">*Birth Place:</label>
+              <input type="text" class="form-control" placeholder="Birth Place" disabled name="complainee_birth_place">
             </div>
             <div class="form-group col-xs-4">
-              <label for="exampleInputPassword1">*Contact No#:</label>
-              <input type="text" class="form-control" placeholder="09xxxxxxxxx" name="complainee_contact_no">
+              <label for="exampleInputPassword1">*Gender:</label>
+              <input type="text" class="form-control" placeholder="gender" disabled name="complainee_gender">
+            </div>
+
+            <div class="form-group col-xs-4">
+              <label for="exampleInputPassword1">*City:</label>
+              <input type="text" class="form-control" placeholder="City" disabled name="complainee_city">
             </div>
             <div class="form-group col-xs-4">
-              <label for="exampleInputPassword1">Gender:</label>
-              <select class="form-control" name="complainee_gender">
-                <?php foreach ($default_data['gender'] as $res) { ?>
-                  <option value="<?= $res['id'] ?>"><?= $res['gender'] ?></option>
-                <?php } ?>
-              </select>
+              <label for="exampleInputPassword1">*House No:</label>
+              <input type="text" class="form-control" placeholder="House no" disabled name="complainee_house_no">
             </div>
             <div class="form-group col-xs-4">
-              <label for="exampleInputPassword1">Zone:</label>
-              <select class="form-control" name="complainee_zone">
-                <?php foreach ($default_data['zone'] as $res) { ?>
-                  <option value="<?= $res['id'] ?>"><?= $res['zone'] ?></option>
-                <?php } ?>
-              </select>
+              <label for="exampleInputPassword1">*Marital Status:</label>
+              <input type="text" class="form-control" placeholder="Marital Status" disabled name="complainee_marital_status">
             </div>
+
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Barangay:</label>
-              <input type="text" class="form-control" placeholder="Barangay" name="complainee_barangay">
+              <input type="text" class="form-control" placeholder="Barangay" disabled name="complainee_barangay">
             </div>
             <div class="form-group col-xs-4">
-              <label for="exampleInputPassword1">*Address:</label>
-              <textarea class="form-control" row="5" name="complainee_address" placeholder="Address"></textarea>
+              <label for="exampleInputPassword1">*Street:</label>
+              <textarea class="form-control" row="5" disabled name="complainee_street" placeholder="Address"></textarea>
             </div>
+            <div class="form-group col-xs-4">
+              <label for="exampleInputPassword1">*Contact No:</label>
+              <input type="text" class="form-control" placeholder="09XXXXXXXXX" disabled name="complainee_contact_no">
+            </div>
+
           </div>
         </div>
       </div>
+
+
     </div>
 
   </section>
@@ -223,5 +219,56 @@
   $('.datepicker').datepicker({
     autoclose: true,
     format: 'yyyy-mm-dd',
-  }).datepicker("setDate", 'now');;
+  }).datepicker("setDate", 'now');
+
+
+  $("select[name='complainant_id']").on('change', function(e) {
+    $.ajax({
+      url: base_url + 'request.php',
+      type: 'POST',
+      data: {
+        form: 'get_user',
+        id: $(this).val()
+      },
+      success: function(result) {
+        var user = JSON.parse(result);
+        $("input[name='complainant_first_name']").val(user.first_name);
+        $("input[name='complainant_middle_name']").val(user.middle_name);
+        $("input[name='complainant_last_name']").val(user.last_name);
+        $("input[name='complainant_date_of_birth']").val(user.birth_date);
+        $("input[name='complainant_date_place']").val(user.birth_place);
+        $("input[name='complainant_gender']").val(user.gender);
+        $("input[name='complainant_city']").val(user.city);
+        $("input[name='complainant_house_no']").val(user.house_no);
+        $("input[name='complainant_marital_status']").val(user.marital_status);
+        $("input[name='complainant_barangay']").val(user.barangay);
+        $("input[name='complainant_street']").val(user.street);
+      }
+    });
+  });
+
+  $("select[name='complainee_id']").on('change', function(e) {
+    $.ajax({
+      url: base_url + 'request.php',
+      type: 'POST',
+      data: {
+        form: 'get_user',
+        id: $(this).val()
+      },
+      success: function(result) {
+        var user = JSON.parse(result);
+        $("input[name='complainee_first_name']").val(user.first_name);
+        $("input[name='complainee_middle_name']").val(user.middle_name);
+        $("input[name='complainee_last_name']").val(user.last_name);
+        $("input[name='complainee_date_of_birth']").val(user.birth_date);
+        $("input[name='complainee_date_place']").val(user.birth_place);
+        $("input[name='complainee_gender']").val(user.gender);
+        $("input[name='complainee_city']").val(user.city);
+        $("input[name='complainee_house_no']").val(user.house_no);
+        $("input[name='complainee_marital_status']").val(user.marital_status);
+        $("input[name='complainee_barangay']").val(user.barangay);
+        $("input[name='complainee_street']").val(user.street);
+      }
+    });
+  });
 </script>

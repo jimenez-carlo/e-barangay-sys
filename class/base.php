@@ -113,7 +113,7 @@ class Base
     $this->query("insert into tbl_system_error (message) values('$error')");
   }
 
-  function sms($number, $message)
+  public function sms($number, $message)
   {
     $url = 'https://www.itexmo.com/php_api/api.php';
     $itexmo = array('1' => $number, '2' => $message, '3' => API_CODE, 'passwd' => API_PASSWORD);
@@ -128,7 +128,7 @@ class Base
     $this->save_error(file_get_contents($url, false, $context));
   }
 
-  function get_dropdown()
+  public function get_dropdown()
   {
     extract($_POST);
     $data = $this->get_list("select $value as `value`, $display as `display` from $table where $where = $id ");
@@ -136,5 +136,17 @@ class Base
       echo ($res['value'] == $selected) ? "<option value='" . $res['value'] . "' selected> " . $res['display'] . "</option>" : "<option value='" . $res['value'] . "'> " . $res['display'] . "</option>";
     }
     die;
+  }
+
+  public function get_user()
+  {
+    extract($_POST);
+    $user =  new stdClass();
+    $user = $this->get_one("select * from tbl_users_info where id = $id limit 1");
+    $user->city  = (isset($user->city_id) && !empty($user->city_id)) ? $this->get_one("select name from tbl_city where id = $user->city_id limit 1")->name : '';
+    $user->barangay  = (isset($user->barangay_id) && !empty($user->barangay_id)) ? $this->get_one("select name from tbl_barangay where id = $user->barangay_id limit 1")->name : '';
+    $user->gender  = (isset($user->gender_id) && !empty($user->gender_id)) ? $this->get_one("select gender from tbl_gender where id = $user->gender_id limit 1")->gender : '';
+    $user->marital_status  = (isset($user->marital_status_id) && !empty($user->marital_status_id)) ? $this->get_one("select status from tbl_marital_status where id = $user->marital_status_id limit 1")->status : '';
+    return $user;
   }
 }
