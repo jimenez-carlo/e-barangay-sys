@@ -10,7 +10,7 @@
 <!-- Page Content-->
 <div class="container px-4 px-lg-5">
     <!-- Heading Row-->
-    <div class="row gx-4 gx-lg-5 align-items-center py-5">
+    <div class="row gx-4 gx-lg-5 align-items-center pt-5">
         <div class="row gx-4 gx-lg-5">
             <div class="col-md-6 mb-5">
                 <div class="card h-100">
@@ -71,7 +71,7 @@
             </div>
         </div>
 
-        <div class="row" style="margin-top:20px">
+        <div class="row">
             <div class="col-md-5">
             </div>
             <div class="col-md-2" style="display:flex;justify-content:space-around">
