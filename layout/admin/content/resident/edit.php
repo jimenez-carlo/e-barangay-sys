@@ -303,7 +303,4 @@
   $(".city").on('change', function(e) {
     dropdown_with_default('barangay', "tbl_barangay", "city_id", $(this).val(), "name", "id", $(this).val());
   });
-  $(document).ready(function() {
-    dropdown_with_default('barangay', "tbl_barangay", "city_id", "<?= $data->city_id; ?>", "name", "id", "<?= $data->barangay_id; ?>");
-  });
 </script>

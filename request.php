@@ -36,6 +36,9 @@ switch ($form) {
   case 'blotter_create':
     $result = $blotter->create_blotter();
     break;
+  case 'blotter_update':
+    $result = $blotter->update();
+    break;
   case 'resident_request':
     $result = $resident->create_request();
     break;
@@ -86,6 +89,9 @@ switch ($form) {
 
   case 'get_dropdown':
     $base->get_dropdown();
+    break;
+  case 'get_user':
+    $result = $base->get_user();
     break;
 }
 echo json_encode($result);

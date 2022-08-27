@@ -45,7 +45,7 @@ if (in_array($page, $pages)) {
     case 'admin/blotter/create':
       $data['default_data'] = $blotter->drop_down_data;
       break;
-    case 'admin/blotter/view':
+    case 'admin/blotter/edit':
       $data['default_data'] = $blotter->drop_down_data;
       $data['blotter'] = $blotter->get_case($id);
       break;
