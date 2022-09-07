@@ -63,7 +63,7 @@
             <label for="country" class="form-label">City</label>
             <select class="form-select select2 city" id="country" name="city">
               <?php foreach ($default_data['city'] as $res) { ?>
-                <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
+                <option value="<?= $res['id'] ?>" <?php echo ('137607' == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
               <?php } ?>
             </select>
           </div>
@@ -116,5 +116,9 @@
 
   $(".city").on('change', function(e) {
     dropdown_with_default('barangay', "tbl_barangay", "city_id", $(this).val(), "name", "id", $(this).val());
+  });
+
+  $(document).ready(function() {
+    dropdown_with_default('barangay', "tbl_barangay", "city_id", "137607", "name", "id", "137607002");
   });
 </script>
