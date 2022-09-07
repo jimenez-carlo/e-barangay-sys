@@ -238,8 +238,9 @@ class Resident extends Base
     $this->start_transaction();
     try {
       $updated_date = date('Y-m-d H:i:s');
-      $default_password = '$2y$10$KKYMmphhiBr9szoYIW3Bqe9aH3i6TFE8EwwXNkl8zKAuo7sUD6Rn6';
-      $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id) values('$username','$email', '$default_password',1, 3)");
+      $default_password = '$2y$10$jqh3gg3pZTEQTni6o2X5ZOfBpLDY7GIG84wH72/NQLhN7MKEUTdnW';
+      $final_password = password_hash($password, PASSWORD_DEFAULT);
+      $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id) values('$username','$email', '$final_password',1, 3)");
       $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no')");
       $this->query("insert into tbl_user_status_history (user_id,user_status_id) values($id, 1)");
 
