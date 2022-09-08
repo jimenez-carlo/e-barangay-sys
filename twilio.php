@@ -9,7 +9,7 @@ use Twilio\Rest\Client;
 // Find your Account SID and Auth Token at twilio.com/console
 // and set the environment variables. See http://twil.io/secure
 $sid = "AC293a2bb5424a51a166eca17608daf465"; //getenv("AC293a2bb5424a51a166eca17608daf465");
-$token = "e29a1a6dfa766e07ae74c19114c710b8"; //getenv("e29a1a6dfa766e07ae74c19114c710b8");
+$token = "af8d3a3c23774ec3b1829e1e4aa85439"; //getenv("e29a1a6dfa766e07ae74c19114c710b8");
 $twilio = new Client($sid, $token);
 $number = '09217635295';
 $number = (substr($number, 0, 2) == '09') ? "+639" . ltrim($number, '09') : $number;

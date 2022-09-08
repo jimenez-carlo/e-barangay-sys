@@ -17,5 +17,10 @@ define('VERSION_NO', 0.1);
 define('ROUTES', $routes);
 define('BASE_URL', 'http://e-barangay-system.com/'); //http://e-barangay-system.com/
 define('ADMIN_ACCESS', array_keys($routes));
-define('API_CODE', 'ST-LEONA235447_P4GAW');
-define('API_PASSWORD', 't&z9q#dtyj');
+define('API_CODE', ''); //
+define('API_PASSWORD', ''); //
+
+define('API_SID', ''); // AC293a2bb5424a51a166eca17608daf465
+define('API_TOKEN', ''); // af8d3a3c23774ec3b1829e1e4aa85439
+define('API_PHONE', ''); // +19035009924
+// *kW!5l86mA8r1f#@
