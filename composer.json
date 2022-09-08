@@ -1,5 +1,6 @@
 {
     "require": {
-        "twilio/sdk": "^6.42"
+        "twilio/sdk": "^6.42",
+        "messente/messente-api-php": "^2.0"
     }
 }

@@ -22,5 +22,9 @@ define('API_PASSWORD', ''); //
 
 define('API_SID', ''); // AC293a2bb5424a51a166eca17608daf465
 define('API_TOKEN', ''); // af8d3a3c23774ec3b1829e1e4aa85439
-define('API_PHONE', ''); // +19035009924
+
+// Mesente
+define('API_MESENTE_USERNAME', 'b79cfca67bb84e17934d8f7af0fd7850'); // +19035009924
+define('API_MESENTE_PASSWORD', '20123f8607df499cb8ddbad5cf26170f'); // af8d3a3c23774ec3b1829e1e4aa85439
+
 // *kW!5l86mA8r1f#@

@@ -1,6 +1,10 @@
 <?php
 
 use Twilio\Rest\Client;
+use Messente\Api\Api\OmnimessageApi;
+use Messente\Api\Model\Omnimessage;
+use Messente\Api\Configuration;
+use Messente\Api\Model\SMS;
 
 class Base
 {
@@ -133,6 +137,7 @@ class Base
     Find your Account SID and Auth Token at twilio.com/console
     and set the environment variables. See http://twil.io/secure
     */
+
     $sid = API_SID;
     $token = API_TOKEN;
     $twilio = new Client($sid, $token);
@@ -148,6 +153,47 @@ class Base
       );
     // print_r($number);
     // print_r($result->sid);
+
+
+
+
+    // $config = Configuration::getDefaultConfiguration()
+    //   ->setUsername(API_MESENTE_USERNAME)
+    //   ->setPassword(API_MESENTE_PASSWORD);
+
+    // $apiInstance = new OmnimessageApi(
+    //   new GuzzleHttp\Client(),
+    //   $config
+    // );
+
+    // if (is_array($number)) {
+    //   $omnimessage = new Omnimessage([
+    //     'to' => '+639217635295',
+    //   ]);
+    // } else {
+
+    //   $number = (substr($number, 0, 2) == '09') ? "+639" . ltrim($number, '09') : $number;
+    //   $omnimessage = new Omnimessage([
+    //     'to' => $number,
+    //   ]);
+    // }
+
+    // $sms = new SMS(
+    //   [
+    //     'text' => $message,
+    //     'sender' => '+639217635295',
+    //   ]
+    // );
+
+    // $omnimessage->setMessages([$sms]);
+
+    // try {
+    //   $result = $apiInstance->sendOmnimessage($omnimessage);
+
+    //   // print_r(json_encode($result));
+    // } catch (Exception $e) {
+    //   // echo 'Exception when calling sendOmnimessage: ', $e->getMessage(), PHP_EOL;
+    // }
   }
 
   public function get_dropdown()
