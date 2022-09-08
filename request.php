@@ -1,4 +1,5 @@
 <?php
+require_once 'vendor/autoload.php';
 require('config/functions.php');
 require('db/conn.php');
 require('class/base.php');

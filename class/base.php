@@ -1,4 +1,7 @@
 <?php
+
+use Twilio\Rest\Client;
+
 class Base
 {
   private $conn;
@@ -115,6 +118,7 @@ class Base
 
   public function sms($number, $message)
   {
+    /*
     $url = 'https://www.itexmo.com/php_api/api.php';
     $itexmo = array('1' => $number, '2' => $message, '3' => API_CODE, 'passwd' => API_PASSWORD);
     $param = array(
@@ -126,6 +130,24 @@ class Base
     );
     $context  = stream_context_create($param);
     $this->save_error(file_get_contents($url, false, $context));
+    Find your Account SID and Auth Token at twilio.com/console
+    and set the environment variables. See http://twil.io/secure
+    */
+    $sid = "AC293a2bb5424a51a166eca17608daf465"; //getenv("AC293a2bb5424a51a166eca17608daf465");
+    $token = "e29a1a6dfa766e07ae74c19114c710b8"; //getenv("e29a1a6dfa766e07ae74c19114c710b8");
+    $twilio = new Client($sid, $token);
+
+    $number = (substr($number, 0, 2) == '09') ? "+639" . ltrim($number, '09') : $number;
+    $result = $twilio->messages
+      ->create(
+        $number, // to
+        [
+          "body" => $message,
+          "from" => "+19035009924"
+        ]
+      );
+    // print_r($number);
+    // print_r($result->sid);
   }
 
   public function get_dropdown()

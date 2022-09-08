@@ -107,7 +107,7 @@ class Resident extends Base
 
       if ($resident_update == 'verify') {
         $status = $this->get_one("select status_id as status from tbl_users where id = '$id' and deleted_flag = 0 limit 1")->status;
-        $datainfo = $this->get_one("select contact_no as status from tbl_users_info where id = '$id' and deleted_flag = 0 limit 1");
+        $datainfo = $this->get_one("select contact_no from tbl_users_info where id = '$id' and deleted_flag = 0 limit 1");
 
         if ($status == 2) {
           $result->result = $this->response_error("Error User Is Already Verified");
@@ -115,6 +115,7 @@ class Resident extends Base
         }
 
         if (isset($datainfo->contact_no) && !empty($datainfo->contact_no)) {
+
           $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, 2, $user->id)");
           $this->sms($datainfo->contact_no, "E-Barangay System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
         }
@@ -174,7 +175,7 @@ class Resident extends Base
 
       if ($user_status == 2) {
         $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, $user_status, $user->id)");
-        $this->sms($datainfo->contact_no, "E-Barangay System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
+        $this->sms($contact_no, "E-Barangay System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
       }
 
       $this->commit_transaction();
@@ -268,7 +269,7 @@ class Resident extends Base
 
     $id = $verify_resident;
     $status = $this->get_one("select status_id as status from tbl_users where id = '$id' and deleted_flag = 0 limit 1")->status;
-    $datainfo = $this->get_one("select contact_no as status from tbl_users_info where id = '$id' and deleted_flag = 0 limit 1");
+    $datainfo = $this->get_one("select contact_no from tbl_users_info where id = '$id' and deleted_flag = 0 limit 1");
 
     if ($status == 2) {
       $result->result = $this->response_error("Error User Is Already Verified");
