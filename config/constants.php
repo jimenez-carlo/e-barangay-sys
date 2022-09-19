@@ -20,8 +20,8 @@ define('ADMIN_ACCESS', array_keys($routes));
 define('API_CODE', ''); //
 define('API_PASSWORD', ''); //
 
-define('API_SID', ''); // AC293a2bb5424a51a166eca17608daf465
-define('API_TOKEN', ''); // af8d3a3c23774ec3b1829e1e4aa85439
+define('API_SID', ''); // 
+define('API_TOKEN', ''); // 
 
 // Mesente
 define('API_MESENTE_USERNAME', 'b79cfca67bb84e17934d8f7af0fd7850'); // +19035009924
