@@ -68,7 +68,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#" class="btn-view" name="resident/home"><i class="fa fa-home"></i> Home</a></li>
               <li><a href="#" class="btn-view" name="resident/announcement"><i class="fa fa-bullhorn"></i> Announcement</a></li>
-              <li><a href="#" class="btn-view" name="resident/requests"><i class="fa fa-files-o"></i> Request</a></li>
+              <li><a href="#" class="btn-view" name="resident/gallery"><i class="fa fa-picture-o"></i> Gallery</a></li>
+              <li><a href="#" class="btn-view" name="resident/requests"><i class="fa fa-handshake-o"></i> Online Services</a></li>
               <li><a href="#" class="btn-view" name="resident/about_us"><i class="fa fa-info-circle"></i> About Us</a></li>
 
               <li class="dropdown user user-menu">

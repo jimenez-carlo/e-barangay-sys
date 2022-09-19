@@ -43,6 +43,7 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
           <li class="nav-item"><a class="nav-link btn-view" href="#" name="landing_page/announcements">Announcement</a></li>
+          <li class="nav-item"><a class="nav-link btn-view" href="#" name="landing_page/gallery">Gallery</a></li>
           <li class="nav-item"><a class="nav-link btn-view" href="#" name="landing_page/about_us">About Us</a></li>
           <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modal">Login</a></li>
           <li class="nav-item"><a class="nav-link btn-view" href="#" name="landing_page/register">Register</a></li>

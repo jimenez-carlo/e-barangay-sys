@@ -40,11 +40,13 @@ $routes = array(
   'resident/requests' => $resident_route . '/request/index.php',
   'resident/requests/view' => $resident_route . '/request/view.php',
 
+  'resident/gallery' => $resident_route . '/gallery.php',
   'resident/announcement' => $resident_route . '/announcement/index.php',
   'resident/announcement/view' => $resident_route . '/announcement/view.php',
 
   #Landing Page
   'landing_page/about_us' => $landing_route . '/about_us.php',
+  'landing_page/gallery' => $landing_route . '/gallery.php',
   'landing_page/announcements' => $landing_route . '/announcements.php',
   'landing_page/announcements/view' => $landing_route . '/view.php',
   'landing_page/register' => $landing_route . '/register.php',
