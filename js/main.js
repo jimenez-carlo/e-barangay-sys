@@ -131,6 +131,15 @@ $(document).on("submit", 'form', function (e) {
         if (form_name == 'resident_register') {
           $("#content").load(base_url + 'page.php?page=admin/resident/create');
         }
+        if (form_name == 'resident_request_barangay') {
+          $("#content").load(base_url + 'page.php?page=resident/barangay');
+        }
+        if (form_name == 'resident_request_id') {
+          $("#content").load(base_url + 'page.php?page=resident/id');
+        }
+        if (form_name == 'resident_request_business') {
+          $("#content").load(base_url + 'page.php?page=resident/business');
+        }
         if (form_name == 'member_update') {
           $("#content").load(base_url + 'page.php?page=admin/member/edit&id='+result.id);
         }

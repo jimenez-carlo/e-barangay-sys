@@ -28,6 +28,19 @@ $routes = array(
   'admin/announcement/create' => $admin_route . '/announcement/create.php',
   'admin/announcement/edit' => $admin_route . '/announcement/edit.php',
 
+  'admin/barangay' => $admin_route . '/barangay/index.php',
+  'admin/barangay/create' => $admin_route . '/barangay/create.php',
+  'admin/barangay/edit' => $admin_route . '/barangay/edit.php',
+
+  'admin/id' => $admin_route . '/id/index.php',
+  'admin/id/create' => $admin_route . '/id/create.php',
+  'admin/id/edit' => $admin_route . '/id/edit.php',
+
+  'admin/business' => $admin_route . '/business/index.php',
+  'admin/business/create' => $admin_route . '/business/create.php',
+  'admin/business/edit' => $admin_route . '/business/edit.php',
+
+
   'admin/members' => $admin_route . '/members/index.php',
   'admin/members/create' => $admin_route . '/members/create.php',
   'admin/members/edit' => $admin_route . '/members/edit.php',
@@ -39,6 +52,9 @@ $routes = array(
 
   'resident/requests' => $resident_route . '/request/index.php',
   'resident/requests/view' => $resident_route . '/request/view.php',
+  'resident/business' => $resident_route . '/request/business.php',
+  'resident/barangay' => $resident_route . '/request/barangay.php',
+  'resident/id' => $resident_route . '/request/id.php',
 
   'resident/gallery' => $resident_route . '/gallery.php',
   'resident/announcement' => $resident_route . '/announcement/index.php',

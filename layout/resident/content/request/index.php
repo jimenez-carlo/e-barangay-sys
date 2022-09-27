@@ -14,17 +14,17 @@
                 <li>
                   <h3 style="font-weight:bold">BUSINESS CLEARANCE</h3>
                   <h4>Application/Renewal/Closure</h4>
-                  <button type="button" class="form-control btn btn-success btn-flat" style="max-width:25%"><i class="fa fa-check"></i> Click to apply</button>
+                  <button type="button" class="form-control btn btn-success btn-flat btn-view" name="resident/business" style="max-width:25%"><i class="fa fa-check"></i> Click to apply</button>
                 </li>
                 <li>
                   <h3 style="font-weight:bold">BARANGAY CLEARANCE / CERTIFICATE</h3>
                   <h4>Clearance for personal use</h4>
-                  <button type="button" class="form-control btn btn-success btn-flat" style="max-width:25%"><i class="fa fa-check"></i> Click to apply</button>
+                  <button type="button" class="form-control btn btn-success btn-flat btn-view" name="resident/barangay" style=" max-width:25%"><i class="fa fa-check"></i> Click to apply</button>
                 </li>
                 <li>
                   <h3 style="font-weight:bold">BARANGAY ID</h3>
                   <h4>Barangay ID for residents of Barangay Fort Bonifacio</h4>
-                  <button type="button" class="form-control btn btn-success btn-flat" style="max-width:25%"><i class="fa fa-check"></i> Click to apply</button>
+                  <button type="button" class="form-control btn btn-success btn-flat btn-view" name="resident/id" style=" max-width:25%"><i class="fa fa-check"></i> Click to apply</button>
                 </li>
               </ul>
             </div>

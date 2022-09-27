@@ -165,7 +165,7 @@
                 <div class="nav-tabs-custom">
                   <ul class="nav nav-tabs">
                     <li class="active"><a href="#status_history" data-toggle="tab" aria-expanded="true"><i class="fa fa-history"></i> Status History</a></li>
-                    <li class=""><a href="#requests" data-toggle="tab" aria-expanded="false"><i class="fa fa-files-o"></i> Requests</a></li>
+                    <!-- <li class=""><a href="#requests" data-toggle="tab" aria-expanded="false"><i class="fa fa-files-o"></i> Requests</a></li> -->
                     <li class=""><a href="#blotter" data-toggle="tab" aria-expanded="false"><i class="fa fa-address-book"></i> Blotter Cases</a></li>
                   </ul>
                   <div class="tab-content">
@@ -195,7 +195,7 @@
 
                       </table>
                     </div>
-
+                    <!-- 
                     <div class="tab-pane" id="requests">
                       <table class="table table-bordered table-striped table-hover dataTable" role="grid">
                         <thead>
@@ -223,7 +223,7 @@
                         </tbody>
 
                       </table>
-                    </div>
+                    </div> -->
 
                     <div class="tab-pane" id="blotter">
                       <table class="table table-bordered table-striped table-hover dataTable" role="grid">

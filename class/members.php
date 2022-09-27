@@ -20,6 +20,15 @@ class Members extends Base
     $data['zone'] = $this->get_list("select * from tbl_zone where deleted_flag = 0");
     $data['user_status'] = $this->get_list("select * from tbl_user_status where deleted_flag = 0");
     $data['barangay_positions'] = $this->get_list("select * from tbl_barangay_positions where deleted_flag = 0");
+    $data['purpose'] = $this->get_list("select * from tbl_purpose");
+    $data['blood_type'] = $this->get_list("select * from tbl_blood_type");
+    $data['business_type'] = $this->get_list("select * from tbl_business_type");
+    $data['ownership_type'] = $this->get_list("select * from tbl_ownership_type");
+    $data['application_type'] = $this->get_list("select * from tbl_application_type");
+    $data['blood_type'] = $this->get_list("select * from tbl_blood_type");
+    $data['clearance_id'] = $this->get_one("select if(max(id) is null, 1, max(id) + 1) as `id`  from tbl_request_barangay order by id desc limit 1 ")->id;
+    $data['barangay_id'] = $this->get_one("select if(max(id) is null, 1, max(id) + 1) as `id`  from tbl_request_id order by id desc limit 1 ")->id;
+    $data['business_id'] = $this->get_one("select if(max(id) is null, 1, max(id) + 1) as `id`  from tbl_request_business order by id desc limit 1 ")->id;
     return $data;
   }
 
@@ -44,7 +53,12 @@ class Members extends Base
     }
 
     $resident = $this->get_one("select u.username, u.email, u.status_id,ui.* from tbl_users_info ui inner join tbl_users u on u.id = ui.id where ui.deleted_flag = 0 and ui.id = $id limit 1");
+    $city = $this->get_one("select name from tbl_city where id= $resident->city_id")->name ?? '';
+    $zone = $this->get_one("select zone from tbl_zone where id= $resident->zone_id")->zone ?? '';
+    $barangay = $this->get_one("select name from tbl_barangay where id= $resident->barangay_id")->name ?? '';
+    $resident->complete_address = strtoupper($resident->house_no . ', ' . $resident->street . ', ' . $barangay . ', ' . $zone . ', ' . $city);
     $data = $resident;
+    $resident = $this->get_one("select u.username, u.email, u.status_id,ui.* from tbl_users_info ui inner join tbl_users u on u.id = ui.id where ui.deleted_flag = 0 and ui.id = $id limit 1");
     $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status,sh.* from tbl_user_status_history sh inner join tbl_users_info ui on ui.id = sh.created_by inner join tbl_user_status s on s.id = sh.user_status_id where sh.deleted_flag = 0 and sh.user_id = $id order by sh.created_date desc");
     $data->requests = $this->get_list("select r.id,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,rt.type as request_type,rs.status,r.updated_date,r.created_date from tbl_request r left join tbl_users_info ui on ui.id = r.updated_by inner join tbl_request_type rt on rt.id = r.request_type_id  inner join tbl_request_status rs on rs.id = r.request_status_id where r.requester_id = $id order by r.updated_date desc");
     $data->blotter = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status,b.* from tbl_blotter b inner join tbl_users_info ui on ui.id = b.complainant_id inner join tbl_blotter_status s on s.id = b.blotter_status_id where b.deleted_flag = 0 and b.complainee_id = $id order by b.created_date desc");
