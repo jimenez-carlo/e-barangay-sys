@@ -1,10 +1,10 @@
 <section class="content-header">
   <h1>
     <i class="fa fa-edit"></i>
-    Clearance ID#<?= $data->id; ?>
+    Barangay Clearance ID#<?= $data->id; ?>
   </h1>
 </section>
-<form role="form" name="resident_request_id" enctype="multipart/form-data">
+<form role="form" name="change_status_barangay_clearance" enctype="multipart/form-data">
   <section class="content">
     <div class="row">
       <div class="col-md-9">
@@ -172,7 +172,8 @@
             <h4 class="box-title">Request Details</h4>
           </div>
           <div class="box-body">
-
+            <input type="hidden" class="form-control" name="id" value="<?= $data->id; ?>">
+            <input type="hidden" class="form-control" name="type" value="1">
             <div class="form-group col-xs-12">
               <label for="exampleInputPassword1">*Status:</label>
               <select class="form-control" name="status">

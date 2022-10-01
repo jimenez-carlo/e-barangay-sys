@@ -52,7 +52,12 @@ switch ($form) {
   case 'resident_update':
     $result = $resident->update();
     break;
-
+    // change status
+  case 'change_status_barangay_id':
+  case 'change_status_barangay_clearance':
+  case 'change_status_business_clearance':
+    $result = $request->change_status_request();
+    break;
 
   case 'member_register':
     $result = $members->create();

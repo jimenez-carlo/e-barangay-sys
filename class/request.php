@@ -84,7 +84,6 @@ class Request extends Base
     if (empty($id)) {
       return $data;
     }
-
     $request = $this->get_one("select * from tbl_request_business where deleted_flag = 0 and id = $id limit 1");
     $data = $request;
     $data->resident = $this->get_one("select * from tbl_users_info  where deleted_flag = 0 and id = $request->requester_id limit 1");
@@ -92,19 +91,32 @@ class Request extends Base
     return $data;
   }
 
-  public function get_request($id)
+  public function get_request($id, $type = null)
   {
     $data = new stdClass();
 
     if (empty($id)) {
       return $data;
     }
-
-    $request = $this->get_one("select * from tbl_request where deleted_flag = 0 and id = $id limit 1");
-    $data = $request;
-    $data->resident = $this->get_one("select * from tbl_users_info  where deleted_flag = 0 and id = $request->requester_id limit 1");
-    $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status,rh.* from tbl_request_history rh inner join tbl_users_info ui on ui.id = rh.created_by inner join tbl_request_status s on s.id = rh.request_status_id where rh.deleted_flag = 0 and rh.request_id = $id order by rh.created_date desc");
-    return $data;
+    if (empty($type)) {
+      $request = $this->get_one("select * from tbl_request where deleted_flag = 0 and id = $id limit 1");
+      $data = $request;
+      $data->resident = $this->get_one("select * from tbl_users_info  where deleted_flag = 0 and id = $request->requester_id limit 1");
+      $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status,rh.* from tbl_request_history rh inner join tbl_users_info ui on ui.id = rh.created_by inner join tbl_request_status s on s.id = rh.request_status_id where rh.deleted_flag = 0 and rh.request_id = $id order by rh.created_date desc");
+      return $data;
+    } else {
+      $types = array(
+        1 => 'tbl_request_barangay',
+        2 => 'tbl_request_business',
+        3 =>   'tbl_request_id'
+      );
+      $table = $types[$type];
+      $request = $this->get_one("select * from $table where id = $id limit 1");
+      $data = $request;
+      $data->resident = $this->get_one("select * from tbl_users_info  where deleted_flag = 0 and id = $request->requester_id limit 1");
+      $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status,rh.* from tbl_request_history rh inner join tbl_users_info ui on ui.id = rh.created_by inner join tbl_request_status s on s.id = rh.request_status_id where rh.deleted_flag = 0 and rh.request_id = $id order by rh.created_date desc");
+      return $data;
+    }
   }
 
   public function request_generate()
@@ -418,6 +430,62 @@ class Request extends Base
       $new = new self($this->conn);
       $new->save_error($e->getMessage());
       $result->result = $this->response_error();
+    }
+    return $result;
+  }
+
+
+  public function change_status_request()
+  {
+    extract($this->escape_data(array_merge($_SESSION, $_POST)));
+
+    $result = $this->response_obj();
+    $request_data = $this->get_request($id, $type);
+
+    if ($status == $request_data->request_status_id) {
+      $result->result = $this->response_error("Request Status Is the Same!");
+      $result->items = 'status';
+      return $result;
+    }
+
+    $types = array(
+      1 => 'tbl_request_barangay',
+      2 => 'tbl_request_business',
+      3 =>  'tbl_request_id'
+    );
+
+    $title = array(
+      1 => 'Barangay Clearance',
+      2 => 'Business Clearance',
+      3 => 'Barangay ID'
+    );
+
+    $table = $types[$type];
+    $request_type = $title[$type];
+
+    $this->start_transaction();
+    try {
+      $updated_date = date('Y-m-d H:i:s');
+      $this->query("INSERT INTO tbl_request_history (request_id, request_type_id, request_status_id, remarks, created_by) values($id, $type, $status, '$remarks', $user->id)");
+      $this->query("UPDATE $table set request_status_id = $status, updated_date = '$updated_date', updated_by ='$user->id' where id = $id ");
+
+      if (isset($send_sms) && $status == 2) {
+        $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where deleted_flag = 0  and u.status_id = 2 and id = $id");
+        foreach ($recipients as $res) {
+          if (strlen($res['contact_no'] == 11)) {
+            $this->sms($res['contact_no'], "E-Barangay System Notification!, Your $request_type ID#$id Has Been Approved! Please Walk-In to E-Barangay To Claim Your Request.");
+          }
+        }
+      }
+
+      $this->commit_transaction();
+      $result->status = true;
+      $result->result = $this->response_success("$request_type ID#$id Status Changed!");
+      $result->id = $id;
+    } catch (mysqli_sql_exception $e) {
+      $this->roll_back();
+      $new = new self($this->conn);
+      $new->save_error($e->getMessage());
     }
     return $result;
   }

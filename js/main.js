@@ -119,6 +119,19 @@ $(document).on("submit", 'form', function (e) {
         if (form_name == 'request_change_status') {
           $("#content").load(base_url + 'page.php?page=admin/request/edit&id='+result.id);
         }
+        
+        
+        if (form_name == 'change_status_barangay_id') {
+          $("#content").load(base_url + 'page.php?page=admin/id/edit&id='+result.id);
+        }
+        if (form_name == 'change_status_barangay_clearance') {
+          $("#content").load(base_url + 'page.php?page=admin/barangay/edit&id='+result.id);
+        }
+        if (form_name == 'change_status_business_clearance') {
+          $("#content").load(base_url + 'page.php?page=admin/business/edit&id='+result.id);
+        }
+        
+        
         if (form_name == 'request_generate') {
           $("#content").load(base_url + 'page.php?page=admin/request/edit&id='+result.id);
         }
