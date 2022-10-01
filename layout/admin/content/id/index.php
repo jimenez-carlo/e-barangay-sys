@@ -7,9 +7,7 @@
          <div class="row">
            <div class="col-xs-12">
              <div class="box box-success">
-               <div class="box-header with-border">
-                 <!-- <button type="submit" class="btn btn-sm btn-flat btn-success btn-view" name="admin/barangay/create"> <i class="fa fa-plus"></i> Create Request</button> -->
-               </div>
+
                <div class="box-body">
                  <div class="row">
                    <div class="col-sm-12">
@@ -62,16 +60,18 @@
        </section>
 
        <script>
-         $(function() {
-           // $('#example1').DataTable()
+         $(document).ready(function() {
            $('table').DataTable({
-             'paging': true,
-             // 'lengthChange': false,
-             'searching': true,
-             'ordering': true,
-             'aaSorting': [], // disabled auto sort
-             'info': true,
-             // 'autoWidth': false
+             "initComplete": function(settings, json) {
+               $(".dt-button").removeClass("dt-button");
+             },
+             dom: 'Blfrtip',
+             buttons: [{
+               extend: 'excel',
+               text: '<i class="fa fa-file-excel-o"></i> Export </button>',
+               className: 'btn btn-sm btn-flat btn-success',
+
+             }]
            });
          });
        </script>

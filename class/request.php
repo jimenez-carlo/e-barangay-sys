@@ -190,7 +190,8 @@ class Request extends Base
     $msg = '';
 
     // Require Fields
-    $required_fields = array('issued_date', 'tin', 'phil_health', 'sss', 'contact_person', 'contact_person_address', 'contact_person_no');
+    $required_fields = array('issued_date');
+    // 'tin', 'phil_health', 'sss', 'contact_person', 'contact_person_address', 'contact_person_no'
 
     foreach ($required_fields as $res) {
       if (empty(${$res})) {
@@ -215,7 +216,9 @@ class Request extends Base
 
     $this->start_transaction();
     try {
-      $request_id = $this->insert_get_id("INSERT INTO tbl_request_barangay  (purpose_id,others,issued_date,requester_id,blood_type_id,phil_health,sss,tin,contact_person,contact_person_address,contact_person_no,minor,guardian,updated_by) values('$purpose_id','$others','$issued_date','$user->id','$blood_type_id','$phil_health','$sss','$tin','$contact_person','$contact_person_address','$contact_person_no','$minor','$guardian','$user->id')");
+      // blood_type_id,phil_health,sss,tin,contact_person,contact_person_address,contact_person_no
+      // '$blood_type_id','$phil_health','$sss','$tin','$contact_person','$contact_person_address','$contact_person_no',
+      $request_id = $this->insert_get_id("INSERT INTO tbl_request_barangay  (purpose_id,others,issued_date,requester_id,minor,guardian,updated_by) values('$purpose_id','$others','$issued_date','$user->id','$minor','$guardian','$user->id')");
       $this->query("INSERT INTO tbl_request_history (request_id, request_type_id, request_status_id, remarks, created_by) values($request_id, 1, 1, 'System Generated', $user->id)");
 
       $this->commit_transaction();
@@ -239,7 +242,8 @@ class Request extends Base
     $msg = '';
 
     // Require Fields
-    $required_fields = array('issued_date', 'tin', 'phil_health', 'sss', 'contact_person', 'contact_person_address', 'contact_person_no');
+    $required_fields = array('issued_date');
+    // 'tin', 'phil_health', 'sss', 'contact_person', 'contact_person_address', 'contact_person_no'
 
     foreach ($required_fields as $res) {
       if (empty(${$res})) {
@@ -305,8 +309,9 @@ class Request extends Base
         $signature_img = 'img_' . date('YmdHis') . "." . end($ext);
         move_uploaded_file($signature['tmp_name'], "files/signature/" . $signature_img);
       }
-
-      $request_id = $this->insert_get_id("INSERT INTO tbl_request_id (issued_date,requester_id,blood_type_id,phil_health,sss,tin,contact_person,contact_person_address,contact_person_no,minor,guardian,updated_by,government_id,picture,`signature`) values('$issued_date','$user->id','$blood_type_id','$phil_health','$sss','$tin','$contact_person','$contact_person_address','$contact_person_no','$minor','$guardian','$user->id','$government_img','$picture_img','$signature_img' )");
+      // blood_type_id,phil_health,sss,tin,contact_person,contact_person_address,contact_person_no,
+      // '$blood_type_id','$phil_health','$sss','$tin','$contact_person','$contact_person_address','$contact_person_no',
+      $request_id = $this->insert_get_id("INSERT INTO tbl_request_id (issued_date,requester_id,minor,guardian,updated_by,government_id,picture,`signature`) values('$issued_date','$user->id','$minor','$guardian','$user->id','$government_img','$picture_img','$signature_img' )");
       $this->query("INSERT INTO tbl_request_history (request_id, request_type_id, request_status_id, remarks, created_by) values($request_id, 3, 1, 'System Generated', $user->id)");
 
       $this->commit_transaction();

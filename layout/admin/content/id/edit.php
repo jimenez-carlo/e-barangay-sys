@@ -101,16 +101,23 @@
             </div>
 
             <div class="form-group col-xs-3">
+              <label for="exampleInputPassword1">Is applicant a minor?:</label>
+              <div class="radio">
+                <label><input type="radio" name="minor" value="1" <?php echo (!empty($data->minor)) ? 'checked' : ''; ?>>Yes</label>
+                <label><input type="radio" name="minor" value="0" <?php echo (empty($data->minor)) ? 'checked' : ''; ?>>No</label>
+              </div>
+            </div>
+            <!-- <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">Email Address:</label>
               <input type="text" class="form-control" placeholder="Email Address" name="birth_place" value="<?= $resident_data->birth_place; ?>" disabled>
-            </div>
+            </div> -->
 
             <div class="form-group col-xs-6">
               <label for="exampleInputPassword1">Address:</label>
               <input type="text" class="form-control" placeholder="Address" name="address" value="<?= $resident_data->complete_address; ?>" disabled>
             </div>
 
-            <div class="form-group col-xs-3">
+            <!-- <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">TIN:</label>
               <input type="text" class="form-control" placeholder="TIN" name="tin" value="<?= $data->tin; ?>" disabled>
             </div>
@@ -148,15 +155,9 @@
                 </div>
                 <input type="text" class="form-control pull-right" name="contact_person_no" placeholder="09XXXXXXXXX" value="<?= $data->contact_person_no; ?>" disabled>
               </div>
-            </div>
-            <div class="form-group col-xs-3">
-              <label for="exampleInputPassword1">Is applicant a minor?:</label>
-              <div class="radio">
-                <label><input type="radio" name="minor" value="1" <?php echo (!empty($data->minor)) ? 'checked' : ''; ?>>Yes</label>
-                <label><input type="radio" name="minor" value="0" <?php echo (empty($data->minor)) ? 'checked' : ''; ?>>No</label>
-              </div>
-            </div>
-            <div class="form-group col-xs-3">
+            </div> -->
+
+            <div class="form-group col-xs-6">
               <label for="exampleInputPassword1">Name of Guardian:</label>
               <input type="text" class="form-control" placeholder="Name of Guardian" name="guardian" value="<?= $data->guardian; ?>" disabled>
             </div>

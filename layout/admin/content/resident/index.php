@@ -7,9 +7,7 @@
           <div class="row">
             <div class="col-xs-12">
               <div class="box box-success">
-                <div class="box-header with-border">
-                  <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/resident/create"> <i class="fa fa-user-plus"></i> Register</button>
-                </div>
+
                 <div class="box-body">
                   <div class="row">
                     <div class="col-sm-12">
@@ -67,13 +65,26 @@
         </section>
 
         <script>
-          $(function() {
+          $(document).ready(function() {
             $('table').DataTable({
-              'paging': true,
-              'searching': true,
-              'ordering': true,
-              'info': true,
-              'aaSorting': [], // disabled auto sort
+              "initComplete": function(settings, json) {
+                $(".dt-button").removeClass("dt-button");
+              },
+              dom: 'Blfrtip',
+              buttons: [{
+                  text: '<i class="fa fa-user-plus"></i> Register</button>',
+                  className: 'btn btn-sm btn-flat btn-success btn-view',
+                  attr: {
+                    name: 'admin/resident/create'
+                  }
+                },
+                {
+                  extend: 'excel',
+                  text: '<i class="fa fa-file-excel-o"></i> Export </button>',
+                  className: 'btn btn-sm btn-flat btn-success',
+
+                }
+              ]
             });
           });
         </script>

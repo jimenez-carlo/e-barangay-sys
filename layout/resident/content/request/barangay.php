@@ -89,39 +89,46 @@
                 <input type="text" class="form-control pull-right" name="contact_no" placeholder="09XXXXXXXXX" value="<?= $data->contact_no; ?>" name="start_date" disabled>
               </div>
             </div>
-
             <div class="form-group col-xs-3">
+              <label for="exampleInputPassword1">*Is applicant a minor?:</label>
+              <div class="radio">
+                <label><input type="radio" name="minor" value="1" checked="">Yes</label>
+                <label><input type="radio" name="minor" value="0" checked="">No</label>
+              </div>
+            </div>
+
+            <!-- <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">*Email Address:</label>
               <input type="text" class="form-control" placeholder="Email Address" name="birth_place" value="<?= $data->birth_place; ?>" disabled>
-            </div>
+            </div> -->
 
             <div class="form-group col-xs-6">
               <label for="exampleInputPassword1">*Address:</label>
               <input type="text" class="form-control" placeholder="Address" name="address" value="<?= $data->complete_address; ?>" disabled>
             </div>
 
-            <div class="form-group col-xs-3">
+            <!-- <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">*TIN:</label>
               <input type="text" class="form-control" placeholder="TIN" name="tin">
-            </div>
-            <div class="form-group col-xs-3">
+            </div> -->
+            <!-- <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">*Philhealth:</label>
               <input type="text" class="form-control" placeholder="Philhealth" name="phil_health">
-            </div>
-            <div class="form-group col-xs-3">
+            </div> -->
+            <!-- <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">*SSS:</label>
               <input type="text" class="form-control" placeholder="SSS" name="sss">
-            </div>
+            </div> -->
 
-            <div class="form-group col-xs-3">
+            <!-- <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">*Blood Type:</label>
               <select class="form-control" name="blood_type_id">
                 <?php foreach ($default_data['blood_type'] as $res) { ?>
                   <option value="<?= $res['id'] ?>"><?= strtoupper($res['blood_type']); ?></option>
                 <?php } ?>
               </select>
-            </div>
-            <div class="form-group col-xs-6">
+            </div> -->
+            <!-- <div class="form-group col-xs-6">
               <label for="exampleInputPassword1">*Contact Person in case of emergency:</label>
               <input type="text" class="form-control" placeholder="Contact Person in case of emergency" name="contact_person">
             </div>
@@ -138,14 +145,8 @@
                 </div>
                 <input type="text" class="form-control pull-right" name="contact_person_no" placeholder="09XXXXXXXXX">
               </div>
-            </div>
-            <div class="form-group col-xs-3">
-              <label for="exampleInputPassword1">*Is applicant a minor?:</label>
-              <div class="radio">
-                <label><input type="radio" name="minor" value="1" checked="">Yes</label>
-                <label><input type="radio" name="minor" value="0" checked="">No</label>
-              </div>
-            </div>
+            </div> -->
+
             <div class="form-group col-xs-6">
               <label for="exampleInputPassword1">*Name of Guardian:</label>
               <input type="text" class="form-control" placeholder="Name of Guardian" name="guardian">

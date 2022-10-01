@@ -20,7 +20,16 @@
       <!-- jQuery 3 -->
       <script src="css/jquery/dist/jquery.min.js"></script>
 
-      <script src="css/datatables.net/js/jquery.dataTables.min.js"></script>
+
+      <script src="js/datatable.js"></script>
+      <script src="js/datable_button.js"></script>
+      <script src="js/datable_zip.js"></script>
+      <script src="js/datable_fonts.js"></script>
+      <script src="js/datable_html.js"></script>
+      <script src="js/datable_print.js"></script>
+
+
+      <!-- <script src="css/datatables.net/js/jquery.dataTables.min.js"></script> -->
       <!-- Bootstrap 3.3.7 -->
       <script src="css/bootstrap/dist/js/bootstrap.min.js"></script>
       <!-- Select2 -->
@@ -42,7 +51,7 @@
       <script src="js/adminlte.min.js "></script>
 
 
-      <script src="css/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+      <!-- <script src="css/datatables.net-bs/js/dataTables.bootstrap.min.js"></script> -->
       <script src="plugins/iCheck/icheck.min.js"></script>
       <script src="css/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 

@@ -63,3 +63,16 @@ display: flex;
 .flex-td>button{
   margin-right: 2px;
 }
+.dt-buttons{
+  position: absolute;
+}
+#DataTables_Table_0_length{
+position: absolute;
+}
+div.dt-buttons{
+float: unset;
+    margin-bottom: 1rem;
+}
+input[type='search'] {
+    border: 1px solid #d2d6de!important;
+}
