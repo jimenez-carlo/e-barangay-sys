@@ -161,7 +161,7 @@ class Request extends Base
       $this->query("UPDATE tbl_request set request_status_id = $status, updated_date = '$updated_date', updated_by ='$user->id' where id = $id ");
 
       if (isset($send_sms) && $status == 2) {
-        $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where deleted_flag = 0  and u.status_id = 2 and id = $id");
+        $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
         foreach ($recipients as $res) {
           if (strlen($res['contact_no'] == 11)) {
             $this->sms($res['contact_no'], "E-Barangay System Notification!, Your Request#$id Has Been Approved! Please Walk-In to E-Barangay To Claim Your Request.");
@@ -475,7 +475,7 @@ class Request extends Base
       $this->query("UPDATE $table set request_status_id = $status, updated_date = '$updated_date', updated_by ='$user->id' where id = $id ");
 
       if (isset($send_sms) && $status == 2) {
-        $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where deleted_flag = 0  and u.status_id = 2 and id = $id");
+        $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
         foreach ($recipients as $res) {
           if (strlen($res['contact_no'] == 11)) {
             $this->sms($res['contact_no'], "E-Barangay System Notification!, Your $request_type ID#$id Has Been Approved! Please Walk-In to E-Barangay To Claim Your Request.");
