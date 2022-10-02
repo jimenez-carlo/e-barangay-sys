@@ -157,7 +157,7 @@ $(document).on("submit", 'form', function (e) {
           $("#content").load(base_url + 'page.php?page=admin/member/edit&id='+result.id);
         }
         if (form_name == 'member_register') {
-          $("#content").load(base_url + 'page.php?page=admin/member/create');
+          $("#content").load(base_url + 'page.php?page=admin/members/create');
         }
         if (form_name == 'admin_profile_update') {
           $("#content").load(base_url + 'page.php?page=admin/profile&id='+result.id);

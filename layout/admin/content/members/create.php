@@ -13,7 +13,6 @@
             <i class="fa fa-user-circle"></i>
             <h4 class="box-title">Resident Information</h4>
           </div>
-
           <div class="box-body">
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*First Name:</label>
