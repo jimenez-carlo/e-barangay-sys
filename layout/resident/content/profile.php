@@ -109,6 +109,26 @@
 
           </div>
           <div class="modal-footer" style="min-height:93px">
+            <div class="form-group col-xs-4">
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  Old Password:
+                </div>
+                <input type="text" class="form-control pull-right" name="old_password" placeholder="Old Password" name="old_password">
+              </div>
+            </div>
+            <div class="form-group col-xs-4">
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  New Password:
+                </div>
+                <input type="text" class="form-control pull-right" name="new_password" placeholder="New Password" name="new_password">
+              </div>
+            </div>
+            <div class="form-group col-xs-4">
+              <button type="submit" class="btn btn-sm btn-success btn-flat" name="resident_profile_update" value="password" style="float:left"><i class="fa fa-save"></i> Change Password</button>
+            </div>
+
           </div>
         </div>
       </div>
@@ -139,7 +159,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-sm btn-success btn-flat" name="resident_profile_update"><i class="fa fa-save"></i> Update</button>
+            <button type="submit" class="btn btn-sm btn-success btn-flat" name="resident_profile_update" value="profile"><i class="fa fa-save"></i> Update</button>
           </div>
         </div>
       </div>
