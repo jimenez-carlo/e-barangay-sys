@@ -112,7 +112,7 @@ class Members extends Base
       }
 
       if ($member_update == 'reset') {
-        $default_password = '$2y$10$jqh3gg3pZTEQTni6o2X5ZOfBpLDY7GIG84wH72/NQLhN7MKEUTdnW';
+        $default_password = '$2y$10$EjFxOXsWtBtICE1KpmAnxuaL01SMG9U11ConTF6fpWJi4s4Z8GfKS';
         $this->query("update tbl_users set password = '$default_password', updated_date = '$updated_date' where id = $id");
         $this->commit_transaction();
         $result->result = $this->response_success("Member ID#$id Password Was Reset!");
