@@ -54,9 +54,9 @@ class Members extends Base
 
     $resident = $this->get_one("select u.username, u.email, u.status_id,ui.* from tbl_users_info ui inner join tbl_users u on u.id = ui.id where ui.deleted_flag = 0 and ui.id = $id limit 1");
     $city = $this->get_one("select name from tbl_city where id= $resident->city_id")->name ?? '';
-    $zone = $this->get_one("select zone from tbl_zone where id= $resident->zone_id")->zone ?? '';
+    // $zone = $this->get_one("select zone from tbl_zone where id= $resident->zone_id")->zone ?? '';
     $barangay = $this->get_one("select name from tbl_barangay where id= $resident->barangay_id")->name ?? '';
-    $resident->complete_address = strtoupper($resident->house_no . ', ' . $resident->street . ', ' . $barangay . ', ' . $zone . ', ' . $city);
+    $resident->complete_address = strtoupper($resident->house_no . ', ' . $resident->street . ', ' . $barangay . ', ' . $city);
     $data = $resident;
     $resident = $this->get_one("select u.username, u.email, u.status_id,ui.* from tbl_users_info ui inner join tbl_users u on u.id = ui.id where ui.deleted_flag = 0 and ui.id = $id limit 1");
     $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status,sh.* from tbl_user_status_history sh left join tbl_users_info ui on ui.id = sh.created_by left join tbl_user_status s on s.id = sh.user_status_id where sh.deleted_flag = 0 and sh.user_id = $id order by sh.created_date desc");

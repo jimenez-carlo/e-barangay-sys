@@ -154,7 +154,7 @@ $(document).on("submit", 'form', function (e) {
           $("#content").load(base_url + 'page.php?page=resident/business');
         }
         if (form_name == 'member_update') {
-          $("#content").load(base_url + 'page.php?page=admin/member/edit&id='+result.id);
+          $("#content").load(base_url + 'page.php?page=admin/members/edit&id='+result.id);
         }
         if (form_name == 'member_register') {
           $("#content").load(base_url + 'page.php?page=admin/members/create');
