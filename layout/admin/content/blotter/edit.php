@@ -20,7 +20,7 @@
                 <label for="exampleInputEmail1">Complainant ID</label>
                 <select class="form-control select2" name="complainant_id">
                   <?php foreach ($default_data['users'] as $res) { ?>
-                    <option value="<?= $res['id'] ?>"><?= $res['fullname'] ?></option>
+                    <option value="<?= $res['id'] ?>" <?php echo ($res['id'] == $blotter->complainant_id) ? 'selected' : ''; ?>><?= $res['fullname'] ?></option>
                   <?php } ?>
                 </select>
               </div>
@@ -30,7 +30,7 @@
                 <label for="exampleInputPassword1">Complainee ID</label>
                 <select class="form-control select2" name="complainee_id">
                   <?php foreach ($default_data['users'] as $res) { ?>
-                    <option value="<?= $res['id'] ?>"><?= $res['fullname'] ?></option>
+                    <option value="<?= $res['id'] ?>" <?php echo ($res['id'] == $blotter->complainee_id) ? 'selected' : ''; ?>><?= $res['fullname'] ?></option>
                   <?php } ?>
                 </select>
               </div>
@@ -86,6 +86,7 @@
           <div class="box-header with-border">
             <i class="fa fa-user-circle"></i>
             <h4 class="box-title">Complainant Information</h4>
+            <button type="button" class="btn btn-sm btn-flat btn-success btn-view pull-right" name="admin/resident/edit" value="<?php echo $blotter->complainant_id; ?>"> <i class="fa fa-edit"></i> Edit</button>
           </div>
           <div class="box-body">
 
@@ -150,6 +151,7 @@
           <div class="box-header with-border">
             <i class="fa fa-user-circle"></i>
             <h4 class="box-title">Complainee Information</h4>
+            <button type="button" class="btn btn-sm btn-flat btn-success btn-view pull-right" name="admin/resident/edit" value="<?php echo $blotter->complainee_id; ?>"> <i class="fa fa-edit"></i> Edit</button>
           </div>
           <div class="box-body">
 
