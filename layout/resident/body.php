@@ -64,20 +64,9 @@
   <div class="row" style="margin:2rem 0px;text-align: center;">
     <div class="col-md-2">
     </div>
-    <div class="col-md-4">
-      <h3>MAIN OFFICE</h3>
-      <h4>2nd floor, Multi-Purpose Hall, Zone 1, Brgy. Fort Bonifacio, Lawton Ave cor Pasong Tamo extension, Taguig City
-        <br><br>
-        Tel No.: 02-8477-2106
-        Cel. No.: +63 945 849 0538
-      </h4>
-    </div>
-    <div class="col-md-4">
-      <h3>SATELLITE OFFICE</h3>
-      <h4>2nd Floor, Market Market & SM Aura 9th Floor Bonifacio Global City, Taguig City
-        <br><br>
-        Tel: (02) 7750 7636;
-        Cel. No.: +63 925 545 8002
+    <div class="col-md-8">
+      <h3>NEW BARANGAY HALL</h3>
+      <h4>DAMA DE NOCHE ST. WAWA, TAGUIG CITY
       </h4>
     </div>
   </div>
@@ -86,19 +75,18 @@
     <div class="col-md-2">
     </div>
     <div class="col-md-4">
-      <h3>PEACE AND ORDER</h3>
+      <h3>BARANGAY WAWA HOTLINE</h3>
       <h4>
-        Cel. No.: +63 9267 300 576
+        Cel. No.: 0945 849 0538
       </h4>
     </div>
     <div class="col-md-4">
-      <h3>EMERGENCY & RESCUE</h3>
+      <h3>PEACE AND ORDER</h3>
       <h4>
-        Cel. No.: +63 9255 453 469
+        Cel. No.: 0926 730 0576
       </h4>
     </div>
   </div>
-
 
 
   <div class="mapouter w-100 my-3">

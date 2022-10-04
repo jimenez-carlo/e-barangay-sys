@@ -74,15 +74,6 @@
             <h4 class="text-center">KAGAWAD <br>Bogie Garcia</h4>
           </div>
         </div>
-      </div>
-      <div class="col-md-5">
-      </div>
-    </div>
-
-    <div class="row" style="margin-top:20px">
-      <div class="col-md-5">
-      </div>
-      <div class="col-md-2" style="display:flex;justify-content:space-around">
         <div class="box box-mg">
           <div class="box-header" style="padding:unset">
             <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img4.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
@@ -99,6 +90,16 @@
             <h4 class="text-center">KAGAWAD <br>Virgilio Dionisio</h4>
           </div>
         </div>
+      </div>
+      <div class="col-md-5">
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:20px">
+      <div class="col-md-5">
+      </div>
+      <div class="col-md-2" style="display:flex;justify-content:space-around">
+
         <div class="box box-mg">
           <div class="box-header" style="padding:unset">
             <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img6.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
@@ -115,14 +116,6 @@
             <h4 class="text-center">KAGAWAD <br>Rizalito Sta Barbara</h4>
           </div>
         </div>
-      </div>
-      <div class="col-md-5">
-      </div>
-    </div>
-    <div class="row" style="margin-top:20px">
-      <div class="col-md-5">
-      </div>
-      <div class="col-md-2" style="display:flex;justify-content:space-around">
         <div class="box box-mg">
           <div class="box-header" style="padding:unset">
             <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img8.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
@@ -139,6 +132,15 @@
             <h4 class="text-center">KAGAWAD <br>Butch Valenzuela</h4>
           </div>
         </div>
+      </div>
+      <div class="col-md-5">
+      </div>
+    </div>
+    <div class="row" style="margin-top:20px">
+      <div class="col-md-5">
+      </div>
+      <div class="col-md-2" style="display:flex;justify-content:space-around">
+
         <div class="box box-mg">
           <div class="box-header" style="padding:unset">
             <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img10.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
@@ -179,6 +181,17 @@
             <h4 class="text-center">TREASURY <br>Sally Miguel Dionisio</h4>
           </div>
         </div>
+
+      </div>
+      <div class="col-md-5">
+      </div>
+    </div>
+    <div class="row" style="margin-top:20px">
+      <div class="col-md-5">
+      </div>
+      <div class="col-md-2" style="display:flex;justify-content:space-around">
+
+
         <div class="box box-mg">
           <div class="box-header" style="padding:unset">
             <img class="img-responsive" src="<?= BASE_URL . "assets/officer/default.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">

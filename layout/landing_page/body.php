@@ -40,7 +40,6 @@
             </div>
             <div class="col-lg-5">
                 <h1 class="font-weight-light">Welcome to E-Barangay Site!</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc posuere cursus ante et vehicula. Mauris nec porta nibh. Suspendisse magna dolor, rutrum eu pharetra non, tempor mattis nisl. pharetra, lacus vitae commodo vestibulum, nulla tortor rhoncus justo, et eleifend turpis tellus nec mi. Ut condimentum mollis odio tempor rhoncus.</p>
                 <a class="btn btn-success btn-view" href="#!" name="landing_page/register">Signup</a>
             </div>
         </div>
@@ -57,28 +56,18 @@
                 Barangay Wawa is devoted to satisfying your expectations. Do you have any queries, feedback, complaints and/or recommendations? We'd be delighted to know your thoughts, so please feel free to contact us anytime.
             </div>
 
-            <div class="w-50 align-items-center my-4">
-                <h4 class="fw-normal">MAIN OFFICE</h4>
-                2nd floor, Multi-Purpose Hall, Zone 1, Brgy. Fort Bonifacio, Lawton Ave cor Pasong Tamo extension, Taguig City
-                <br><br>
-                Tel No.: 02-8477-2106
-                Cel. No.: +63 945 849 0538
+            <div class="align-items-center my-4" style="width: 100%;">
+                <h4 class="fw-normal">NEW BARANGAY HALL</h4>
+                DAMA DE NOCHE ST. WAWA, TAGUIG CITY
             </div>
             <div class="w-50 align-items-center my-4">
-                <h4 class="fw-normal">SATELLITE OFFICE</h4>
-                2nd Floor, Market Market & SM Aura 9th Floor Bonifacio Global City, Taguig City
-                <br><br>
-                Tel: (02) 7750 7636;
-                Cel. No.: +63 925 545 8002
+                <h4 class="fw-normal">BARANGAY WAWA HOTLINE</h4>
+                Cel. No.: 0945 849 0538
             </div>
             <div class="w-50 align-items-center my-4">
                 <h4 class="fw-normal">PEACE AND ORDER</h4>
-                Cel. No.: +63 9267 300 576
+                Cel. No.: 0926 730 0576
 
-            </div>
-            <div class="w-50 align-items-center my-4">
-                <h4 class="fw-normal">EMERGENCY & RESCUE</h4>
-                Cel. No.: +63 9255 453 469
             </div>
         </div>
 

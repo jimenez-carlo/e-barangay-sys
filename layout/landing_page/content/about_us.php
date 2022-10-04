@@ -68,15 +68,6 @@
                     </div>
                     <div class="card-footer">KAGAWAD <br>Bogie Garcia</div>
                 </div>
-            </div>
-            <div class="col-md-5">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-5">
-            </div>
-            <div class="col-md-2" style="display:flex;justify-content:space-around">
                 <div class="box box-mg">
                     <div class="box-header" style="padding:unset">
                         <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img4.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
@@ -91,6 +82,16 @@
                     <div class="card-footer">KAGAWAD <br>Virgilio Dionisio
                     </div>
                 </div>
+            </div>
+            <div class="col-md-5">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">
+            </div>
+            <div class="col-md-2" style="display:flex;justify-content:space-around">
+
                 <div class="box box-mg">
                     <div class="box-header" style="padding:unset">
                         <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img6.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
@@ -105,14 +106,6 @@
                     <div class="card-footer">KAGAWAD <br>Rizalito Sta Barbara
                     </div>
                 </div>
-            </div>
-            <div class="col-md-5">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-5">
-            </div>
-            <div class="col-md-2" style="display:flex;justify-content:space-around">
                 <div class="box box-mg">
                     <div class="box-header" style="padding:unset">
                         <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img8.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
@@ -127,6 +120,15 @@
                     <div class="card-footer">KAGAWAD <br>Butch Valenzuela
                     </div>
                 </div>
+            </div>
+            <div class="col-md-5">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+            </div>
+            <div class="col-md-2" style="display:flex;justify-content:space-around">
+
                 <div class="box box-mg">
                     <div class="box-header" style="padding:unset">
                         <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img10.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
@@ -158,6 +160,16 @@
                     </div>
                     <div class="card-footer">TREASURY <br>Sally Miguel Dionisio</div>
                 </div>
+
+            </div>
+            <div class="col-md-5">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+            </div>
+            <div class="col-md-2" style="display:flex;justify-content:space-around">
+
                 <div class="box box-mg">
                     <div class="box-header" style="padding:unset">
                         <img class="img-responsive" src="<?= BASE_URL . "assets/officer/default.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">

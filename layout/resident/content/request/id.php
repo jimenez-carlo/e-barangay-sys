@@ -138,10 +138,11 @@
                 <input type="text" class="form-control pull-right" name="contact_person_no" placeholder="09XXXXXXXXX">
               </div>
             </div> -->
-
-            <div class="form-group col-xs-6">
-              <label for="exampleInputPassword1">*Name of Guardian:</label>
-              <input type="text" class="form-control" placeholder="Name of Guardian" name="guardian">
+            <div id="form1">
+              <div class="form-group col-xs-6">
+                <label for="exampleInputPassword1">*Name of Guardian:</label>
+                <input type="text" class="form-control" placeholder="Name of Guardian" name="guardian">
+              </div>
             </div>
             <div class="form-group col-xs-6" style="width: 100%;">
             </div>
@@ -177,4 +178,16 @@
     autoclose: true,
     format: 'yyyy-mm-dd',
   }).datepicker("setDate", 'now');
+
+  $("[name='minor']").on('change', function(e) {
+    if (this.value == 1) {
+      $("#form1").css("visibility", "visible");
+    } else {
+      $("#form1").css("visibility", "hidden");
+    }
+  });
+
+  $(document).ready(function() {
+    $("[name='minor']").trigger('change');
+  });
 </script>
