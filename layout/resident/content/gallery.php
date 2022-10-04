@@ -15,8 +15,8 @@
       <div class="col-md-3">
         <div class="box">
           <div class="box-header" style="padding:unset">
-            <a data-fslightbox="gallery" href="<?= BASE_URL . "files/announcement/img_20220826014831_0.png" ?>">
-              <img class="img-responsive" src="<?= BASE_URL . "files/announcement/img_20220826014831_0.png" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+            <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img1.jpg" ?>">
+              <img class="img-responsive" src="<?= BASE_URL . "assets/gallery/img1.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
             </a>
           </div>
         </div>
@@ -24,8 +24,8 @@
       <div class="col-md-3">
         <div class="box">
           <div class="box-header" style="padding:unset">
-            <a data-fslightbox="gallery" href="<?= BASE_URL . "files/announcement/img_20220826014831_1.png" ?>">
-              <img class="img-responsive" src="<?= BASE_URL . "files/announcement/img_20220826014831_1.png" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+            <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img2.jpg" ?>">
+              <img class="img-responsive" src="<?= BASE_URL . "assets/gallery/img2.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
             </a>
           </div>
         </div>
@@ -33,8 +33,8 @@
       <div class="col-md-3">
         <div class="box">
           <div class="box-header" style="padding:unset">
-            <a data-fslightbox="gallery" href="<?= BASE_URL . "files/announcement/img_20220826014831_2.jpg" ?>">
-              <img class="img-responsive" src="<?= BASE_URL . "files/announcement/img_20220826014831_2.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+            <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img3.jpg" ?>">
+              <img class="img-responsive" src="<?= BASE_URL . "assets/gallery/img3.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
             </a>
           </div>
         </div>
@@ -42,8 +42,8 @@
       <div class="col-md-3">
         <div class="box">
           <div class="box-header" style="padding:unset">
-            <a data-fslightbox="gallery" href="<?= BASE_URL . "files/announcement/img_20220826014831_3.jpg" ?>">
-              <img class="img-responsive" src="<?= BASE_URL . "files/announcement/img_20220826014831_3.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+            <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img4.jpg" ?>">
+              <img class="img-responsive" src="<?= BASE_URL . "assets/gallery/img4.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
             </a>
           </div>
         </div>
@@ -53,8 +53,8 @@
       <div class="col-md-3">
         <div class="box">
           <div class="box-header" style="padding:unset">
-            <a data-fslightbox="gallery" href="<?= BASE_URL . "files/announcement/img_20220826014831_0.png" ?>">
-              <img class="img-responsive" src="<?= BASE_URL . "files/announcement/img_20220826014831_0.png" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+            <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img5.jpg" ?>">
+              <img class="img-responsive" src="<?= BASE_URL . "assets/gallery/img5.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
             </a>
           </div>
         </div>
@@ -62,8 +62,8 @@
       <div class="col-md-3">
         <div class="box">
           <div class="box-header" style="padding:unset">
-            <a data-fslightbox="gallery" href="<?= BASE_URL . "files/announcement/img_20220826014831_1.png" ?>">
-              <img class="img-responsive" src="<?= BASE_URL . "files/announcement/img_20220826014831_1.png" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+            <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img7.jpg" ?>">
+              <img class="img-responsive" src="<?= BASE_URL . "assets/gallery/img7.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
             </a>
           </div>
         </div>
@@ -71,8 +71,8 @@
       <div class="col-md-3">
         <div class="box">
           <div class="box-header" style="padding:unset">
-            <a data-fslightbox="gallery" href="<?= BASE_URL . "files/announcement/img_20220826014831_2.jpg" ?>">
-              <img class="img-responsive" src="<?= BASE_URL . "files/announcement/img_20220826014831_2.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+            <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img8.jpg" ?>">
+              <img class="img-responsive" src="<?= BASE_URL . "assets/gallery/img8.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
             </a>
           </div>
         </div>
@@ -80,11 +80,32 @@
       <div class="col-md-3">
         <div class="box">
           <div class="box-header" style="padding:unset">
-            <a data-fslightbox="gallery" href="<?= BASE_URL . "files/announcement/img_20220826014831_3.jpg" ?>">
-              <img class="img-responsive" src="<?= BASE_URL . "files/announcement/img_20220826014831_3.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+            <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img9.jpg" ?>">
+              <img class="img-responsive" src="<?= BASE_URL . "assets/gallery/img9.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
             </a>
           </div>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="box">
+          <div class="box-header" style="padding:unset">
+            <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img10.jpg" ?>">
+              <img class="img-responsive" src="<?= BASE_URL . "assets/gallery/img10.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="box">
+          <div class="box-header" style="padding:unset">
+            <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img11.jpg" ?>">
+              <img class="img-responsive" src="<?= BASE_URL . "assets/gallery/img11.jpg" ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>

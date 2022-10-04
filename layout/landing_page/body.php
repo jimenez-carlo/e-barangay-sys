@@ -22,7 +22,7 @@
 
             <div class="flex flex-col flex-fill mt-5 mb-4">
                 <h2 class="fw-normal">Get in Touch</h2>
-                BARANGAY FORT BONIFACIO is committed to exceeding your needs. Questions, comments or special requests? We’d love to hear from you, so don’t hesitate to reach out today.
+                Barangay Wawa is devoted to satisfying your expectations. Do you have any queries, feedback, complaints and/or recommendations? We'd be delighted to know your thoughts, so please feel free to contact us anytime.
             </div>
 
             <div class="w-50 align-items-center my-4">
@@ -30,7 +30,7 @@
                 2nd floor, Multi-Purpose Hall, Zone 1, Brgy. Fort Bonifacio, Lawton Ave cor Pasong Tamo extension, Taguig City
                 <br><br>
                 Tel No.: 02-8477-2106
-                Cel. No.: +63 9190 959 803 | +63 9255 458 001
+                Cel. No.: +63 945 849 0538
             </div>
             <div class="w-50 align-items-center my-4">
                 <h4 class="fw-normal">SATELLITE OFFICE</h4>
@@ -41,7 +41,8 @@
             </div>
             <div class="w-50 align-items-center my-4">
                 <h4 class="fw-normal">PEACE AND ORDER</h4>
-                Cel. No.: +63 9255 453 465
+                Cel. No.: +63 9267 300 576
+
             </div>
             <div class="w-50 align-items-center my-4">
                 <h4 class="fw-normal">EMERGENCY & RESCUE</h4>
@@ -51,7 +52,7 @@
 
         <div class="mapouter w-100 my-3">
             <div class="gmap_canvas">
-                <iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=taguig%20wawa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://2piratebay.org"></a><br>
+                <iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=G3CG+P2F,%20Taguig,%20Metro%20Manila&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://2piratebay.org"></a><br>
                 <style>
                     .mapouter {
                         position: relative;
@@ -67,7 +68,7 @@
                         width: 100%;
                     }
 
-                    .footer-icons>i {
+                    .footer-icons>a>i {
                         padding: 10px;
                         width: 50px;
                         font-size: 30px;
@@ -76,28 +77,28 @@
                         cursor: pointer;
                     }
 
-                    .footer-icons>i.fa-twitter {
+                    .footer-icons>a>i.fa-twitter {
                         background: #55ACEE;
                     }
 
-                    .footer-icons>i.fa-facebook {
+                    .footer-icons>a>i.fa-facebook {
                         background: #3B5998;
                     }
 
-                    .footer-icons>i.fa-instagram {
+                    .footer-icons>a>i.fa-instagram {
                         background: #125688;
                     }
 
-                    .footer-icons>i:hover {
+                    .footer-icons>a>i:hover {
                         opacity: 0.7;
                     }
                 </style>
             </div>
         </div>
         <div class="d-flex footer-icons justify-content-center">
-            <i class="fa fa-twitter"> </i>
-            <i class="fa fa-facebook"> </i>
-            <i class="fa fa-instagram"> </i>
+            <a href="https://twitter.com/IloveTaguig1" target="_blank"><i class="fa fa-twitter"> </i></a>
+            <a href="https://www.facebook.com/barangay.wawa.73" target="_blank"><i class="fa fa-facebook"> </i></a>
+            <a href="#"><i class="fa fa-instagram"> </i></a>
         </div>
     </div>
 </div>

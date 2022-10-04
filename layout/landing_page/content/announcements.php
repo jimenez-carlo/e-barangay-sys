@@ -4,7 +4,8 @@
         <div class="row py-lg-2">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-light">Announcements</h1>
-                <p class="lead text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur fuga qui facere similique officiis neque, minus cum iusto quis aliquam voluptatum exercitationem in amet quibusdam.</p>
+                <p class="lead text-muted">This is the Announcements page that will serve as the bulletin board of the e barangay website of Barangay Wawa, Taguig City. Get the latest updates happening here at the barangay by going in the Announcement page.
+                </p>
                 <p>
                 </p>
             </div>
