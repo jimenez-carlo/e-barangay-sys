@@ -3,7 +3,42 @@
     <div class="col-md-2">
     </div>
     <div class="col-md-4">
-      <img class="img-responsive" src="<?= BASE_URL ?>assets/img/barangays.jpg" alt="Photo">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <center>
+              <img src="<?= BASE_URL . "assets/home/img.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
+            </center>
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <center>
+              <img src="<?= BASE_URL . "assets/home/img2.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
+            </center>
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <center>
+              <img src="<?= BASE_URL . "assets/home/img3.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
+            </center>
+            <div class="carousel-caption">
+            </div>
+          </div>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+          <span class="fa fa-angle-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+          <span class="fa fa-angle-right"></span>
+        </a>
+      </div>
     </div>
     <div class="col-md-4">
       <h1>
