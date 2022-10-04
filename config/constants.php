@@ -15,7 +15,7 @@ define('COPYRIGHT_YEAR', 2022);
 define('VERSION_NO', 0.1);
 
 define('ROUTES', $routes);
-define('BASE_URL', 'http://e-barangay-system.com/'); //http://e-barangay-system.com/
+define('BASE_URL', 'http://barangay-wawa-taguig.co/'); //http://e-barangay-system.com/
 define('ADMIN_ACCESS', array_keys($routes));
 define('API_CODE', ''); //
 define('API_PASSWORD', ''); //
