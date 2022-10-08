@@ -34,7 +34,7 @@ class Login extends Base
       return $result;
     }
 
-    $user = $this->get_one("SELECT *,count(*) as user_count FROM tbl_users u inner join tbl_users_info ui on ui.id = u.id WHERE (u.username = '$username' OR u.email = '$username')");
+    $user = $this->get_one("SELECT *,count(*) as user_count FROM tbl_users u inner join tbl_users_info ui on ui.id = u.id WHERE (u.username = '$username' OR u.email = '$username') and u.status_id = 2");
     if (password_verify($password, $user->password)) {
       $_SESSION['user'] = $user;
       $_SESSION['is_logged_in'] = true;

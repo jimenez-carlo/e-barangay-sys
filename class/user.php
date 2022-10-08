@@ -32,4 +32,8 @@ class User extends Base
     }
     return $this->get_one("select u.*,ui.*,a.name as access_name,b.name as barangay_name,bp.title as barangay_position,c.name as city_name,z.zone as zone_name,g.gender as gender_name,ms.status as marital_status_name FROM tbl_users u inner join tbl_users_info ui on ui.id = u.id inner join tbl_access a on a.id = u.access_id  left join tbl_barangay b on b.id = ui.barangay_id left join tbl_barangay_positions bp on bp.id = ui.barangay_position_id left join tbl_city c on c.id = ui.city_id left join tbl_zone z on z.id = ui.zone_id left join tbl_gender g on g.id = ui.gender_id  left join tbl_marital_status ms on ms.id = ui.marital_status_id  inner join tbl_user_status s on s.id = u.status_id where u.id = $id and u.deleted_flag = 0");
   }
+  public function get_id($id)
+  {
+    return $this->get_one("select *, DATE_ADD(issued_date, INTERVAL 1 YEAR) as expire_date  from tbl_request_id where id = $id limit 1");
+  }
 }
