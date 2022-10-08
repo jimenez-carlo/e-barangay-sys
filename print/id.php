@@ -54,11 +54,11 @@ if (!$data) {
       border-radius: 5%;
       padding: 13px 4px 0px 4px;
       position: relative;
-      background: url(logo-modified.png);
-      background-size: contain;
-      background-position: bottom;
-      background-repeat: no-repeat;
-      background-color: #01b095;
+      background: url(logo-modified.png) !important;
+      background-size: contain !important;
+      background-position: bottom !important;
+      background-repeat: no-repeat !important;
+      background-color: #01b095 !important;
       background-blend-mode: screen;
     }
 
@@ -191,6 +191,13 @@ if (!$data) {
       font-weight: bold;
       white-space: nowrap;
     }
+
+    @media print {
+      .container {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+    }
   </style>
 
   <center>
@@ -204,7 +211,7 @@ if (!$data) {
         <p class="label_name">Name</p>
       </div>
       <div class="address">
-        <h2><?= $data->house_no, " ,", $data->first_name, " ", $data->city_name; ?></h2>
+        <h2><?= ucfirst(strtolower($data->house_no)) . " ," . ucfirst(strtolower($data->barangay_name)) . ", " . ucfirst(strtolower($data->city_name)); ?></h2>
         <p class="label_name2">Address</p>
       </div>
       <div class="content">
@@ -222,15 +229,14 @@ if (!$data) {
         <p class="chairman">PHILLIP E. BUENAFLOR<br>Barangay Chairman</p>
       </div>
     </div>
-
-    <div class="container" style="margin-top: 2rem;padding-left:1rem;background-image: unset;">
+    <div class="container" style="margin-top: 2rem;padding-left:1rem;background-image: unset!important;">
       <div style="display: flex; margin-bottom: 2rem;">
         <div style="display: flex;flex-direction:column;margin-right:1rem">
           <label>Birthday: <span><?= date("F j, Y", strtotime($data->birth_date)); ?></span></label>
-          <label>Gender/Status: <span><?= $data->marital_status_name . '/' . $data->gender_name; ?></span></label>
+          <label>Gender/Status: <span><?= $data->marital_status_name . '/' . ucfirst(strtolower($data->gender_name)); ?></span></label>
         </div>
         <div style="display: flex;flex-direction:column;width: 50%;justify-content: flex-start;">
-          <label>Birth Place:<span style="display: inline-flex;width:60%">Pasig City</span></label>
+          <label>Birth Place:<span style="display: inline-flex;width:60%"><?= $data->birth_place; ?></span></label>
           <label>VIN:<span style="display: inline-flex;width:80%"></span></label>
         </div>
 
@@ -241,30 +247,15 @@ if (!$data) {
           <p>In case of Emergency please notify </p>
           <p class="val"><?= strtoupper($data->first_name . " ," . $data->middle_name[0] . ", " . $data->last_name); ?></p>
           <p style="border-top:1px solid black">Name</p>
-          <p class="val"><?= $data->house_no, " ,", $data->first_name, " ", $data->city_name; ?></p>
+          <p class="val"><?= ucfirst(strtolower($data->house_no)) . " ," . ucfirst(strtolower($data->barangay_name)) . ", " . ucfirst(strtolower($data->city_name)); ?></p>
           <p style="border-top:1px solid black">Address</p>
           <p class="val"><?= $data->contact_no; ?></p>
           <p style="border-top:1px solid black">Contact Number</p>
         </div>
-        <div style="
-display: flex;
-    width: 50%;flex-direction: column;
-">
+        <div style="display: flex; width: 50%;flex-direction: column;">
 
-          <div src="" alt="resident_thumb" style="
-    border: solid 1px black;
-    height: 91px;
-    width: 70%;
-    margin-left: 20px;
-    margin-bottom: 10px;
-background-color: white;
-"></div>
-          <label for="" style="
-    text-align: center;
-    align-self: center;
-    margin-left: -10px;
-    width: unset;
-">Thumb mark</label>
+          <div src="" alt="resident_thumb" style=" border: solid 1px black;height: 91px;width: 70%;margin-left: 20px;margin-bottom: 10px;background-color: white;"></div>
+          <label for="" style="text-align: center;align-self: center;margin-left: -10px;width: unset;">Thumb mark</label>
         </div>
       </div>
       <div style="display:flex">
@@ -278,10 +269,7 @@ background-color: white;
 
         </div>
       </div>
-      <p style="display: block;
-    position: absolute;
-    right: 75px;
-    bottom: 1px;">Signature</p>
+      <p style="display: block;position: absolute;right: 75px;bottom: 1px;">Signature</p>
     </div>
   </center>
 
