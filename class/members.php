@@ -170,7 +170,7 @@ class Members extends Base
         $this->query("update tbl_users_info set `image` = '$name' , updated_date = '$updated_date' where id = $id");
       }
 
-      // $this->sms($contact_no, "E-Barangay System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
+      // $this->sms($contact_no, "Barangay Wawa System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
 
       $this->commit_transaction();
       $result->result = $this->response_success("Resident Registered!");

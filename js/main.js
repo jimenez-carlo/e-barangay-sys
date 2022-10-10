@@ -38,6 +38,7 @@ $(document).on("click", '.a-view', function () {
   var page = $(this).attr('name');
   var id = $(this).attr('value');
   window.open(base_url + "?page=" + page + "&id=" + id, '_blank');
+
 });
 
 
@@ -56,6 +57,11 @@ $(document).on("click", '.btn-edit, .btn-view', function () {
   
   $("#result").html('');
   $("#content").html(ContentLoading);
+  
+  
+  $('li').removeClass('active');
+  console.log($('.sidebar-menu .tree>li'));
+  $(this).parent().addClass('active');
   
   $("#content").load(base_url + 'page.php?page=' + page + '&id=' + id,
      (response, status, xhr) => {
@@ -83,7 +89,7 @@ $(document).on("submit", 'form', function (e) {
   let submit_btn = $(e.originalEvent.submitter);
   let icon = submit_btn.children('i');
   let current_icon = icon.attr('class'); // current icon
-  submit_btn.attr('disabled');
+  submit_btn.attr('disabled','disabled');
   icon.removeClass();
   icon.addClass('fa fa-spinner fa-pulse fa-fw');
   

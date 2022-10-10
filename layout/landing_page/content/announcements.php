@@ -24,7 +24,7 @@
                                     <p class="card-text  text text-light"><?= $res['title']; ?></p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-light btn-view" name="landing_page/announcements/view" value="<?= $res['id']; ?>">View More <i class="fa fa-eye"></i></button>
+                                            <button type="button" class="btn btn-sm btn-outline-light btn-view" name="landing_page/announcements/view" value="<?= $res['id']; ?>">View More</button>
                                         </div>
                                     </div>
                                 </div>

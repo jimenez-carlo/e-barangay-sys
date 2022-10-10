@@ -130,7 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
-          MENU
+
           <!-- Optionally, you can add icons to the links -->
           <li class="active"><a href="#" class="btn-view" name="admin/home"><i class="fa fa-home"></i> <span>Home</span></a></li>
           <li><a href="#" class="btn-view" name="admin/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>

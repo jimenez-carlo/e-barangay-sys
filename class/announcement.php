@@ -91,7 +91,7 @@ class Announcement extends Base
         $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 limit 5");
         foreach ($recipients as $res) {
           if (strlen($res['contact_no'] == 11)) {
-            $this->sms($res['contact_no'], "E-Barangay System Announcemnet!, Title:$title Description:$description");
+            $this->sms($res['contact_no'], "Barangay Wawa System Announcemnet!, Title:$title Description:$description");
           }
         }
       }
@@ -168,7 +168,7 @@ class Announcement extends Base
         $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 limit 5");
         foreach ($recipients as $res) {
           if (strlen($res['contact_no'] == 11)) {
-            $this->sms($res['contact_no'], "E-Barangay System Announcemnet!, Title:$title Description:$description");
+            $this->sms($res['contact_no'], "Barangay Wawa System Announcemnet!, Title:$title Description:$description");
           }
         }
       }

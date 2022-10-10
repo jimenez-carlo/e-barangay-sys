@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="col-lg-5">
-                <h1 class="font-weight-light">Welcome to E-Barangay Site!</h1>
+                <h1 class="font-weight-light">Welcome to Barangay Wawa Site!</h1>
                 <a class="btn btn-success btn-view" href="#!" name="landing_page/register">Signup</a>
             </div>
         </div>

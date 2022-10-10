@@ -164,7 +164,7 @@ class Request extends Base
         $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
         foreach ($recipients as $res) {
           if (strlen($res['contact_no'] == 11)) {
-            $this->sms($res['contact_no'], "E-Barangay System Notification!, Your Request#$id Has Been Approved! Please Walk-In to E-Barangay To Claim Your Request.");
+            $this->sms($res['contact_no'], "Barangay Wawa System Notification!, Your Request#$id Has Been Approved! Please Walk-In to Barangay Wawa To Claim Your Request.");
           }
         }
       }
@@ -223,6 +223,7 @@ class Request extends Base
 
       $this->commit_transaction();
       $result->result = $this->response_success("Request Submitted!");
+      $this->sms($user->contact_no, "Barangay Wawa System Notification!, Your Request For Barangay Clearance Has Been Sent!");
       $result->status = true;
     } catch (mysqli_sql_exception $e) {
       $this->roll_back();
@@ -316,6 +317,7 @@ class Request extends Base
 
       $this->commit_transaction();
       $result->result = $this->response_success("Request Submitted!");
+      $this->sms($user->contact_no, "Barangay Wawa System Notification!, Your Request For Barangay ID Has Been Sent!");
       $result->status = true;
     } catch (mysqli_sql_exception $e) {
       $this->roll_back();
@@ -429,6 +431,7 @@ class Request extends Base
 
       $this->commit_transaction();
       $result->result = $this->response_success("Request Submitted!");
+      $this->sms($user->contact_no, "Barangay Wawa System Notification!, Your Request For Business Clearance Has Been Sent!");
       $result->status = true;
     } catch (mysqli_sql_exception $e) {
       $this->roll_back();
@@ -478,7 +481,7 @@ class Request extends Base
         $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
         foreach ($recipients as $res) {
           if (strlen($res['contact_no'] == 11)) {
-            $this->sms($res['contact_no'], "E-Barangay System Notification!, Your $request_type ID#$id Has Been Approved! Please Walk-In to E-Barangay To Claim Your Request.");
+            $this->sms($res['contact_no'], "Barangay Wawa System Notification!, Your $request_type ID#$id Has Been Approved! Please Walk-In to Barangay Wawa To Claim Your Request.");
           }
         }
       }

@@ -47,6 +47,11 @@ if (!$data) {
       <div>
         <h4 class="header1"><b>OFFICE OF THE BARANGAY CAPTAIN</b></h4>
         <h1 class="header1"><b>BARANGAY CLEARANCE</b></h1>
+        <img src="logo.png" alt="" class="logo" style="
+    position: absolute;
+    top: 5%;
+    left: 10%;
+">
       </div>
     </div>
     <div class="row">

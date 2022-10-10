@@ -114,7 +114,7 @@
                 </div>
                 <div class="col-4">
                   <label for="address2" class="form-label">Contact No <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="address2" placeholder="09XXXXXXXXX" name="contact_no">
+                  <input type="number" maxlength="11" class="form-control" id="address2" placeholder="09XXXXXXXXX" name="contact_no">
                 </div>
               </div>
             </fieldset>

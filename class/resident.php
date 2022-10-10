@@ -114,10 +114,10 @@ class Resident extends Base
           return $result;
         }
 
-        if (isset($datainfo->contact_no) && !empty($datainfo->contact_no)) {
+        if (isset($datainfo->contact_no) && !empty($datainfo->contact_no) && strlen($datainfo->contact_no) == 11) {
 
           $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, 2, $user->id)");
-          $this->sms($datainfo->contact_no, "E-Barangay System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
+          $this->sms($datainfo->contact_no, "Barangay Wawa System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
         }
 
         $this->commit_transaction();
@@ -175,7 +175,9 @@ class Resident extends Base
 
       if ($user_status == 2) {
         $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, $user_status, $user->id)");
-        $this->sms($contact_no, "E-Barangay System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
+        if (strlen($contact_no) == 11) {
+          $this->sms($contact_no, "Barangay Wawa System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
+        }
       }
 
       $this->commit_transaction();
@@ -284,7 +286,7 @@ class Resident extends Base
       $this->query("update tbl_users_info set updated_date = '$updated_date' where id = $id");
 
       if (isset($datainfo->contact_no) && !empty($datainfo->contact_no)) {
-        $this->sms($datainfo->contact_no, "E-Barangay System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
+        $this->sms($datainfo->contact_no, "Barangay Wawa System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
       }
       $this->commit_transaction();
       $result->result = $this->response_success("Resident ID#$id Account Verified!");

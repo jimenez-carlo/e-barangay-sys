@@ -222,7 +222,7 @@ if (!$data) {
       </div>
       <div class="applicant">
         <p>Applicant</p>
-        <p class="applicant_title">557-m</p>
+        <p class="applicant_title"><?= $record->id . '-' . strtolower($data->gender_name[0]); ?></p>
       </div>
       <div class="signature">
         <img src="" alt="" class="signature_img">

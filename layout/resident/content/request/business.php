@@ -73,7 +73,7 @@
               <div id="form3" style="display:block">
                 <div class="form-group col-xs-3">
                   <label for="exampleInputPassword1">*Latest Serial Number of Business Clearance:</label>
-                  <input type="text" class="form-control" placeholder="Latest Serial Number of Business Clearance" name="serial_no">
+                  <input type="number" class="form-control" placeholder="Latest Serial Number of Business Clearance" name="serial_no">
                 </div>
 
                 <div class="form-group col-xs-3">
@@ -127,7 +127,7 @@
               </div>
               <div class="form-group col-xs-3">
                 <label for="exampleInputPassword1">*No. of Employees:</label>
-                <input type="text" class="form-control" placeholder="No. of Employees" name="no_employees">
+                <input type="number" class="form-control" placeholder="No. of Employees" name="no_employees">
               </div>
             </div>
             <div class="row">
@@ -153,7 +153,7 @@
                 <label for="exampleInputPassword1">*Mobile/Landline Number
 
                   :</label>
-                <input type="text" class="form-control" placeholder="Mobile/Landline Number" name="contact_no">
+                <input type="number" class="form-control" placeholder="Mobile/Landline Number" name="contact_no">
               </div>
             </div>
 

@@ -100,7 +100,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-phone"></i>
                 </div>
-                <input type="text" class="form-control pull-right" name="contact_no" placeholder="09XXXXXXXXX">
+                <input type="number" maxlength="11" class="form-control pull-right" name="contact_no" placeholder="09XXXXXXXXX">
               </div>
             </div>
 
