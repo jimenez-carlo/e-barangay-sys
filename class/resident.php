@@ -344,14 +344,14 @@ class Resident extends Base
 
       union
 
-      select rb2.id,rb2.request_type_id,rbt.type,rbs.status,rb2.created_date,rb2.updated_date,rb2.requester_id from 
-      tbl_request_business rb2 inner join tbl_request_status rbs on rbs.id = rb2.request_status_id
-      inner join tbl_request_type rbt on rbt.id = rb2.request_type_id
+      select rb2.id,rb2.request_type_id,rbt2.type,rbs2.status,rb2.created_date,rb2.updated_date,rb2.requester_id from 
+      tbl_request_business rb2 inner join tbl_request_status rbs2 on rbs2.id = rb2.request_status_id
+      inner join tbl_request_type rbt2 on rbt2.id = rb2.request_type_id
 
       union
-      select rb3.id,rb3.request_type_id,rbt.type,rbs.status,rb3.created_date,rb3.updated_date,rb3.requester_id from 
-      tbl_request_id rb3 inner join tbl_request_status rbs on rbs.id = rb3.request_status_id
-      inner join tbl_request_type rbt on rbt.id = rb3.request_type_id
+      select rb3.id,rb3.request_type_id,rbt3.type,rbs3.status,rb3.created_date,rb3.updated_date,rb3.requester_id from 
+      tbl_request_id rb3 inner join tbl_request_status rbs3 on rbs3.id = rb3.request_status_id
+      inner join tbl_request_type rbt3 on rbt3.id = rb3.request_type_id
       ) as u where requester_id = $id");
   }
 }
