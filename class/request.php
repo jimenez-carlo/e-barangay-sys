@@ -486,6 +486,15 @@ class Request extends Base
         }
       }
 
+      if (isset($send_sms) && $status == 5) {
+        $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
+        foreach ($recipients as $res) {
+          if (strlen($res['contact_no'] == 11)) {
+            $this->sms($res['contact_no'], "Barangay Wawa System Notification!, Your $request_type ID#$id Has Been Released! Please Walk-In to Barangay Wawa To Claim Your Request.");
+          }
+        }
+      }
+
       $this->commit_transaction();
       $result->status = true;
       $result->result = $this->response_success("$request_type ID#$id Status Changed!");
