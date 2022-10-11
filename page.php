@@ -133,12 +133,36 @@ if (in_array($page, $pages)) {
       $data['default_data'] = $members->set_default_data();
       $data['data'] = $tmp;
       break;
+
+    case 'resident/requests/list':
+      $data['list'] = $resident->get_requests_list($_SESSION['user']->id);
+      break;
+    case 'resident/request/edit_barangay_id':
+      $tmp = $request->get_barangay_id($id);
+      $data['resident_data'] = $members->get_resident($tmp->resident->id);
+      $data['default_data'] = $request->set_default_data();
+      $data['data'] = $tmp;
+      break;
+    case 'resident/request/edit_barangay_clearance':
+      $tmp = $request->get_barangay_clearance($id);
+      $data['resident_data'] = $members->get_resident($tmp->resident->id);
+      $data['default_data'] = $request->set_default_data();
+      $data['data'] = $tmp;
+      break;
+    case 'resident/request/edit_business_clearance':
+      $tmp = $request->get_business_clearance($id);
+      $data['resident_data'] = $members->get_resident($tmp->resident->id);
+      $data['default_data'] = $request->set_default_data();
+      $data['data'] = $tmp;
+      break;
+
     case 'resident/requests':
       $data['requests'] = $resident->get_requestor_list();
       $tmp = $members->get_resident($_SESSION['user']->id);
       $data['default_data'] = $members->set_default_data();
       $data['data'] = $tmp;
       break;
+
     case 'resident/requests/view':
       $tmp = $request->get_request($id);
       $data['default_data'] = $request->set_default_data();

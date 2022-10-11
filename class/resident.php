@@ -334,4 +334,24 @@ class Resident extends Base
     }
     return $result;
   }
+
+  public function get_requests_list($id)
+  {
+    return $this->get_list("select * 
+      from( select rb.id,rb.request_type_id,rbt.type,rbs.status,rb.created_date,rb.updated_date,rb.requester_id from 
+	    tbl_request_barangay rb inner join tbl_request_status rbs on rbs.id = rb.request_status_id
+	    inner join tbl_request_type rbt on rbt.id = rb.request_type_id
+
+      union
+
+      select rb2.id,rb2.request_type_id,rbt.type,rbs.status,rb2.created_date,rb2.updated_date,rb2.requester_id from 
+      tbl_request_business rb2 inner join tbl_request_status rbs on rbs.id = rb2.request_status_id
+      inner join tbl_request_type rbt on rbt.id = rb2.request_type_id
+
+      union
+      select rb3.id,rb3.request_type_id,rbt.type,rbs.status,rb3.created_date,rb3.updated_date,rb3.requester_id from 
+      tbl_request_id rb3 inner join tbl_request_status rbs on rbs.id = rb3.request_status_id
+      inner join tbl_request_type rbt on rbt.id = rb3.request_type_id
+      ) as u where requester_id = $id");
+  }
 }

@@ -51,6 +51,10 @@ $routes = array(
   'resident/about_us' => $resident_route . '/about_us.php',
 
   'resident/requests' => $resident_route . '/request/index.php',
+  'resident/requests/list' => $resident_route . '/request/list.php',
+  'resident/request/edit_business_clearance' => $resident_route . '/request/edit_business_clearance.php',
+  'resident/request/edit_barangay_id' => $resident_route . '/request/edit_barangay_id.php',
+  'resident/request/edit_barangay_clearance' => $resident_route . '/request/edit_barangay_clearance.php',
   'resident/requests/view' => $resident_route . '/request/view.php',
   'resident/business' => $resident_route . '/request/business.php',
   'resident/barangay' => $resident_route . '/request/barangay.php',

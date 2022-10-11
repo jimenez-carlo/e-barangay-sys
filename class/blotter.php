@@ -49,6 +49,15 @@ class Blotter extends Base
       return $result;
     }
 
+    if ($complainant_id == $complainee_id) {
+      $errors[] = 'complainant_id';
+      $errors[] = 'complainee_id';
+      $msg .= "Complainant and Complainee Is the Same!";
+      $result->result = $this->response_error($msg);
+      $result->items = implode(',', $errors);
+      return $result;
+    }
+
     $this->start_transaction();
     try {
       // Insert Blotter
@@ -91,6 +100,15 @@ class Blotter extends Base
 
     if (!empty($errors)) {
       $msg .= "Please Fill Blank Fields!";
+      $result->result = $this->response_error($msg);
+      $result->items = implode(',', $errors);
+      return $result;
+    }
+
+    if ($complainant_id == $complainee_id) {
+      $errors[] = 'complainant_id';
+      $errors[] = 'complainee_id';
+      $msg .= "Complainant and Complainee Is the Same!";
       $result->result = $this->response_error($msg);
       $result->items = implode(',', $errors);
       return $result;

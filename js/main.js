@@ -60,7 +60,7 @@ $(document).on("click", '.btn-edit, .btn-view', function () {
   
   
   $('li').removeClass('active');
-  console.log($('.sidebar-menu .tree>li'));
+  // console.log($('.sidebar-menu .tree>li'));
   $(this).parent().addClass('active');
   
   $("#content").load(base_url + 'page.php?page=' + page + '&id=' + id,
