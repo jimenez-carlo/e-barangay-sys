@@ -185,7 +185,7 @@ class Members extends Base
     $this->start_transaction();
     try {
       $updated_date = date('Y-m-d H:i:s');
-      $default_password = '$2y$10$KKYMmphhiBr9szoYIW3Bqe9aH3i6TFE8EwwXNkl8zKAuo7sUD6Rn6';
+      $default_password = '$2y$10$OmQLdBDHhdmwWDnbNr6atOu/5wmLc6DVFy/RnzGvzxtxvFZDmmfQm';
       // print_r($_SESSION);
       // print_r("insert into tbl_users  (username,email,password,status_id, access_id,created_by) values('$username','$email', '$default_password',2, 2, '$user->id')");
       $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id,created_by) values('$username','$email', '$default_password',2, 2, '$user->id')");
