@@ -1,7 +1,7 @@
 <section class="content-header">
   <h1>
     <i class="fa fa-edit"></i>
-    Barangay Clearance ID#<?= $data->id; ?>
+    Barrangay Clearance ID#<?= $data->id; ?>
   </h1>
 </section>
 <form role="form" name="change_status_barangay_clearance" enctype="multipart/form-data">
@@ -268,7 +268,7 @@
   $('.datepicker').datepicker({
     autoclose: true,
     format: 'yyyy-mm-dd',
-  }).datepicker("setDate", 'now');
+  });
 
   $("[name='minor']").on('change', function(e) {
     if (this.value == 1) {

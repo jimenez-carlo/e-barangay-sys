@@ -70,7 +70,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li><a href="#" class="btn-view" name="resident/requests/list"> My Requests</a></li>
               <li><a href="#" class="btn-view" name="resident/announcement"> Announcement</a></li>
               <li><a href="#" class="btn-view" name="resident/gallery"> Gallery</a></li>
-              <li><a href="#" class="btn-view" name="resident/requests"><i class="fa fa-handshake-o"></i> Online Services</a></li>
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                  <i class="fa fa-handshake-o"></i> Online Services
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <ul class="menu">
+                      <li>
+                        <a href="#" class="btn-view" name="resident/business">
+                          <i class="fa fa-briefcase btn-view"></i> Business Clearance
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="btn-view" name="resident/barangay">
+                          <i class="fa fa-files-o btn-view"></i> Barangay Clearance
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="btn-view" name="resident/id">
+                          <i class="fa fa-id-card-o btn-view"></i> Barangay ID
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
               <li><a href="#" class="btn-view" name="resident/about_us"><i class="fa fa-info-circle"></i> About Us</a></li>
 
               <li class="dropdown user user-menu">

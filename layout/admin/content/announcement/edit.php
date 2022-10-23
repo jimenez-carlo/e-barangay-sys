@@ -139,7 +139,7 @@
   $('.datepicker').datepicker({
     autoclose: true,
     format: 'yyyy-mm-dd',
-  }).datepicker("setDate", 'now');
+  });
 
   $(".btn-sms").on('click', function(e) {
     $('input[type="checkbox"]').trigger('click');

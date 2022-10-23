@@ -14,7 +14,7 @@
                       <table class="table table-bordered table-striped table-hover dataTable" role="grid">
                         <thead>
                           <tr role="row">
-                            <th>ID#</th>
+                            <!-- <th>ID#</th> -->
                             <th>Request Type</th>
                             <th>Status</th>
                             <th>Created Date</th>
@@ -25,7 +25,7 @@
                         <tbody>
                           <?php foreach ($list as $res) { ?>
                             <tr>
-                              <td><?= $res['id'] ?></td>
+                              <!-- <td><?= $res['id'] ?></td> -->
                               <td><?= $res['type'] ?></td>
                               <td><?= strtoupper($res['status']); ?></td>
                               <td><?= format_date_time_am_pm($res['created_date']); ?></td>

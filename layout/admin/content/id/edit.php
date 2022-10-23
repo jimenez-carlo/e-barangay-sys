@@ -1,7 +1,7 @@
 <section class="content-header">
   <h1>
     <i class="fa fa-edit"></i>
-    Barangay ID#<?= $data->id; ?>
+    Barrangay ID#<?= $data->id; ?>
   </h1>
 </section>
 <form role="form" name="change_status_barangay_id" enctype="multipart/form-data">

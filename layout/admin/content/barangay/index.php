@@ -1,6 +1,6 @@
        <section class="content-header">
          <h1>
-           <i class="fa fa-files-o"></i> Clearance Requests
+           <i class="fa fa-files-o"></i>Barangay Clearance Requests
          </h1>
        </section>
        <section class="content">
@@ -10,11 +10,11 @@
 
                <div class="box-body">
                  <div class="row">
-                   <div class="col-sm-12">
+                   <div class="col-sm-12" style="overflow: scroll;">
                      <table class="table table-bordered table-striped table-hover dataTable" role="grid">
                        <thead>
                          <tr role="row">
-                           <th>ID#</th>
+                           <!-- <th>ID#</th> -->
                            <th>Resident</th>
                            <th>Status</th>
                            <th>Updated By</th>
@@ -26,7 +26,7 @@
                        <tbody>
                          <?php foreach ($list as $res) { ?>
                            <tr>
-                             <td><?= $res['id'] ?></td>
+                             <!-- <td><?= $res['id'] ?></td> -->
                              <td><?= $res['requestor_name'] ?></td>
                              <td><?= strtoupper($res['status']); ?></td>
                              <td><?= $res['approver_name'] ?></td>

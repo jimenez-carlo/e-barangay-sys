@@ -35,7 +35,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right datepicker" name="birth_date" placeholder="Birth Date" value="<?= $data->contact_no; ?>">
+                <input type="text" class="form-control pull-right datepicker" name="birth_date" placeholder="Birth Date" value="<?= $data->birth_date; ?>">
               </div>
             </div>
 
@@ -114,7 +114,7 @@
                 <div class="input-group-addon">
                   Old Password:
                 </div>
-                <input type="text" class="form-control pull-right" name="old_password" placeholder="Old Password" name="old_password">
+                <input type="password" class="form-control pull-right" name="old_password" placeholder="Old Password" name="old_password">
               </div>
             </div>
             <div class="form-group col-xs-4">
@@ -122,7 +122,7 @@
                 <div class="input-group-addon">
                   New Password:
                 </div>
-                <input type="text" class="form-control pull-right" name="new_password" placeholder="New Password" name="new_password">
+                <input type="password" class="form-control pull-right" name="new_password" placeholder="New Password" name="new_password">
               </div>
             </div>
             <div class="form-group col-xs-4">
@@ -197,7 +197,7 @@
   $('.datepicker').datepicker({
     autoclose: true,
     format: 'yyyy-mm-dd',
-  }).datepicker("setDate", 'now');
+  });
 
   $('.select2').select2();
 

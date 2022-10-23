@@ -14,7 +14,7 @@
                       <table class="table table-bordered table-striped table-hover dataTable" role="grid">
                         <thead>
                           <tr role="row">
-                            <th>ID#</th>
+                            <!-- <th>ID#</th> -->
                             <th>Status</th>
                             <th>Full Name</th>
                             <th>Gender</th>
@@ -30,7 +30,7 @@
                         <tbody>
                           <?php foreach ($list as $res) { ?>
                             <tr>
-                              <td><?= $res['id'] ?></td>
+                              <!-- <td><?= $res['id'] ?></td> -->
                               <td><?= strtoupper($res['status']) ?></td>
                               <td><?= $res['resident_name'] ?></td>
                               <td><?= $res['gender'] ?></td>

@@ -32,6 +32,7 @@ if (in_array($page, $pages)) {
   $data['base_url'] = BASE_URL;
   switch ($page) {
     case 'admin/dashboard':
+    case 'admin/home':
       $data['data'] = $dashboard->get_data();
       break;
     case 'admin/profile':

@@ -76,7 +76,7 @@ class Members extends Base
     $required_fields = array();
     // Require Fields
     if ($member_update == 'update') {
-      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no');
+      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email');
     }
 
     foreach ($required_fields as $res) {
@@ -89,6 +89,20 @@ class Members extends Base
       $msg .= "Please Fill Blank Fields!";
       $result->result = $this->response_error($msg);
       $result->items = implode(',', $errors);
+      return $result;
+    }
+
+    if (
+      strlen($contact_no) != 11
+    ) {
+      $result->result = $this->response_error("Contact No# Characters Should Be 11!");
+      $result->items = implode(',', array('contact_no'));
+      return $result;
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $result->result = $this->response_error("Invalid Email Format!");
+      $result->items = implode(',', array('email'));
       return $result;
     }
 
@@ -137,7 +151,7 @@ class Members extends Base
     $msg = '';
 
     // Require Fields
-    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username');
+    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email');
 
 
     foreach ($required_fields as $res) {
@@ -150,6 +164,21 @@ class Members extends Base
       $msg .= "Please Fill Blank Fields!";
       $result->result = $this->response_error($msg);
       $result->items = implode(',', $errors);
+      return $result;
+    }
+
+
+    if (
+      strlen($contact_no) != 11
+    ) {
+      $result->result = $this->response_error("Contact No# Characters Should Be 11!");
+      $result->items = implode(',', array('contact_no'));
+      return $result;
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $result->result = $this->response_error("Invalid Email Format!");
+      $result->items = implode(',', array('email'));
       return $result;
     }
 

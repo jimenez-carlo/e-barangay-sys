@@ -1,6 +1,6 @@
        <section class="content-header">
          <h1>
-           <i class="fa fa-files-o"></i> Barangay ID Requests
+           <i class="fa fa-files-o"></i> Barrangay ID Requests
          </h1>
        </section>
        <section class="content">
@@ -14,7 +14,7 @@
                      <table class="table table-bordered table-striped table-hover dataTable" role="grid">
                        <thead>
                          <tr role="row">
-                           <th>ID#</th>
+                           <!-- <th>ID#</th> -->
                            <th>Resident</th>
                            <th>Status</th>
                            <th>Updated By</th>
@@ -26,7 +26,7 @@
                        <tbody>
                          <?php foreach ($list as $res) { ?>
                            <tr>
-                             <td><?= $res['id'] ?></td>
+                             <!-- <td><?= $res['id'] ?></td> -->
                              <td><?= $res['requestor_name'] ?></td>
                              <td><?= strtoupper($res['status']); ?></td>
                              <td><?= $res['approver_name'] ?></td>

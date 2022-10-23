@@ -111,3 +111,7 @@ function dropdown_with_default(dropdown_to_populate, table, where, id, display, 
 }
 
 
+      $('a.nav-link').click(function() {
+      $('a.nav-link').removeClass('active');
+        $(this).addClass('active');
+      });

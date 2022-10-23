@@ -14,7 +14,7 @@
                       <table class="table table-bordered table-striped table-hover dataTable" role="grid">
                         <thead>
                           <tr role="row">
-                            <th>ID#</th>
+                            <!-- <th>ID#</th> -->
                             <th>Title</th>
                             <th>Start Date</th>
                             <th>End Date</th>
@@ -28,7 +28,7 @@
                         <tbody>
                           <?php foreach ($list as $res) { ?>
                             <tr>
-                              <td><?= $res['id'] ?></td>
+                              <!-- <td><?= $res['id'] ?></td> -->
                               <td><?= $res['title'] ?></td>
                               <td><?= format_date($res['start_date']); ?></td>
                               <td><?= format_date($res['end_date']); ?></td>

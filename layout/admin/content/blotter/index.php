@@ -1,6 +1,6 @@
         <section class="content-header">
           <h1>
-            <i class="fa fa-address-book"></i> Blotters
+            <i class="fa fa-address-book"></i> Incident Reports
           </h1>
         </section>
         <section class="content">
@@ -14,7 +14,7 @@
                       <table class="table table-bordered table-striped table-hover dataTable" role="grid">
                         <thead>
                           <tr role="row">
-                            <th>ID#</th>
+                            <!-- <th>ID#</th> -->
                             <th>Complainant</th>
                             <th>Complainee</th>
                             <th>Location</th>
@@ -22,7 +22,7 @@
                             <th>Status</th>
                             <th>Action Taken</th>
                             <th>Encoded By</th>
-                            <th>Encoded Date</th>
+                            <th>Encoded Time</th>
                             <th>Last Updated</th>
                             <th>Settings</th>
                           </tr>
@@ -30,7 +30,7 @@
                         <tbody>
                           <?php foreach ($list as $res) { ?>
                             <tr>
-                              <td><?= $res['id'] ?></td>
+                              <!-- <td><?= $res['id'] ?></td> -->
                               <td><?= $res['complainant'] ?></td>
                               <td><?= $res['complainee'] ?></td>
                               <td><?= $res['incidence'] ?></td>
@@ -38,7 +38,9 @@
                               <td><?= $res['status'] ?></td>
                               <td><?= $res['type'] ?></td>
                               <td><?= $res['encoder'] ?></td>
-                              <td><?= format_date_time_am_pm($res['created_date']); ?></td>
+                              <td><?=
+                                  date("h:i a", strtotime($res['created_date'])); ?></td>
+                              <!-- <td><?= format_date_time_am_pm($res['created_date']); ?></td> -->
                               <td><?= format_date_time_am_pm($res['updated_date']); ?></td>
                               <td>
                                 <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/blotter/edit" value="<?= $res['id'] ?>"> <i class="fa fa-eye"></i> Edit</button>
@@ -69,7 +71,7 @@
               },
               dom: 'Blfrtip',
               buttons: [{
-                  text: '<i class="fa fa-plus"></i> New Case</button>',
+                  text: '<i class="fa fa-plus"></i> New Incident Report</button>',
                   className: 'btn btn-sm btn-flat btn-success btn-view',
                   attr: {
                     name: 'admin/blotter/create'

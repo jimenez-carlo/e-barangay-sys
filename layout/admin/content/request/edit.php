@@ -75,7 +75,7 @@
             </div>
 
             <div class="form-group col-xs-4">
-              <label for="exampleInputPassword1">Barangay:</label>
+              <label for="exampleInputPassword1">Barrangay:</label>
               <select class="form-control" disabled>
                 <?php foreach ($default_data['barangay'] as $res) { ?>
                   <option value="<?= $res['id'] ?>" <?php echo ($data->resident->barangay_id == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>

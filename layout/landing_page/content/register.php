@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-sm-4">
                   <label for="firstName" class="form-label">Email <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="firstName" placeholder="Email Address" name="email" value="" required="">
+                  <input type="email" class="form-control" id="firstName" placeholder="Email Address" name="email" value="" required="">
                 </div>
 
                 <div class="col-sm-4">
@@ -134,7 +134,7 @@
   //   autoclose: true,
   //   format: 'yyyy-mm-dd',
   // }).datepicker("setDate", 'now');
-
+  $('input[type="date"]').val('<?php echo date('Y-m-d'); ?>');
   $('.select2').select2();
 
   $(".city").on('change', function(e) {

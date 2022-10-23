@@ -10,13 +10,27 @@
 
           <div class="small-box bg-green">
             <div class="inner">
+              <h3><?= $data->resident_pending->count; ?></h3>
+              <p>Pending Residents</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-stalker"></i>
+            </div>
+            <a href="#" class="small-box-footer btn-view" name="admin/resident">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-6">
+
+          <div class="small-box bg-green">
+            <div class="inner">
               <h3><?= $data->resident->count; ?></h3>
               <p>Verified Residents</p>
             </div>
             <div class="icon">
-              <i class="ion ion-person-add"></i>
+              <i class="ion ion-person-stalker"></i>
             </div>
-            <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
+            <a href="#" class="small-box-footer btn-view" name="admin/resident">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
@@ -28,39 +42,187 @@
               <p>Barangay Members</p>
             </div>
             <div class="icon">
-              <i class="ion-ios-person"></i>
+              <i class="ion-person-stalker"></i>
             </div>
-            <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
+            <a href="#" class="small-box-footer btn-view" name="admin/members">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
         <div class="col-lg-3 col-xs-6">
-
           <div class="small-box bg-green">
             <div class="inner">
-              <h3><?= $data->request->count; ?></h3>
-              <p>Requests </p>
-            </div>
-            <div class="icon">
-              <i class="ion-document-text"></i>
-            </div>
-            <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-xs-6">
-
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3><?= $data->blotter->count; ?></h3>
-              <p>Blotter Cases</p>
+              <h3><?= $data->blotter_total->count; ?></h3>
+              <p>Incident Reports</p>
             </div>
             <div class="icon">
               <i class="ion-person-stalker"></i>
             </div>
-            <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
+            <a href="#" class="small-box-footer btn-view" name="admin/blotter">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= $data->business_total->count; ?></h3>
+              <p>Total Business Clearance Requests</p>
+            </div>
+            <div class="icon">
+              <i class="ion-document-text"></i>
+            </div>
+            <a href="#" class="small-box-footer btn-view" name="admin/business">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= $data->business_pending->count; ?></h3>
+              <p>Pending Business Clearance </p>
+            </div>
+            <div class="icon">
+              <i class="ion-document-text"></i>
+            </div>
+            <a href="#" class="small-box-footer btn-view" name="admin/business">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= $data->business_approved->count; ?></h3>
+              <p>Approved Business Clearance </p>
+            </div>
+            <div class="icon">
+              <i class="ion-document-text"></i>
+            </div>
+            <a href="#" class="small-box-footer btn-view" name="admin/business">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= $data->business_released->count; ?></h3>
+              <p>Released Business Clearance </p>
+            </div>
+            <div class="icon">
+              <i class="ion-document-text"></i>
+            </div>
+            <a href="#" class="small-box-footer btn-view" name="admin/business">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= $data->barangay_total->count; ?></h3>
+              <p>Total Barangay Clearance Requests</p>
+            </div>
+            <div class="icon">
+              <i class="ion-briefcase"></i>
+            </div>
+            <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= $data->barangay_pending->count; ?></h3>
+              <p>Pending Barangay Clearance </p>
+            </div>
+            <div class="icon">
+              <i class="ion-briefcase"></i>
+            </div>
+            <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= $data->barangay_approved->count; ?></h3>
+              <p>Approved Barangay Clearance </p>
+            </div>
+            <div class="icon">
+              <i class="ion-briefcase"></i>
+            </div>
+            <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= $data->barangay_released->count; ?></h3>
+              <p>Released Barangay Clearance </p>
+            </div>
+            <div class="icon">
+              <i class="ion-briefcase"></i>
+            </div>
+            <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= $data->id_total->count; ?></h3>
+              <p>Total Barangay ID Requests</p>
+            </div>
+            <div class="icon">
+              <i class="ion-card"></i>
+            </div>
+            <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= $data->id_pending->count; ?></h3>
+              <p>Pending Barangay ID </p>
+            </div>
+            <div class="icon">
+              <i class="ion-card"></i>
+            </div>
+            <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= $data->id_approved->count; ?></h3>
+              <p>Approved Barangay ID </p>
+            </div>
+            <div class="icon">
+              <i class="ion-card"></i>
+            </div>
+            <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= $data->id_released->count; ?></h3>
+              <p>Released Barangay ID </p>
+            </div>
+            <div class="icon">
+              <i class="ion-card"></i>
+            </div>
+            <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+
+        <div class="col-lg-3 col-xs-6">
+
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= ($data->business_total->count + $data->barangay_total->count + $data->id_total->count); ?></h3>
+              <p>Total Document Requests </p>
+            </div>
+            <div class="icon">
+              <i class="ion-document-text"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
 
         <div class="col-lg-3 col-xs-6">
 
@@ -72,6 +234,6 @@
             <div class="icon">
               <i class="ion-speakerphone"></i>
             </div>
-            <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
+            <a href="#" class="small-box-footer btn-view" name="admin/announcement">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>

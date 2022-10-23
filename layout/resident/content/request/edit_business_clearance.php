@@ -255,11 +255,6 @@
     });
   });
 
-  $('.datepicker').datepicker({
-    autoclose: true,
-    format: 'yyyy-mm-dd',
-  }).datepicker("setDate", 'now');
-
   $("[name='application_id']").on('change', function(e) {
     if (this.value == 1) {
       $("#form1").css("display", "block");
@@ -292,5 +287,5 @@
   $('.datepicker').datepicker({
     autoclose: true,
     format: 'yyyy-mm-dd',
-  }).datepicker("setDate", 'now');
+  });
 </script>

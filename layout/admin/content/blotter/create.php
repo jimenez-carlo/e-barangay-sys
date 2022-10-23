@@ -1,7 +1,7 @@
 <section class="content-header">
   <h1>
     <i class="fa fa-plus"></i>
-    New Case
+    New Incident Report
   </h1>
 </section>
 <form role="form" name="blotter_create">
@@ -11,12 +11,12 @@
         <div class="box box-success">
           <div class="box-header with-border">
             <i class="fa fa-info-circle"></i>
-            <h4 class="box-title">Blotter Details</h4>
+            <h4 class="box-title">Incident Report Details</h4>
           </div>
           <div class="box-body">
             <div class="form-group col-xs-3">
               <div class="form-group">
-                <label for="exampleInputEmail1">Complainant ID</label>
+                <label for="exampleInputEmail1">Complainant</label>
                 <select class="form-control select2" name="complainant_id">
                   <?php foreach ($default_data['users'] as $res) { ?>
                     <option value="<?= $res['id'] ?>"><?= $res['fullname'] ?></option>
@@ -26,7 +26,7 @@
             </div>
             <div class="form-group col-xs-3">
               <div class="form-group">
-                <label for="exampleInputPassword1">Complainee ID</label>
+                <label for="exampleInputPassword1">Complainee</label>
                 <select class="form-control select2" name="complainee_id">
                   <?php foreach ($default_data['users'] as $res) { ?>
                     <option value="<?= $res['id'] ?>"><?= $res['fullname'] ?></option>

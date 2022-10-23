@@ -35,7 +35,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right datepicker" name="birth_date" placeholder="Birth Date" value="<?= $data->contact_no; ?>">
+                <input type="text" class="form-control pull-right datepicker" name="birth_date" placeholder="Birth Date" value="<?= $data->birth_date; ?>">
               </div>
             </div>
 
@@ -108,7 +108,27 @@
             </div>
 
           </div>
-          <div class="modal-footer" style="min-height:152px">
+          <div class="modal-footer" style="min-height:93px">
+            <div class="form-group col-xs-4">
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  Old Password:
+                </div>
+                <input type="password" class="form-control pull-right" name="old_password" placeholder="Old Password" name="old_password">
+              </div>
+            </div>
+            <div class="form-group col-xs-4">
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  New Password:
+                </div>
+                <input type="password" class="form-control pull-right" name="new_password" placeholder="New Password" name="new_password">
+              </div>
+            </div>
+            <div class="form-group col-xs-4">
+              <button type="submit" class="btn btn-sm btn-success btn-flat" name="admin_profile_update" value="password" style="float:left"><i class="fa fa-save"></i> Change Password</button>
+            </div>
+
           </div>
         </div>
       </div>
@@ -149,7 +169,7 @@
 
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-sm btn-success btn-flat" name="admin_profile_update"><i class="fa fa-save"></i> Update</button>
+            <button type="submit" class="btn btn-sm btn-success btn-flat" name="admin_profile_update" value="profile"><i class="fa fa-save"></i> Update</button>
           </div>
         </div>
       </div>
@@ -187,7 +207,7 @@
   $('.datepicker').datepicker({
     autoclose: true,
     format: 'yyyy-mm-dd',
-  }).datepicker("setDate", 'now');
+  });
 
   $('.select2').select2();
 

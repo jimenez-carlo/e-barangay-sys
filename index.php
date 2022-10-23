@@ -3,6 +3,7 @@ require('config/functions.php');
 require('db/conn.php');
 require('class/base.php');
 require('class/user.php');
+require('class/dashboard.php');
 
 if (isset($_SESSION['is_logged_in'])) {
   $userObj = new User($conn);
@@ -13,6 +14,8 @@ if (isset($_SESSION['is_logged_in'])) {
     case 1:
     case 2:
       include('layout/admin/header.php');
+      $dashboard = new Dashboard($conn);
+      $data = $dashboard->get_data();
       include('layout/admin/body.php');
       include('layout/modal.php');
       include('layout/admin/footer.php');

@@ -12,11 +12,11 @@
                 </div> -->
                 <div class="box-body">
                   <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12" style="overflow-x: scroll; padding:20px">
                       <table class="table table-bordered table-striped table-hover dataTable" role="grid">
                         <thead>
                           <tr role="row">
-                            <th>ID#</th>
+                            <!-- <th>ID#</th> -->
                             <th>Access</th>
                             <th>Barangay Position</th>
                             <th>Full Name</th>
@@ -33,7 +33,7 @@
                         <tbody>
                           <?php foreach ($list as $res) { ?>
                             <tr>
-                              <td><?= $res['id'] ?></td>
+                              <!-- <td><?= $res['id'] ?></td> -->
                               <td><?= $res['access_name'] ?></td>
                               <td><?= $res['title'] ?></td>
                               <td><?= $res['resident_name'] ?></td>

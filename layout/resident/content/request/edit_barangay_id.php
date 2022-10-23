@@ -263,7 +263,7 @@
   $('.datepicker').datepicker({
     autoclose: true,
     format: 'yyyy-mm-dd',
-  }).datepicker("setDate", 'now');
+  });
 
   $("[name='minor']").on('change', function(e) {
     if (this.value == 1) {

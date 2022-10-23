@@ -61,7 +61,7 @@ class Resident extends Base
     $required_fields = array();
     // Require Fields
     if ($resident_update == 'update') {
-      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no');
+      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email');
     }
 
     foreach ($required_fields as $res) {
@@ -74,6 +74,24 @@ class Resident extends Base
       $msg .= "Please Fill Blank Fields!";
       $result->result = $this->response_error($msg);
       $result->items = implode(',', $errors);
+      return $result;
+    }
+
+    if ($birth_date > date('Y-m-d')) {
+      $result->result = $this->response_error("Birth Date Exceeded!");
+      $result->items = implode(',', array('birth_date'));
+      return $result;
+    }
+
+    if (strlen($contact_no) != 11) {
+      $result->result = $this->response_error("Contact No# Characters Should Be 11!");
+      $result->items = implode(',', array('contact_no'));
+      return $result;
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $result->result = $this->response_error("Invalid Email Format!");
+      $result->items = implode(',', array('email'));
       return $result;
     }
 
@@ -158,6 +176,21 @@ class Resident extends Base
       $result->items = implode(',', $errors);
       return $result;
     }
+    if ($birth_date > date('Y-m-d')) {
+      $result->result = $this->response_error("Birth Date Exceeded!");
+      $result->items = implode(',', array('birth_date'));
+      return $result;
+    }
+    if (strlen($contact_no) != 11) {
+      $result->result = $this->response_error("Contact No# Characters Should Be 11!");
+      $result->items = implode(',', array('contact_no'));
+      return $result;
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $result->result = $this->response_error("Invalid Email Format!");
+      $result->items = implode(',', array('email'));
+      return $result;
+    }
 
     $this->start_transaction();
     try {
@@ -216,11 +249,30 @@ class Resident extends Base
       return $result;
     }
 
+    if ($birth_date > date('Y-m-d')) {
+      $result->result = $this->response_error("Birth Date Exceeded!");
+      $result->items = implode(',', array('birth_date'));
+      return $result;
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $result->message = "Invalid Email Format!";
+      $result->items = implode(',', array('email'));
+      return $result;
+    }
+
+    if (strlen($contact_no) != 11) {
+      $result->message = "Contact No# Characters Should Be 11!";
+      $result->items = implode(',', array('contact_no'));
+      return $result;
+    }
+
     if ($password != $re_password) {
       $result->message = "Password Does Not Match!";
       $result->items = implode(',', array('password', 're_password'));
       return $result;
     }
+
 
     $count1 = $this->get_one("select count(*) as `count` from tbl_users where username = '$username' limit 1");
 
@@ -230,7 +282,7 @@ class Resident extends Base
       return $result;
     }
 
-    $count2 = $this->get_one("select count(*) as `count` from tbl_users where email = '$username' limit 1");
+    $count2 = $this->get_one("select count(*) as `count` from tbl_users where email = '$email' limit 1");
 
     if (isset($count2->count) && !empty($count2->count)) {
       $result->message = "Email Already In-use!";
