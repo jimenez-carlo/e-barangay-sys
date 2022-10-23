@@ -34,7 +34,8 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right datepicker" name="issued_date" placeholder="Date Issued">
+                <input type="text" class="form-control pull-right datepicker" placeholder="Date Issued" disabled>
+                <input type="hidden" class="form-control pull-right datepicker" name="issued_date" value="<?= date('Y-m-d'); ?>">
               </div>
             </div>
 

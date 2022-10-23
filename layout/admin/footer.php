@@ -22,6 +22,7 @@
 
 
       <script src="js/datatable.js"></script>
+      <script src="js/datable_fixheader.js"></script>
       <script src="js/datable_button.js"></script>
       <script src="js/datable_zip.js"></script>
       <script src="js/datable_fonts.js"></script>

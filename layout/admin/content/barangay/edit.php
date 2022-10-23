@@ -1,7 +1,7 @@
 <section class="content-header">
   <h1>
     <i class="fa fa-edit"></i>
-    Barrangay Clearance ID#<?= $data->id; ?>
+    Barangay Clearance ID#<?= $data->id; ?>
   </h1>
 </section>
 <form role="form" name="change_status_barangay_clearance" enctype="multipart/form-data">
@@ -40,7 +40,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right datepicker" name="issued_date" placeholder="Date Issued" value="<?= $data->issued_date; ?>" disabled>
+                <input type="text" class="form-control pull-right datepicker" name="issued_date" placeholder="Date Issued" value="<?= format_date($data->issued_date); ?>" disabled>
               </div>
             </div>
 
@@ -99,8 +99,8 @@
             <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">Is applicant a minor?:</label>
               <div class="radio">
-                <label><input type="radio" name="minor" value="1" <?php echo (!empty($data->minor)) ? 'checked' : ''; ?>>Yes</label>
-                <label><input type="radio" name="minor" value="0" <?php echo (empty($data->minor)) ? 'checked' : ''; ?>>No</label>
+                <label><input type="radio" name="minor" value="1" <?php echo (!empty($data->minor)) ? 'checked' : ''; ?> disabled>Yes</label>
+                <label><input type="radio" name="minor" value="0" <?php echo (empty($data->minor)) ? 'checked' : ''; ?> disabled>No</label>
               </div>
             </div>
 
@@ -191,8 +191,11 @@
           </div>
 
           <div class="modal-footer">
-
-            <button type="submit" class="btn btn-sm btn-success btn-flat" name="request_change_status"><i class="fa fa-save"></i> Change Status</button>
+            <?php if (in_array($data->request_status_id, array(5, 6))) { ?>
+              <button type="button" class="btn btn-sm btn-success btn-flat" disabled><i class="fa fa-save"></i> Change Status</button>
+            <?php } else { ?>
+              <button type="submit" class="btn btn-sm btn-success btn-flat" name="request_change_status"><i class="fa fa-save"></i> Change Status</button>
+            <?php } ?>
             <?php if ($data->request_status_id == 4) { ?>
               <?php $redirect = array(1 => 'clearance.php', 2 => 'residency.php', 3 => 'id.php'); ?>
               <a class="btn btn-sm btn-success btn-flat btn-print" href='<?= BASE_URL . "print/" . $redirect[$data->request_type_id] . "?pair=" . base64_encode($data->requester_id) . "&code=" . base64_encode(date("Ymd", time() + 86400)); ?>"' target="_blank"><i class="fa fa-print"></i> Print</a>

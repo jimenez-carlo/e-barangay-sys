@@ -12,7 +12,7 @@
         <div class="box box-success">
           <div class="box-header with-border">
             <i class="fa fa-info-circle"></i>
-            <h4 class="box-title">Blotter Details</h4>
+            <h4 class="box-title">Incident Report Details</h4>
           </div>
           <div class="box-body">
             <div class="form-group col-xs-3">

@@ -1,6 +1,6 @@
        <section class="content-header">
          <h1>
-           <i class="fa fa-files-o"></i> Barrangay ID Requests
+           <i class="fa fa-files-o"></i> Barangay ID Requests
          </h1>
        </section>
        <section class="content">
@@ -61,7 +61,7 @@
 
        <script>
          $(document).ready(function() {
-           $('table').DataTable({
+           var table = $('table').DataTable({
              "initComplete": function(settings, json) {
                $(".dt-button").removeClass("dt-button");
              },
@@ -70,8 +70,16 @@
                extend: 'excel',
                text: '<i class="fa fa-file-excel-o"></i> Export </button>',
                className: 'btn btn-sm btn-flat btn-success',
+               title: 'Barangay ID Requests'
 
              }]
+           });
+           $('table thead tr th').each(function() {
+             var title = $('table thead tr th').eq($(this).index()).text();
+             $(this).html('<input id="input' + $(this).index() + '" type="text" class="form-control" placeholder="' + title + '" />').css('padding-left', '4px');
+             $(this).on('keyup change', function() {
+               table.column($(this).index()).search($('#input' + $(this).index()).val()).draw();
+             });
            });
          });
        </script>

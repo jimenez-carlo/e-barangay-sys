@@ -51,7 +51,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control pull-right datepicker" name="issued_date" placeholder="Date Issued" value="<?= $data->issued_date; ?>" disabled>
+                  <input type="text" class="form-control pull-right datepicker" name="issued_date" placeholder="Date Issued" value="<?= format_date($data->issued_date); ?>" disabled>
                 </div>
               </div>
             </div>

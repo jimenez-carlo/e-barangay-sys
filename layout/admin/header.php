@@ -150,7 +150,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li><a href="#" class="btn-view" name="admin/blotter"><i class="fa fa-address-book"></i> <span>Incident Report</span></a></li>
           <li><a href="#" class="btn-view" name="admin/announcement"><i class="fa fa-bullhorn"></i> <span>Announcement</span></a></li>
-          <li><a href="#" class="btn-view" name="admin/members"><i class="fa fa-users"></i> <span>Barrangay Officials</span></a></li>
+          <li><a href="#" class="btn-view" name="admin/members"><i class="fa fa-users"></i> <span>Barangay Officials</span></a></li>
           <!-- <li class="treeview">
             <a href="#"><i class="fa fa-cog"></i> <span>System</span>
               <span class="pull-right-container">

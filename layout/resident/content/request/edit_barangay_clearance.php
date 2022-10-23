@@ -40,7 +40,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right datepicker" name="issued_date" placeholder="Date Issued" value="<?= $data->issued_date; ?>" disabled>
+                <input type="text" class="form-control pull-right datepicker" name="issued_date" placeholder="Date Issued" value="<?= format_date($data->issued_date); ?>" disabled>
               </div>
             </div>
 
@@ -99,8 +99,8 @@
             <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">Is applicant a minor?:</label>
               <div class="radio">
-                <label><input type="radio" name="minor" value="1" <?php echo (!empty($data->minor)) ? 'checked' : ''; ?>>Yes</label>
-                <label><input type="radio" name="minor" value="0" <?php echo (empty($data->minor)) ? 'checked' : ''; ?>>No</label>
+                <label><input type="radio" name="minor" value="1" <?php echo (!empty($data->minor)) ? 'checked' : ''; ?> disabled>Yes</label>
+                <label><input type="radio" name="minor" value="0" <?php echo (empty($data->minor)) ? 'checked' : ''; ?> disabled>No</label>
               </div>
             </div>
 

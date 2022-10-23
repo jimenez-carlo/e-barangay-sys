@@ -61,7 +61,7 @@
 
         <script>
           $(document).ready(function() {
-            $('table').DataTable({
+            var table = $('table').DataTable({
               "initComplete": function(settings, json) {
                 $(".dt-button").removeClass("dt-button");
               },
@@ -73,6 +73,14 @@
                   name: 'admin/announcement/create'
                 }
               }]
+            });
+
+            $('table thead tr th').each(function() {
+              var title = $('table thead tr th').eq($(this).index()).text();
+              $(this).html('<input id="input' + $(this).index() + '" type="text" class="form-control" placeholder="' + title + '" />').css('padding-left', '4px');
+              $(this).on('keyup change', function() {
+                table.column($(this).index()).search($('#input' + $(this).index()).val()).draw();
+              });
             });
           });
         </script>

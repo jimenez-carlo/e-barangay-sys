@@ -11,7 +11,7 @@
                <div class="box-body">
                  <div class="row">
                    <div class="col-sm-12" style="overflow: scroll;">
-                     <table class="table table-bordered table-striped table-hover dataTable" role="grid">
+                     <table class="table table-bordered table-striped table-hover dataTable" role="grid" id="example">
                        <thead>
                          <tr role="row">
                            <!-- <th>ID#</th> -->
@@ -61,7 +61,7 @@
 
        <script>
          $(document).ready(function() {
-           $('table').DataTable({
+           var table = $('table').DataTable({
              "initComplete": function(settings, json) {
                $(".dt-button").removeClass("dt-button");
              },
@@ -70,8 +70,19 @@
                extend: 'excel',
                text: '<i class="fa fa-file-excel-o"></i> Export </button>',
                className: 'btn btn-sm btn-flat btn-success',
+               title: 'Barangay Clearance Requests'
 
              }]
            });
+
+
+           $('table thead tr th').each(function() {
+             var title = $('table thead tr th').eq($(this).index()).text();
+             $(this).html('<input id="input' + $(this).index() + '" type="text" class="form-control" placeholder="' + title + '" />').css('padding-left', '4px');
+             $(this).on('keyup change', function() {
+               table.column($(this).index()).search($('#input' + $(this).index()).val()).draw();
+             });
+           });
+
          });
        </script>
