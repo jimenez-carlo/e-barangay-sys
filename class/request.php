@@ -382,6 +382,11 @@ class Request extends Base
       return $result;
     }
 
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $result->result = $this->response_error("Invalid Email Format!");
+      $result->items = implode(',', array('email'));
+      return $result;
+    }
 
     $this->start_transaction();
     try {
