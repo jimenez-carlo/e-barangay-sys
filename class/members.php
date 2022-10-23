@@ -92,6 +92,13 @@ class Members extends Base
       return $result;
     }
 
+    if ($birth_date > date('Y-m-d')) {
+      $result->result = $this->response_error("Birth Date Exceeded!");
+      $result->items = implode(',', array('birth_date'));
+      return $result;
+    }
+
+
     if (
       strlen($contact_no) != 11
     ) {
@@ -164,6 +171,12 @@ class Members extends Base
       $msg .= "Please Fill Blank Fields!";
       $result->result = $this->response_error($msg);
       $result->items = implode(',', $errors);
+      return $result;
+    }
+
+    if ($birth_date > date('Y-m-d')) {
+      $result->result = $this->response_error("Birth Date Exceeded!");
+      $result->items = implode(',', array('birth_date'));
       return $result;
     }
 
