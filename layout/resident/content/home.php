@@ -8,11 +8,18 @@
           <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
           <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
           <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+          <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
+          <li data-target="#carousel-example-generic" data-slide-to="4" class=""></li>
+          <li data-target="#carousel-example-generic" data-slide-to="5" class=""></li>
+          <li data-target="#carousel-example-generic" data-slide-to="6" class=""></li>
+          <li data-target="#carousel-example-generic" data-slide-to="7" class=""></li>
+          <li data-target="#carousel-example-generic" data-slide-to="8" class=""></li>
+          <li data-target="#carousel-example-generic" data-slide-to="9" class=""></li>
         </ol>
         <div class="carousel-inner">
           <div class="item active">
             <center>
-              <img src="<?= BASE_URL . "assets/home/img.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
+              <img src="<?= BASE_URL . "assets/home/img1.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
             </center>
             <div class="carousel-caption">
             </div>
@@ -27,6 +34,48 @@
           <div class="item">
             <center>
               <img src="<?= BASE_URL . "assets/home/img3.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
+            </center>
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <center>
+              <img src="<?= BASE_URL . "assets/home/img4.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
+            </center>
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <center>
+              <img src="<?= BASE_URL . "assets/home/img5.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
+            </center>
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <center>
+              <img src="<?= BASE_URL . "assets/home/img6.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
+            </center>
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <center>
+              <img src="<?= BASE_URL . "assets/home/img7.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
+            </center>
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <center>
+              <img src="<?= BASE_URL . "assets/home/img8.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
+            </center>
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <center>
+              <img src="<?= BASE_URL . "assets/home/img9.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
             </center>
             <div class="carousel-caption">
             </div>

@@ -11,7 +11,7 @@
 
   <div class="col-lg-3 col-xs-6">
 
-    <div class="small-box bg-green">
+    <div class="small-box bg-aqua">
       <div class="inner">
         <h3><?= $data->resident_pending->count; ?></h3>
         <p>Pending Residents</p>
@@ -25,7 +25,7 @@
 
   <div class="col-lg-3 col-xs-6">
 
-    <div class="small-box bg-green">
+    <div class="small-box bg-aqua">
       <div class="inner">
         <h3><?= $data->resident->count; ?></h3>
         <p>Verified Residents</p>
@@ -39,7 +39,7 @@
 
   <div class="col-lg-3 col-xs-6">
 
-    <div class="small-box bg-green">
+    <div class="small-box bg-aqua">
       <div class="inner">
         <h3><?= $data->members->count; ?></h3>
         <p>Barangay Members</p>
@@ -52,7 +52,7 @@
   </div>
 
   <div class="col-lg-3 col-xs-6">
-    <div class="small-box bg-green">
+    <div class="small-box bg-aqua">
       <div class="inner">
         <h3><?= $data->blotter_total->count; ?></h3>
         <p>Incident Reports</p>
@@ -65,7 +65,7 @@
   </div>
 
   <div class="col-lg-3 col-xs-6">
-    <div class="small-box bg-green">
+    <div class="small-box bg-yellow">
       <div class="inner">
         <h3><?= $data->business_total->count; ?></h3>
         <p>Total Business Clearance Requests</p>
@@ -77,7 +77,7 @@
     </div>
   </div>
   <div class="col-lg-3 col-xs-6">
-    <div class="small-box bg-green">
+    <div class="small-box bg-yellow">
       <div class="inner">
         <h3><?= $data->business_pending->count; ?></h3>
         <p>Pending Business Clearance </p>
@@ -89,7 +89,7 @@
     </div>
   </div>
   <div class="col-lg-3 col-xs-6">
-    <div class="small-box bg-green">
+    <div class="small-box bg-yellow">
       <div class="inner">
         <h3><?= $data->business_approved->count; ?></h3>
         <p>Approved Business Clearance </p>
@@ -101,7 +101,7 @@
     </div>
   </div>
   <div class="col-lg-3 col-xs-6">
-    <div class="small-box bg-green">
+    <div class="small-box bg-yellow">
       <div class="inner">
         <h3><?= $data->business_released->count; ?></h3>
         <p>Released Business Clearance </p>
@@ -114,7 +114,7 @@
   </div>
 
   <div class="col-lg-3 col-xs-6">
-    <div class="small-box bg-green">
+    <div class="small-box bg-red">
       <div class="inner">
         <h3><?= $data->barangay_total->count; ?></h3>
         <p>Total Barangay Clearance Requests</p>
@@ -126,7 +126,7 @@
     </div>
   </div>
   <div class="col-lg-3 col-xs-6">
-    <div class="small-box bg-green">
+    <div class="small-box bg-red">
       <div class="inner">
         <h3><?= $data->barangay_pending->count; ?></h3>
         <p>Pending Barangay Clearance </p>
@@ -138,7 +138,7 @@
     </div>
   </div>
   <div class="col-lg-3 col-xs-6">
-    <div class="small-box bg-green">
+    <div class="small-box bg-red">
       <div class="inner">
         <h3><?= $data->barangay_approved->count; ?></h3>
         <p>Approved Barangay Clearance </p>
@@ -150,7 +150,7 @@
     </div>
   </div>
   <div class="col-lg-3 col-xs-6">
-    <div class="small-box bg-green">
+    <div class="small-box bg-red">
       <div class="inner">
         <h3><?= $data->barangay_released->count; ?></h3>
         <p>Released Barangay Clearance </p>
@@ -214,7 +214,7 @@
 
   <div class="col-lg-3 col-xs-6">
 
-    <div class="small-box bg-green">
+    <div class="small-box bg-gray">
       <div class="inner">
         <h3><?= ($data->business_total->count + $data->barangay_total->count + $data->id_total->count); ?></h3>
         <p>Total Document Requests </p>
@@ -229,7 +229,7 @@
 
   <div class="col-lg-3 col-xs-6">
 
-    <div class="small-box bg-green">
+    <div class="small-box bg-gray">
       <div class="inner">
         <h3><?= $data->announcement->count; ?></h3>
         <p>Announcements</p>

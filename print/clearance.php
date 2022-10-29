@@ -21,6 +21,7 @@ if (!$data) {
   die;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,73 +30,130 @@ if (!$data) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barangay Clearance</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicon_v2.ico" />
 </head>
 
+<style>
+  html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .b {
+    font-weight: bold;
+  }
+
+  .p-1 {
+    font-size: 15.5px;
+    margin-bottom: 50px;
+    text-align: left;
+    padding: 0px 36px;
+  }
+
+  .right {
+    /* float:right; */
+    /* border-top: 1px solid black; */
+    position: relative;
+    width: 493.98425197px;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  .left {
+    /* float: left; */
+    background-image: url(logo-left.jpg);
+    background-repeat: round;
+    height: 945.25984252px;
+    width: 179.52755906px;
+    object-fit: contain;
+  }
+
+  .main-container {
+    text-align: center;
+    width: 47.5%;
+    margin-right: auto;
+    margin-left: auto;
+    background-image: url(watermark.png);
+    background-position-x: 114px;
+    background-repeat: no-repeat;
+    background-position-y: 122px;
+  }
+
+  table {
+    width: 100%;
+    padding: 0px 36px;
+    margin-bottom: 70px;
+  }
+
+  .header {
+
+    border-bottom: black 1px solid;
+    display: flex;
+  }
+
+  @media print {
+    html {
+      -webkit-print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    .main-container {
+      width: 100%;
+    }
+  }
+</style>
+
 <body onload="window.print()">
-  <div class="container">
-    <div class="row" style="text-align: center;">
-      <div class="col-md-4">&nbsp;</div>
-      <div class="col-md-4">
-        <p>Republic of the Philippines<br>Province of Albay<br>Municipality of Sto. Domingo<br></p>
-        <h1 class="h1">BARANGAY WAWA</h1>
-      </div>
-      <div class="col-md-4"> &nbsp;</div>
-    </div>
-    <div class="row" style="text-align: center;">
-      <hr>
-      <div>
-        <h4 class="header1"><b>OFFICE OF THE BARANGAY CAPTAIN</b></h4>
-        <h1 class="header1"><b>BARANGAY CLEARANCE</b></h1>
-        <img src="logo.png" alt="" class="logo" style="
-    position: absolute;
-    top: 5%;
-    left: 10%;
-">
-      </div>
-    </div>
-    <div class="row">
-      <div>
-        <h6 class="header1" style="margin-left: 30px;"><b>TO WHOM IT MY CONCERN:</b></h6>
-      </div>
-      <div>
-        <br>
-        <p style="margin-left: 60px;">this is to certify that <u>
-            <?php echo $data->first_name, " ", $data->middle_name[0], " ", $data->last_name; ?>
-          </u>. <u>
-            <?php echo date_diff(date_create($data->birth_date), date_create('now'))->y, " " ?>
-          </u> years old, <u>
-            <?php echo $data->marital_status_name, " "; ?>
-          </u> and a resident of barangay san vicente, Sto Domingo, Albay is known to be of good moral character and
-          law-abiding citizen in the community.</p>
-        <br>
+  <div class="main-container">
+    <div class="container">
+      <div class="left"></div>
+      <div class="right">
+        <div class="header">
+          <h2 style="margin-left: 15%;margin-top: 50px;">OFFICE OF BARANGAY CHAIRMAN</h2>
+          <img src="logo-right.jpg" alt="" style="position: absolute;height: 83px;width:83px;top:2px;right: 0;">
+        </div>
+        <h1 style="margin-top:50px;margin-bottom: 70px;">
+          -BARANGAY CLEARANCE
+        </h1>
+        <p class="p-1">This is to certify that <span style="text-decoration: underline;"><?php echo $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> is a resident of this barangay.</p>
 
-        <p style="margin-left: 80px">to certify further, that he/she has derogatory and/or criminal records filed in this
-          bartangay.</p>
-        <br>
-        <p style="margin-left: 60px"><b>ISSUED</b> this <u>
-            <?php echo date('d') ?>
-          </u> day of
-          <?php echo date("M") ?>,
-          <?php echo date("Y") ?> at Barangay Cupang proper, Sto. DOmingo, Albay upon request of the interested party for
-          whatever legal purposes it may serve.
-        </p>
-      </div>
-    </div>
-    <div class="row" style="text-align: right; margin-right: 40px; margin-top: 30px;">
-      <div>
-        <h5><b><u><?= $official->first_name . " " . $official->middle_name . " " . $official->last_name; ?></u></b></h5>
-        <h6><?= $official->barangay_position; ?></h6>
-      </div>
-    </div>
-    <div class="row" style="margin-left: 60px; margin-top: 50px;">
-      <div>
-        <p>O.R No. _______________</p>
-        <p>Date Issued: <u>
-            <?php echo date("d:M:Y") ?>
-          </u></p>
-        <p>Doc. Stamp: Paid</p>
-
+        <p> Residing at <span style="text-decoration: underline;"><?php echo $data->house_no, ", " . strtolower($data->barangay_name); ?></span> <span class="b">Wawa Taguig City</span></p>
+        <table>
+          <tr>
+            <td style="text-align:left;font-weight: bold;">Date of Birth:</td>
+            <td><?= $data->birth_date; ?></td>
+            <td style="text-align:left;font-weight: bold;">Birth Place:</td>
+            <td><?= strtoupper($data->birth_place); ?></td>
+          </tr>
+          <tr>
+            <td style="text-align:left;font-weight: bold;">Gender Status:</td>
+            <td><?= $data->gender_name; ?></td>
+            <td style="text-align:left;font-weight: bold;">Religion:</td>
+            <td></td>
+          </tr>
+        </table>
+        <p style="margin-left:18px;text-align:left;margin-bottom: 50px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp This certification is being issued upon the request of the aforesaid person for </p>
+        <h1 style="margin-bottom: 100px;">“REQUEST INFO”</h1>
+        <div style="display:flex">
+          <div style="margin-left:30px;text-align: left;width: 50%;">
+            <p style="font-weight:bold;">Thumb Mark<br><br>Right</p>
+            <p style="margin-top:100px">____________________</p>
+            <p>Signature over printed name</p>
+          </div>
+          <div style="width:50%;">
+            <i>Approved by:</i>
+            <p style="margin-top:50px">______________________</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

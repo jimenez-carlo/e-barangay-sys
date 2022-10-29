@@ -14,71 +14,57 @@
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                   <div class="col">
                       <div class="card shadow-sm">
-                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img1.jpg" ?>">
-                              <img src="<?= BASE_URL . "/assets/gallery/img1.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
+                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/1.jpg" ?>">
+                              <img src="<?= BASE_URL . "/assets/gallery/1.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
                           </a>
                       </div>
                   </div>
                   <div class="col">
                       <div class="card shadow-sm">
-                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img2.jpg" ?>">
-                              <img src="<?= BASE_URL . "/assets/gallery/img2.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
+                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/2.jpg" ?>">
+                              <img src="<?= BASE_URL . "/assets/gallery/2.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
                           </a>
                       </div>
                   </div>
                   <div class="col">
                       <div class="card shadow-sm">
-                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img3.jpg" ?>">
-                              <img src="<?= BASE_URL . "/assets/gallery/img3.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
+                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/3.jpg" ?>">
+                              <img src="<?= BASE_URL . "/assets/gallery/3.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
                           </a>
                       </div>
                   </div>
                   <div class="col">
                       <div class="card shadow-sm">
-                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img4.jpg" ?>">
-                              <img src="<?= BASE_URL . "/assets/gallery/img4.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
+                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/4.jpg" ?>">
+                              <img src="<?= BASE_URL . "/assets/gallery/4.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
                           </a>
                       </div>
                   </div>
                   <div class="col">
                       <div class="card shadow-sm">
-                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img5.jpg" ?>">
-                              <img src="<?= BASE_URL . "/assets/gallery/img5.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
+                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/5.jpg" ?>">
+                              <img src="<?= BASE_URL . "/assets/gallery/5.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
                           </a>
                       </div>
                   </div>
                   <div class="col">
                       <div class="card shadow-sm">
-                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img7.jpg" ?>">
-                              <img src="<?= BASE_URL . "/assets/gallery/img7.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
+                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/6.jpg" ?>">
+                              <img src="<?= BASE_URL . "/assets/gallery/6.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
                           </a>
                       </div>
                   </div>
                   <div class="col">
                       <div class="card shadow-sm">
-                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img8.jpg" ?>">
-                              <img src="<?= BASE_URL . "/assets/gallery/img8.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
+                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/7.jpg" ?>">
+                              <img src="<?= BASE_URL . "/assets/gallery/7.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
                           </a>
                       </div>
                   </div>
                   <div class="col">
                       <div class="card shadow-sm">
-                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img9.jpg" ?>">
-                              <img src="<?= BASE_URL . "/assets/gallery/img9.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
-                          </a>
-                      </div>
-                  </div>
-                  <div class="col">
-                      <div class="card shadow-sm">
-                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img10.jpg" ?>">
-                              <img src="<?= BASE_URL . "/assets/gallery/img10.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
-                          </a>
-                      </div>
-                  </div>
-                  <div class="col">
-                      <div class="card shadow-sm">
-                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/img11.jpg" ?>">
-                              <img src="<?= BASE_URL . "/assets/gallery/img11.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
+                          <a data-fslightbox="gallery" href="<?= BASE_URL . "assets/gallery/8.jpg" ?>">
+                              <img src="<?= BASE_URL . "/assets/gallery/8.jpg"; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
                           </a>
                       </div>
                   </div>

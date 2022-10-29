@@ -10,10 +10,17 @@
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="6" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="7" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="8" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="9" aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
+                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img1.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
                             <div class="carousel-caption d-none d-md-block">
                             </div>
                         </div>
@@ -24,6 +31,41 @@
                         </div>
                         <div class="carousel-item" data-bs-interval="3000">
                             <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img3.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img4.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img5.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img6.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img7.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img8.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img9.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img10.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
                             <div class="carousel-caption d-none d-md-block">
                             </div>
                         </div>

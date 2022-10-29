@@ -21,6 +21,7 @@ if (!$data) {
   die;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,74 +30,117 @@ if (!$data) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barangay Residency</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicon_v2.ico" />
 </head>
 
+<style>
+  html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p>span {
+    font-weight: bold;
+  }
+
+  .p-1 {
+    font-size: 15.5px;
+    margin-bottom: 50px;
+    text-align: left;
+    padding: 0px 36px;
+  }
+
+  .right {
+    /* float:right; */
+    /* border-top: 1px solid black; */
+    position: relative;
+    width: 493.98425197px;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  .left {
+    /* float: left; */
+    background-image: url(logo-left.jpg);
+    background-repeat: round;
+    height: 945.25984252px;
+    width: 179.52755906px;
+    object-fit: contain;
+  }
+
+  .main-container {
+    text-align: center;
+    width: 47.5%;
+    margin-right: auto;
+    margin-left: auto;
+    background-image: url(watermark.png);
+    background-position-x: 114px;
+    background-repeat: no-repeat;
+    background-position-y: 122px;
+  }
+
+  table {
+    width: 100%;
+    padding: 0px 36px;
+    margin-bottom: 70px;
+  }
+
+  .header {
+
+    border-bottom: black 1px solid;
+    display: flex;
+  }
+
+  @media print {
+    html {
+      -webkit-print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    .main-container {
+      width: 100%;
+    }
+  }
+</style>
+
 <body onload="window.print()">
-  <div class="container">
-    <div class="row" style="text-align: center;">
-      <!--<div class="col-md-4"><img src="../../img/logo.png" style="width: 30%"></div>-->
-      <div class="col-md-4">&nbsp;</div>
-      <div class="col-md-4">
-        <p>Republic of the Philippines<br>Province of Albay<br>Municipality of Sto. Domingo<br></p>
-        <h1 class="h1">Innobarangay Proper</h1>
-      </div>
-      <div class="col-md-4"> &nbsp;</div>
-    </div>
-    <div class="row" style="text-align: center;">
-      <hr>
-      <div>
-        <h4 class="header1"><b>OFFICE OF THE BARANGAY CAPTAIN</b></h4>
-        <h1 class="header1"><b>BARANGAY CERTIFICATE OF RESIDENCY</b></h1>
-        <img src="logo.png" alt="" class="logo" style="
-    position: absolute;
-    top: 5%;
-    left: 10%;
-">
-      </div>
-    </div>
-    <div class="row">
-      <div>
-        <h6 class="header1" style="margin-left: 30px;"><b>TO WHOM IT MY CONCERN:</b></h6>
-      </div>
-      <div>
-        <br>
-        <p style="margin-left: 60px;">this is to certify that <u>
-            <?php echo $data->first_name, " ", $data->middle_name[0], " ", $data->last_name; ?>
-          </u>, <u>
-            <?php echo date_diff(date_create($data->birth_date), date_create('now'))->y, " " ?>
-          </u> of legal age, <u>
-            <?php echo $data->marital_status_name, " "; ?>
-          </u>, Filipino citizen, whose specimen signature appears below is a <b>PERMANENT RESIDENT</b> of this barangay,
-          Cupang proper
-        </p>
-        <br>
-
-        <p style="margin-left: 80px">based on records of this office, she has been residing at barangay cupang proper</p>
-        <p style="margin-left: 80px">this CERTIFICATION is being issued upon the request of the aboved-named person for
-          whatever legal purpose it may serve </p>
-        <br>
-        <p style="margin-left: 60px"><b>ISSUED</b> this <u>
+  <div class="main-container">
+    <div class="container">
+      <div class="left"></div>
+      <div class="right">
+        <div class="header">
+          <h2 style="margin-left: 15%;margin-top: 50px;">OFFICE OF BARANGAY CHAIRMAN</h2>
+          <img src="logo-right.jpg" alt="" style="position: absolute;height: 83px;width:83px;top:2px;right: 0;">
+        </div>
+        <h1 style="margin-top:50px;margin-bottom: 70px;font-style: italic;">
+          CERTIFICATE OF RESIDENCY
+        </h1>
+        <p class="p-1">This is to certify that <span style="text-decoration: underline;"><?php echo $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> is a resident of this barangay with postal address <span style="text-decoration: underline;"><?php echo $data->house_no, ", " . strtolower($data->barangay_name) . ", " . strtolower($data->city_name); ?></span> since birth.</p>
+        <p class="p-1">This certification is being issued upon the request of <span style="text-decoration: underline;"><?php echo $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> Renewal of Solo-Parent I.D.</p>
+        <p style="margin-left:18px;text-align:left;margin-bottom: 50px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Issued this <span style="text-decoration: underline;">
             <?php echo date('d') ?>
-          </u> day of
-          <?php echo date("M") ?>,
-          <?php echo date("Y") ?> at Barangay Cupang proper, Sto. Domingo, Albay upon request of the interested party for
-          whatever legal purposes it may serve.
-        </p>
-      </div>
-    </div>
-    <div class="row" style="text-align: right; margin-right: 40px; margin-top: 30px;">
-      <div>
-        <h5><b><u><?= $official->first_name . " " . $official->middle_name . " " . $official->last_name; ?></u></b></h5>
-        <h6><?= $official->barangay_position; ?></h6>
-      </div>
-    </div>
-    <div class="row" style="margin-left: 60px; margin-top: 50px;">
-      <div>
-        <p>Date Issued: <u>
-            <?php echo date("d:M:Y") ?>
-          </u></p>
+            day of
+            <?php echo date("M") ?>,
+            <?php echo date("Y") ?></span> at Wawa, Taguig City.</p>
+        <h1 style="margin-bottom: 100px;"></h1>
+        <div style="display:flex">
+          <div style="margin-left:30px;width: 50%;">
 
+          </div>
+          <div style="width:50%;">
+            <i>Approved by:</i>
+            <p style="margin-top:50px">______________________</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
