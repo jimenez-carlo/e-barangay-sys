@@ -51,7 +51,7 @@ $(document).on("submit", 'form', function (e) {
   if (this.name == 'logout') {
     window.location.href = 'logout.php';
   }
-  
+  console.log('submitted');
   let submit_btn = $(e.originalEvent.submitter);
   let icon = submit_btn.children('i');
   let current_icon = icon.attr('class'); // current icon

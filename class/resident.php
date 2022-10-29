@@ -249,8 +249,14 @@ class Resident extends Base
       return $result;
     }
 
+    if (!isset($_POST['terms'])) {
+      $result->message = "Please Check Read The Terms & Conditions";
+      $result->items = implode(',', array('terms'));
+      return $result;
+    }
+
     if ($birth_date > date('Y-m-d')) {
-      $result->result = $this->response_error("Birth Date Exceeded!");
+      $result->message = "Birth Date Exceeded!";
       $result->items = implode(',', array('birth_date'));
       return $result;
     }
