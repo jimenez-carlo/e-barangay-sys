@@ -10,31 +10,31 @@
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 3"></button>
+                        <!-- <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 3"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 3"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" aria-label="Slide 3"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="6" aria-label="Slide 3"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="7" aria-label="Slide 3"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="8" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="9" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="9" aria-label="Slide 3"></button> -->
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img1.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
+                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/1.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
                             <div class="carousel-caption d-none d-md-block">
                             </div>
                         </div>
                         <div class="carousel-item" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img2.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
+                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/2.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
                             <div class="carousel-caption d-none d-md-block">
                             </div>
                         </div>
                         <div class="carousel-item" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img3.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
+                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/3.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
                             <div class="carousel-caption d-none d-md-block">
                             </div>
                         </div>
-                        <div class="carousel-item" data-bs-interval="3000">
+                        <!-- <div class="carousel-item" data-bs-interval="3000">
                             <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img4.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
                             <div class="carousel-caption d-none d-md-block">
                             </div>
@@ -68,7 +68,7 @@
                             <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img10.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
                             <div class="carousel-caption d-none d-md-block">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
