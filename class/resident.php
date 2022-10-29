@@ -249,12 +249,6 @@ class Resident extends Base
       return $result;
     }
 
-    if (!isset($_POST['terms'])) {
-      $result->message = "Please Check Read The Terms & Conditions";
-      $result->items = implode(',', array('terms'));
-      return $result;
-    }
-
     if ($birth_date > date('Y-m-d')) {
       $result->message = "Birth Date Exceeded!";
       $result->items = implode(',', array('birth_date'));
@@ -278,6 +272,13 @@ class Resident extends Base
       $result->items = implode(',', array('password', 're_password'));
       return $result;
     }
+
+    if (!isset($_POST['terms'])) {
+      $result->message = "Please Check Read The Terms & Conditions";
+      $result->items = implode(',', array('terms'));
+      return $result;
+    }
+
 
 
     $count1 = $this->get_one("select count(*) as `count` from tbl_users where username = '$username' limit 1");
