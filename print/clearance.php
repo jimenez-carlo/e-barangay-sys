@@ -124,7 +124,7 @@ if (!$data) {
         <h1 style="margin-top:50px;margin-bottom: 70px;">
           -BARANGAY CLEARANCE
         </h1>
-        <p class="p-1">This is to certify that <span style="text-decoration: underline;"><?php echo $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> is a resident of this barangay.</p>
+        <p class="p-1">This is to certify that <span style="text-decoration: underline;"><?php echo ((!empty($data->suffix_id)) ? $data->suffix_name : '') . " " . $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> is a resident of this barangay.</p>
 
         <p> Residing at <span style="text-decoration: underline;"><?php echo $data->house_no, ", " . strtolower($data->barangay_name); ?></span> <span class="b">Wawa Taguig City</span></p>
         <table>
@@ -138,7 +138,7 @@ if (!$data) {
             <td style="text-align:left;font-weight: bold;">Gender Status:</td>
             <td><?= $data->gender_name; ?></td>
             <td style="text-align:left;font-weight: bold;">Religion:</td>
-            <td></td>
+            <td><?= strtoupper($data->religion); ?></td>
           </tr>
         </table>
         <p style="margin-left:18px;text-align:left;margin-bottom: 50px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp This certification is being issued upon the request of the aforesaid person for </p>
@@ -151,7 +151,7 @@ if (!$data) {
           </div>
           <div style="width:50%;">
             <i>Approved by:</i>
-            <p style="margin-top:50px">______________________</p>
+            <p style="margin-top:50px"><u>Phillip E. Buenaflor</u></p>
           </div>
         </div>
       </div>

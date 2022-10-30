@@ -71,6 +71,7 @@
                 $(".dt-button").removeClass("dt-button");
               },
               dom: 'Blfrtip',
+              "ordering": false,
               buttons: [{
                   text: '<i class="fa fa-user-plus"></i> Register</button>',
                   className: 'btn btn-sm btn-flat btn-success btn-view',
@@ -80,6 +81,16 @@
                 },
                 {
                   extend: 'excel',
+                  exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+                    format: {
+                      header: function(data, columnIdx) {
+                        var dom = document.createElement('div');
+                        dom.innerHTML = data;
+                        return dom.children[0].getAttribute("placeholder")
+                      }
+                    }
+                  },
                   text: '<i class="fa fa-file-excel-o"></i> Export </button>',
                   className: 'btn btn-sm btn-flat btn-success',
                   title: 'Barangay Residents'

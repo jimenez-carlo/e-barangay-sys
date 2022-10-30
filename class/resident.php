@@ -12,6 +12,7 @@ class Resident extends Base
   {
     $data = array();
     $data['request_type'] = $this->get_list("select * from tbl_request_type  where deleted_flag = 0");
+    $data['suffix'] = $this->get_list("select * from tbl_suffix ");
     $data['request_status'] = $this->get_list("select * from tbl_request_status  where deleted_flag = 0");
     $data['gender'] = $this->get_list("select * from tbl_gender where deleted_flag = 0");
     $data['marital_status'] = $this->get_list("select * from tbl_marital_status where deleted_flag = 0");
@@ -31,7 +32,15 @@ class Resident extends Base
 
   public function get_resident_list()
   {
-    return $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as approver_name,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1)) as resident_name,us.status,b.name as `barangay`, c.name as `city`,ui.contact_no,g.gender,r.* from tbl_users r inner join tbl_users_info ui on ui.id = r.id left join tbl_users_info approver on approver.id = r.approved_by inner join tbl_user_status us on us.id = r.status_id left join tbl_city c on c.id = ui.city_id left join tbl_barangay b on b.id = ui.barangay_id left join tbl_gender g on g.id = ui.gender_id where r.deleted_flag = 0 and r.access_id = 3 order by r.updated_date desc");
+    $order = " r.updated_date desc";
+    if (isset($_GET['id'])) {
+      $tmp = array(
+        1 => "field(r.status_id, 1,2)",
+        2 => "field(r.status_id, 2,1)"
+      );
+      $order = $tmp[$_GET['id']];
+    }
+    return $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as approver_name,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1)) as resident_name,us.status,b.name as `barangay`, c.name as `city`,ui.contact_no,g.gender,r.* from tbl_users r inner join tbl_users_info ui on ui.id = r.id left join tbl_users_info approver on approver.id = r.approved_by inner join tbl_user_status us on us.id = r.status_id left join tbl_city c on c.id = ui.city_id left join tbl_barangay b on b.id = ui.barangay_id left join tbl_gender g on g.id = ui.gender_id where r.deleted_flag = 0 and r.access_id = 3 order by $order");
   }
 
   public function get_resident($id = 0)
@@ -61,7 +70,7 @@ class Resident extends Base
     $required_fields = array();
     // Require Fields
     if ($resident_update == 'update') {
-      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email');
+      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'religion');
     }
 
     foreach ($required_fields as $res) {
@@ -100,7 +109,7 @@ class Resident extends Base
       $updated_date = date('Y-m-d H:i:s');
       if ($resident_update == 'update') {
         $this->query("update tbl_users_info set first_name = '$first_name', middle_name='$middle_name', last_name= '$last_name', birth_date = '$birth_date', birth_place ='$birth_place', gender_id = $gender, city_id = '$city', house_no = '$house_no', marital_status_id = $marital_status, barangay_id = $barangay, street = '$street', contact_no = '$contact_no', updated_date = '$updated_date' where id = $id");
-        $this->query("update tbl_users set username = '$username', email='$email', updated_date = '$updated_date' where id = $id");
+        $this->query("update tbl_users set username = '$username', email='$email',relgion = '$religion',suffix_id = '$suffix', updated_date = '$updated_date' where id = $id");
         if (!empty($image['name'])) {
           $ext = explode(".", $image["name"]);
           $name = 'img_' . date('YmdHis') . "." . end($ext);
@@ -135,7 +144,19 @@ class Resident extends Base
         if (isset($datainfo->contact_no) && !empty($datainfo->contact_no) && strlen($datainfo->contact_no) == 11) {
 
           $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, 2, $user->id)");
-          $this->sms($datainfo->contact_no, "Barangay Wawa System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
+          $this->sms($datainfo->contact_no, "
+Magandang Araw!\n
+The registration of your account has been approved.\n
+You may now login to the website of the barangay.\n
+ \n
+Maraming salamat po!\n
+\n
+From:\n
+BARANGAY WAWA – TAGUIG CITY\n
+ \n
+For more details, text & call:\n
+Barangay Wawa - 0945 849 0538\n
+");
         }
 
         $this->commit_transaction();
@@ -161,7 +182,7 @@ class Resident extends Base
     $msg = '';
 
     // Require Fields
-    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email');
+    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'religion');
 
 
     foreach ($required_fields as $res) {
@@ -197,7 +218,7 @@ class Resident extends Base
       $updated_date = date('Y-m-d H:i:s');
       $default_password = '$2y$10$EjFxOXsWtBtICE1KpmAnxuaL01SMG9U11ConTF6fpWJi4s4Z8GfKS';
       $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id,created_by) values('$username','$email', '$default_password','$user_status', 3, '$user->id')");
-      $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no')");
+      $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no,created_date,religion,suffix_id) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no','$updated_date','$religion','$suffix')");
       $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, 1, $user->id)");
       if (!empty($image['name'])) {
         $ext = explode(".", $image["name"]);
@@ -209,7 +230,19 @@ class Resident extends Base
       if ($user_status == 2) {
         $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, $user_status, $user->id)");
         if (strlen($contact_no) == 11) {
-          $this->sms($contact_no, "Barangay Wawa System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
+          //           $this->sms($contact_no, "
+          // Magandang Araw!\n
+          // The registration of your account has been approved.\n
+          // You may now login to the website of the barangay.\n
+          //  \n
+          // Maraming salamat po!\n
+          // \n
+          // From:\n
+          // BARANGAY WAWA – TAGUIG CITY\n
+          //  \n
+          // For more details, text & call:\n
+          // Barangay Wawa - 0945 849 0538\n
+          // ");
         }
       }
 
@@ -234,7 +267,7 @@ class Resident extends Base
     $msg = '';
 
     // Require Fields
-    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'password');
+    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'password', 'religion');
 
 
     foreach ($required_fields as $res) {
@@ -300,10 +333,11 @@ class Resident extends Base
     $this->start_transaction();
     try {
       $updated_date = date('Y-m-d H:i:s');
+      $created_date = date('Y-m-d H:i:s');
       $default_password = '$2y$10$jqh3gg3pZTEQTni6o2X5ZOfBpLDY7GIG84wH72/NQLhN7MKEUTdnW';
       $final_password = password_hash($password, PASSWORD_DEFAULT);
       $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id) values('$username','$email', '$final_password',1, 3)");
-      $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no')");
+      $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no,religion,suffix_id,created_date) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no','$religion','$suffix','$created_date')");
       $this->query("insert into tbl_user_status_history (user_id,user_status_id) values($id, 1)");
 
       $this->commit_transaction();
@@ -345,7 +379,19 @@ class Resident extends Base
       $this->query("update tbl_users_info set updated_date = '$updated_date' where id = $id");
 
       if (isset($datainfo->contact_no) && !empty($datainfo->contact_no)) {
-        $this->sms($datainfo->contact_no, "Barangay Wawa System Notification!, Your Account Has Been Approved! You May Now Login with your Account." . BASE_URL);
+        $this->sms($datainfo->contact_no, "
+Magandang Araw!\n
+The registration of your account has been approved.\n
+You may now login to the website of the barangay.\n
+ \n
+Maraming salamat po!\n
+\n
+From:\n
+BARANGAY WAWA – TAGUIG CITY\n
+ \n
+For more details, text & call:\n
+Barangay Wawa - 0945 849 0538\n
+");
       }
       $this->commit_transaction();
       $result->result = $this->response_success("Resident ID#$id Account Verified!");

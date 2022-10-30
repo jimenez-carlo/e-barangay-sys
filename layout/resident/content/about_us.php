@@ -4,6 +4,31 @@
   }
 </style>
 <div class="row" style="margin-top:30px">
+
+  <div class="col-md-2">
+  </div>
+
+  <div class="col-md-8">
+    <center>
+      <div class="box">
+        <div class="box-header" style="padding:unset">
+          <h1>About Us</h1>
+        </div>
+        <div class="box-body">
+          Barangay Wawa is a thriving neighborhood in Taguig. Laguna de Bay is to the east, Hagonoy is to the south, Bambang is to the west, and the Taguig River is to the north. Due to its farming, Barangay Wawa is about 140 hectares in size. There are several wards in Barangay Wawa, including Purok 1 - Quezon St., which extends to the middle of the street and leads to Tambak; Ward 2 - Piles; Ward 3 - Horse Shoe or Guerrero St., which leads to Jones St.; and Ward 4 - Puwang (farms).
+
+          Historically, the village was also known by the name Wawa. The meeting location for fish dealers and fishermen is here. Other elders claim that the word "Wawa" derives from the baby's "ua-ua" cry because this village was thought to have been impoverished in the past. As a result, the name of the village was derived from this cry, which eventually became Wawa. The population was 14,350 according to the 2020 Census. This accounted for 1.62% of Taguig's total population. The current appointed officials were led by Barangay Chairman Phillip E. Buenaflor and the Barangay Councilors Jenson R. Garcia, Gregorio A. Valenzuela Jr, Manuel D. Liwanag, Cyndie C. Bonifacio, Joey C. Dionisio, Virgilio S. Dionisio, Rizalito SP. sta. Barbara, Julian Erico S. Cartaño, Dennis D. Catama, Sally M. Dionisio, Arcangel C. Silvestre
+
+        </div>
+        <div class="box-footer">
+        </div>
+      </div>
+    </center>
+  </div>
+
+</div>
+<div>
+
   <div class="col-md-2">
   </div>
   <div class="col-md-4">
@@ -24,7 +49,7 @@
     <center>
       <div class="box">
         <div class="box-header" style="padding:unset">
-          <h1>Vission</h1>
+          <h1>Vision</h1>
         </div>
         <div class="box-body">
           A truly sustainable, financially advanced, disaster-resilient, climate-change competent, and self-subsistent society with priviledged citizens living in quite well-organized and clean atmosphere administered by vigorous, innovative, knowledgeable, and God-fearing government officials.
@@ -46,7 +71,7 @@
             <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img1.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
           </div>
           <div class="box-body">
-            <h4 class="text-center">CAPTAIN <br>Phillip E. Buenaflor & Rosaley Buenaflor</h4>
+            <h4 class="text-center">CAPTAIN <br>Phillip E. Buenaflor</h4>
           </div>
         </div>
       </div>
@@ -82,14 +107,7 @@
             <h4 class="text-center">KAGAWAD <br>Manuel Liwanag</h4>
           </div>
         </div>
-        <div class="box box-mg">
-          <div class="box-header" style="padding:unset">
-            <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img5.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
-          </div>
-          <div class="box-body">
-            <h4 class="text-center">KAGAWAD <br>Virgilio Dionisio</h4>
-          </div>
-        </div>
+
       </div>
       <div class="col-md-5">
       </div>
@@ -99,7 +117,14 @@
       <div class="col-md-5">
       </div>
       <div class="col-md-2" style="display:flex;justify-content:space-around">
-
+        <div class="box box-mg">
+          <div class="box-header" style="padding:unset">
+            <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img5.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+          </div>
+          <div class="box-body">
+            <h4 class="text-center">KAGAWAD <br>Virgilio Dionisio</h4>
+          </div>
+        </div>
         <div class="box box-mg">
           <div class="box-header" style="padding:unset">
             <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img6.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
@@ -116,14 +141,7 @@
             <h4 class="text-center">KAGAWAD <br>Rizalito Sta Barbara</h4>
           </div>
         </div>
-        <div class="box box-mg">
-          <div class="box-header" style="padding:unset">
-            <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img8.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
-          </div>
-          <div class="box-body">
-            <h4 class="text-center">KAGAWAD <br>Abet Bonifacio</h4>
-          </div>
-        </div>
+
         <div class="box box-mg">
           <div class="box-header" style="padding:unset">
             <img class="img-responsive" src="<?= BASE_URL . "assets/officer/img9.jpg"; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">

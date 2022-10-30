@@ -7,7 +7,7 @@
                 <i class="fa fa-bullhorn"></i> Announcements
               </h1>
               <h4>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc posuere cursus ante et vehicula. Mauris nec porta nibh. Suspendisse magna dolor, rutrum eu pharetra non, tempor mattis nisl. pharetra, lacus vitae commodo vestibulum, nulla tortor rhoncus justo, et eleifend turpis tellus nec mi. Ut condimentum mollis odio tempor rhoncus.
+                This is the Announcements page that will serve as the bulletin board of the e barangay website of Barangay Wawa, Taguig City. Get the latest updates happening here at the barangay by going in the Announcement page.
               </h4>
             </div>
 

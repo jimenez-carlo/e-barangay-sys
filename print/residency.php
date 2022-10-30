@@ -124,7 +124,7 @@ if (!$data) {
         <h1 style="margin-top:50px;margin-bottom: 70px;font-style: italic;">
           CERTIFICATE OF RESIDENCY
         </h1>
-        <p class="p-1">This is to certify that <span style="text-decoration: underline;"><?php echo $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> is a resident of this barangay with postal address <span style="text-decoration: underline;"><?php echo $data->house_no, ", " . strtolower($data->barangay_name) . ", " . strtolower($data->city_name); ?></span> since birth.</p>
+        <p class="p-1">This is to certify that <span style="text-decoration: underline;"><?php echo ((!empty($data->suffix_id)) ? $data->suffix_name : '') . " " . $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> is a resident of this barangay with postal address <span style="text-decoration: underline;"><?php echo $data->house_no, ", " . strtolower($data->barangay_name) . ", " . strtolower($data->city_name); ?></span> since birth.</p>
         <p class="p-1">This certification is being issued upon the request of <span style="text-decoration: underline;"><?php echo $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> Renewal of Solo-Parent I.D.</p>
         <p style="margin-left:18px;text-align:left;margin-bottom: 50px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Issued this <span style="text-decoration: underline;">
             <?php echo date('d') ?>
@@ -138,7 +138,7 @@ if (!$data) {
           </div>
           <div style="width:50%;">
             <i>Approved by:</i>
-            <p style="margin-top:50px">______________________</p>
+            <p style="margin-top:50px"><u>Phillip E. Buenaflor</u></p>
           </div>
         </div>
       </div>

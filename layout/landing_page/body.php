@@ -82,6 +82,7 @@
             </div>
             <div class="col-lg-5">
                 <h1 class="font-weight-light">Welcome to Barangay Wawa Site!</h1>
+                <p>Barangay Wawa is a barangay located in the city of Taguig. Its population as determined by the 2020 Census was 14,350. This represented 1.62% of the total population of Taguig. with the current appointed barangay officials Philip E. Buenaflor as Barangay Chairman with Joey Dionisio, Bogie Garcia, Manuel Liwanag, Virgilio Dionisio, Cyndie Bonifacio, Gregorio Valenzuela Jr, Jenson Garcia as Barangay Kagawads. </p>
                 <a class="btn btn-success btn-view" href="#!" name="landing_page/register">Signup</a>
             </div>
         </div>

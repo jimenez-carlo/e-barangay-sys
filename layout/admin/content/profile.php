@@ -20,9 +20,17 @@
               <label for="exampleInputPassword1">*First Name:</label>
               <input type="text" class="form-control" placeholder="First name" name="first_name" value="<?= $data->first_name; ?>">
             </div>
-            <div class="form-group col-xs-4">
+            <div class="form-group col-xs-2">
               <label for="exampleInputPassword1">*Middle Name:</label>
               <input type="text" class="form-control" placeholder="Middle name" name="middle_name" value="<?= $data->middle_name; ?>">
+            </div>
+            <div class="form-group col-xs-2">
+              <label for="exampleInputPassword1">Suffix:</label>
+              <select class="form-control" name="suffix">
+                <?php foreach ($default_data['suffix'] as $res) { ?>
+                  <option value="<?= $res['id'] ?>" <?php echo ($data->suffix_id == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
+                <?php } ?>
+              </select>
             </div>
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Last Name:</label>
@@ -74,13 +82,18 @@
             </div>
 
 
-            <div class="form-group col-xs-4">
+            <div class="form-group col-xs-2">
               <label for="exampleInputPassword1">*Marital Status:</label>
               <select class="form-control" name="marital_status">
                 <?php foreach ($default_data['marital_status'] as $res) { ?>
                   <option value="<?= $res['id'] ?>" <?php echo ($data->marital_status_id == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['status']); ?></option>
                 <?php } ?>
               </select>
+            </div>
+
+            <div class="form-group col-xs-2">
+              <label for="exampleInputPassword1">*Religion:</label>
+              <input type="text" class="form-control" placeholder="Religion" name="religion" value="<?= $data->religion; ?>">
             </div>
 
             <div class="form-group col-xs-4">

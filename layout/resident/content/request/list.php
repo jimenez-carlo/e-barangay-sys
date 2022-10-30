@@ -61,6 +61,7 @@
                 $(".dt-button").removeClass("dt-button");
               },
               dom: 'Blfrtip',
+"ordering": false,
               buttons: [{
                 text: '<i class="fa fa-plus"></i> Add Announcement</button>',
                 className: 'btn btn-sm btn-flat btn-success btn-view',

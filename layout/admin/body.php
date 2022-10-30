@@ -19,7 +19,7 @@
       <div class="icon">
         <i class="ion ion-person-stalker"></i>
       </div>
-      <a href="#" class="small-box-footer btn-view" name="admin/resident">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer btn-view" name="admin/resident" value="1">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
 
@@ -33,7 +33,7 @@
       <div class="icon">
         <i class="ion ion-person-stalker"></i>
       </div>
-      <a href="#" class="small-box-footer btn-view" name="admin/resident">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer btn-view" name="admin/resident" value="2">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
 
@@ -85,7 +85,7 @@
       <div class="icon">
         <i class="ion-document-text"></i>
       </div>
-      <a href="#" class="small-box-footer btn-view" name="admin/business">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer btn-view" name="admin/business" value="1">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <div class="col-lg-3 col-xs-6">
@@ -97,7 +97,7 @@
       <div class="icon">
         <i class="ion-document-text"></i>
       </div>
-      <a href="#" class="small-box-footer btn-view" name="admin/business">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer btn-view" name="admin/business" value="2">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <div class="col-lg-3 col-xs-6">
@@ -109,7 +109,7 @@
       <div class="icon">
         <i class="ion-document-text"></i>
       </div>
-      <a href="#" class="small-box-footer btn-view" name="admin/business">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer btn-view" name="admin/business" value="3">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
 
@@ -134,7 +134,7 @@
       <div class="icon">
         <i class="ion-briefcase"></i>
       </div>
-      <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer btn-view" name="admin/barangay" value="1">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <div class="col-lg-3 col-xs-6">
@@ -146,7 +146,7 @@
       <div class="icon">
         <i class="ion-briefcase"></i>
       </div>
-      <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer btn-view" name="admin/barangay" value="2">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <div class="col-lg-3 col-xs-6">
@@ -158,7 +158,7 @@
       <div class="icon">
         <i class="ion-briefcase"></i>
       </div>
-      <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer btn-view" name="admin/barangay" value="3">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
 
@@ -171,7 +171,7 @@
       <div class="icon">
         <i class="ion-card"></i>
       </div>
-      <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer btn-view" name="admin/id">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <div class="col-lg-3 col-xs-6">
@@ -183,7 +183,7 @@
       <div class="icon">
         <i class="ion-card"></i>
       </div>
-      <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer btn-view" name="admin/id" value="1">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <div class="col-lg-3 col-xs-6">
@@ -195,7 +195,7 @@
       <div class="icon">
         <i class="ion-card"></i>
       </div>
-      <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer btn-view" name="admin/id" value="2">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <div class="col-lg-3 col-xs-6">
@@ -207,7 +207,7 @@
       <div class="icon">
         <i class="ion-card"></i>
       </div>
-      <a href="#" class="small-box-footer btn-view" name="admin/barangay">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer btn-view" name="admin/id" value="3">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
 

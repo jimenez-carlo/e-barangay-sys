@@ -169,7 +169,7 @@ class Profile extends Base
 
     if ($resident_profile_update == 'profile') {
       // Require Fields
-      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email');
+      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'religion');
 
 
       foreach ($required_fields as $res) {
@@ -210,7 +210,7 @@ class Profile extends Base
       $this->start_transaction();
       try {
         $updated_date = date('Y-m-d H:i:s');
-        $this->query("update tbl_users_info set first_name = '$first_name', middle_name='$middle_name', last_name= '$last_name', birth_date = '$birth_date', birth_place ='$birth_place', gender_id = $gender, city_id = '$city', house_no = '$house_no', marital_status_id = $marital_status, barangay_id = $barangay, street = '$street', contact_no = '$contact_no', updated_date = '$updated_date' where id = $id");
+        $this->query("update tbl_users_info set first_name = '$first_name', middle_name='$middle_name', last_name= '$last_name', birth_date = '$birth_date', birth_place ='$birth_place', gender_id = $gender, city_id = '$city', house_no = '$house_no', marital_status_id = $marital_status, barangay_id = $barangay, street = '$street', contact_no = '$contact_no',religion='$religion', suffix_id= '$suffix'  updated_date = '$updated_date' where id = $id");
         $this->query("update tbl_users set username = '$username', email='$email', updated_date = '$updated_date' where id = $id");
         if (!empty($image['name'])) {
           $ext = explode(".", $image["name"]);

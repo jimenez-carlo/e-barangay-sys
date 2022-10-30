@@ -36,9 +36,9 @@
                                <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/business/edit" value="<?= $res['id']; ?>"> <i class="fa fa-edit"></i> Edit</button>
                                <?php if ($res['request_status_id'] == 4) { ?>
                                  <?php $redirect = array(1 => 'clearance.php', 2 => 'residency.php', 3 => 'id.php'); ?>
-                                 <!-- <a class="btn btn-sm btn-success btn-flat btn-print" href='<?= BASE_URL . "print/" . $redirect[2] . "?pair=" . base64_encode($res['requester_id']) . "&code=" . base64_encode(date("Ymd", time() + 86400)); ?>"' target="_blank"><i class="fa fa-print"></i> Print</a> -->
+                                 <a class="btn btn-sm btn-success btn-flat btn-print" href='<?= BASE_URL . "print/" . $redirect[2] . "?pair=" . base64_encode($res['requester_id']) . "&code=" . base64_encode(date("Ymd", time() + 86400)); ?>"' target="_blank"><i class="fa fa-print"></i> Print</a>
                                <?php } else { ?>
-                                 <!-- <button type="button" class="btn btn-sm btn-success btn-flat" disabled><i class="fa fa-print"></i> Print</button> -->
+                                 <button type="button" class="btn btn-sm btn-success btn-flat" disabled><i class="fa fa-print"></i> Print</button>
                                <?php } ?>
                              </td>
                            </tr>
@@ -66,8 +66,19 @@
                $(".dt-button").removeClass("dt-button");
              },
              dom: 'Blfrtip',
+"ordering": false,
              buttons: [{
                extend: 'excel',
+               exportOptions: {
+                 columns: [0, 1, 2, 3, 4],
+                 format: {
+                   header: function(data, columnIdx) {
+                     var dom = document.createElement('div');
+                     dom.innerHTML = data;
+                     return dom.children[0].getAttribute("placeholder")
+                   }
+                 }
+               },
                text: '<i class="fa fa-file-excel-o"></i> Export </button>',
                className: 'btn btn-sm btn-flat btn-success',
                title: 'Business Clearance Requests'

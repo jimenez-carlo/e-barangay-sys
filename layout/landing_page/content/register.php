@@ -58,7 +58,7 @@
               </legend>
               <div class="row g-3">
                 <div class="col-sm-4">
-                  <label for="firstName" class="form-label">*Username <span class="text-danger">*</span></label>
+                  <label for="firstName" class="form-label">Username <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="firstName" placeholder="Username" name="username" value="" required="">
                 </div>
                 <div class="col-sm-4">
@@ -82,6 +82,14 @@
                   <input type="text" class="form-control" id="lastName" placeholder="Lastname" name="last_name" value="" required="">
                 </div>
                 <div class="col-sm-4">
+                  <label for="firstName" class="form-label">Suffix</label>
+                  <select class="form-select" name="suffix">
+                    <?php foreach ($default_data['suffix'] as $res) { ?>
+                      <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+                <div class="col-sm-4">
                   <label for="firstName" class="form-label">Email <span class="text-danger">*</span></label>
                   <input type="email" class="form-control" id="firstName" placeholder="Email Address" name="email" value="" required="">
                 </div>
@@ -98,7 +106,7 @@
 
                 <div class="col-md-4">
                   <label for="country" class="form-label">Gender</label>
-                  <select class="form-select select2" id="country" required="" name="gender">
+                  <select class="form-select" id="country" required="" name="gender">
                     <?php foreach ($default_data['gender'] as $res) { ?>
                       <option value="<?= $res['id'] ?>"><?= strtoupper($res['gender']); ?></option>
                     <?php } ?>
@@ -106,18 +114,22 @@
                 </div>
                 <div class="col-md-4">
                   <label for="country" class="form-label">Marital Status</label>
-                  <select class="form-select select2" name="marital_status">
+                  <select class="form-select" name="marital_status">
                     <?php foreach ($default_data['marital_status'] as $res) { ?>
                       <option value="<?= $res['id'] ?>"><?= strtoupper($res['status']); ?></option>
                     <?php } ?>
                   </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="religion" class="form-label">Religion <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="religion" placeholder="Religion" name="religion" value="" required="">
                 </div>
                 <div class="col-4">
                   <label for="address2" class="form-label">Contact No <span class="text-danger">*</span></label>
                   <input type="number" maxlength="11" class="form-control" id="address2" placeholder="09XXXXXXXXX" name="contact_no">
                 </div>
                 <div class="col-12">
-                  <input type="checkbox" name="terms" required> I have read, understood, and accepted the Privacy Policy and Terms & Conditions.
+                  <input type="checkbox" name="terms" required> I have read, understood, and accepted the <a href="#" target="_blank">Privacy Policy and Terms & Conditions</a>.
                 </div>
               </div>
             </fieldset>

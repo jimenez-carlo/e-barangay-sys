@@ -91,7 +91,23 @@ class Announcement extends Base
         $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 limit 5");
         foreach ($recipients as $res) {
           if (strlen($res['contact_no'] == 11)) {
-            $this->sms($res['contact_no'], "Barangay Wawa System Announcemnet!, Title:$title Description:$description");
+            $this->sms(
+              $res['contact_no'],
+              "
+Magandang Araw!\n
+$title\n
+$description\n
+\n
+When: $start_date\n
+\n
+Maraming salamat po!\n
+From:\n
+BARANGAY WAWA – TAGUIG CITY\n
+\n
+For more details, text & call:\n
+Barangay Wawa - 0945 849 0538\n
+"
+            );
           }
         }
       }

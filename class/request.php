@@ -34,17 +34,45 @@ class Request extends Base
 
   public function get_barangay_clearance_list()
   {
-    return $this->get_list("select r.id,r.purpose_id,r.requester_id,r.request_status_id,concat(rq.last_name, ', ', rq.first_name,' ', LEFT(rq.middle_name, 1), '[#',rq.id,']') as requestor_name, concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as approver_name,rt.id as request_type_id,rt.type as request_type,rs.status,r.updated_date,r.created_date from tbl_request_barangay r left join tbl_users_info ui on ui.id = r.updated_by inner join tbl_request_type rt on rt.id = r.request_type_id  inner join tbl_request_status rs on rs.id = r.request_status_id inner join tbl_users_info rq on rq.id = r.requester_id order by r.updated_date desc");
+    $order = " r.updated_date desc";
+    if (isset($_GET['id'])) {
+      $tmp = array(
+        1 => "field(r.request_status_id, 1,2,4,5,6)",
+        2 => "field(r.request_status_id, 2,1,4,5,6)",
+        3 => "field(r.request_status_id, 5,1,2,4,6)"
+      );
+      $order = $tmp[$_GET['id']];
+    }
+    return $this->get_list("select r.id,r.purpose_id,r.requester_id,r.request_status_id,concat(rq.last_name, ', ', rq.first_name,' ', LEFT(rq.middle_name, 1), '[#',rq.id,']') as requestor_name, concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as approver_name,rt.id as request_type_id,rt.type as request_type,rs.status,r.updated_date,r.created_date from tbl_request_barangay r left join tbl_users_info ui on ui.id = r.updated_by inner join tbl_request_type rt on rt.id = r.request_type_id  inner join tbl_request_status rs on rs.id = r.request_status_id inner join tbl_users_info rq on rq.id = r.requester_id order by $order");
   }
 
   public function get_business_clearance_list()
   {
-    return $this->get_list("select r.id,r.requester_id,r.request_status_id,concat(rq.last_name, ', ', rq.first_name,' ', LEFT(rq.middle_name, 1), '[#',rq.id,']') as requestor_name, concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as approver_name,rt.id as request_type_id,rt.type as request_type,rs.status,r.updated_date,r.created_date from tbl_request_business r left join tbl_users_info ui on ui.id = r.updated_by inner join tbl_request_type rt on rt.id = r.request_type_id  inner join tbl_request_status rs on rs.id = r.request_status_id inner join tbl_users_info rq on rq.id = r.requester_id order by r.updated_date desc");
+    $order = " r.updated_date desc";
+    if (isset($_GET['id'])) {
+      $tmp = array(
+        1 => "field(r.request_status_id, 1,2,4,5,6)",
+        2 => "field(r.request_status_id, 2,1,4,5,6)",
+        3 => "field(r.request_status_id, 5,1,2,4,6)"
+      );
+      $order = $tmp[$_GET['id']];
+    }
+
+    return $this->get_list("select r.id,r.requester_id,r.request_status_id,concat(rq.last_name, ', ', rq.first_name,' ', LEFT(rq.middle_name, 1), '[#',rq.id,']') as requestor_name, concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as approver_name,rt.id as request_type_id,rt.type as request_type,rs.status,r.updated_date,r.created_date from tbl_request_business r left join tbl_users_info ui on ui.id = r.updated_by inner join tbl_request_type rt on rt.id = r.request_type_id  inner join tbl_request_status rs on rs.id = r.request_status_id inner join tbl_users_info rq on rq.id = r.requester_id order by $order");
   }
 
   public function get_barangay_id_list()
   {
-    return $this->get_list("select r.id,r.requester_id,r.request_status_id,concat(rq.last_name, ', ', rq.first_name,' ', LEFT(rq.middle_name, 1), '[#',rq.id,']') as requestor_name, concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as approver_name,rt.id as request_type_id,rt.type as request_type,rs.status,r.updated_date,r.created_date from tbl_request_id r left join tbl_users_info ui on ui.id = r.updated_by inner join tbl_request_type rt on rt.id = r.request_type_id  inner join tbl_request_status rs on rs.id = r.request_status_id inner join tbl_users_info rq on rq.id = r.requester_id order by r.updated_date desc");
+    $order = " r.updated_date desc";
+    if (isset($_GET['id'])) {
+      $tmp = array(
+        1 => "field(r.request_status_id, 1,2,4,5,6)",
+        2 => "field(r.request_status_id, 2,1,4,5,6)",
+        3 => "field(r.request_status_id, 5,1,2,4,6)"
+      );
+      $order = $tmp[$_GET['id']];
+    }
+    return $this->get_list("select r.id,r.requester_id,r.request_status_id,concat(rq.last_name, ', ', rq.first_name,' ', LEFT(rq.middle_name, 1), '[#',rq.id,']') as requestor_name, concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as approver_name,rt.id as request_type_id,rt.type as request_type,rs.status,r.updated_date,r.created_date from tbl_request_id r left join tbl_users_info ui on ui.id = r.updated_by inner join tbl_request_type rt on rt.id = r.request_type_id  inner join tbl_request_status rs on rs.id = r.request_status_id inner join tbl_users_info rq on rq.id = r.requester_id order by $order");
   }
 
   public function get_barangay_id($id)
@@ -141,45 +169,7 @@ class Request extends Base
     return $result;
   }
 
-  public function change_status()
-  {
-    extract($this->escape_data(array_merge($_SESSION, $_POST)));
 
-    $result = $this->response_obj();
-    $request_data = $this->get_request($id);
-
-    if ($status == $request_data->request_status_id) {
-      $result->result = $this->response_error("Request Status Is the Same!");
-      $result->items = 'status';
-      return $result;
-    }
-
-    $this->start_transaction();
-    try {
-      $updated_date = date('Y-m-d H:i:s');
-      $this->query("INSERT INTO tbl_request_history (request_id, request_status_id, remarks, created_by) values($id, $status, '$remarks', $user->id)");
-      $this->query("UPDATE tbl_request set request_status_id = $status, updated_date = '$updated_date', updated_by ='$user->id' where id = $id ");
-
-      if (isset($send_sms) && $status == 2) {
-        $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
-        foreach ($recipients as $res) {
-          if (strlen($res['contact_no'] == 11)) {
-            $this->sms($res['contact_no'], "Barangay Wawa System Notification!, Your Request#$id Has Been Approved! Please Walk-In to Barangay Wawa To Claim Your Request.");
-          }
-        }
-      }
-
-      $this->commit_transaction();
-      $result->status = true;
-      $result->result = $this->response_success("Request ID#$id Status Changed!");
-      $result->id = $id;
-    } catch (mysqli_sql_exception $e) {
-      $this->roll_back();
-      $new = new self($this->conn);
-      $new->save_error($e->getMessage());
-    }
-    return $result;
-  }
 
   public function request_barangay_clearance()
   {
@@ -223,7 +213,6 @@ class Request extends Base
 
       $this->commit_transaction();
       $result->result = $this->response_success("Request Submitted!");
-      $this->sms($user->contact_no, "Barangay Wawa System Notification!, Your Request For Barangay Clearance Has Been Sent!");
       $result->status = true;
     } catch (mysqli_sql_exception $e) {
       $this->roll_back();
@@ -317,7 +306,6 @@ class Request extends Base
 
       $this->commit_transaction();
       $result->result = $this->response_success("Request Submitted!");
-      $this->sms($user->contact_no, "Barangay Wawa System Notification!, Your Request For Barangay ID Has Been Sent!");
       $result->status = true;
     } catch (mysqli_sql_exception $e) {
       $this->roll_back();
@@ -436,7 +424,6 @@ class Request extends Base
 
       $this->commit_transaction();
       $result->result = $this->response_success("Request Submitted!");
-      $this->sms($user->contact_no, "Barangay Wawa System Notification!, Your Request For Business Clearance Has Been Sent!");
       $result->status = true;
     } catch (mysqli_sql_exception $e) {
       $this->roll_back();
@@ -481,21 +468,45 @@ class Request extends Base
       $updated_date = date('Y-m-d H:i:s');
       $this->query("INSERT INTO tbl_request_history (request_id, request_type_id, request_status_id, remarks, created_by) values($id, $type, $status, '$remarks', $user->id)");
       $this->query("UPDATE $table set request_status_id = $status, updated_date = '$updated_date', updated_by ='$user->id' where id = $id ");
-
+      // approved
       if (isset($send_sms) && $status == 2) {
         $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
         foreach ($recipients as $res) {
           if (strlen($res['contact_no'] == 11)) {
-            $this->sms($res['contact_no'], "Barangay Wawa System Notification!, Your $request_type ID#$id Has Been Approved! Please Walk-In to Barangay Wawa To Claim Your Request.");
+            $this->sms($res['contact_no'], "Magandang Araw!\n
+Your request for a certificate / clearance / ID has been approved.\n
+You can claim the document at the barangay hall in the next 2 days.\n
+]n
+Maraming salamat po!\n
+\n 
+From:\n
+BARANGAY WAWA – TAGUIG CITY\n
+ \n
+For more details, text & call:\n
+Barangay Wawa - 0945 849 0538\n
+");
           }
         }
       }
 
-      if (isset($send_sms) && $status == 5) {
+      // deny
+      if (isset($send_sms) && $status == 6) {
         $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
         foreach ($recipients as $res) {
           if (strlen($res['contact_no'] == 11)) {
-            $this->sms($res['contact_no'], "Barangay Wawa System Notification!, Your $request_type ID#$id Has Been Released! Please Walk-In to Barangay Wawa To Claim Your Request.");
+            $this->sms($res['contact_no'], "Magandang Araw!\n
+Your request for a certificate / clearance / ID has been denied.\n
+You can check our official website to check the following requirements.\n
+or inquire to the Barangay Hall, 2nd Floor.\n
+Maraming salamat po!\n
+\n
+ \n
+From:\n
+BARANGAY WAWA – TAGUIG CITY\n
+ \n
+For more details, text & call:\n
+Barangay Wawa - 0945 849 0538
+");
           }
         }
       }

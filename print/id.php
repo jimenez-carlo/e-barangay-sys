@@ -207,7 +207,7 @@ if (!$data) {
         Wawa, Taguig</h3>
       <img src="logo.png" alt="" class="logo">
       <div class="full_name">
-        <h2> <?= strtoupper($data->first_name . " ," . $data->middle_name[0] . ", " . $data->last_name); ?></h2>
+        <h2> <?php echo ((!empty($data->suffix_id)) ? $data->suffix_name : '') . " " . $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></h2>
         <p class="label_name">Name</p>
       </div>
       <div class="address">

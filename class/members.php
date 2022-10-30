@@ -12,6 +12,7 @@ class Members extends Base
   {
     $data = array();
     $data['request_type'] = $this->get_list("select * from tbl_request_type  where deleted_flag = 0");
+    $data['suffix'] = $this->get_list("select * from tbl_suffix");
     $data['request_status'] = $this->get_list("select * from tbl_request_status  where deleted_flag = 0");
     $data['gender'] = $this->get_list("select * from tbl_gender where deleted_flag = 0");
     $data['marital_status'] = $this->get_list("select * from tbl_marital_status where deleted_flag = 0");
@@ -76,7 +77,7 @@ class Members extends Base
     $required_fields = array();
     // Require Fields
     if ($member_update == 'update') {
-      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email');
+      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'religion');
     }
 
     foreach ($required_fields as $res) {
@@ -117,7 +118,7 @@ class Members extends Base
     try {
       $updated_date = date('Y-m-d H:i:s');
       if ($member_update == 'update') {
-        $this->query("update tbl_users_info set first_name = '$first_name', middle_name='$middle_name', last_name= '$last_name', birth_date = '$birth_date', birth_place ='$birth_place', gender_id = $gender, city_id = '$city', house_no = '$house_no', marital_status_id = $marital_status, barangay_id = $barangay, street = '$street', contact_no = '$contact_no', updated_date = '$updated_date', barangay_position_id ='$position' where id = $id");
+        $this->query("update tbl_users_info set first_name = '$first_name', middle_name='$middle_name', last_name= '$last_name', birth_date = '$birth_date', birth_place ='$birth_place', gender_id = $gender, city_id = '$city', house_no = '$house_no', marital_status_id = $marital_status, barangay_id = $barangay, street = '$street', contact_no = '$contact_no', updated_date = '$updated_date', barangay_position_id ='$position',religion='$religion', suffix_id='$suffix' where id = $id");
         $this->query("update tbl_users set username = '$username', email='$email', updated_date = '$updated_date' where id = $id");
         if (!empty($image['name'])) {
           $ext = explode(".", $image["name"]);
@@ -158,7 +159,7 @@ class Members extends Base
     $msg = '';
 
     // Require Fields
-    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email');
+    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'religion');
 
 
     foreach ($required_fields as $res) {
@@ -202,7 +203,7 @@ class Members extends Base
       // print_r($_SESSION);
       // print_r("insert into tbl_users  (username,email,password,status_id, access_id,created_by) values('$username','$email', '$default_password',2, 2, '$user->id')");
       $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id,created_by) values('$username','$email', '$default_password',2, 2, '$user->id')");
-      $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no,barangay_position_id) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no', '$position')");
+      $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no,barangay_position_id,religion,suffix_id) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no', '$position', '$religion','$suffix')");
       $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, 1, $user->id)");
       $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, 2, $user->id)");
       if (!empty($image['name'])) {
