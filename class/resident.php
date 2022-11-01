@@ -33,7 +33,7 @@ class Resident extends Base
   public function get_resident_list()
   {
     $order = " r.updated_date desc";
-    if (isset($_GET['id'])) {
+    if (isset($_GET['id']) && !empty($_GET['id'])) {
       $tmp = array(
         1 => "field(r.status_id, 1,2)",
         2 => "field(r.status_id, 2,1)"

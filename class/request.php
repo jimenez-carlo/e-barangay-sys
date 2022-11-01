@@ -35,7 +35,7 @@ class Request extends Base
   public function get_barangay_clearance_list()
   {
     $order = " r.updated_date desc";
-    if (isset($_GET['id'])) {
+    if (isset($_GET['id']) && !empty($_GET['id'])) {
       $tmp = array(
         1 => "field(r.request_status_id, 1,2,4,5,6)",
         2 => "field(r.request_status_id, 2,1,4,5,6)",
@@ -49,7 +49,7 @@ class Request extends Base
   public function get_business_clearance_list()
   {
     $order = " r.updated_date desc";
-    if (isset($_GET['id'])) {
+    if (isset($_GET['id']) && !empty($_GET['id'])) {
       $tmp = array(
         1 => "field(r.request_status_id, 1,2,4,5,6)",
         2 => "field(r.request_status_id, 2,1,4,5,6)",
@@ -64,7 +64,7 @@ class Request extends Base
   public function get_barangay_id_list()
   {
     $order = " r.updated_date desc";
-    if (isset($_GET['id'])) {
+    if (isset($_GET['id']) && !empty($_GET['id'])) {
       $tmp = array(
         1 => "field(r.request_status_id, 1,2,4,5,6)",
         2 => "field(r.request_status_id, 2,1,4,5,6)",
