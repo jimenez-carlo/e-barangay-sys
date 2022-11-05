@@ -22,7 +22,7 @@
                 <?php } ?>
               </select>
             </div>
-            <div class="form-group col-xs-3">
+            <div class="form-group col-xs-3" id="form4">
               <label for="exampleInputPassword1">Others:</label>
               <input type="text" class="form-control" placeholder="Others..." name="others">
             </div>
@@ -172,6 +172,14 @@
     format: 'yyyy-mm-dd',
   }).datepicker("setDate", 'now');
 
+  $("[name='purpose_id']").on('change', function(e) {
+    if (this.value == 11) {
+      $("#form4").css("visibility", "visible");
+    } else {
+      $("#form4").css("visibility", "hidden");
+    }
+  });
+
   $("[name='minor']").on('change', function(e) {
     if (this.value == 1) {
       $("#form1").css("visibility", "visible");
@@ -182,5 +190,6 @@
 
   $(document).ready(function() {
     $("[name='minor']").trigger('change');
+    $("[name='purpose_id']").trigger('change');
   });
 </script>

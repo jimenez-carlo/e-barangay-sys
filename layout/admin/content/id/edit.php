@@ -305,7 +305,7 @@
   }).datepicker("setDate", 'now');
 
   $("[name='minor']").on('change', function(e) {
-    if (this.value == 1) {
+    if ($("[name='minor']:checked").val() == 1) {
       $("#form1").css("visibility", "visible");
     } else {
       $("#form1").css("visibility", "hidden");

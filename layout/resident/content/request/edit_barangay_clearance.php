@@ -22,7 +22,7 @@
 
             <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">Purpose:</label>
-              <select class="form-control" name="purpose_id" disabled>
+              <select class="form-control" name="purpose_id" disabled id="purpose_id">
                 <?php foreach ($default_data['purpose'] as $res) { ?>
                   <option value="<?= $res['id'] ?>" <?php echo ($data->purpose_id == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['purpose']); ?></option>
                 <?php } ?>
@@ -77,7 +77,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right datepicker" name="birth_date" placeholder="Birth Date" value="<?= $resident_data->contact_no; ?>" disabled>
+                <input type="text" class="form-control pull-right datepicker" name="birth_date" placeholder="Birth Date" value="<?= $resident_data->birth_date; ?>" disabled>
               </div>
             </div>
 
@@ -235,8 +235,16 @@
     format: 'yyyy-mm-dd',
   });
 
+  $("[name='purpose_id']").on('change', function(e) {
+    if (this.value == 11) {
+      $("#form4").css("visibility", "visible");
+    } else {
+      $("#form4").css("visibility", "hidden");
+    }
+  });
+
   $("[name='minor']").on('change', function(e) {
-    if (this.value == 1) {
+    if ($("[name='minor']:checked").val() == 1) {
       $("#form1").css("visibility", "visible");
     } else {
       $("#form1").css("visibility", "hidden");
@@ -245,5 +253,6 @@
 
   $(document).ready(function() {
     $("[name='minor']").trigger('change');
+    $("[name='purpose_id']").trigger('change');
   });
 </script>

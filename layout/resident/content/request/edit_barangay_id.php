@@ -81,7 +81,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right datepicker" name="birth_date" placeholder="Birth Date" value="<?= $resident_data->contact_no; ?>" disabled>
+                <input type="text" class="form-control pull-right datepicker" name="birth_date" placeholder="Birth Date" value="<?= $resident_data->birth_date; ?>" disabled>
               </div>
             </div>
 
@@ -266,7 +266,7 @@
   });
 
   $("[name='minor']").on('change', function(e) {
-    if (this.value == 1) {
+    if ($("[name='minor']:checked").val() == 1) {
       $("#form1").css("visibility", "visible");
     } else {
       $("#form1").css("visibility", "hidden");

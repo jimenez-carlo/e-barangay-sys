@@ -148,9 +148,12 @@ class Base
         $number, // to
         [
           "body" => $message,
-          "from" => '+19035009924'
+          "from" => '+19035009924',
+          "statusCallback" => "http://postb.in/1234abcd"
         ]
       );
+
+    return $result;
     // print_r($number);
     // print_r($result->sid);
 

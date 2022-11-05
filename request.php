@@ -66,9 +66,9 @@ switch ($form) {
     $result = $members->update();
     break;
 
-  case 'request_change_status':
-    $result = $request->change_status();
-    break;
+    // case 'request_change_status':
+    //   $result = $request->change_status();
+    //   break;
   case 'request_generate':
     $result = $request->request_generate();
     break;

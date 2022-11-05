@@ -108,8 +108,8 @@ class Resident extends Base
     try {
       $updated_date = date('Y-m-d H:i:s');
       if ($resident_update == 'update') {
-        $this->query("update tbl_users_info set first_name = '$first_name', middle_name='$middle_name', last_name= '$last_name', birth_date = '$birth_date', birth_place ='$birth_place', gender_id = $gender, city_id = '$city', house_no = '$house_no', marital_status_id = $marital_status, barangay_id = $barangay, street = '$street', contact_no = '$contact_no', updated_date = '$updated_date' where id = $id");
-        $this->query("update tbl_users set username = '$username', email='$email',relgion = '$religion',suffix_id = '$suffix', updated_date = '$updated_date' where id = $id");
+        $this->query("update tbl_users_info set first_name = '$first_name', middle_name='$middle_name', last_name= '$last_name', birth_date = '$birth_date', birth_place ='$birth_place', gender_id = $gender, city_id = '$city', house_no = '$house_no', marital_status_id = $marital_status, barangay_id = $barangay, street = '$street', contact_no = '$contact_no', updated_date = '$updated_date',religion = '$religion',suffix_id = '$suffix' where id = $id");
+        $this->query("update tbl_users set username = '$username', email='$email', updated_date = '$updated_date' where id = $id");
         if (!empty($image['name'])) {
           $ext = explode(".", $image["name"]);
           $name = 'img_' . date('YmdHis') . "." . end($ext);
@@ -141,10 +141,13 @@ class Resident extends Base
           return $result;
         }
 
+        $this->query("update tbl_users set status_id = 2 where id = $id");
+
         if (isset($datainfo->contact_no) && !empty($datainfo->contact_no) && strlen($datainfo->contact_no) == 11) {
 
           $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, 2, $user->id)");
-          $this->sms($datainfo->contact_no, "
+
+          $sms_result =  $this->sms($datainfo->contact_no, "
 Magandang Araw!\n
 The registration of your account has been approved.\n
 You may now login to the website of the barangay.\n
