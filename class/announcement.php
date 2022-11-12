@@ -84,8 +84,9 @@ class Announcement extends Base
     $this->start_transaction();
     try {
       $status = ($announcement_create == 'draft') ? 1 : 2;
-      $announcement_id = $this->insert_get_id("INSERT INTO tbl_announcement (title, `description`, announcement_status_id, `start_date`, end_date, created_by) values('$title', '$description', $status, '$start_date', '$end_date', $user->id)");
-      $this->query("INSERT INTO tbl_announcement_status_history (announcement_id, announcement_status_id, created_by) values ($announcement_id, $status, $user->id)");
+      $updated_date = date('Y-m-d H:i:s');
+      $announcement_id = $this->insert_get_id("INSERT INTO tbl_announcement (title, `description`, announcement_status_id, `start_date`, end_date, created_by,created_date,updated_date) values('$title', '$description', $status, '$start_date', '$end_date', $user->id,'$updated_date','$updated_date')");
+      $this->query("INSERT INTO tbl_announcement_status_history (announcement_id, announcement_status_id, created_by,created_date,updated_date) values ($announcement_id, $status, $user->id,'$updated_date','$updated_date')");
 
       if (isset($send_sms) && $status == 2) {
         $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 limit 5");

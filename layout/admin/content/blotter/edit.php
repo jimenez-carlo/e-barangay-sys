@@ -57,7 +57,7 @@
                 <label for="exampleInputEmail1">Action Taken</label>
                 <select class="form-control" name="action">
                   <?php foreach ($default_data['action_taken'] as $res) { ?>
-                    <option value="<?= $res['id'] ?>"><?= $res['type'] ?></option>
+                    <option value="<?= $res['id'] ?>" <?php echo ($res['id'] == $blotter->action_id) ? 'selected' : ''; ?>><?= $res['type'] ?></option>
                   <?php } ?>
                 </select>
               </div>
@@ -67,7 +67,7 @@
                 <label for="exampleInputPassword1">Status</label>
                 <select class="form-control" name="status">
                   <?php foreach ($default_data['status'] as $res) { ?>
-                    <option value="<?= $res['id'] ?>"> <?= $res['status'] ?></option>
+                    <option value="<?= $res['id'] ?>" <?php echo ($res['id'] == $blotter->blotter_status_id) ? 'selected' : ''; ?>> <?= $res['status'] ?></option>
                   <?php } ?>
                 </select>
               </div>

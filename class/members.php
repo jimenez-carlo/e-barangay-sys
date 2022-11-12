@@ -30,6 +30,8 @@ class Members extends Base
     $data['clearance_id'] = $this->get_one("select if(max(id) is null, 1, max(id) + 1) as `id`  from tbl_request_barangay order by id desc limit 1 ")->id;
     $data['barangay_id'] = $this->get_one("select if(max(id) is null, 1, max(id) + 1) as `id`  from tbl_request_id order by id desc limit 1 ")->id;
     $data['business_id'] = $this->get_one("select if(max(id) is null, 1, max(id) + 1) as `id`  from tbl_request_business order by id desc limit 1 ")->id;
+    $data['nationality'] = $this->get_list("select * from tbl_nationality where deleted_flag = 0");
+    $data['religion'] = $this->get_list("select * from tbl_religion where deleted_flag = 0");
     return $data;
   }
 
@@ -42,7 +44,7 @@ class Members extends Base
 
   public function get_member_list()
   {
-    return $this->get_list("select p.title,a.name as `access_name`,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as approver_name,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1)) as resident_name,us.status,b.name as `barangay`, c.name as `city`,ui.contact_no,g.gender,r.* from tbl_users r inner join tbl_users_info ui on ui.id = r.id left join tbl_users_info approver on approver.id = r.approved_by inner join tbl_user_status us on us.id = r.status_id left join tbl_city c on c.id = ui.city_id left join tbl_barangay b on b.id = ui.barangay_id left join tbl_gender g on g.id = ui.gender_id left join tbl_barangay_positions p on p.id = ui.barangay_position_id inner join tbl_access a on a.id = r.access_id where r.deleted_flag = 0 and r.access_id in(1,2) order by r.updated_date desc");
+    return $this->get_list("select p.title,a.name as `access_name`,concat(approver.last_name, ', ', approver.first_name,' ', LEFT(approver.middle_name, 1), '[#',approver.id,']') as approver_name,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1)) as resident_name,us.status,b.name as `barangay`, c.name as `city`,ui.contact_no,g.gender,r.* from tbl_users r inner join tbl_users_info ui on ui.id = r.id left join tbl_users_info approver on approver.id = r.approved_by inner join tbl_user_status us on us.id = r.status_id left join tbl_city c on c.id = ui.city_id left join tbl_barangay b on b.id = ui.barangay_id left join tbl_gender g on g.id = ui.gender_id left join tbl_barangay_positions p on p.id = ui.barangay_position_id inner join tbl_access a on a.id = r.access_id where r.deleted_flag = 0 and r.access_id in(1,2) order by r.updated_date desc");
   }
 
   public function get_resident($id = 0)
@@ -202,8 +204,8 @@ class Members extends Base
       $default_password = '$2y$10$OmQLdBDHhdmwWDnbNr6atOu/5wmLc6DVFy/RnzGvzxtxvFZDmmfQm';
       // print_r($_SESSION);
       // print_r("insert into tbl_users  (username,email,password,status_id, access_id,created_by) values('$username','$email', '$default_password',2, 2, '$user->id')");
-      $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id,created_by) values('$username','$email', '$default_password',2, 2, '$user->id')");
-      $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no,barangay_position_id,religion,suffix_id) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no', '$position', '$religion','$suffix')");
+      $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id,created_by,created_date,updated_date) values('$username','$email', '$default_password',2, 2, '$user->id','$updated_date','$updated_date')");
+      $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no,barangay_position_id,religion,suffix_id,created_date,updated_date) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no', '$position', '$religion','$suffix','$updated_date','$updated_date')");
       $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, 1, $user->id)");
       $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, 2, $user->id)");
       if (!empty($image['name'])) {

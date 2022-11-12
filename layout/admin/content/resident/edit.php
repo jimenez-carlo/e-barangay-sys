@@ -90,9 +90,14 @@
                 <?php } ?>
               </select>
             </div>
+
             <div class="form-group col-xs-2">
               <label for="exampleInputPassword1">*Religion:</label>
-              <input type="text" class="form-control" placeholder="Religion" name="religion" value="<?= $data->religion; ?>">
+              <select class="form-control select2" name="religion">
+                <?php foreach ($default_data['religion'] as $res) { ?>
+                  <option value="<?= $res['id'] ?>" <?php echo ($data->religion == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
+                <?php } ?>
+              </select>
             </div>
 
             <div class="form-group col-xs-4">
@@ -109,7 +114,7 @@
               <textarea class="form-control" row="10" name="street" placeholder="Street Here..."><?= $data->street; ?></textarea>
             </div>
 
-            <div class="form-group col-xs-4">
+            <div class="form-group col-xs-2">
               <label>*Contact No:</label>
               <div class="input-group date">
                 <div class="input-group-addon">
@@ -119,6 +124,23 @@
               </div>
             </div>
 
+            <div class="form-group col-xs-2">
+              <label for="exampleInputPassword1">*Nationality:</label>
+              <select class="form-control select2" name="nationality">
+                <?php foreach ($default_data['nationality'] as $res) { ?>
+                  <option value="<?= $res['id'] ?>" <?php echo ($data->nationality == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
+                <?php } ?>
+              </select>
+            </div>
+
+            <div class="form-group col-xs-2">
+              <label for="exampleInputPassword1">ID Attachment</label>
+              <a href="<?php echo BASE_URL . "files/verify/" . $data->file; ?>" download="">
+                <button class="btn btn-sm btn-flat btn-success" type="button">
+                  Download
+                </button>
+              </a>
+            </div>
           </div>
           <div class="modal-footer" style="min-height:93px">
           </div>
@@ -178,7 +200,7 @@
                   <ul class="nav nav-tabs">
                     <li class="active"><a href="#status_history" data-toggle="tab" aria-expanded="true"><i class="fa fa-history"></i> Status History</a></li>
                     <!-- <li class=""><a href="#requests" data-toggle="tab" aria-expanded="false"><i class="fa fa-files-o"></i> Requests</a></li> -->
-                    <li class=""><a href="#blotter" data-toggle="tab" aria-expanded="false"><i class="fa fa-address-book"></i> Blotter Cases</a></li>
+                    <li class=""><a href="#blotter" data-toggle="tab" aria-expanded="false"><i class="fa fa-address-book"></i> Incident Report</a></li>
                   </ul>
                   <div class="tab-content">
                     <div class="tab-pane active" id="status_history">
@@ -305,10 +327,11 @@
     });
   });
 
+  var birth_date = new Date('<?= $data->birth_date; ?>');
   $('.datepicker').datepicker({
     autoclose: true,
     format: 'yyyy-mm-dd',
-  }).datepicker("setDate", 'now');
+  }).datepicker("setDate", birth_date);
 
   $('.select2').select2();
 

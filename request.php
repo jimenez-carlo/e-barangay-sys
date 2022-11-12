@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Manila');
 require_once 'vendor/autoload.php';
 require('config/functions.php');
 require('db/conn.php');

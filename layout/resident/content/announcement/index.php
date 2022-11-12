@@ -19,10 +19,11 @@
               <div class="col-md-3">
                 <div class="box">
                   <div class="box-header" style="padding:unset">
-                    <img class="img-responsive" src="<?= BASE_URL . "files/announcement/" . $res['image']; ?>" alt="Photo" style="max-height:284px!important;width:100%;object-fit:fill">
+                    <img class="img-responsive" src="<?= BASE_URL . "files/announcement/" . $res['image']; ?>" alt="Photo" style="min-height:284px!important;max-height:284px!important;width:100%;object-fit:fill">
                   </div>
                   <div class="box-body bg-green">
                     <h4><?= $res['title'] ?></h4>
+                    <p class="card-text  text text-light pull-right" style="font-size:12px"><i>Posted on <?= format_date($res['created_date']); ?></i></p>
                     <button type="submit" class="btn btn-success btn-sm btn-flat btn-view" name="resident/announcement/view" value="<?= $res['id']; ?>">View More <i class=" fa fa-eye"></i></button>
                   </div>
                 </div>

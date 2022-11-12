@@ -143,7 +143,6 @@
                 <table class="table table-bordered table-striped table-hover dataTable" role="grid">
                   <thead>
                     <tr role="row">
-                      <th>ID#</th>
                       <th>Status</th>
                       <th>Remarks</th>
                       <th>Created By</th>
@@ -154,7 +153,6 @@
                     <?php if (count($data->history) > 0) { ?>
                       <?php foreach ($data->history as $res) { ?>
                         <tr>
-                          <td><?= $res['id'] ?></td>
                           <td><?= strtoupper($res['status']); ?></td>
                           <td><?= $res['remarks'] ?></td>
                           <td><?= $res['fullname'] ?></td>

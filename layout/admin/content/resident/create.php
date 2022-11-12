@@ -90,7 +90,11 @@
             </div>
             <div class="form-group col-xs-2">
               <label for="exampleInputPassword1">*Religion:</label>
-              <input type="text" class="form-control" placeholder="Religion" name="religion" value="">
+              <select class="form-control select2" name="religion">
+                <?php foreach ($default_data['religion'] as $res) { ?>
+                  <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
+                <?php } ?>
+              </select>
             </div>
 
             <div class="form-group col-xs-4">
@@ -107,7 +111,7 @@
               <textarea class="form-control" row="10" name="street" placeholder="Street Here..."></textarea>
             </div>
 
-            <div class="form-group col-xs-4">
+            <div class="form-group col-xs-2">
               <label>*Contact No:</label>
               <div class="input-group date">
                 <div class="input-group-addon">
@@ -115,6 +119,15 @@
                 </div>
                 <input type="number" maxlength="11" class="form-control pull-right" name="contact_no" placeholder="09XXXXXXXXX">
               </div>
+            </div>
+
+            <div class="form-group col-xs-2">
+              <label for="exampleInputPassword1">*Nationality:</label>
+              <select class="form-control select2" name="nationality">
+                <?php foreach ($default_data['nationality'] as $res) { ?>
+                  <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
+                <?php } ?>
+              </select>
             </div>
 
           </div>

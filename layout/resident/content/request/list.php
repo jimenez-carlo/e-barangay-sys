@@ -61,7 +61,7 @@
                 $(".dt-button").removeClass("dt-button");
               },
               dom: 'Blfrtip',
-"ordering": false,
+              "ordering": false,
               buttons: [{
                 text: '<i class="fa fa-plus"></i> Add Announcement</button>',
                 className: 'btn btn-sm btn-flat btn-success btn-view',
@@ -70,12 +70,16 @@
                 }
               }]
             });
-            $('table thead tr th').each(function() {
+
+            $('table thead tr th').each(function(i, e) {
               var title = $('table thead tr th').eq($(this).index()).text();
-              $(this).html('<input id="input' + $(this).index() + '" type="text" class="form-control" placeholder="' + title + '" />').css('padding-left', '4px');
-              $(this).on('keyup change', function() {
-                table.column($(this).index()).search($('#input' + $(this).index()).val()).draw();
-              });
+              var isLastElement = i == $('table thead tr th').length - 1;
+              if (isLastElement) {} else {
+                $(this).html('<input id="input' + $(this).index() + '" type="text" class="form-control" placeholder="' + title + '" />').css('padding-left', '4px');
+                $(this).on('keyup change', function() {
+                  table.column($(this).index()).search($('#input' + $(this).index()).val()).draw();
+                });
+              }
             });
           });
         </script>

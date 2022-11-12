@@ -67,9 +67,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#" class="btn-view" name="resident/home"><i class="fa fa-home"></i> Home</a></li>
-              <li><a href="#" class="btn-view" name="resident/requests/list"> My Requests</a></li>
-              <li><a href="#" class="btn-view" name="resident/announcement"> Announcement</a></li>
-              <li><a href="#" class="btn-view" name="resident/gallery"> Gallery</a></li>
+              <li><a href="#" class="btn-view" name="resident/requests/list"><i class="fa fa-files-o"></i> My Requests</a></li>
+              <li><a href="#" class="btn-view" name="resident/announcement"><i class="fa fa-bullhorn"></i> Announcement</a></li>
+              <li><a href="#" class="btn-view" name="resident/gallery"><i class="fa fa-picture-o"></i> Gallery</a></li>
               <li class="dropdown notifications-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                   <i class="fa fa-handshake-o"></i> Online Services

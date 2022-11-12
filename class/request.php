@@ -86,7 +86,7 @@ class Request extends Base
     $request = $this->get_one("select * from tbl_request_id where deleted_flag = 0 and id = $id limit 1");
     $data = $request;
     $data->resident = $this->get_one("select * from tbl_users_info  where deleted_flag = 0 and id = $request->requester_id limit 1");
-    $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status,rh.* from tbl_request_history rh inner join tbl_users_info ui on ui.id = rh.created_by inner join tbl_request_status s on s.id = rh.request_status_id where rh.deleted_flag = 0 and rh.request_id = $id and rh.request_type_id = 3 order by rh.created_date desc");
+    $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1)) as fullname,s.status,rh.* from tbl_request_history rh inner join tbl_users_info ui on ui.id = rh.created_by inner join tbl_request_status s on s.id = rh.request_status_id where rh.deleted_flag = 0 and rh.request_id = $id and rh.request_type_id = 3 order by rh.created_date desc");
     return $data;
   }
 
@@ -101,7 +101,7 @@ class Request extends Base
     $request = $this->get_one("select * from tbl_request_barangay where deleted_flag = 0 and id = $id limit 1");
     $data = $request;
     $data->resident = $this->get_one("select * from tbl_users_info  where deleted_flag = 0 and id = $request->requester_id limit 1");
-    $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status,rh.* from tbl_request_history rh inner join tbl_users_info ui on ui.id = rh.created_by inner join tbl_request_status s on s.id = rh.request_status_id where rh.deleted_flag = 0 and rh.request_id = $id and rh.request_type_id = 1 order by rh.created_date desc");
+    $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1)) as fullname,s.status,rh.* from tbl_request_history rh inner join tbl_users_info ui on ui.id = rh.created_by inner join tbl_request_status s on s.id = rh.request_status_id where rh.deleted_flag = 0 and rh.request_id = $id and rh.request_type_id = 1 order by rh.created_date desc");
     return $data;
   }
 
@@ -115,7 +115,7 @@ class Request extends Base
     $request = $this->get_one("select * from tbl_request_business where deleted_flag = 0 and id = $id limit 1");
     $data = $request;
     $data->resident = $this->get_one("select * from tbl_users_info  where deleted_flag = 0 and id = $request->requester_id limit 1");
-    $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status,rh.* from tbl_request_history rh inner join tbl_users_info ui on ui.id = rh.created_by inner join tbl_request_status s on s.id = rh.request_status_id where rh.deleted_flag = 0 and rh.request_id = $id and rh.request_type_id = 2 order by rh.created_date desc");
+    $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1)) as fullname,s.status,rh.* from tbl_request_history rh inner join tbl_users_info ui on ui.id = rh.created_by inner join tbl_request_status s on s.id = rh.request_status_id where rh.deleted_flag = 0 and rh.request_id = $id and rh.request_type_id = 2 order by rh.created_date desc");
     return $data;
   }
 
@@ -208,8 +208,9 @@ class Request extends Base
     try {
       // blood_type_id,phil_health,sss,tin,contact_person,contact_person_address,contact_person_no
       // '$blood_type_id','$phil_health','$sss','$tin','$contact_person','$contact_person_address','$contact_person_no',
-      $request_id = $this->insert_get_id("INSERT INTO tbl_request_barangay  (purpose_id,others,issued_date,requester_id,minor,guardian,updated_by) values('$purpose_id','$others','$issued_date','$user->id','$minor','$guardian','$user->id')");
-      $this->query("INSERT INTO tbl_request_history (request_id, request_type_id, request_status_id, remarks, created_by) values($request_id, 1, 1, 'System Generated', $user->id)");
+      $updated_date = date('Y-m-d H:i:s');
+      $request_id = $this->insert_get_id("INSERT INTO tbl_request_barangay  (purpose_id,others,issued_date,requester_id,minor,guardian,updated_by,created_date,updated_date) values('$purpose_id','$others','$issued_date','$user->id','$minor','$guardian','$user->id','$updated_date','$updated_date')");
+      $this->query("INSERT INTO tbl_request_history (request_id, request_type_id, request_status_id, remarks, created_by,created_date,updated_date) values($request_id, 1, 1, 'System Generated', $user->id,'$updated_date','$updated_date')");
 
       $this->commit_transaction();
       $result->result = $this->response_success("Request Submitted!");
@@ -299,10 +300,11 @@ class Request extends Base
         $signature_img = 'img_' . date('YmdHis') . "." . end($ext);
         move_uploaded_file($signature['tmp_name'], "files/signature/" . $signature_img);
       }
+      $updated_date = date('Y-m-d H:i:s');
       // blood_type_id,phil_health,sss,tin,contact_person,contact_person_address,contact_person_no,
       // '$blood_type_id','$phil_health','$sss','$tin','$contact_person','$contact_person_address','$contact_person_no',
-      $request_id = $this->insert_get_id("INSERT INTO tbl_request_id (issued_date,requester_id,minor,guardian,updated_by,government_id,picture,`signature`) values('$issued_date','$user->id','$minor','$guardian','$user->id','$government_img','$picture_img','$signature_img' )");
-      $this->query("INSERT INTO tbl_request_history (request_id, request_type_id, request_status_id, remarks, created_by) values($request_id, 3, 1, 'System Generated', $user->id)");
+      $request_id = $this->insert_get_id("INSERT INTO tbl_request_id (issued_date,requester_id,minor,guardian,updated_by,government_id,picture,`signature`,`created_date`,`updated_date`) values('$issued_date','$user->id','$minor','$guardian','$user->id','$government_img','$picture_img','$signature_img','$updated_date','$updated_date' )");
+      $this->query("INSERT INTO tbl_request_history (request_id, request_type_id, request_status_id, remarks, created_by,created_date,updated_date) values($request_id, 3, 1, 'System Generated', $user->id,'$updated_date','$updated_date')");
 
       $this->commit_transaction();
       $result->result = $this->response_success("Request Submitted!");
@@ -418,9 +420,9 @@ class Request extends Base
       }
       // '$user->id'
       // print_r("INSERT INTO tbl_request_id (application_id,issued_date,ownership_id,business_id,`others`,business_name,`address`,no_employees,`description`,owner_name,email,contact_no,requester_id,request_type_id,request_status_id,updated_by " . $extra . ") values('$application_id','$issued_date','$ownership_id','$business_id','$others','$business_name','$address','$no_employees','$description','$owner_name','$email','$contact_no','$user->id',2,1,'$user->id' " . $extra_value . ")");
-
-      $request_id = $this->insert_get_id("INSERT INTO tbl_request_business (application_id,issued_date,ownership_id,business_id,others,business_name,`address`,no_employees,`description`,owner_name,email,contact_no,requester_id,request_type_id,request_status_id,updated_by " . $extra . ") values('$application_id','$issued_date','$ownership_id','$business_id','$others','$business_name','$address','$no_employees','$description','$owner_name','$email','$contact_no','$user->id',2,1,'$user->id' " . $extra_value . ")");
-      $this->query("INSERT INTO tbl_request_history (request_id, request_type_id, request_status_id, remarks, created_by) values($request_id, 2, 1, 'System Generated', $user->id)");
+      $updated_date = date('Y-m-d H:i:s');
+      $request_id = $this->insert_get_id("INSERT INTO tbl_request_business (application_id,issued_date,ownership_id,business_id,others,business_name,`address`,no_employees,`description`,owner_name,email,contact_no,requester_id,request_type_id,request_status_id,updated_by,created_date,updated_date " . $extra . ") values('$application_id','$issued_date','$ownership_id','$business_id','$others','$business_name','$address','$no_employees','$description','$owner_name','$email','$contact_no','$user->id',2,1,'$user->id','$updated_date','$updated_date' " . $extra_value . ")");
+      $this->query("INSERT INTO tbl_request_history (request_id, request_type_id, request_status_id, remarks, created_by, created_date) values($request_id, 2, 1, 'System Generated', $user->id,'$updated_date')");
 
       $this->commit_transaction();
       $result->result = $this->response_success("Request Submitted!");
@@ -466,7 +468,7 @@ class Request extends Base
     $this->start_transaction();
     try {
       $updated_date = date('Y-m-d H:i:s');
-      $this->query("INSERT INTO tbl_request_history (request_id, request_type_id, request_status_id, remarks, created_by) values($id, $type, $status, '$remarks', $user->id)");
+      $this->query("INSERT INTO tbl_request_history (request_id, request_type_id, request_status_id, remarks, created_by, created_date) values($id, $type, $status, '$remarks', $user->id, '$updated_date')");
       $this->query("UPDATE $table set request_status_id = $status, updated_date = '$updated_date', updated_by ='$user->id' where id = $id ");
       // approved
       if (isset($send_sms) && $status == 2) {

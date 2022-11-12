@@ -20,6 +20,8 @@ class Resident extends Base
     $data['barangay'] = $this->get_list("select * from tbl_barangay where city_id = '12801' and deleted_flag = 0");
     $data['zone'] = $this->get_list("select * from tbl_zone where deleted_flag = 0");
     $data['user_status'] = $this->get_list("select * from tbl_user_status where deleted_flag = 0");
+    $data['nationality'] = $this->get_list("select * from tbl_nationality where deleted_flag = 0");
+    $data['religion'] = $this->get_list("select * from tbl_religion where deleted_flag = 0");
     return $data;
   }
 
@@ -40,7 +42,7 @@ class Resident extends Base
       );
       $order = $tmp[$_GET['id']];
     }
-    return $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as approver_name,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1)) as resident_name,us.status,b.name as `barangay`, c.name as `city`,ui.contact_no,g.gender,r.* from tbl_users r inner join tbl_users_info ui on ui.id = r.id left join tbl_users_info approver on approver.id = r.approved_by inner join tbl_user_status us on us.id = r.status_id left join tbl_city c on c.id = ui.city_id left join tbl_barangay b on b.id = ui.barangay_id left join tbl_gender g on g.id = ui.gender_id where r.deleted_flag = 0 and r.access_id = 3 order by $order");
+    return $this->get_list("select concat(approver.last_name, ', ', approver.first_name,' ', LEFT(approver.middle_name, 1), '[#',approver.id,']') as approver_name,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1)) as resident_name,us.status,b.name as `barangay`, c.name as `city`,ui.contact_no,g.gender,r.* from tbl_users r inner join tbl_users_info ui on ui.id = r.id left join tbl_users_info approver on approver.id = r.approved_by inner join tbl_user_status us on us.id = r.status_id left join tbl_city c on c.id = ui.city_id left join tbl_barangay b on b.id = ui.barangay_id left join tbl_gender g on g.id = ui.gender_id where r.deleted_flag = 0 and r.access_id = 3 order by $order");
   }
 
   public function get_resident($id = 0)
@@ -51,7 +53,7 @@ class Resident extends Base
       return $data;
     }
 
-    $resident = $this->get_one("select u.username, u.email, u.status_id,ui.* from tbl_users_info ui inner join tbl_users u on u.id = ui.id where ui.deleted_flag = 0 and ui.id = $id limit 1");
+    $resident = $this->get_one("select u.username, u.email, u.status_id,u.file,ui.* from tbl_users_info ui inner join tbl_users u on u.id = ui.id where ui.deleted_flag = 0 and ui.id = $id limit 1");
     $data = $resident;
     $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status,sh.* from tbl_user_status_history sh inner join tbl_users_info ui on ui.id = sh.created_by inner join tbl_user_status s on s.id = sh.user_status_id where sh.deleted_flag = 0 and sh.user_id = $id order by sh.created_date desc");
     $data->requests = $this->get_list("select r.id,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,rt.type as request_type,rs.status,r.updated_date,r.created_date from tbl_request r left join tbl_users_info ui on ui.id = r.updated_by inner join tbl_request_type rt on rt.id = r.request_type_id  inner join tbl_request_status rs on rs.id = r.request_status_id where r.requester_id = $id order by r.updated_date desc");
@@ -70,7 +72,7 @@ class Resident extends Base
     $required_fields = array();
     // Require Fields
     if ($resident_update == 'update') {
-      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'religion');
+      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email');
     }
 
     foreach ($required_fields as $res) {
@@ -108,7 +110,7 @@ class Resident extends Base
     try {
       $updated_date = date('Y-m-d H:i:s');
       if ($resident_update == 'update') {
-        $this->query("update tbl_users_info set first_name = '$first_name', middle_name='$middle_name', last_name= '$last_name', birth_date = '$birth_date', birth_place ='$birth_place', gender_id = $gender, city_id = '$city', house_no = '$house_no', marital_status_id = $marital_status, barangay_id = $barangay, street = '$street', contact_no = '$contact_no', updated_date = '$updated_date',religion = '$religion',suffix_id = '$suffix' where id = $id");
+        $this->query("update tbl_users_info set first_name = '$first_name', middle_name='$middle_name', last_name= '$last_name', birth_date = '$birth_date', birth_place ='$birth_place', gender_id = $gender, city_id = '$city', house_no = '$house_no', marital_status_id = $marital_status, barangay_id = $barangay, street = '$street', contact_no = '$contact_no', updated_date = '$updated_date',religion = '$religion',suffix_id = '$suffix',`nationality` = '$nationality' where id = $id");
         $this->query("update tbl_users set username = '$username', email='$email', updated_date = '$updated_date' where id = $id");
         if (!empty($image['name'])) {
           $ext = explode(".", $image["name"]);
@@ -185,7 +187,7 @@ Barangay Wawa - 0945 849 0538\n
     $msg = '';
 
     // Require Fields
-    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'religion');
+    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email');
 
 
     foreach ($required_fields as $res) {
@@ -217,12 +219,12 @@ Barangay Wawa - 0945 849 0538\n
     }
 
     $this->start_transaction();
+    $default_password = '$2y$10$EjFxOXsWtBtICE1KpmAnxuaL01SMG9U11ConTF6fpWJi4s4Z8GfKS';
     try {
       $updated_date = date('Y-m-d H:i:s');
-      $default_password = '$2y$10$EjFxOXsWtBtICE1KpmAnxuaL01SMG9U11ConTF6fpWJi4s4Z8GfKS';
-      $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id,created_by) values('$username','$email', '$default_password','$user_status', 3, '$user->id')");
-      $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no,created_date,religion,suffix_id) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no','$updated_date','$religion','$suffix')");
-      $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, 1, $user->id)");
+      $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id,created_by,updated_date,created_date) values('$username','$email', '$default_password','$user_status', 3, '$user->id','$updated_date','$updated_date')");
+      $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no,religion,nationality,suffix_id,created_date,updated_date) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no','$religion','$nationality','$suffix','$updated_date','$updated_date')");
+      $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by,created_date,updated_date) values($id, 1, $user->id,'$updated_date','$updated_date')");
       if (!empty($image['name'])) {
         $ext = explode(".", $image["name"]);
         $name = 'img_' . date('YmdHis') . "." . end($ext);
@@ -270,7 +272,7 @@ Barangay Wawa - 0945 849 0538\n
     $msg = '';
 
     // Require Fields
-    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'password', 'religion');
+    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'password', 'religion', 'nationality');
 
 
     foreach ($required_fields as $res) {
@@ -278,6 +280,19 @@ Barangay Wawa - 0945 849 0538\n
         $errors[] = $res;
       }
     }
+
+    if (empty($city)) {
+      $result->message = "No City Selected!";
+      $result->items = implode(',', array('city'));
+      return $result;
+    }
+
+    if (empty($barangay)) {
+      $result->message = "No Barangay Selected!";
+      $result->items = implode(',', array('barangay'));
+      return $result;
+    }
+
 
     if (!empty($errors)) {
       $result->message = "Please Fill Blank Fields!";
@@ -309,6 +324,21 @@ Barangay Wawa - 0945 849 0538\n
       return $result;
     }
 
+
+    if (empty($file['name'])) {
+      $result->message = "No ID Attached!";
+      $result->items = implode(',', array('file'));
+      return $result;
+    }
+
+    if (!empty($errors)) {
+      $msg .= "File Size(1mb) Exceeded!";
+      $result->result = $this->response_error($msg);
+      $result->items = implode(',', $errors);
+      return $result;
+    }
+
+
     if (!isset($_POST['terms'])) {
       $result->message = "Please Check Read The Terms & Conditions";
       $result->items = implode(',', array('terms'));
@@ -333,14 +363,21 @@ Barangay Wawa - 0945 849 0538\n
       return $result;
     }
 
+
     $this->start_transaction();
     try {
-      $updated_date = date('Y-m-d H:i:s');
+
+      if (!empty($file['name'])) {
+        $ext = explode(".", $file["name"]);
+        $file_img = 'img_' . date('YmdHis') . "." . end($ext);
+        move_uploaded_file($file['tmp_name'], "files/verify/" . $file_img);
+      }
+
       $created_date = date('Y-m-d H:i:s');
-      $default_password = '$2y$10$jqh3gg3pZTEQTni6o2X5ZOfBpLDY7GIG84wH72/NQLhN7MKEUTdnW';
+
       $final_password = password_hash($password, PASSWORD_DEFAULT);
-      $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id) values('$username','$email', '$final_password',1, 3)");
-      $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no,religion,suffix_id,created_date) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no','$religion','$suffix','$created_date')");
+      $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id, `file`) values('$username','$email', '$final_password',1, 3,'$file_img')");
+      $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no,religion,suffix_id,created_date,updated_date,nationality) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no','$religion','$suffix','$created_date','$created_date','$nationality')");
       $this->query("insert into tbl_user_status_history (user_id,user_status_id) values($id, 1)");
 
       $this->commit_transaction();
@@ -460,6 +497,6 @@ Barangay Wawa - 0945 849 0538\n
       select rb3.id,rb3.request_type_id,rbt3.type,rbs3.status,rb3.created_date,rb3.updated_date,rb3.requester_id from 
       tbl_request_id rb3 inner join tbl_request_status rbs3 on rbs3.id = rb3.request_status_id
       inner join tbl_request_type rbt3 on rbt3.id = rb3.request_type_id
-      ) as u where requester_id = $id");
+      ) as u where requester_id = $id order by updated_date desc");
   }
 }

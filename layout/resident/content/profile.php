@@ -93,7 +93,11 @@
 
             <div class="form-group col-xs-2">
               <label for="exampleInputPassword1">*Religion:</label>
-              <input type="text" class="form-control" placeholder="Religion" name="religion" value="<?= $data->religion; ?>">
+              <select class="form-control select2" name="religion">
+                <?php foreach ($default_data['religion'] as $res) { ?>
+                  <option value="<?= $res['id'] ?>" <?php echo ($data->religion == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
+                <?php } ?>
+              </select>
             </div>
 
             <div class="form-group col-xs-4">
@@ -110,7 +114,7 @@
               <textarea class="form-control" row="10" name="street" placeholder="Street Here..."><?= $data->street; ?></textarea>
             </div>
 
-            <div class="form-group col-xs-4">
+            <div class="form-group col-xs-2">
               <label>*Contact No:</label>
               <div class="input-group date">
                 <div class="input-group-addon">
@@ -118,6 +122,15 @@
                 </div>
                 <input type="number" maxlength="11" class="form-control pull-right" name="contact_no" placeholder="09XXXXXXXXX" value="<?= $data->contact_no; ?>" name="start_date">
               </div>
+            </div>
+
+            <div class="form-group col-xs-2">
+              <label for="exampleInputPassword1">*Nationality:</label>
+              <select class="form-control select2" name="nationality">
+                <?php foreach ($default_data['nationality'] as $res) { ?>
+                  <option value="<?= $res['id'] ?>" <?php echo ($data->nationality == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
+                <?php } ?>
+              </select>
             </div>
 
           </div>

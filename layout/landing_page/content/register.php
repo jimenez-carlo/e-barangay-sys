@@ -7,17 +7,17 @@
 
 
 <!-- Page Content-->
-<div class="container px-4 px-lg-5 pt-5">
-  <div class="row g-5">
-    <div class="col-md-7 col-lg-12">
+<form class="needs-validation" novalidate="" name="resident_register_landing">
+  <div class="container px-4 px-lg-5 pt-5">
+    <div class="row g-5">
+      <div class="col-md-7 col-lg-12">
 
-      <div class="card">
-        <div class="card-header text-center">
-          <h2>Registration</h2>
-        </div>
-        <div class="card-body fw-bold">
-          <p class="invalid-feedback" style="display: block;"></p>
-          <form class="needs-validation" novalidate="" name="resident_register_landing">
+        <div class="card">
+          <div class="card-header text-center">
+            <h2>Registration</h2>
+          </div>
+          <div class="card-body fw-bold">
+            <p class="invalid-feedback" style="display: block;"></p>
 
             <fieldset>
               <legend>
@@ -25,17 +25,19 @@
               </legend>
               <div class="row">
                 <div class="col-md-6">
-                  <label for="country" class="form-label">City</label>
+                  <label for="country" class="form-label">City <span class="text-danger">*</span></label>
                   <select class="form-select select2 city" id="country" name="city">
+                    <option value="0" selected>Select City</option>
                     <?php foreach ($default_data['city'] as $res) { ?>
-                      <option value="<?= $res['id'] ?>" <?php echo ('137607' == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
+                      <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
                     <?php } ?>
                   </select>
                 </div>
 
                 <div class="col-md-6">
-                  <label for="country" class="form-label">Barangay</label>
+                  <label for="country" class="form-label">Barangay <span class="text-danger">*</span></label>
                   <select class="form-select select2 barangay" id="barangay" name="barangay">
+                    <option value="0" selected>Select Barangay</option>
                     <?php foreach ($default_data['barangay'] as $res) { ?>
                       <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
                     <?php } ?>
@@ -121,28 +123,50 @@
                   </select>
                 </div>
                 <div class="col-md-4">
+                  <label for="religion" class="form-label">Nationality <span class="text-danger">*</span></label>
+                  <select class="form-select select2" id="nationality" name="nationality">
+                    <?php foreach ($default_data['nationality'] as $res) { ?>
+                      <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+                <div class="col-md-4">
                   <label for="religion" class="form-label">Religion <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="religion" placeholder="Religion" name="religion" value="" required="">
+                  <select class="form-select select2" id="religion" name="religion">
+                    <?php foreach ($default_data['religion'] as $res) { ?>
+                      <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
+                    <?php } ?>
+                  </select>
                 </div>
                 <div class="col-4">
                   <label for="address2" class="form-label">Contact No <span class="text-danger">*</span></label>
                   <input type="number" maxlength="11" class="form-control" id="address2" placeholder="09XXXXXXXXX" name="contact_no">
                 </div>
                 <div class="col-12">
-                  <input type="checkbox" name="terms" required> I have read, understood, and accepted the <a href="#" target="_blank">Privacy Policy and Terms & Conditions</a>.
+                  <label for="address2" class="form-label">ID Attached <span class="text-danger">*</span></label>
+                  <input type="file" name="file" required class="form-control">
+                  <br>
+                </div>
+                <div class="col-12" style="font-weight:500">
+                  <h3>Data Privacy</h3>
+                  By completing this form, I give permission for my data to be held in the E-barangay system database and agree that the system may process personal data relating to me for personnel, administration and/or management purposes.
+                </div>
+                <div class="col-12">
+                  <input type="checkbox" name="terms" required> I have read, understood, and accepted the Data Privacy and Terms & Conditions.
                 </div>
               </div>
-            </fieldset>
+          </div>
+          </fieldset>
 
-            <br>
-            <button class="w-100 btn btn-success btn-lg" type="submit" name="resident_register_landing">REGISTER <i class="fa fa-check"></i></button>
-          </form>
+          <br>
+          <button class="w-100 btn btn-success btn-lg" type="submit" name="resident_register_landing">REGISTER <i class="fa fa-check"></i></button>
         </div>
       </div>
     </div>
   </div>
-</div>
-<br>
+  </div>
+  <br>
+</form>
 
 <script>
   // $('.datepicker').datepicker({
@@ -157,7 +181,7 @@
   });
 
   $(document).ready(function() {
-    dropdown_with_default('barangay', "tbl_barangay", "city_id", "137607", "name", "id", "137607002");
+    // dropdown_with_default('barangay', "tbl_barangay", "city_id", "137607", "name", "id", "137607002");
   });
 </script>
 <style>

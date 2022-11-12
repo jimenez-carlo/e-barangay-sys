@@ -189,7 +189,7 @@
                   <ul class="nav nav-tabs">
                     <li class="active"><a href="#status_history" data-toggle="tab" aria-expanded="true"><i class="fa fa-history"></i> Status History</a></li>
                     <li class=""><a href="#requests" data-toggle="tab" aria-expanded="false"><i class="fa fa-files-o"></i> Requests</a></li>
-                    <li class=""><a href="#blotter" data-toggle="tab" aria-expanded="false"><i class="fa fa-address-book"></i> Blotter Cases</a></li>
+                    <li class=""><a href="#blotter" data-toggle="tab" aria-expanded="false"><i class="fa fa-address-book"></i> Incident Report</a></li>
                   </ul>
                   <div class="tab-content">
                     <div class="tab-pane active" id="status_history">
