@@ -36,7 +36,7 @@
                                <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/id/edit" value="<?= $res['id']; ?>"> <i class="fa fa-edit"></i> Edit</button>
                                <?php if ($res['request_status_id'] == 4) { ?>
                                  <?php $redirect = array(1 => 'clearance.php', 2 => 'residency.php', 3 => 'id.php'); ?>
-                                 <a class="btn btn-sm btn-success btn-flat btn-print" href='<?= BASE_URL . "print/" . $redirect[3] . "?pair=" . base64_encode($res['id']) . "&code=" . base64_encode(date("Ymd", time() + 86400)); ?>"' target="_blank"><i class="fa fa-print"></i> Print</a>
+                                 <a class="btn btn-sm btn-success btn-flat btn-print" href='<?= BASE_URL . "print/" . $redirect[3] . "?pair=" . $res['id'] . "&code=" . base64_encode(date("Ymd", time() + 86400)); ?>"' target="_blank"><i class="fa fa-print"></i> Print</a>
                                <?php } else { ?>
                                  <button type="button" class="btn btn-sm btn-success btn-flat" disabled><i class="fa fa-print"></i> Print</button>
                                <?php } ?>

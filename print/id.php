@@ -9,7 +9,8 @@ require('../class/base.php');
 require('../class/user.php');
 
 $user = new User($conn);
-$record = $user->get_id(base64_decode($_GET['pair']));
+$base = new Base($conn);
+$record = $user->get_id($_GET['pair']);
 $data = $user->get_user($record->requester_id);
 $official = $user->get_user($_SESSION['user']->id);
 
@@ -200,7 +201,7 @@ if (!$data) {
 
   <center>
     <div class="container">
-      <img src="<?= BASE_URL . 'files/id/' . $data->picture; ?>" alt="" class="picture">
+      <img src="<?= BASE_URL . 'files/id/' . $record->picture; ?>" alt="" class="picture">
       <h3 class="header">Republic of the Phillipines
         Wawa, Taguig</h3>
       <img src="logo.png" alt="" class="logo">
