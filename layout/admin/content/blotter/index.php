@@ -40,8 +40,8 @@
                               <td><?= $res['encoder'] ?></td>
                               <td><?=
                                   date("h:i a", strtotime($res['created_date'])); ?></td>
-                              <!-- <td><?= format_date$res['created_date']); ?></td> -->
-                              <td><?= format_date$res['updated_date']); ?></td>
+                              <!-- <td><?= format_date($res['created_date']); ?></td> -->
+                              <td><?= format_date($res['updated_date']); ?></td>
                               <td>
                                 <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/blotter/edit" value="<?= $res['id'] ?>"> <i class="fa fa-eye"></i> Edit</button>
                               </td>

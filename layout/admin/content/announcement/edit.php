@@ -106,7 +106,7 @@
                           <td><?= $res['id'] ?></td>
                           <td><?= strtoupper($res['status']); ?></td>
                           <td><?= $res['fullname'] ?></td>
-                          <td><?= format_date$res['created_date']); ?></td>
+                          <td><?= format_date($res['created_date']); ?></td>
                         </tr>
                       <?php } ?>
                     <?php } ?>
