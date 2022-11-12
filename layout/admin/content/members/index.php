@@ -41,9 +41,9 @@
                               <td><?= $res['city'] ?></td>
                               <td><?= $res['barangay'] ?></td>
                               <td><?= $res['contact_no'] ?></td>
-                              <td><?= format_date_($res['created_date']); ?></td>
+                              <td><?= format_date$res['created_date']); ?></td>
                               <td><?= $res['approver_name'] ?></td>
-                              <td><?= format_date_($res['updated_date']); ?></td>
+                              <td><?= format_date$res['updated_date']); ?></td>
                               <td class="flex-td">
                                 <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/members/edit" value="<?= $res['id'] ?>"> <i class="fa fa-edit"></i> Edit</button>
                               </td>

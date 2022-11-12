@@ -30,8 +30,8 @@
                              <td><?= $res['requestor_name'] ?></td>
                              <td><?= strtoupper($res['status']); ?></td>
                              <td><?= $res['approver_name'] ?></td>
-                             <td><?= format_date_($res['created_date']); ?></td>
-                             <td><?= format_date_($res['updated_date']); ?></td>
+                             <td><?= format_date$res['created_date']); ?></td>
+                             <td><?= format_date$res['updated_date']); ?></td>
                              <td>
                                <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/id/edit" value="<?= $res['id']; ?>"> <i class="fa fa-edit"></i> Edit</button>
                                <?php if ($res['request_status_id'] == 4) { ?>
