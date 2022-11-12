@@ -23,7 +23,7 @@
                   </div>
                   <div class="box-body bg-green">
                     <h4><?= $res['title'] ?></h4>
-                    <p class="card-text  text text-light pull-right" style="font-size:12px"><i>Posted on <?= format_date($res['created_date']); ?></i></p>
+                    <p class="card-text  text text-light pull-right" style="font-size:12px"><i>Posted on <?= format_date($res['updated_date']); ?></i></p>
                     <button type="submit" class="btn btn-success btn-sm btn-flat btn-view" name="resident/announcement/view" value="<?= $res['id']; ?>">View More <i class=" fa fa-eye"></i></button>
                   </div>
                 </div>

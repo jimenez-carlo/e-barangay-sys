@@ -22,7 +22,7 @@
                                 <img src="<?= BASE_URL . "files/announcement/" . $res['image']; ?>" class="bd-placeholder-img card-img-top" alt="" height="225" width="100%" style="object-fit:unset!important">
                                 <div class="card-body bg-success">
                                     <p class="card-text  text text-light"><?= $res['title']; ?></p>
-                                    <p class="card-text  text text-light pull-right" style="font-size:12px"><i>Posted on <?= format_date($res['created_date']); ?></i></p>
+                                    <p class="card-text  text text-light pull-right" style="font-size:12px"><i>Posted on <?= format_date($res['updated_date']); ?></i></p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-light btn-view" name="landing_page/announcements/view" value="<?= $res['id']; ?>">View More</button>

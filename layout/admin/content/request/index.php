@@ -36,8 +36,8 @@
                              <td><?= $res['request_type'] ?></td>
                              <td><?= strtoupper($res['status']); ?></td>
                              <td><?= $res['approver_name'] ?></td>
-                             <td><?= format_date_time_am_pm($res['created_date']); ?></td>
-                             <td><?= format_date_time_am_pm($res['updated_date']); ?></td>
+                             <td><?= format_date_($res['created_date']); ?></td>
+                             <td><?= format_date_($res['updated_date']); ?></td>
                              <td>
                                <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/request/edit" value="<?= $res['id']; ?>"> <i class="fa fa-edit"></i> Edit</button>
                                <!-- <button type="button" class="btn btn-sm btn-flat btn-success" name="admin/blotter/view" value="<?= $res['id']; ?>"> Send SMS <i class="fa fa-envelope"></i></button> -->

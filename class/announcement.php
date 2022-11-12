@@ -32,7 +32,7 @@ class Announcement extends Base
 
   public function get_announcements()
   {
-    return $this->get_list("select a.*,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status from tbl_announcement a inner join tbl_users_info ui on ui.id = a.created_by inner join tbl_announcement_status s on s.id = a.announcement_status_id order by a.updated_date desc");
+    return $this->get_list("select a.*,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status,a.created_date,a.updated_date from tbl_announcement a inner join tbl_users_info ui on ui.id = a.created_by inner join tbl_announcement_status s on s.id = a.announcement_status_id order by a.updated_date desc");
   }
 
   public function get_resident_announcements()

@@ -222,7 +222,7 @@
                                 <td><?= $res['id'] ?></td>
                                 <td><?= strtoupper($res['status']); ?></td>
                                 <td><?= $res['fullname'] ?></td>
-                                <td><?= format_date_time_am_pm($res['created_date']); ?></td>
+                                <td><?= format_date_($res['created_date']); ?></td>
                               </tr>
                             <?php } ?>
                           <?php } ?>
@@ -251,7 +251,7 @@
                                 <td><?= strtoupper($res['request_type']); ?></td>
                                 <td><?= strtoupper($res['status']); ?></td>
                                 <td><?= $res['fullname'] ?></td>
-                                <td><?= format_date_time_am_pm($res['created_date']); ?></td>
+                                <td><?= format_date_($res['created_date']); ?></td>
                               </tr>
                             <?php } ?>
                           <?php } ?>
@@ -278,7 +278,7 @@
                                 <td><?= $res['id'] ?></td>
                                 <td><?= $res['fullname'] ?></td>
                                 <td><?= strtoupper($res['status']); ?></td>
-                                <td><?= format_date_time_am_pm($res['created_date']); ?></td>
+                                <td><?= format_date_($res['created_date']); ?></td>
                               </tr>
                             <?php } ?>
                           <?php } ?>

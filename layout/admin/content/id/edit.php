@@ -229,7 +229,7 @@
             <?php } ?>
             <?php if ($data->request_status_id == 4) { ?>
               <?php $redirect = array(1 => 'clearance.php', 2 => 'residency.php', 3 => 'id.php'); ?>
-              <a class="btn btn-sm btn-success btn-flat btn-print" href='<?= BASE_URL . "print/" . $redirect[$data->request_type_id] . "?pair=" . base64_encode($data->requester_id) . "&code=" . base64_encode(date("Ymd", time() + 86400)); ?>"' target="_blank"><i class="fa fa-print"></i> Print</a>
+              <a class="btn btn-sm btn-success btn-flat btn-print" href='<?= BASE_URL . "print/" . $redirect[$data->id] . "?pair=" . $data->id . "&code=" . base64_encode(date("Ymd", time() + 86400)); ?>"' target="_blank"><i class="fa fa-print"></i> Print</a>
             <?php } else { ?>
               <button type="button" class="btn btn-sm btn-success btn-flat" disabled><i class="fa fa-print"></i> Print</button>
             <?php } ?>
@@ -266,7 +266,7 @@
                           <td><?= strtoupper($res['status']); ?></td>
                           <td><?= $res['remarks'] ?></td>
                           <td><?= $res['fullname'] ?></td>
-                          <td><?= format_date_time_am_pm($res['created_date']); ?></td>
+                          <td><?= format_date_($res['created_date']); ?></td>
                         </tr>
                       <?php } ?>
                     <?php } ?>

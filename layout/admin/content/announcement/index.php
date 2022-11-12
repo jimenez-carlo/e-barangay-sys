@@ -34,8 +34,8 @@
                               <td><?= format_date($res['end_date']); ?></td>
                               <td><?= strtoupper($res['status']); ?></td>
                               <td><?= $res['fullname'] ?></td>
-                              <td><?= format_date_time_am_pm($res['created_date']); ?></td>
-                              <td><?= format_date_time_am_pm($res['updated_date']); ?></td>
+                              <td><?= format_date_($res['created_date']); ?></td>
+                              <td><?= format_date_($res['updated_date']); ?></td>
                               <td>
                                 <form method="post" name="change_status_announcement">
                                   <button type="button" class="btn btn-sm btn-flat btn-success btn-view" name="admin/announcement/edit" value="<?= $res['id']; ?>"> <i class="fa fa-edit"></i> Edit</button>
