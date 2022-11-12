@@ -12,7 +12,7 @@
         <div class="box box-success">
           <div class="box-header with-border">
             <i class="fa fa-user-circle"></i>
-            <h4 class="box-title">Member Information</h4>
+            <h4 class="box-title">Barangay Official Information</h4>
           </div>
 
           <div class="box-body">
@@ -69,11 +69,12 @@
 
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*City:</label>
-              <select class="form-control select2 city" name="city">
+              <select class="form-control select2 city" name="city" disabled>
                 <?php foreach ($default_data['city'] as $res) { ?>
-                  <option value="<?= $res['id'] ?>" <?php echo ($data->city_id == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
+                  <option value="<?= $res['id'] ?>" <?= ($res['id'] == '137607') ? 'selected' : '' ?>><?= strtoupper($res['name']); ?></option>
                 <?php } ?>
               </select>
+              <input type="hidden" value=" <?= '137607' ?>" name="city">
             </div>
 
             <div class="form-group col-xs-4">
@@ -93,7 +94,11 @@
 
             <div class="form-group col-xs-2">
               <label for="exampleInputPassword1">*Religion:</label>
-              <input type="text" class="form-control" placeholder="Religion" name="religion" value="<?= $data->religion; ?>">
+              <select class="form-control select2" name="religion">
+                <?php foreach ($default_data['religion'] as $res) { ?>
+                  <option value="<?= $res['id'] ?>" <?php echo ($data->religion == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
+                <?php } ?>
+              </select>
             </div>
 
 
@@ -112,7 +117,7 @@
               <textarea class="form-control" row="10" name="street" placeholder="Street Here..."><?= $data->street; ?></textarea>
             </div>
 
-            <div class="form-group col-xs-4">
+            <div class="form-group col-xs-2">
               <label>*Contact No:</label>
               <div class="input-group date">
                 <div class="input-group-addon">
@@ -122,6 +127,14 @@
               </div>
             </div>
 
+            <div class="form-group col-xs-2">
+              <label for="exampleInputPassword1">*Nationality:</label>
+              <select class="form-control select2" name="nationality">
+                <?php foreach ($default_data['nationality'] as $res) { ?>
+                  <option value="<?= $res['id'] ?>" <?php echo ($data->nationality == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
+                <?php } ?>
+              </select>
+            </div>
           </div>
           <div class="modal-footer" style="min-height:152px">
           </div>

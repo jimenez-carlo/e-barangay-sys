@@ -11,7 +11,7 @@
         <div class="box box-success">
           <div class="box-header with-border">
             <i class="fa fa-user-circle"></i>
-            <h4 class="box-title">Resident Information</h4>
+            <h4 class="box-title">Barangay Official Information</h4>
           </div>
           <div class="box-body">
             <div class="form-group col-xs-4">
@@ -66,11 +66,12 @@
 
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*City:</label>
-              <select class="form-control select2 city" name="city">
+              <select class="form-control select2 city" name="city" disabled>
                 <?php foreach ($default_data['city'] as $res) { ?>
-                  <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
+                  <option value="<?= $res['id'] ?>" <?= ($res['id'] == '137607') ? 'selected' : '' ?>><?= strtoupper($res['name']); ?></option>
                 <?php } ?>
               </select>
+              <input type="hidden" value=" <?= '137607' ?>" name="city">
             </div>
 
             <div class="form-group col-xs-4">
@@ -91,7 +92,11 @@
 
             <div class="form-group col-xs-2">
               <label for="exampleInputPassword1">*Religion:</label>
-              <input type="text" class="form-control" placeholder="Religion" name="religion">
+              <select class="form-control select2" name="religion">
+                <?php foreach ($default_data['religion'] as $res) { ?>
+                  <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
+                <?php } ?>
+              </select>
             </div>
 
             <div class="form-group col-xs-4">
@@ -108,7 +113,7 @@
               <textarea class="form-control" row="10" name="street" placeholder="Street Here..."></textarea>
             </div>
 
-            <div class="form-group col-xs-4">
+            <div class="form-group col-xs-2">
               <label>*Contact No:</label>
               <div class="input-group date">
                 <div class="input-group-addon">
@@ -116,6 +121,15 @@
                 </div>
                 <input type="number" maxlength="11" class="form-control pull-right" name="contact_no" placeholder="09XXXXXXXXX">
               </div>
+            </div>
+
+            <div class="form-group col-xs-2">
+              <label for="exampleInputPassword1">*Nationality:</label>
+              <select class="form-control select2" name="nationality">
+                <?php foreach ($default_data['nationality'] as $res) { ?>
+                  <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
+                <?php } ?>
+              </select>
             </div>
 
           </div>
@@ -193,6 +207,10 @@
   $('.select2').select2();
 
   $(".city").on('change', function(e) {
-    dropdown_with_default('barangay', "tbl_barangay", "city_id", $(this).val(), "name", "id", $(this).val());
+    dropdown_with_default('barangay', "tbl_barangay", "city_id", $(this).val(), "name", "id", '137607');
+  });
+
+  $(document).ready(function() {
+    dropdown_with_default('barangay', "tbl_barangay", "city_id", "137607", "name", "id", null);
   });
 </script>

@@ -1,5 +1,4 @@
 <?php if (!isset($_GET['code'])  && date('Ymd') > base64_decode($_GET['code'])) {  ?>
-  <?= base64_decode($_GET['code']) ?>
   <h1><b>404 Page Not Found!</b></h1>
   <h3>This Page Does Not Exists.</h3>
   <?php die; ?>
@@ -15,7 +14,6 @@ $official = $user->get_user($_SESSION['user']->id);
 
 
 if (!$data) {
-  var_dump(base64_decode($_GET['pair']));
   echo '<h1><b>404 Page Not Found!</b></h1>
         <h3>This Page Does Not Exists.</h3>';
   die;
@@ -124,7 +122,7 @@ if (!$data) {
         <h1 style="margin-top:50px;margin-bottom: 70px;">
           -BARANGAY CLEARANCE
         </h1>
-        <p class="p-1">This is to certify that <span style="text-decoration: underline;"><?php echo ((!empty($data->suffix_id)) ? $data->suffix_name : '') . " " . $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> is a resident of this barangay.</p>
+        <p class="p-1">This is to certify that <span style="text-decoration: underline;"><?php echo (($data->suffix_id != 1) ? $data->suffix_name : '') . " " . $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> is a resident of this barangay.</p>
 
         <p> Residing at <span style="text-decoration: underline;"><?php echo $data->house_no, ", " . strtolower($data->barangay_name); ?></span> <span class="b">Wawa Taguig City</span></p>
         <table>

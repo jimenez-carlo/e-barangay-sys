@@ -272,7 +272,7 @@ Barangay Wawa - 0945 849 0538\n
     $msg = '';
 
     // Require Fields
-    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'password', 'religion', 'nationality');
+    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'password',);
 
 
     foreach ($required_fields as $res) {
@@ -290,6 +290,18 @@ Barangay Wawa - 0945 849 0538\n
     if (empty($barangay)) {
       $result->message = "No Barangay Selected!";
       $result->items = implode(',', array('barangay'));
+      return $result;
+    }
+
+    if (empty($religion)) {
+      $result->message = "No Religion Selected!";
+      $result->items = implode(',', array('religion'));
+      return $result;
+    }
+
+    if (empty($nationality)) {
+      $result->message = "No Nationality Selected!";
+      $result->items = implode(',', array('nationality'));
       return $result;
     }
 
@@ -340,7 +352,7 @@ Barangay Wawa - 0945 849 0538\n
 
 
     if (!isset($_POST['terms'])) {
-      $result->message = "Please Check Read The Terms & Conditions";
+      $result->message = "Please Check Data Privacy";
       $result->items = implode(',', array('terms'));
       return $result;
     }

@@ -86,6 +86,7 @@
                 <div class="col-sm-4">
                   <label for="firstName" class="form-label">Suffix</label>
                   <select class="form-select" name="suffix">
+
                     <?php foreach ($default_data['suffix'] as $res) { ?>
                       <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
                     <?php } ?>
@@ -125,6 +126,7 @@
                 <div class="col-md-4">
                   <label for="religion" class="form-label">Nationality <span class="text-danger">*</span></label>
                   <select class="form-select select2" id="nationality" name="nationality">
+                    <option value="0" selected>Select Nationality</option>
                     <?php foreach ($default_data['nationality'] as $res) { ?>
                       <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
                     <?php } ?>
@@ -133,6 +135,7 @@
                 <div class="col-md-4">
                   <label for="religion" class="form-label">Religion <span class="text-danger">*</span></label>
                   <select class="form-select select2" id="religion" name="religion">
+                    <option value="0" selected>Select Religion</option>
                     <?php foreach ($default_data['religion'] as $res) { ?>
                       <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']); ?></option>
                     <?php } ?>
@@ -152,7 +155,7 @@
                   By completing this form, I give permission for my data to be held in the E-barangay system database and agree that the system may process personal data relating to me for personnel, administration and/or management purposes.
                 </div>
                 <div class="col-12">
-                  <input type="checkbox" name="terms" required> I have read, understood, and accepted the Data Privacy and Terms & Conditions.
+                  <input type="checkbox" name="terms" required> I have read, understood, and accepted the Data Privacy.
                 </div>
               </div>
           </div>
