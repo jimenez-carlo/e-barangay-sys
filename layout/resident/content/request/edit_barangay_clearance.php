@@ -114,6 +114,8 @@
               <input type="text" class="form-control" placeholder="Address" name="address" value="<?= $resident_data->complete_address; ?>" disabled>
             </div>
 
+
+
             <!-- <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">TIN:</label>
               <input type="text" class="form-control" placeholder="TIN" name="tin" value="<?= $data->tin; ?>" disabled>
@@ -158,6 +160,11 @@
                 <label for="exampleInputPassword1">Name of Guardian:</label>
                 <input type="text" class="form-control" placeholder="Name of Guardian" name="guardian" value="<?= $data->guardian; ?>" disabled>
               </div>
+            </div>
+
+            <div class="form-group col-xs-3" id="form5">
+              <label for="exampleInputPassword1">Year('s):</label>
+              <input type="number" class="form-control" placeholder="Year" name="year" value="<?= $data->year; ?>" disabled>
             </div>
 
           </div>
@@ -240,6 +247,11 @@
       $("#form4").css("visibility", "visible");
     } else {
       $("#form4").css("visibility", "hidden");
+    }
+    if (this.value == 5) {
+      $("#form5").css("visibility", "visible");
+    } else {
+      $("#form5").css("visibility", "hidden");
     }
   });
 

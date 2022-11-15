@@ -9,8 +9,11 @@ require('../class/base.php');
 require('../class/user.php');
 
 $user = new User($conn);
+$base = new Base($conn);
 $data = $user->get_user(base64_decode($_GET['pair']));
+$cert = $user->get_one("SELECT DATE(issued_date) as `cert_date`,`year` as `years` from tbl_request_barangay where id = '" . $_GET['ct_id'] . "'");
 $official = $user->get_user($_SESSION['user']->id);
+
 
 
 if (!$data) {
@@ -123,7 +126,8 @@ if (!$data) {
         <h1 style="margin-top:50px;margin-bottom: 70px;font-style: italic;">
           CERTIFICATE OF RESIDENCY
         </h1>
-        <p class="p-1">This is to certify that <span style="text-decoration: underline;"><?php echo (($data->suffix_id != 1) ? $data->suffix_name : '')  . " " . $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> is a resident of this barangay with postal address <span style="text-decoration: underline;"><?php echo $data->house_no, ", " . strtolower($data->barangay_name) . ", " . strtolower($data->city_name); ?></span> since birth.</p>
+
+        <p class="p-1">This is to certify that <span style="text-decoration: underline;"><?php echo (($data->suffix_id != 1) ? $data->suffix_name : '')  . " " . $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> is a resident of this barangay with postal address <span style="text-decoration: underline;"><?php echo $data->house_no, ", " . strtolower($data->barangay_name) . ", " . strtolower($data->city_name); ?></span> since <?= date('d M Y', strtotime($cert->cert_date . "+ $cert->years years")) ?>.</p>
         <p class="p-1">This certification is being issued upon the request of <span style="text-decoration: underline;"><?php echo $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> Renewal of Solo-Parent I.D.</p>
         <p style="margin-left:18px;text-align:left;margin-bottom: 50px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Issued this <span style="text-decoration: underline;">
             <?php echo date('d') ?>

@@ -108,6 +108,9 @@
               <input type="text" class="form-control" placeholder="Address" name="address" value="<?= $data->complete_address; ?>" disabled>
             </div>
 
+
+
+
             <!-- <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">*TIN:</label>
               <input type="text" class="form-control" placeholder="TIN" name="tin">
@@ -154,6 +157,10 @@
               </div>
             </div>
 
+            <div class="form-group col-xs-3" id="form5">
+              <label for="exampleInputPassword1">Year('s):</label>
+              <input type="number" class="form-control" placeholder="Year" name="year">
+            </div>
 
           </div>
           <div class="modal-footer">
@@ -177,6 +184,11 @@
       $("#form4").css("visibility", "visible");
     } else {
       $("#form4").css("visibility", "hidden");
+    }
+    if (this.value == 5) {
+      $("#form5").css("visibility", "visible");
+    } else {
+      $("#form5").css("visibility", "hidden");
     }
   });
 
