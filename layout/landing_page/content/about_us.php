@@ -72,9 +72,9 @@
                         <?php if ($subres['column'] == $res['id']) { ?>
                             <div class="box box-mg" style="margin-top:10px">
                                 <div class="box-header" style="padding:unset">
-                                    <img class="img-responsive" src="<?= BASE_URL . "assets/officer/" . $subres['image']; ?>" alt="Photo" style="height:120px;max-height:120px!important;min-width:120px;width:100%;object-fit:fill!important">
+                                    <img class="img-responsive" src="<?= BASE_URL . "assets/officer/" . $subres['image']; ?>" alt="Photo" style="height:120px;max-height:120px!important;min-width:120px;width:100%;object-fit:fill!important;border-radius:50%">
                                 </div>
-                                <div class="card-footer" style="height: 120px;"><?= $subres['position'] ?> <br><?= strlen($subres['name']) > 20 ? substr($subres['name'], 0, 20) . "..." : $subres['name'];  ?></div>
+                                <div class="card-footer" style="height: 120px;background:unset;border:unset"><?= $subres['position'] ?> <br><?= $subres['name'];  ?></div>
                             </div>
                         <?php } ?>
                     <?php } ?>

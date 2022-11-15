@@ -77,12 +77,12 @@
 
 
 
-                <div class="box" style="width: 140px;margin-top:10px">
+                <div class="box" style="width: 140px;margin-top:10px;background:unset;border:unset;box-shadow:unset">
                   <div class="box-header" style="padding:unset">
-                    <img class="img-responsive" src="<?= BASE_URL . "assets/officer/" . $subres['image']; ?>" alt="Photo" style="height:120px;max-height:120px!important;min-width:120px;width:100%;object-fit:fill!important">
+                    <img class="img-responsive" src="<?= BASE_URL . "assets/officer/" . $subres['image']; ?>" alt="Photo" style="height:120px;max-height:120px!important;min-width:120px;width:100%;object-fit:fill!important;border-radius:50%">
                   </div>
-                  <div class="box-body" style="height: 120px;">
-                    <h4 class="text-center"><?= $subres['position'] ?> <br><?= strlen($subres['name']) > 20 ? substr($subres['name'], 0, 20) . "..." : $subres['name'];  ?></h4>
+                  <div class="box-body" style="height: 120px;border:unset">
+                    <h4 class="text-center"><?= $subres['position'] ?> <br><?= $subres['name'];  ?></h4>
                   </div>
                 </div>
               </div>
