@@ -133,13 +133,13 @@ class Base
     $mail->IsSMTP();
     $mail->Mailer = "smtp";
 
-    $mail->SMTPDebug  = 1;
+    $mail->SMTPDebug  = 0;
+    $mail->Port       = 587;
     $mail->SMTPAuth   = TRUE;
     $mail->SMTPSecure = "tls";
-    $mail->Port       = 587;
-    $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "system.barangay.wawa.taguig@gmail.com";
-    $mail->Password   = "vpn8#Y2wC^4h";
+    $mail->Host       = "mail.barangay-wawa-taguig.co";
+    $mail->Username   = "system@barangay-wawa-taguig.co";
+    $mail->Password   = "W?!R,6H_vfIg";
 
 
 
@@ -149,16 +149,16 @@ class Base
     $mail->SetFrom("system.barangay.wawa.taguig@gmail.com", "System Generated");
     $mail->AddReplyTo("system.barangay.wawa.taguig@gmail.com", "System Generated");
     $mail->AddCC($email, $email);
-    $mail->Subject = "Test is Test Email sent via Gmail SMTP Server using PHP Mailer";
-    $content = "<b>This is a Test Email sent via Gmail SMTP Server using PHP mailer class.</b>";
+    $mail->Subject = "Barangay Wawa Notification";
 
-    $mail->MsgHTML($content);
-    if (!$mail->Send()) {
-      echo "Error while sending Email.";
-      var_dump($mail);
-    } else {
-      echo "Email sent successfully";
-    }
+    $mail->MsgHTML($message);
+    $mail->Send();
+    // if (!$mail->Send()) {
+    //   echo "Error while sending Email.";
+    //   var_dump($mail);
+    // } else {
+    //   echo "Email sent successfully";
+    // }
   }
   public function sms($number, $message)
   {
