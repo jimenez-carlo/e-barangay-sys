@@ -56,7 +56,7 @@
                 <?php if (!empty($data->gallery)) { ?>
                   <?php foreach ($data->gallery as $res) { ?>
                     <div style="position:relative;margin-right:20px"><img src="<?= BASE_URL . "assets/gallery/" . $res['image']; ?>" class="imgs-preview">
-                      <button type="button" class="btn btn-sm btn-flat btn-success btn-r-def-img" value="<?= $res['id']; ?>"><i class="fa fa-trash"></i></button>
+                      <button type="button" class="btn btn-sm btn-flat btn-success btn-r-def-img2" value="<?= $res['id']; ?>"><i class="fa fa-trash"></i></button>
                       <input type="text" name="gallery_label[<?= $res['id']; ?>]" class="form-control" placeholder="Label" value="<?= $res['label']; ?>">
                       <input type="hidden" name="gallery_id[<?= $res['id']; ?>]" value="<?= $res['id']; ?>">
                     </div>
@@ -94,7 +94,7 @@
                 <?php if (!empty($data->officers)) { ?>
                   <?php foreach ($data->officers as $res) { ?>
                     <div style="position:relative;margin-right:20px"><img src="<?= BASE_URL . "assets/officer/" . $res['image']; ?>" class="imgs-preview">
-                      <button type="button" class="btn btn-sm btn-flat btn-success btn-r-def-img" value="<?= $res['id']; ?>"><i class="fa fa-trash"></i></button>
+                      <button type="button" class="btn btn-sm btn-flat btn-success btn-r-def-img3" value="<?= $res['id']; ?>"><i class="fa fa-trash"></i></button>
                       <input type="text" name="officer_name[<?= $res['id']; ?>]" class="form-control" placeholder="Officer Name" value="<?= $res['name']; ?>">
                       <input type="text" name="officer_position[<?= $res['id']; ?>]" class="form-control" placeholder="Position" value="<?= $res['position']; ?>">
                       <input type="number" name="officer_row[<?= $res['id']; ?>]" class="form-control" placeholder="Row" value="<?= $res['column']; ?>">

@@ -124,7 +124,7 @@ class Settings extends Base
       if (isset($delete_officer_image)) {
         $image_to_delete = $this->get_list("select * from tbl_about_us_images where id in ('" . $deleted_officer . "')");
         foreach ($image_to_delete as $res) {
-          unlink("assets/home/" . $res['image']);
+          unlink("assets/officer/" . $res['image']);
         }
       }
       // Delete Officer Fields
