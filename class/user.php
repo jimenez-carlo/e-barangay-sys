@@ -36,4 +36,8 @@ class User extends Base
   {
     return $this->get_one("select *, DATE_ADD(issued_date, INTERVAL 1 YEAR) as expire_date  from tbl_request_id where id = $id limit 1");
   }
+  public function get_business($id)
+  {
+    return $this->get_one("select *, DATE_ADD(issued_date, INTERVAL 1 YEAR) as expire_date  from tbl_request_business where id = $id limit 1");
+  }
 }

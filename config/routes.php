@@ -45,6 +45,8 @@ $routes = array(
   'admin/members/create' => $admin_route . '/members/create.php',
   'admin/members/edit' => $admin_route . '/members/edit.php',
 
+  'admin/settings/edit' => $admin_route . '/settings/edit.php',
+
   # Resident
   'resident/profile' => $resident_route . '/profile.php',
   'resident/home' => $resident_route . '/home.php',

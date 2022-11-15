@@ -10,65 +10,18 @@
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        <!-- <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="6" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="7" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="8" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="9" aria-label="Slide 3"></button> -->
                     </div>
                     <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/1.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
-                            <div class="carousel-caption d-none d-md-block">
+                        <?php $ctr = 0; ?>
+                        <?php foreach ($home_page_images as $res) { ?>
+                            <div class="carousel-item <?= ($ctr == 0) ? 'active' : '' ?>" data-bs-interval="3000">
+                                <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/" . $res['image']; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
+                                <div class="carousel-caption d-none d-md-block">
+                                </div>
                             </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/2.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/3.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <!-- <div class="carousel-item" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img4.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img5.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img6.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img7.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img8.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img9.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <a class="nav-link" href="#"><img src="<?= BASE_URL . "assets/home/img10.jpg"; ?>" style="height:400px;" class="d-block w-100" alt="" /> </a>
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div> -->
+                            <?php $ctr++; ?>
+                        <?php } ?>
+
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -81,8 +34,8 @@
                 </div>
             </div>
             <div class="col-lg-5">
-                <h1 class="font-weight-light">Welcome to <strong>Barangay Wawa Website!</strong></h1>
-                <p>Barangay Wawa is a barangay located in the city of Taguig. Its population as determined by the 2020 Census was 14,350. This represented 1.62% of the total population of Taguig. with the current appointed barangay officials Philip E. Buenaflor as Barangay Chairman with Joey Dionisio, Bogie Garcia, Manuel Liwanag, Virgilio Dionisio, Cyndie Bonifacio, Gregorio Valenzuela Jr, Jenson Garcia as Barangay Kagawads. </p>
+                <h1 class="font-weight-light"><?= $home_content->home_title ?></h1>
+                <p><?= $home_content->home_description ?></p>
                 <a class="btn btn-success btn-view" href="#!" name="landing_page/register">Signup</a>
             </div>
         </div>
@@ -105,11 +58,11 @@
             </div>
             <div class="w-50 align-items-center my-4">
                 <h4 class="fw-normal">BARANGAY WAWA HOTLINE</h4>
-                Cel. No.: 0945 849 0538
+                Cel. No.: +63 945 849 0538
             </div>
             <div class="w-50 align-items-center my-4">
                 <h4 class="fw-normal">PEACE AND ORDER</h4>
-                Cel. No.: 0926 730 0576
+                Cel. No.: +63 926 730 0576
 
             </div>
         </div>

@@ -183,8 +183,10 @@ Barangay Wawa - 0945 849 0538\n
 
       if (isset($send_sms) && $status == 2) {
         $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 limit 5");
+
         foreach ($recipients as $res) {
-          if (strlen($res['contact_no'] == 11)) {
+          if (strlen($res['contact_no']) == 11) {
+            // echo "Barangay Wawa System Announcemnet!, Title:$title Description:$description";
             $this->sms($res['contact_no'], "Barangay Wawa System Announcemnet!, Title:$title Description:$description");
           }
         }

@@ -41,6 +41,11 @@
                       Download
                     </button>
                   </a>
+                  <a href="<?php echo BASE_URL . "files/old_clearance/" . $data->old_clearance; ?>" target="_blank">
+                    <button class="btn btn-sm btn-flat btn-success" type="button">
+                      View
+                    </button>
+                  </a>
                 </div>
               </div>
 
@@ -76,10 +81,20 @@
                       Download
                     </button>
                   </a>
+                  <a href="<?php echo BASE_URL . "files/dti/" . $data->dti; ?>" target="_blank">
+                    <button class="btn btn-sm btn-flat btn-success" type="button">
+                      View
+                    </button>
+                  </a>
                 </div>
                 <div class="form-group col-xs-3">
                   <label for="exampleInputPassword1">Contract of Lease/ Title/ Certification</label>
                   <a href="<?php echo BASE_URL . "files/contract/" . $data->contract; ?>" download="">
+                    <button class="btn btn-sm btn-flat btn-success" type="button">
+                      Download
+                    </button>
+                  </a>
+                  <a href="<?php echo BASE_URL . "files/contract/" . $data->contract; ?>" target="_blank">
                     <button class="btn btn-sm btn-flat btn-success" type="button">
                       Download
                     </button>
@@ -103,6 +118,11 @@
                       Download
                     </button>
                   </a>
+                  <a href="<?php echo BASE_URL . "files/affidavit/" . $data->affidavit; ?>" target="_blank">
+                    <button class="btn btn-sm btn-flat btn-success" type="button">
+                      Download
+                    </button>
+                  </a>
                 </div>
                 <div class="form-group col-xs-3">
                   <label for="exampleInputPassword1">Request Letter addressed to Punong Brgy
@@ -110,6 +130,11 @@
                   <a href="<?php echo BASE_URL . "files/request_letter/" . $data->request_letter; ?>" download="">
                     <button class="btn btn-sm btn-flat btn-success" type="button">
                       Download
+                    </button>
+                  </a>
+                  <a href="<?php echo BASE_URL . "files/request_letter/" . $data->request_letter; ?>" target="_blank">
+                    <button class="btn btn-sm btn-flat btn-success" type="button">
+                      View
                     </button>
                   </a>
                 </div>

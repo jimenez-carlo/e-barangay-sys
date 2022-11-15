@@ -171,6 +171,11 @@
                   Download
                 </button>
               </a>
+              <a href="<?php echo BASE_URL . "files/government/" . $data->government_id; ?>" target="_blank">
+                <button class="btn btn-sm btn-flat btn-success" type="button">
+                  View
+                </button>
+              </a>
             </div>
             <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">2x2 picture (white background)
@@ -180,6 +185,11 @@
                   Download
                 </button>
               </a>
+              <a href="<?php echo BASE_URL . "files/id/" . $data->picture; ?>" target="_blank">
+                <button class="btn btn-sm btn-flat btn-success" type="button">
+                  View
+                </button>
+              </a>
             </div>
             <div class="form-group col-xs-3">
               <label for="exampleInputPassword1">Scanned signature
@@ -187,6 +197,11 @@
               <a href="<?php echo BASE_URL . "files/signature/" . $data->signature; ?>" download="">
                 <button class="btn btn-sm btn-flat btn-success" type="button">
                   Download
+                </button>
+              </a>
+              <a href="<?php echo BASE_URL . "files/signature/" . $data->signature; ?>" target="_blank">
+                <button class="btn btn-sm btn-flat btn-success" type="button">
+                  View
                 </button>
               </a>
             </div>

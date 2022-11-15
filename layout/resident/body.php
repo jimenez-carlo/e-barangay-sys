@@ -10,78 +10,21 @@
           <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
           <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
           <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-          <!-- <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
-          <li data-target="#carousel-example-generic" data-slide-to="4" class=""></li>
-          <li data-target="#carousel-example-generic" data-slide-to="5" class=""></li>
-          <li data-target="#carousel-example-generic" data-slide-to="6" class=""></li>
-          <li data-target="#carousel-example-generic" data-slide-to="7" class=""></li>
-          <li data-target="#carousel-example-generic" data-slide-to="8" class=""></li>
-          <li data-target="#carousel-example-generic" data-slide-to="9" class=""></li> -->
         </ol>
         <div class="carousel-inner">
-          <div class="item active">
-            <center>
-              <img src="<?= BASE_URL . "assets/home/1.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
-            </center>
-            <div class="carousel-caption">
+          <?php $ctr = 0; ?>
+          <?php foreach ($home_page_images as $res) { ?>
+            <div class="item <?= ($ctr == 0) ? 'active' : '' ?>">
+              <center>
+                <img src="<?= BASE_URL . "assets/home/" . $res['image']; ?>" alt="First slide" style="height:441px;object-fit:fill">
+              </center>
+              <div class="carousel-caption">
+              </div>
             </div>
-          </div>
-          <div class="item">
-            <center>
-              <img src="<?= BASE_URL . "assets/home/2.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
-            </center>
-            <div class="carousel-caption">
-            </div>
-          </div>
-          <div class="item">
-            <center>
-              <img src="<?= BASE_URL . "assets/home/3.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
-            </center>
-            <div class="carousel-caption">
-            </div>
-          </div>
-          <!-- <div class="item">
-            <center>
-              <img src="<?= BASE_URL . "assets/home/img4.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
-            </center>
-            <div class="carousel-caption">
-            </div>
-          </div>
-          <div class="item">
-            <center>
-              <img src="<?= BASE_URL . "assets/home/img5.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
-            </center>
-            <div class="carousel-caption">
-            </div>
-          </div>
-          <div class="item">
-            <center>
-              <img src="<?= BASE_URL . "assets/home/img6.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
-            </center>
-            <div class="carousel-caption">
-            </div>
-          </div>
-          <div class="item">
-            <center>
-              <img src="<?= BASE_URL . "assets/home/img7.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
-            </center>
-            <div class="carousel-caption">
-            </div>
-          </div>
-          <div class="item">
-            <center>
-              <img src="<?= BASE_URL . "assets/home/img8.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
-            </center>
-            <div class="carousel-caption">
-            </div>
-          </div>
-          <div class="item">
-            <center>
-              <img src="<?= BASE_URL . "assets/home/img9.jpg"; ?>" alt="First slide" style="height:441px;object-fit:fill">
-            </center>
-            <div class="carousel-caption">
-            </div>
-          </div> -->
+            <?php $ctr++; ?>
+          <?php } ?>
+
+
         </div>
         <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
           <span class="fa fa-angle-left"></span>
@@ -93,10 +36,10 @@
     </div>
     <div class="col-md-4">
       <h1>
-        Welcome to <strong>Barangay Wawa Website!</strong>
+        <?= $home_content->home_title ?>
       </h1>
       <h4 style="line-height:1.5">
-        Barangay Wawa is a barangay located in the city of Taguig. Its population as determined by the 2020 Census was 14,350. This represented 1.62% of the total population of Taguig. with the current appointed barangay officials Philip E. Buenaflor as Barangay Chairman with Joey Dionisio, Bogie Garcia, Manuel Liwanag, Virgilio Dionisio, Cyndie Bonifacio, Gregorio Valenzuela Jr, Jenson Garcia as Barangay Kagawads.
+        <?= $home_content->home_description ?>
       </h4>
     </div>
   </div>
@@ -126,13 +69,13 @@
     <div class="col-md-4">
       <h3>BARANGAY WAWA HOTLINE</h3>
       <h4>
-        Cel. No.: 0945 849 0538
+        Cel. No.: +63 945 849 0538
       </h4>
     </div>
     <div class="col-md-4">
       <h3>PEACE AND ORDER</h3>
       <h4>
-        Cel. No.: 0926 730 0576
+        Cel. No.: +63 926 730 0576
       </h4>
     </div>
   </div>

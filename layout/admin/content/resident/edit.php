@@ -140,6 +140,11 @@
                   Download
                 </button>
               </a>
+              <a href="<?php echo BASE_URL . "files/verify/" . $data->file; ?>" target="_blank">
+                <button class="btn btn-sm btn-flat btn-success" type="button">
+                  View
+                </button>
+              </a>
             </div>
           </div>
           <div class="modal-footer" style="min-height:93px">

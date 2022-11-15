@@ -14,7 +14,7 @@
 <!-- Footer-->
 <footer class="py-3 bg-success">
   <div class="container px-4 px-lg-5">
-    <p class="m-0 text-center text-white">Copyright &copy; <?= SYSTEM_NAME; ?></p>
+    <p class="m-0 text-center text-white"> <strong>Copyright &copy; <?= COPYRIGHT_YEAR; ?> <?= SYSTEM_NAME; ?>.</strong> All rights reserved.</p>
   </div>
 </footer>
 <!-- Bootstrap core JS-->

@@ -149,7 +149,9 @@ class Resident extends Base
 
           $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by) values($id, 2, $user->id)");
 
-          $sms_result =  $this->sms($datainfo->contact_no, "
+
+
+          $msg =  "
 Magandang Araw!\n
 The registration of your account has been approved.\n
 You may now login to the website of the barangay.\n
@@ -161,7 +163,9 @@ BARANGAY WAWA – TAGUIG CITY\n
  \n
 For more details, text & call:\n
 Barangay Wawa - 0945 849 0538\n
-");
+";
+          $this->sms($datainfo->contact_no, $msg);
+          $this->send_email($email, $msg);
         }
 
         $this->commit_transaction();
@@ -431,7 +435,7 @@ Barangay Wawa - 0945 849 0538\n
       $this->query("update tbl_users_info set updated_date = '$updated_date' where id = $id");
 
       if (isset($datainfo->contact_no) && !empty($datainfo->contact_no)) {
-        $this->sms($datainfo->contact_no, "
+        $msg =  "
 Magandang Araw!\n
 The registration of your account has been approved.\n
 You may now login to the website of the barangay.\n
@@ -443,7 +447,9 @@ BARANGAY WAWA – TAGUIG CITY\n
  \n
 For more details, text & call:\n
 Barangay Wawa - 0945 849 0538\n
-");
+";
+        $this->sms($datainfo->contact_no, $msg);
+        $this->send_email($email, $msg);
       }
       $this->commit_transaction();
       $result->result = $this->response_success("Resident ID#$id Account Verified!");

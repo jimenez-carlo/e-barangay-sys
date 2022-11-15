@@ -169,7 +169,7 @@ class Profile extends Base
 
     if ($resident_profile_update == 'profile') {
       // Require Fields
-      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'religion', 'nationality');
+      $required_fields = array('username', 'email');
 
 
       foreach ($required_fields as $res) {
@@ -185,21 +185,9 @@ class Profile extends Base
         return $result;
       }
 
-      if (
-        $birth_date > date('Y-m-d')
-      ) {
-        $result->result = $this->response_error("Birth Date Exceeded!");
-        $result->items = implode(',', array('birth_date'));
-        return $result;
-      }
 
-      if (
-        strlen($contact_no) != 11
-      ) {
-        $result->result = $this->response_error("Contact No# Characters Should Be 11!");
-        $result->items = implode(',', array('contact_no'));
-        return $result;
-      }
+
+
 
       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $result->result = $this->response_error("Invalid Email Format!");
@@ -210,7 +198,7 @@ class Profile extends Base
       $this->start_transaction();
       try {
         $updated_date = date('Y-m-d H:i:s');
-        $this->query("update tbl_users_info set first_name = '$first_name', middle_name='$middle_name', last_name= '$last_name', birth_date = '$birth_date', birth_place ='$birth_place', gender_id = $gender, city_id = '$city', house_no = '$house_no', marital_status_id = $marital_status, barangay_id = $barangay, street = '$street', contact_no = '$contact_no',religion='$religion', suffix_id= '$suffix',  updated_date = '$updated_date',`nationality`= '$nationality' where id = $id");
+        // $this->query("update tbl_users_info set first_name = '$first_name', middle_name='$middle_name', last_name= '$last_name', birth_date = '$birth_date', birth_place ='$birth_place', gender_id = $gender, city_id = '$city', house_no = '$house_no', marital_status_id = $marital_status, barangay_id = $barangay, street = '$street', contact_no = '$contact_no',religion='$religion', suffix_id= '$suffix',  updated_date = '$updated_date',`nationality`= '$nationality' where id = $id");
         $this->query("update tbl_users set username = '$username', email='$email', updated_date = '$updated_date' where id = $id");
         if (!empty($image['name'])) {
           $ext = explode(".", $image["name"]);

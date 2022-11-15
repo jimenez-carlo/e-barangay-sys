@@ -472,10 +472,11 @@ class Request extends Base
       $this->query("UPDATE $table set request_status_id = $status, updated_date = '$updated_date', updated_by ='$user->id' where id = $id ");
       // approved
       if (isset($send_sms) && $status == 2) {
-        $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
+        $recipients = $this->get_list("select contact_no,email from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
         foreach ($recipients as $res) {
           if (strlen($res['contact_no'] == 11)) {
-            $this->sms($res['contact_no'], "Magandang Araw!\n
+
+            $msg =  "Magandang Araw!\n
 Your request for a certificate / clearance / ID has been approved.\n
 You can claim the document at the barangay hall in the next 2 days.\n
 ]n
@@ -486,17 +487,19 @@ BARANGAY WAWA – TAGUIG CITY\n
  \n
 For more details, text & call:\n
 Barangay Wawa - 0945 849 0538\n
-");
+";
+            $this->sms($res['contact_no'], $msg);
+            $this->send_email($res['email'], $msg);
           }
         }
       }
 
       // deny
       if (isset($send_sms) && $status == 6) {
-        $recipients = $this->get_list("select contact_no from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
+        $recipients = $this->get_list("select contact_no,email from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
         foreach ($recipients as $res) {
           if (strlen($res['contact_no'] == 11)) {
-            $this->sms($res['contact_no'], "Magandang Araw!\n
+            $msg =  "Magandang Araw!\n
 Your request for a certificate / clearance / ID has been denied.\n
 You can check our official website to check the following requirements.\n
 or inquire to the Barangay Hall, 2nd Floor.\n
@@ -508,7 +511,9 @@ BARANGAY WAWA – TAGUIG CITY\n
  \n
 For more details, text & call:\n
 Barangay Wawa - 0945 849 0538
-");
+";
+            $this->sms($res['contact_no'], $msg);
+            $this->send_email($res['email'], $msg);
           }
         }
       }
