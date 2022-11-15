@@ -5,7 +5,7 @@
       <div class="col-md-3" style="position: fixed;right: 0;bottom: 50px;z-index: 99;background: white;padding: unset;margin: unset;">
         <div class="box box-success direct-chat direct-chat-warning collapsed-box">
           <div class="box-header with-border">
-            <h3 class="box-title">Chat Bot</h3>
+            <h3 class="box-title">Barangay Wawa</h3>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
               </button>
@@ -15,21 +15,23 @@
             <div class="direct-chat-messages">
               <div class="direct-chat-msg">
                 <div class="direct-chat-info clearfix">
-                  <span class="direct-chat-name pull-left">System Bot</span>
+                  <span class="direct-chat-name pull-left">Barangay Admin</span>
                   <span class="direct-chat-timestamp pull-right"><?php echo date('d M y') ?></span>
                 </div>
-                <img class="direct-chat-img" src="<?= BASE_URL . "assets/default.jpg" ?>" alt="message user image">
+                <img class="direct-chat-img" src="<?= BASE_URL . "assets/logo.png" ?>" alt="message user image">
                 <div class="direct-chat-text">
-                  Thank you for getting in touch!
+                  Hello welcome to Barangay Wawa!
+                  This message is automated.
+                  We will be getting back to you within a few hours.
+                  For more questions about your concerns
 
-                  We appreciate you contacting us. One of our customer happiness members will be getting back to you within a few hours.
+                  You can contact us on whatsApp and Viber
+                  Cel No.: +63 945 849 0538
 
-                  In the meantime, you can check out the following resources:
+                  Or you can Visit the Barangay Hall at
+                  Dama De Noche St. Wawa, Taguig City
 
-
-                  Pop-up Step-by-Step Tutorials
-                  Get in touch Section
-
+                  We appreciate you contacting us!
                   Have a great day ahead!
                 </div>
               </div>
