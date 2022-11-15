@@ -67,22 +67,23 @@
 
     <?php foreach ($layers as $res) { ?>
 
-      <div class="row">
-        <div class="col-md-5">
-        </div>
-        <div class="col-md-2" style="display:flex;justify-content:space-around">
+      <div class="row" style="    align-content: center;
+    display: flex;
+    justify-content: center;">
+
+        <div class="col-md-4" style="display:flex;justify-content:space-around">
           <?php foreach ($officers as $subres) { ?>
             <?php if ($subres['column'] == $res['id']) { ?>
-              <div class="col-md-2" style="display: flex;justify-content: center;margin-right:90px">
+              <div class="col-md-4" style="display: flex;justify-content: center;margin-right:10px">
 
 
 
                 <div class="box" style="width: 140px;margin-top:10px;background:unset;border:unset;box-shadow:unset">
                   <div class="box-header" style="padding:unset">
-                    <img class="img-responsive" src="<?= BASE_URL . "assets/officer/" . $subres['image']; ?>" alt="Photo" style="height:120px;max-height:120px!important;min-width:120px;width:100%;object-fit:fill!important;border-radius:50%">
+                    <img class="img-responsive" src="<?= BASE_URL . "assets/officer/" . $subres['image']; ?>" alt="Photo" style="height:120px;max-height:120px!important;min-width:120px;width:123px;object-fit:fill!important;border-radius:50%">
                   </div>
-                  <div class="box-body" style="height: 120px;border:unset">
-                    <h4 class="text-center"><?= $subres['position'] ?> <br><?= $subres['name'];  ?></h4>
+                  <div class="box-body" style="height: 120px;border:unset;white-space: nowrap;">
+                    <h4 class="text-center" style="font-size:16px"><?= $subres['position'] ?> <br><?= $subres['name'];  ?></h4>
                   </div>
                 </div>
               </div>
@@ -90,8 +91,7 @@
           <?php } ?>
 
         </div>
-        <div class="col-md-5">
-        </div>
+
       </div>
     <?php } ?>
 

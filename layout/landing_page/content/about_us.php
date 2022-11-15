@@ -64,24 +64,27 @@
         <div style="margin-top:30px"></div>
         <?php foreach ($layers as $res) { ?>
 
-            <div class="row">
-                <div class="col-md-5">
-                </div>
-                <div class="col-md-2" style="display:flex;justify-content:space-around">
+            <div class="row" style="align-content: center;
+    display: flex;
+    justify-content: center;">
+
+                <div class="col-md-4" style="display:flex;justify-content:space-around">
                     <?php foreach ($officers as $subres) { ?>
                         <?php if ($subres['column'] == $res['id']) { ?>
-                            <div class="box box-mg" style="margin-top:10px">
-                                <div class="box-header" style="padding:unset">
-                                    <img class="img-responsive" src="<?= BASE_URL . "assets/officer/" . $subres['image']; ?>" alt="Photo" style="height:120px;max-height:120px!important;min-width:120px;width:100%;object-fit:fill!important;border-radius:50%">
+                            <div class="col-md-4" style="display: flex;justify-content: center;margin-right:30px">
+
+                                <div class="box box-mg" style="margin-top:10px">
+                                    <div class="box-header" style="padding:unset;text-align:center">
+                                        <img class="img-responsive" src="<?= BASE_URL . "assets/officer/" . $subres['image']; ?>" alt="Photo" style="height:120px;max-height:120px!important;min-width:120px;width:123px;object-fit:fill!important;border-radius:50%">
+                                    </div>
+                                    <div class="card-footer" style="height: 120px;background:unset;border:unset;white-space: nowrap;font-size:16px"><?= $subres['position'] ?> <br><?= $subres['name'];  ?></div>
                                 </div>
-                                <div class="card-footer" style="height: 120px;background:unset;border:unset"><?= $subres['position'] ?> <br><?= $subres['name'];  ?></div>
                             </div>
                         <?php } ?>
                     <?php } ?>
 
                 </div>
-                <div class="col-md-5">
-                </div>
+
             </div>
         <?php } ?>
 
