@@ -33,7 +33,7 @@ cursor: pointer; */
 display: none;
 }
 
-.btn-r-img,.btn-r-def-img,.btn-r-img2,.btn-r-img3{
+.btn-r-img,.btn-r-def-img,.btn-r-img2,.btn-r-img3,.btn-r-def-img2,.btn-r-def-img3{
 position: absolute;
 right: 0;
 }

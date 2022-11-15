@@ -73,6 +73,7 @@ class Settings extends Base
         $image_to_delete = $this->get_list("select * from tbl_home_images where id in ('" . $deleted_carousel . "')");
         foreach ($image_to_delete as $res) {
           unlink("assets/home/" . $res['image']);
+          $this->query("update tbl_home_images set `deleted_flag` = '1' where id = '" . $res['id'] . "'");
         }
       }
       // Delete Carousel Fields
@@ -96,6 +97,7 @@ class Settings extends Base
         $image_to_delete = $this->get_list("select * from tbl_gallery where id in ('" . $deleted_gallery . "')");
         foreach ($image_to_delete as $res) {
           unlink("assets/home/" . $res['image']);
+          $this->query("update tbl_gallery set `deleted_flag` = '1' where id = '" . $res['id'] . "'");
         }
       }
       // Delete Gallery Fields
@@ -125,6 +127,7 @@ class Settings extends Base
         $image_to_delete = $this->get_list("select * from tbl_about_us_images where id in ('" . $deleted_officer . "')");
         foreach ($image_to_delete as $res) {
           unlink("assets/officer/" . $res['image']);
+          $this->query("update tbl_about_us_images set `deleted_flag` = '1' where id = '" . $res['id'] . "'");
         }
       }
       // Delete Officer Fields
