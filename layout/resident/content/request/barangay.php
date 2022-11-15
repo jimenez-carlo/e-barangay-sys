@@ -23,13 +23,10 @@
               </select>
             </div>
 
-            <div class="form-group col-xs-3" id="form5">
-              <label for="exampleInputPassword1">Year('s):</label>
-              <input type="number" class="form-control" placeholder="Year" name="year">
-            </div>
 
 
-            <div class="form-group col-xs-3">
+
+            <div class="form-group col-xs-6">
               <label>*Date Issued:</label>
               <div class="input-group date">
                 <div class="input-group-addon">
@@ -99,10 +96,6 @@
               </div>
             </div>
 
-            <!-- <div class="form-group col-xs-3">
-              <label for="exampleInputPassword1">*Email Address:</label>
-              <input type="text" class="form-control" placeholder="Email Address" name="birth_place" value="<?= $data->birth_place; ?>" disabled>
-            </div> -->
 
             <div class="form-group col-xs-6">
               <label for="exampleInputPassword1">*Address:</label>
@@ -112,45 +105,7 @@
 
 
 
-            <!-- <div class="form-group col-xs-3">
-              <label for="exampleInputPassword1">*TIN:</label>
-              <input type="text" class="form-control" placeholder="TIN" name="tin">
-            </div> -->
-            <!-- <div class="form-group col-xs-3">
-              <label for="exampleInputPassword1">*Philhealth:</label>
-              <input type="text" class="form-control" placeholder="Philhealth" name="phil_health">
-            </div> -->
-            <!-- <div class="form-group col-xs-3">
-              <label for="exampleInputPassword1">*SSS:</label>
-              <input type="text" class="form-control" placeholder="SSS" name="sss">
-            </div> -->
 
-            <!-- <div class="form-group col-xs-3">
-              <label for="exampleInputPassword1">*Blood Type:</label>
-              <select class="form-control" name="blood_type_id">
-                <?php foreach ($default_data['blood_type'] as $res) { ?>
-                  <option value="<?= $res['id'] ?>"><?= strtoupper($res['blood_type']); ?></option>
-                <?php } ?>
-              </select>
-            </div> -->
-            <!-- <div class="form-group col-xs-6">
-              <label for="exampleInputPassword1">*Contact Person in case of emergency:</label>
-              <input type="text" class="form-control" placeholder="Contact Person in case of emergency" name="contact_person">
-            </div>
-            <div class="form-group col-xs-6">
-              <label for="exampleInputPassword1">*Address of Contact Person:</label>
-              <input type="text" class="form-control" placeholder="Address of Contact Person" name="contact_person_address">
-            </div>
-
-            <div class="form-group col-xs-3">
-              <label>*Contact No. of Contact Person:</label>
-              <div class="input-group date">
-                <div class="input-group-addon">
-                  <i class="fa fa-phone"></i>
-                </div>
-                <input type="text" class="form-control pull-right" name="contact_person_no" placeholder="09XXXXXXXXX">
-              </div>
-            </div> -->
             <div id="form1">
               <div class="form-group col-xs-6">
                 <label for="exampleInputPassword1">*Name of Guardian:</label>
@@ -178,11 +133,7 @@
 
   $("[name='purpose_id']").on('change', function(e) {
 
-    if (this.value == 5) {
-      $("#form5").css("visibility", "visible");
-    } else {
-      $("#form5").css("visibility", "hidden");
-    }
+
   });
 
   $("[name='minor']").on('change', function(e) {
