@@ -96,7 +96,7 @@
                   </a>
                   <a href="<?php echo BASE_URL . "files/contract/" . $data->contract; ?>" target="_blank">
                     <button class="btn btn-sm btn-flat btn-success" type="button">
-                      Download
+                      View
                     </button>
                   </a>
                 </div>

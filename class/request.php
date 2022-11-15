@@ -193,6 +193,10 @@ class Request extends Base
       $errors[] = 'others';
     }
 
+    if ($purpose_id == 5 && empty($years)) {
+      $errors[] = 'years';
+    }
+
     if ($minor == 1 && empty($guardian)) {
       $errors[] = 'guardian';
     }
@@ -209,7 +213,7 @@ class Request extends Base
       // blood_type_id,phil_health,sss,tin,contact_person,contact_person_address,contact_person_no
       // '$blood_type_id','$phil_health','$sss','$tin','$contact_person','$contact_person_address','$contact_person_no',
       $updated_date = date('Y-m-d H:i:s');
-      $request_id = $this->insert_get_id("INSERT INTO tbl_request_barangay  (purpose_id,others,issued_date,requester_id,minor,guardian,updated_by,created_date,updated_date) values('$purpose_id','$others','$issued_date','$user->id','$minor','$guardian','$user->id','$updated_date','$updated_date')");
+      $request_id = $this->insert_get_id("INSERT INTO tbl_request_barangay  (purpose_id,others,issued_date,requester_id,minor,guardian,updated_by,created_date,updated_date,`year`) values('$purpose_id','$others','$issued_date','$user->id','$minor','$guardian','$user->id','$updated_date','$updated_date','$year')");
       $this->query("INSERT INTO tbl_request_history (request_id, request_type_id, request_status_id, remarks, created_by,created_date,updated_date) values($request_id, 1, 1, 'System Generated', $user->id,'$updated_date','$updated_date')");
 
       $this->commit_transaction();

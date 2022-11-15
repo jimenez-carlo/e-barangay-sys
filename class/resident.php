@@ -420,7 +420,7 @@ Barangay Wawa - 0945 849 0538\n
 
     $id = $verify_resident;
     $status = $this->get_one("select status_id as status from tbl_users where id = '$id' and deleted_flag = 0 limit 1")->status;
-    $datainfo = $this->get_one("select contact_no from tbl_users_info where id = '$id' and deleted_flag = 0 limit 1");
+    $datainfo = $this->get_one("select ui.contact_no,u.email from tbl_users_info ui inner join tbl_users u on u.id = ui.id where ui.id = '$id' and u.deleted_flag = 0 limit 1");
 
     if ($status == 2) {
       $result->result = $this->response_error("Error User Is Already Verified");
@@ -449,7 +449,7 @@ For more details, text & call:\n
 Barangay Wawa - 0945 849 0538\n
 ";
         $this->sms($datainfo->contact_no, $msg);
-        $this->send_email($email, $msg);
+        $this->send_email($datainfo->email, $msg);
       }
       $this->commit_transaction();
       $result->result = $this->response_success("Resident ID#$id Account Verified!");
