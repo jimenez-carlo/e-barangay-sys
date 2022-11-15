@@ -473,7 +473,7 @@ class Request extends Base
       $this->query("UPDATE $table set request_status_id = $status, updated_date = '$updated_date', updated_by ='$user->id' where id = $id ");
       // approved
       if (isset($send_sms) && $status == 2) {
-        $recipients = $this->get_list("select contact_no,email from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
+        $recipients = $this->get_list("select ui.contact_no,u.email from tbl_users u inner join tbl_users_info ui on ui.id = u.id where u.deleted_flag = 0  and u.status_id = 2 and id = $id");
         foreach ($recipients as $res) {
           if (strlen($res['contact_no'] == 11)) {
 
