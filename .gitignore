@@ -1,3 +1,3 @@
-/config/*
-!config/functions.php
-!config/reoutes.php
+# /config/*
+# /!config/functions.php
+# /!config/reoutes.php
