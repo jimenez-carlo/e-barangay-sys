@@ -55,7 +55,7 @@ class Members extends Base
       return $data;
     }
 
-    $resident = $this->get_one("select u.username, u.email, u.status_id,ui.* from tbl_users_info ui inner join tbl_users u on u.id = ui.id where ui.deleted_flag = 0 and ui.id = $id limit 1");
+    $resident = $this->get_one("select u.username, u.email, u.status_id,u.date_of_residency,ui.* from tbl_users_info ui inner join tbl_users u on u.id = ui.id where ui.deleted_flag = 0 and ui.id = $id limit 1");
     $city = $this->get_one("select name from tbl_city where id= $resident->city_id")->name ?? '';
     // $zone = $this->get_one("select zone from tbl_zone where id= $resident->zone_id")->zone ?? '';
     $barangay = $this->get_one("select name from tbl_barangay where id= $resident->barangay_id")->name ?? '';

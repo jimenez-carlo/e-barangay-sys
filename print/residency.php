@@ -127,7 +127,7 @@ if (!$data) {
           CERTIFICATE OF RESIDENCY
         </h1>
 
-        <p class="p-1">This is to certify that <span style="text-decoration: underline;"><?php echo (($data->suffix_id != 1) ? $data->suffix_name : '')  . " " . $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> is a resident of this barangay with postal address <span style="text-decoration: underline;"><?php echo $data->house_no, ", " . strtolower($data->barangay_name) . ", " . strtolower($data->city_name); ?></span> since <?= date('d M Y', strtotime($cert->cert_date . "+ $cert->years years")) ?>.</p>
+        <p class="p-1">This is to certify that <span style="text-decoration: underline;"><?php echo (($data->suffix_id != 1) ? $data->suffix_name : '')  . " " . $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> is a resident of this barangay with postal address <span style="text-decoration: underline;"><?php echo $data->house_no, ", " . strtolower($data->barangay_name) . ", " . strtolower($data->city_name); ?></span> since <span style="text-decoration: underline;"><?= date("F j, Y", strtotime($data->date_of_residency)); ?></span>.</p>
         <p class="p-1">This certification is being issued upon the request of <span style="text-decoration: underline;"><?php echo $data->first_name, " ", $data->middle_name[0], ", ", $data->last_name; ?></span> Renewal of Solo-Parent I.D.</p>
         <p style="margin-left:18px;text-align:left;margin-bottom: 50px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Issued this <span style="text-decoration: underline;">
             <?php echo date('d') ?>

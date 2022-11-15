@@ -53,7 +53,7 @@ class Resident extends Base
       return $data;
     }
 
-    $resident = $this->get_one("select u.username, u.email, u.status_id,u.file,ui.* from tbl_users_info ui inner join tbl_users u on u.id = ui.id where ui.deleted_flag = 0 and ui.id = $id limit 1");
+    $resident = $this->get_one("select u.username, u.email, u.status_id,u.file,u.date_of_residency,ui.* from tbl_users_info ui inner join tbl_users u on u.id = ui.id where ui.deleted_flag = 0 and ui.id = $id limit 1");
     $data = $resident;
     $data->history = $this->get_list("select concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,s.status,sh.* from tbl_user_status_history sh inner join tbl_users_info ui on ui.id = sh.created_by inner join tbl_user_status s on s.id = sh.user_status_id where sh.deleted_flag = 0 and sh.user_id = $id order by sh.created_date desc");
     $data->requests = $this->get_list("select r.id,concat(ui.last_name, ', ', ui.first_name,' ', LEFT(ui.middle_name, 1), '[#',ui.id,']') as fullname,rt.type as request_type,rs.status,r.updated_date,r.created_date from tbl_request r left join tbl_users_info ui on ui.id = r.updated_by inner join tbl_request_type rt on rt.id = r.request_type_id  inner join tbl_request_status rs on rs.id = r.request_status_id where r.requester_id = $id order by r.updated_date desc");
@@ -72,7 +72,7 @@ class Resident extends Base
     $required_fields = array();
     // Require Fields
     if ($resident_update == 'update') {
-      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email');
+      $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'residency_date');
     }
 
     foreach ($required_fields as $res) {
@@ -111,7 +111,7 @@ class Resident extends Base
       $updated_date = date('Y-m-d H:i:s');
       if ($resident_update == 'update') {
         $this->query("update tbl_users_info set first_name = '$first_name', middle_name='$middle_name', last_name= '$last_name', birth_date = '$birth_date', birth_place ='$birth_place', gender_id = $gender, city_id = '$city', house_no = '$house_no', marital_status_id = $marital_status, barangay_id = $barangay, street = '$street', contact_no = '$contact_no', updated_date = '$updated_date',religion = '$religion',suffix_id = '$suffix',`nationality` = '$nationality' where id = $id");
-        $this->query("update tbl_users set username = '$username', email='$email', updated_date = '$updated_date' where id = $id");
+        $this->query("update tbl_users set username = '$username', email='$email',date_of_residency='$residency_date' ,updated_date = '$updated_date' where id = $id");
         if (!empty($image['name'])) {
           $ext = explode(".", $image["name"]);
           $name = 'img_' . date('YmdHis') . "." . end($ext);
@@ -191,7 +191,7 @@ Barangay Wawa - 0945 849 0538\n
     $msg = '';
 
     // Require Fields
-    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email');
+    $required_fields = array('first_name', 'middle_name', 'last_name', 'birth_date', 'birth_place', 'house_no', 'street', 'contact_no', 'username', 'email', 'residency_date');
 
 
     foreach ($required_fields as $res) {
@@ -226,7 +226,7 @@ Barangay Wawa - 0945 849 0538\n
     $default_password = '$2y$10$EjFxOXsWtBtICE1KpmAnxuaL01SMG9U11ConTF6fpWJi4s4Z8GfKS';
     try {
       $updated_date = date('Y-m-d H:i:s');
-      $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id,created_by,updated_date,created_date) values('$username','$email', '$default_password','$user_status', 3, '$user->id','$updated_date','$updated_date')");
+      $id = $this->insert_get_id("insert into tbl_users  (username,email,password,status_id, access_id,created_by,updated_date,created_date,date_of_residency) values('$username','$email', '$default_password','$user_status', 3, '$user->id','$updated_date','$updated_date','$residency_date')");
       $this->query("insert into tbl_users_info (id,first_name,middle_name,last_name,birth_date,birth_place,gender_id,city_id,house_no,marital_status_id,barangay_id,street,contact_no,religion,nationality,suffix_id,created_date,updated_date) values($id,'$first_name','$middle_name','$last_name','$birth_date','$birth_place',$gender, '$city', '$house_no',  $marital_status, $barangay,'$street','$contact_no','$religion','$nationality','$suffix','$updated_date','$updated_date')");
       $this->query("insert into tbl_user_status_history (user_id,user_status_id,created_by,created_date,updated_date) values($id, 1, $user->id,'$updated_date','$updated_date')");
       if (!empty($image['name'])) {

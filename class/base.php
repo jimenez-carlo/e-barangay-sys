@@ -162,6 +162,7 @@ class Base
   }
   public function sms($number, $message)
   {
+    // return true;
     /*
     $url = 'https://www.itexmo.com/php_api/api.php';
     $itexmo = array('1' => $number, '2' => $message, '3' => API_CODE, 'passwd' => API_PASSWORD);

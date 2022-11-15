@@ -52,7 +52,7 @@
               <input type="text" class="form-control" placeholder="Birth Place" name="birth_place" value="<?= $data->birth_place; ?>" disabled>
             </div>
 
-            <div class="form-group col-xs-4">
+            <div class="form-group col-xs-2">
               <label>*Gender:</label>
               <div class="input-group date">
                 <div class="input-group-addon">
@@ -63,6 +63,16 @@
                     <option value="<?= $res['id'] ?>" <?php echo ($data->gender_id == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['gender']); ?></option>
                   <?php } ?>
                 </select>
+              </div>
+            </div>
+
+            <div class="form-group col-xs-2">
+              <label>*Date of Residency:</label>
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <input type="text" class="form-control pull-right datepicker" name="residency_date" placeholder="Residency Date" value="<?= $data->date_of_residency; ?>" disabled>
               </div>
             </div>
 

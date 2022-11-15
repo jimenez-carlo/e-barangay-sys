@@ -52,7 +52,7 @@
               <input type="text" class="form-control" placeholder="Birth Place" name="birth_place" value="<?= $data->birth_place; ?>">
             </div>
 
-            <div class="form-group col-xs-4">
+            <div class="form-group col-xs-2">
               <label>*Gender:</label>
               <div class="input-group date">
                 <div class="input-group-addon">
@@ -66,6 +66,15 @@
               </div>
             </div>
 
+            <div class="form-group col-xs-2">
+              <label>*Date of Residency:</label>
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <input type="text" class="form-control pull-right datepicker" id="residency_date" name="residency_date" placeholder="Birth Date" value="<?= $data->date_of_residency; ?>">
+              </div>
+            </div>
 
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*City:</label>
@@ -337,6 +346,11 @@
     autoclose: true,
     format: 'yyyy-mm-dd',
   }).datepicker("setDate", birth_date);
+  var residency_date = new Date('<?= $data->date_of_residency; ?>');
+  $('#residency_date').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd',
+  }).datepicker("setDate", residency_date);
 
   $('.select2').select2();
 

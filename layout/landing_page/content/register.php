@@ -145,6 +145,10 @@
                   <label for="address2" class="form-label">Contact No <span class="text-danger">*</span></label>
                   <input type="number" maxlength="11" class="form-control" id="address2" placeholder="09XXXXXXXXX" name="contact_no">
                 </div>
+                <div class="col-sm-4">
+                  <label for="firstName" class="form-label">Date Of Residency <span class="text-danger">*</span></label>
+                  <input type="date" class="form-control" id="residency_date" placeholder="" name="residency_date" value="" required="">
+                </div>
                 <div class="col-12">
                   <label for="address2" class="form-label">ID Attached <span class="text-danger">*</span></label>
                   <input type="file" name="file" required class="form-control">
