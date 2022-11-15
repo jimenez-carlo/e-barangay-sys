@@ -3,6 +3,52 @@
       </div>
       <!-- /.content-wrapper -->
 
+      <div class="col-md-3" style="position: fixed;right: 0;bottom: 50px;z-index: 99;background: white;padding: unset;margin: unset;">
+        <div class="box box-success direct-chat direct-chat-warning collapsed-box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Chat Bot</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="direct-chat-messages">
+              <div class="direct-chat-msg">
+                <div class="direct-chat-info clearfix">
+                  <span class="direct-chat-name pull-left">System Bot</span>
+                  <span class="direct-chat-timestamp pull-right"><?php echo date('d M y') ?></span>
+                </div>
+                <img class="direct-chat-img" src="<?= BASE_URL . "assets/default.jpg" ?>" alt="message user image">
+                <div class="direct-chat-text">
+                  Thank you for getting in touch!
+
+                  We appreciate you contacting us. One of our customer happiness members will be getting back to you within a few hours.
+
+                  In the meantime, you can check out the following resources:
+
+
+                  Pop-up Step-by-Step Tutorials
+                  Get in touch Section
+
+                  Have a great day ahead!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <form action="#" method="post">
+              <div class="input-group">
+                <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-success btn-flat">Send</button>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <!-- Main Footer -->
       <footer class="main-footer">
         <!-- To the right -->

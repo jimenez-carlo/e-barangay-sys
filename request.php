@@ -11,6 +11,7 @@ require('class/members.php');
 require('class/request.php');
 require('class/announcement.php');
 require('class/profile.php');
+require('class/settings.php');
 
 
 $base = new Base($conn);
@@ -30,6 +31,7 @@ $members = new Members($conn);
 $request = new Request($conn);
 $announcement = new Announcement($conn);
 $profile = new Profile($conn);
+$settings = new Settings($conn);
 
 switch ($form) {
   case 'login':
@@ -101,6 +103,9 @@ switch ($form) {
 
   case 'resident_register_landing':
     $result = $resident->resident_register_landing();
+    break;
+  case 'settings_edit':
+    $result = $settings->edit_settings();
     break;
 
   case 'get_dropdown':

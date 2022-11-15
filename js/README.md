@@ -1,4 +1,4 @@
-# Fullscreen Lightbox Basic
+# Fullscreen Lightbox Pro
 
 ## Description
 Modern and easy plugin for displaying images and videos in clean overlaying box.
@@ -11,17 +11,8 @@ Website: https://fslightbox.com
 ## Basic usage
 
 ### Installation
- 
-```
-npm install fslightbox
-``` 
 
 ### Example
-
-In your application .js file:
-```javascript
-require('fslightbox');
-```
 
 In HTML file
 ```html
@@ -43,9 +34,6 @@ In HTML file
 <script src="fslightbox.js"></script>
 ```
 
-
-## Demo
-Available at: https://fslightbox.com/javascript
 
 ## Documentation
 Available at: https://fslightbox.com/javascript/documentation

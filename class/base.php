@@ -6,6 +6,11 @@ use Messente\Api\Model\Omnimessage;
 use Messente\Api\Configuration;
 use Messente\Api\Model\SMS;
 
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
 class Base
 {
   private $conn;
@@ -120,6 +125,33 @@ class Base
     $this->query("insert into tbl_system_error (message) values('$error')");
   }
 
+
+  public function send_email($email, $message)
+  {
+
+    $mail = new PHPMailer();
+    $mail->IsSMTP();
+    $mail->Mailer = "smtp";
+
+    $mail->SMTPDebug  = 0;
+    $mail->SMTPAuth   = TRUE;
+    $mail->SMTPSecure = "tls";
+    $mail->Port       = 587;
+    $mail->Host       = "smtp.gmail.com";
+    $mail->Username   = "system.barangay.wawa.taguig@gmail.com";
+    $mail->Password   = "vpn8#Y2wC^4h";
+
+    $mail->IsHTML(true);
+    $mail->AddAddress($email, $email);
+    $mail->SetFrom("system.barangay.wawa.taguig@gmail.com", "System Generated");
+    $mail->AddReplyTo("system.barangay.wawa.taguig@gmail.com", "System Generated");
+    $mail->AddCC($email, $email);
+    $mail->Subject = "This Email is Auto Generated";
+
+    $mail->MsgHTML($message);
+    if (!$mail->Send()) {
+    }
+  }
   public function sms($number, $message)
   {
     /*

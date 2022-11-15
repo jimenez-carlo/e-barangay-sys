@@ -18,15 +18,15 @@
           <div class="box-body">
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*First Name:</label>
-              <input type="text" class="form-control" placeholder="First name" name="first_name" value="<?= $data->first_name; ?>">
+              <input type="text" class="form-control" placeholder="First name" name="first_name" value="<?= $data->first_name; ?>" disabled>
             </div>
             <div class="form-group col-xs-2">
               <label for="exampleInputPassword1">*Middle Name:</label>
-              <input type="text" class="form-control" placeholder="Middle name" name="middle_name" value="<?= $data->middle_name; ?>">
+              <input type="text" class="form-control" placeholder="Middle name" name="middle_name" value="<?= $data->middle_name; ?>" disabled>
             </div>
             <div class="form-group col-xs-2">
               <label for="exampleInputPassword1">*Suffix</label>
-              <select class="form-control" name="suffix">
+              <select class="form-control" name="suffix" disabled>
                 <?php foreach ($default_data['suffix'] as $res) { ?>
                   <option value="<?= $res['id'] ?>" <?php echo ($data->suffix_id == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
                 <?php } ?>
@@ -34,7 +34,7 @@
             </div>
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Last Name:</label>
-              <input type="text" class="form-control" placeholder="Last name" name="last_name" value="<?= $data->last_name; ?>">
+              <input type="text" class="form-control" placeholder="Last name" name="last_name" value="<?= $data->last_name; ?>" disabled>
             </div>
 
             <div class="form-group col-xs-4">
@@ -43,13 +43,13 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right datepicker" name="birth_date" placeholder="Birth Date" value="<?= $data->birth_date; ?>">
+                <input type="text" class="form-control pull-right datepicker" name="birth_date" placeholder="Birth Date" value="<?= $data->birth_date; ?>" disabled>
               </div>
             </div>
 
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Birth Place:</label>
-              <input type="text" class="form-control" placeholder="Birth Place" name="birth_place" value="<?= $data->birth_place; ?>">
+              <input type="text" class="form-control" placeholder="Birth Place" name="birth_place" value="<?= $data->birth_place; ?>" disabled>
             </div>
 
             <div class="form-group col-xs-4">
@@ -58,7 +58,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-venus-mars"></i>
                 </div>
-                <select class="form-control" name="gender">
+                <select class="form-control" name="gender" disabled>
                   <?php foreach ($default_data['gender'] as $res) { ?>
                     <option value="<?= $res['id'] ?>" <?php echo ($data->gender_id == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['gender']); ?></option>
                   <?php } ?>
@@ -69,7 +69,7 @@
 
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*City:</label>
-              <select class="form-control select2 city" name="city">
+              <select class="form-control select2 city" name="city" disabled>
                 <?php foreach ($default_data['city'] as $res) { ?>
                   <option value="<?= $res['id'] ?>" <?php echo ($data->city_id == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
                 <?php } ?>
@@ -78,13 +78,13 @@
 
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*House No#:</label>
-              <input type="text" class="form-control" placeholder="House No#" name="house_no" value="<?= $data->house_no; ?>">
+              <input type="text" class="form-control" placeholder="House No#" name="house_no" value="<?= $data->house_no; ?>" disabled>
             </div>
 
 
             <div class="form-group col-xs-2">
               <label for="exampleInputPassword1">*Marital Status:</label>
-              <select class="form-control" name="marital_status">
+              <select class="form-control" name="marital_status" disabled>
                 <?php foreach ($default_data['marital_status'] as $res) { ?>
                   <option value="<?= $res['id'] ?>" <?php echo ($data->marital_status_id == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['status']); ?></option>
                 <?php } ?>
@@ -93,7 +93,7 @@
 
             <div class="form-group col-xs-2">
               <label for="exampleInputPassword1">*Religion:</label>
-              <select class="form-control select2" name="religion">
+              <select class="form-control select2" name="religion" disabled>
                 <?php foreach ($default_data['religion'] as $res) { ?>
                   <option value="<?= $res['id'] ?>" <?php echo ($data->religion == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
                 <?php } ?>
@@ -102,7 +102,7 @@
 
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Barangay:</label>
-              <select class="form-control select2" name="barangay" id="barangay">
+              <select class="form-control select2" name="barangay" id="barangay" disabled>
                 <?php foreach ($default_data['barangay'] as $res) { ?>
                   <option value="<?= $res['id'] ?>" <?php echo ($data->barangay_id == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
                 <?php } ?>
@@ -111,7 +111,7 @@
 
             <div class="form-group col-xs-4">
               <label for="exampleInputPassword1">*Street:</label>
-              <textarea class="form-control" row="10" name="street" placeholder="Street Here..."><?= $data->street; ?></textarea>
+              <textarea class="form-control" row="10" name="street" placeholder="Street Here..." disabled><?= $data->street; ?></textarea>
             </div>
 
             <div class="form-group col-xs-2">
@@ -120,13 +120,13 @@
                 <div class="input-group-addon">
                   <i class="fa fa-phone"></i>
                 </div>
-                <input type="number" maxlength="11" class="form-control pull-right" name="contact_no" placeholder="09XXXXXXXXX" value="<?= $data->contact_no; ?>" name="start_date">
+                <input type="number" maxlength="11" class="form-control pull-right" name="contact_no" placeholder="09XXXXXXXXX" value="<?= $data->contact_no; ?>" name="start_date" disabled>
               </div>
             </div>
 
             <div class="form-group col-xs-2">
               <label for="exampleInputPassword1">*Nationality:</label>
-              <select class="form-control select2" name="nationality">
+              <select class="form-control select2" name="nationality" disabled>
                 <?php foreach ($default_data['nationality'] as $res) { ?>
                   <option value="<?= $res['id'] ?>" <?php echo ($data->nationality == $res['id']) ? 'selected' : ''; ?>><?= strtoupper($res['name']); ?></option>
                 <?php } ?>

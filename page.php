@@ -7,6 +7,7 @@ require_once('class/resident.php');
 require_once('class/members.php');
 require_once('class/request.php');
 require_once('class/announcement.php');
+require_once('class/settings.php');
 require_once('class/dashboard.php');
 
 if (!$_GET || !isset($_GET['page'])) {
@@ -26,6 +27,7 @@ $members = new Members($conn);
 $request = new Request($conn);
 $announcement = new Announcement($conn);
 $dashboard = new Dashboard($conn);
+$settings = new Settings($conn);
 
 if (in_array($page, $pages)) {
   $data = array();
@@ -128,6 +130,9 @@ if (in_array($page, $pages)) {
       $data['data'] = $tmp;
       break;
 
+    case 'admin/settings/edit';
+      $data['data'] = $settings->get_settings();
+      break;
       // Resident
     case 'resident/profile':
       $tmp = $members->get_resident($id);
@@ -199,7 +204,21 @@ if (in_array($page, $pages)) {
     case 'landing_page/register':
       $data['default_data'] = $resident->set_default_data();
       break;
+
+    case 'landing_page/gallery':
+    case 'resident/gallery':
+      $data['gallery'] = $base->get_list("select * from tbl_gallery where deleted_flag = 0");
+      break;
+
+    case 'resident/home':
+      $data['home_page_images'] = $base->get_list("select * from tbl_home_images where deleted_flag = 0");
+      $data['home_content'] = $base->get_one("select * from tbl_settings where deleted_flag = 0 and id = 1");
+      break;
+    case 'resident/about_us':
     case 'landing_page/about_us':
+      $data['default_data'] = $base->get_one("select * from tbl_settings where deleted_flag = 0");
+      $data['officers'] = $base->get_list("select * from tbl_about_us_images where deleted_flag = 0");
+      $data['layers'] = $base->get_list("select `column` as `id` from tbl_about_us_images where deleted_flag = 0 group by `column` order by `column` asc");
       break;
   }
   echo get_contents(page_url($page), $data);

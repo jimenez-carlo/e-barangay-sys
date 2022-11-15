@@ -171,6 +171,11 @@ $(document).on("submit", 'form', function (e) {
         if (form_name == 'resident_profile_update') {
           $("#content").load(base_url + 'page.php?page=resident/profile&id='+result.id);
         }
+        
+        
+        if (form_name == 'settings_edit') {
+          $("#content").load(base_url + 'page.php?page=admin/settings/edit&id='+result.id);
+        }
         if (form_name == 'resident_create_request') {
           // console.log(base_url + '?page=resident/requests&id=0');
           $("#content").load(base_url + 'page.php?page=resident/requests');
