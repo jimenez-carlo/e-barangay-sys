@@ -133,7 +133,7 @@ class Base
     $mail->IsSMTP();
     $mail->Mailer = "smtp";
 
-    $mail->SMTPDebug  = 0;
+    $mail->SMTPDebug  = 1;
     $mail->Port       = 587;
     $mail->SMTPAuth   = TRUE;
     $mail->SMTPSecure = "tls";

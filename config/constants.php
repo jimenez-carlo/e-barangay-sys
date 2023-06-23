@@ -21,7 +21,7 @@ define('API_CODE', ''); //
 define('API_PASSWORD', ''); //
 
 define('API_SID', 'AC293a2bb5424a51a166eca17608daf465'); // 
-define('API_TOKEN', 'cfb53eceb5b37c5625830baddf80a723'); // 
+define('API_TOKEN', 'e13aeceb76b0f0d277fd4ce0339bb957'); // 
 
 // Mesente
 define('API_MESENTE_USERNAME', 'b79cfca67bb84e17934d8f7af0fd7850'); // +19035009924
